@@ -18,24 +18,12 @@ class TaskListViewController: UIViewController {
 	}
 
 	var presenter: TaskListViewOutput!
-	var router: RouterProtocol?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		let screenBuilder = AssemblyBuilder()
-		router = Router(assemblyBuilder: screenBuilder)
-		router?.configureTaskListViewController(view: self)
 		presenter.loadTasks()
     }
-
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if segue.identifier == SubTaskListViewController.identifire {
-			if let vc = segue.destination as? SubTaskListViewController, let task = sender as? Task {
-				router?.configureSubTaskListViewController(view: vc, task: task)
-			}
-		}
-	}
 }
 
 //MARK: - TaskListViewInput
@@ -77,7 +65,7 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		let task = presenter.tasks?[indexPath.row]
-		self.performSegue(withIdentifier: SubTaskListViewController.identifire, sender: task)
+
+		presenter.didSelectTask(with: indexPath.row)
 	}
 }

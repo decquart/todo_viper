@@ -6,6 +6,8 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
+import Foundation
+
 protocol SubTaskListViewOutput: class {
 	var task: Task! { get set }
 	var subTasks: [SubTask]? { get set }
@@ -40,7 +42,11 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func loadSubTasks() {
-		subTasks = task.subTasks
-		view?.subTaskDidLoad()
+		//todo: remove this delay after using core data
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+			self.subTasks = self.task.subTasks
+			self.view?.subTaskDidLoad()
+		}
+
 	}
 }

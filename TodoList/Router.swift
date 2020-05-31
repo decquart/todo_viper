@@ -9,29 +9,33 @@
 import UIKit
 
 protocol RouterMain {
-	//var navigationController: UINavigationController? { get set }
-	var assemblyBuilder: AssemblyBuilderProtocol? { get set }
+	var navigationController: UINavigationController! { get set }
+	var assemblyBuilder: AssemblyBuilderProtocol! { get set }
 }
 
 protocol RouterProtocol: RouterMain {
-	func configureTaskListViewController(view: TaskListViewController)
-	func configureSubTaskListViewController(view: SubTaskListViewController, task: Task)
+	func showTaskListViewController()
+	func showSubTaskListViewController(task: Task)
 }
 
 class Router: RouterProtocol {
-	//var navigationController: UINavigationController?
-	var assemblyBuilder: AssemblyBuilderProtocol?
+	var navigationController: UINavigationController!
+	var assemblyBuilder: AssemblyBuilderProtocol!
 
-	init(assemblyBuilder: AssemblyBuilder?) {
-		//self.navigationController = navigationController
+	init(navigationController: UINavigationController, assemblyBuilder: AssemblyBuilder?) {
+		self.navigationController = navigationController
 		self.assemblyBuilder = assemblyBuilder
 	}
 
-	func configureTaskListViewController(view: TaskListViewController) {
-		assemblyBuilder?.setupMainModule(view: view, router: self)
+	func showTaskListViewController() {
+		let mainVC = assemblyBuilder.createMainModule(router: self)
+
+		navigationController.viewControllers = [mainVC]
 	}
 
-	func configureSubTaskListViewController(view: SubTaskListViewController, task: Task) {
-		assemblyBuilder?.setupSubTaskListModule(view: view, router: self, task: task)
+	func showSubTaskListViewController(task: Task) {
+		let vc = assemblyBuilder.createSubTaskListModule(router: self, task: task)
+
+		navigationController.pushViewController(vc, animated: true)
 	}
 }

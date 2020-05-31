@@ -10,6 +10,7 @@ protocol TaskListViewOutput: class {
 	var tasks: [Task]? { get set }
 	init(view: TaskListViewInput, dataProvider: TaskDataProvider, router: RouterProtocol?)
 	func loadTasks()
+	func didSelectTask(with index: Int)
 }
 
 protocol TaskListViewInput: class {
@@ -35,5 +36,13 @@ class TaskListPresenter: TaskListViewOutput {
 
 	func loadTasks() {
 		self.tasks = dataProvider.tasks
+	}
+
+	func didSelectTask(with index: Int) {
+		guard let task = tasks?[index] else {
+			return
+		}
+
+		router?.showSubTaskListViewController(task: task)
 	}
 }

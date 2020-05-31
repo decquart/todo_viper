@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		044254182480D09800ED4C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254172480D09800ED4C72 /* Router.swift */; };
 		0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254192480D0E900ED4C72 /* AssemblyBuilder.swift */; };
+		049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049B50E82483D8C200ED1581 /* SubTask.storyboard */; };
 		049FB5232480157E000A7133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB5222480157E000A7133 /* AppDelegate.swift */; };
 		049FB5252480157E000A7133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB5242480157E000A7133 /* SceneDelegate.swift */; };
 		049FB52A2480157E000A7133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049FB5282480157E000A7133 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		044254172480D09800ED4C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		044254192480D0E900ED4C72 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		049B50E82483D8C200ED1581 /* SubTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubTask.storyboard; sourceTree = "<group>"; };
 		049FB51F2480157E000A7133 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		049FB5222480157E000A7133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		049FB5242480157E000A7133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,7 +106,6 @@
 				04EFFD2424805B620048336E /* DataAccessLayer */,
 				049FB5222480157E000A7133 /* AppDelegate.swift */,
 				049FB5242480157E000A7133 /* SceneDelegate.swift */,
-				049FB5282480157E000A7133 /* Main.storyboard */,
 				049FB52E24801580000A7133 /* Assets.xcassets */,
 				049FB53024801580000A7133 /* LaunchScreen.storyboard */,
 				049FB53324801580000A7133 /* Info.plist */,
@@ -131,6 +132,7 @@
 			children = (
 				04EFFD1224801A5F0048336E /* TaskListViewController.swift */,
 				04EFFD1E24801F680048336E /* TaskCollectionViewCell.swift */,
+				049FB5282480157E000A7133 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +178,7 @@
 			children = (
 				04EFFD202480317B0048336E /* SubTaskListViewController.swift */,
 				04EFFD2C248061CA0048336E /* SubTaskCollectionViewCell.swift */,
+				049B50E82483D8C200ED1581 /* SubTask.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			files = (
 				049FB53224801580000A7133 /* LaunchScreen.storyboard in Resources */,
 				049FB52F24801580000A7133 /* Assets.xcassets in Resources */,
+				049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

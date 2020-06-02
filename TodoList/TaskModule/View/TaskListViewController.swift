@@ -45,8 +45,10 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 		}
 
 		let task = presenter.tasks?[indexPath.row]
+		cell.taskImageView.image = UIImage(named: task?.imagePath ?? "")
 		cell.taskNameLabel.text = task?.name
-		cell.taskImageView.image = UIImage(named: task?.imageParh ?? "") 
+		cell.subTaskCountLabel.text = String(task?.subTasks.count ?? 0)
+
 		return cell
 	}
 }
@@ -67,5 +69,13 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
 		presenter.didSelectTask(with: indexPath.row)
+	}
+}
+
+//MARK: - Actions
+extension TaskListViewController {
+	@IBAction func buttonAddPressed(_ sender: Any) {
+		//todo: need to notify view adout updated task
+		presenter.addTaskButtonPressed()
 	}
 }

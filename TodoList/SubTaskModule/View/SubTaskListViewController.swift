@@ -47,7 +47,15 @@ extension SubTaskListViewController: UICollectionViewDelegate, UICollectionViewD
 		}
 
 		let subTask = presenter.subTasks?[indexPath.row]
-		cell.descriptionLabel.text = subTask?.description
+		cell.descriptionLabel.text = subTask?.description_p
 		return cell
+	}
+}
+
+extension SubTaskListViewController {
+	@IBAction func addRandomPressed(_ sender: Any) {
+		let data = TaskDataProvider.subTaskData
+		presenter.addSubTask(with: data)
+		subCategoriesCollectionView.reloadData()
 	}
 }

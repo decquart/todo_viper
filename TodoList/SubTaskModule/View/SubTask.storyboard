@@ -63,10 +63,27 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3S-pw-3jv">
+                                <rect key="frame" x="152" y="832" width="110" height="30"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="KKo-4T-XfY"/>
+                                    <constraint firstAttribute="width" constant="110" id="U35-lr-RcF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Add Random">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addRandomPressed:" destination="lHq-PW-VlG" eventType="touchUpInside" id="tHO-2v-97W"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="R3S-pw-3jv" firstAttribute="bottom" secondItem="HmM-Uy-hBe" secondAttribute="bottom" id="1Nd-OG-kTA"/>
                             <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="Wvl-I8-fgG" secondAttribute="trailing" id="EdU-Iy-fzy"/>
+                            <constraint firstItem="R3S-pw-3jv" firstAttribute="centerX" secondItem="Nax-jS-8bl" secondAttribute="centerX" id="H2B-HX-C3g"/>
                             <constraint firstItem="HmM-Uy-hBe" firstAttribute="bottom" secondItem="Wvl-I8-fgG" secondAttribute="bottom" id="PGN-f8-JmS"/>
                             <constraint firstItem="Wvl-I8-fgG" firstAttribute="top" secondItem="HmM-Uy-hBe" secondAttribute="top" id="RlI-RR-V6H"/>
                             <constraint firstItem="Wvl-I8-fgG" firstAttribute="leading" secondItem="HmM-Uy-hBe" secondAttribute="leading" id="cgz-M8-TyF"/>

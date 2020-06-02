@@ -16,6 +16,8 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
 	func showTaskListViewController()
 	func showSubTaskListViewController(task: Task)
+	func showAddTaskViewController()
+	func popToRoot()
 }
 
 class Router: RouterProtocol {
@@ -37,5 +39,14 @@ class Router: RouterProtocol {
 		let vc = assemblyBuilder.createSubTaskListModule(router: self, task: task)
 
 		navigationController.pushViewController(vc, animated: true)
+	}
+
+	func showAddTaskViewController() {
+		let vc = assemblyBuilder.createAddTaskModule(router: self)
+		navigationController.pushViewController(vc, animated: true)
+	}
+
+	func popToRoot() {
+		navigationController.popToRootViewController(animated: true)
 	}
 }

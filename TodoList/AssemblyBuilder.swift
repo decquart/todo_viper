@@ -11,6 +11,7 @@ import UIKit
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: Task) -> UIViewController
+	func createAddTaskModule(router: RouterProtocol) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -20,7 +21,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let dataProvider = TaskDataProvider()
+		let dataProvider = LocalTasksRepository()
 		let presrnter = TaskListPresenter(view: view, dataProvider: dataProvider, router: router)
 		view.presenter = presrnter
 		return view
@@ -30,9 +31,19 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let dataProvider = TaskDataProvider()
+		let dataProvider = LocalSubTasksRepository()
 
 		let presenter = SubTaskListPresenter(view: view, dataProvider: dataProvider, task: task)
+		view.presenter = presenter
+		return view
+	}
+
+	func createAddTaskModule(router: RouterProtocol) -> UIViewController {
+		let storyboard = UIStoryboard(name: "AddTask", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: AddTaskViewController.identifire) as! AddTaskViewController
+
+		let dataProvider = LocalTasksRepository()
+		let presenter = AddTaskPresenter(view: view, dataProvider: dataProvider, router: router)
 		view.presenter = presenter
 		return view
 	}

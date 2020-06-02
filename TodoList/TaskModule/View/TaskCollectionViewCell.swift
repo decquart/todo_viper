@@ -12,7 +12,8 @@ class TaskCollectionViewCell: UICollectionViewCell {
 	static var identifire = "TaskCell"
 	@IBOutlet weak var taskImageView: UIImageView!
 	@IBOutlet weak var taskNameLabel: UILabel!
-
+	@IBOutlet weak var subTaskCountLabel: UILabel!
+	
 	override func layoutSubviews() {
 		super.layoutSubviews()
 

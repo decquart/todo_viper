@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Task List View Controller-->
+        <!--Tasks-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TaskListViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-So-h3h">
-                                                    <rect key="frame" x="8" y="17.5" width="30" height="28.5"/>
+                                                    <rect key="frame" x="16" y="17.5" width="30" height="28.5"/>
                                                     <color key="tintColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="0ZS-ME-bfX"/>
@@ -42,7 +42,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNY-rx-TqH">
-                                                    <rect key="frame" x="46" y="20.5" width="42" height="21"/>
+                                                    <rect key="frame" x="54" y="20.5" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2u8-DG-8zP"/>
                                                     </constraints>
@@ -50,16 +50,29 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7ew-Pv-HFJ">
+                                                    <rect key="frame" x="98" y="20.5" width="29" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="neO-XL-shN"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="cNY-rx-TqH" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="2Qu-dN-DLy"/>
-                                                <constraint firstItem="fHN-So-h3h" firstAttribute="leading" secondItem="8VW-Uc-1LJ" secondAttribute="leading" constant="8" id="S23-J3-7Me"/>
+                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="GgG-Go-fJ2"/>
+                                                <constraint firstItem="fHN-So-h3h" firstAttribute="leading" secondItem="8VW-Uc-1LJ" secondAttribute="leading" constant="16" id="S23-J3-7Me"/>
                                                 <constraint firstItem="cNY-rx-TqH" firstAttribute="leading" secondItem="fHN-So-h3h" secondAttribute="trailing" constant="8" id="Voq-XG-08m"/>
                                                 <constraint firstItem="fHN-So-h3h" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="adv-Z5-nqK"/>
+                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cNY-rx-TqH" secondAttribute="trailing" id="x4M-Kz-SKm"/>
+                                                <constraint firstAttribute="trailing" secondItem="7ew-Pv-HFJ" secondAttribute="trailing" constant="16" id="xU7-2M-eHS"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="143" height="62"/>
                                         <connections>
+                                            <outlet property="subTaskCountLabel" destination="7ew-Pv-HFJ" id="vVm-oH-rIf"/>
                                             <outlet property="taskImageView" destination="fHN-So-h3h" id="fSc-7Y-Tn5"/>
                                             <outlet property="taskNameLabel" destination="cNY-rx-TqH" id="4T5-vC-IuC"/>
                                         </connections>
@@ -76,7 +89,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="xog-YF-7DG"/>
+                    <navigationItem key="navigationItem" title="Tasks" id="xog-YF-7DG">
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="AT5-dY-TW5">
+                            <connections>
+                                <action selector="buttonAddPressed:" destination="BYZ-38-t0r" id="5EZ-Eh-ZPH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tasksCollectionView" destination="GYS-b2-45j" id="NQP-gM-RxY"/>
                     </connections>
@@ -106,5 +125,6 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

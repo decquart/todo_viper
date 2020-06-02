@@ -11,8 +11,8 @@ import Foundation
 protocol SubTaskListViewOutput: class {
 	var task: Task! { get set }
 	var subTasks: [SubTask]? { get set }
-	init(view: SubTaskListViewInput, dataProvider: TaskDataProvider, task: Task)
-	func addSubTask()
+	init(view: SubTaskListViewInput, dataProvider: LocalSubTasksRepository, task: Task)
+	func addSubTask(with data: SubTaskTransportModel)
 	func loadSubTasks()
 }
 
@@ -24,29 +24,30 @@ protocol SubTaskListViewInput: class {
 class SubTaskListPresenter: SubTaskListViewOutput {
 
 
-	let dataProvider: TaskDataProvider
-	var view: SubTaskListViewInput?
+	let dataProvider: LocalSubTasksRepository
+	weak var view: SubTaskListViewInput?
 
 	var task: Task!
 
-	var subTasks: [SubTask]?
+	var subTasks: [SubTask]? {
+		didSet {
+			self.view?.subTaskDidLoad()
+		}
+	}
 
-	required init(view: SubTaskListViewInput, dataProvider: TaskDataProvider, task: Task) {
+	required init(view: SubTaskListViewInput, dataProvider: LocalSubTasksRepository, task: Task) {
 		self.view = view
 		self.dataProvider = dataProvider
 		self.task = task
 	}
 
-	func addSubTask() {
-		//todo
+	func addSubTask(with data: SubTaskTransportModel) {
+
+		let subTask = dataProvider.add(item: data, to: task)
+		subTasks?.append(subTask)
 	}
 
 	func loadSubTasks() {
-		//todo: remove this delay after using core data
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-			self.subTasks = self.task.subTasks
-			self.view?.subTaskDidLoad()
-		}
-
+		self.subTasks = dataProvider.get(for: task)
 	}
 }

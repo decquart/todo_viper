@@ -8,12 +8,12 @@
 
 import CoreData
 
-class CoreDataSubTaskRepository: SubTasksRepositoryType {
+class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType {
 
-	let managedObjectContext: NSManagedObjectContext
+	var coreDataStack: CoreDataStackType
 
-	init(context: NSManagedObjectContext) {
-		self.managedObjectContext = context
+	init(coreDataStack: CoreDataStackType) {
+		self.coreDataStack = coreDataStack
 	}
 	
 	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void) {
@@ -22,18 +22,18 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType {
 
 		let subTaskName = String(describing: SubTask.self)
 
-		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: managedObjectContext) as? SubTask else {
+		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: coreDataStack.managedContext) as? SubTask else {
 			return
 		}
 
-		guard let taskMO = try? managedObjectContext.fetch(taskFetchRequest).first else {
+		guard let taskMO = try? coreDataStack.managedContext.fetch(taskFetchRequest).first else {
 			return
 		}
 
 		subTaskMO.description_p = subtask.description
 		subTaskMO.completed = subtask.completed
 		taskMO.addToSubTasks(subTaskMO)
-		saveContext()
+		coreDataStack.saveContext()
 		completion()
 	}
 
@@ -41,23 +41,10 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType {
 		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", task.id)
 
-		guard let subTasksMO = try? managedObjectContext.fetch(fetchRequest) else {
+		guard let subTasksMO = try? coreDataStack.managedContext.fetch(fetchRequest) else {
 			return []
 		}
 
 		return subTasksMO.map { $0.domainModel }
 	}
-
-	//todo: call from core data stack
-	private func saveContext() {
-        let context = managedObjectContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }

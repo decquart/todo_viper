@@ -16,12 +16,7 @@ protocol AssemblyBuilderProtocol {
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
 
-	//TODO: Move out
-	let coreDataStack: CoreDataStack
-
-	init(coreDataStack: CoreDataStack) {
-		self.coreDataStack = coreDataStack
-	}
+	lazy var coreDataStack: CoreDataStack = CoreDataStack(modelName: "TodoList")
 
 	func createMainModule(router: RouterProtocol) -> UIViewController {
 
@@ -29,7 +24,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let dataProvider = CoreDataTaskRepository(context: coreDataStack.managedContext)
+		let dataProvider = CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presrnter = TaskListPresenter(view: view, dataProvider: dataProvider, router: router)
 		view.presenter = presrnter
 		return view
@@ -39,7 +34,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let dataProvider = CoreDataSubTaskRepository(context: coreDataStack.managedContext)
+		let dataProvider = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
 
 		let presenter = SubTaskListPresenter(view: view, dataProvider: dataProvider, task: task)
 		view.presenter = presenter
@@ -50,7 +45,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "AddTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: AddTaskViewController.identifire) as! AddTaskViewController
 
-		let dataProvider = CoreDataTaskRepository(context: coreDataStack.managedContext)
+		let dataProvider = CoreDataTaskRepository(coreDataStack: coreDataStack)
 
 		let presenter = AddTaskPresenter(view: view, dataProvider: dataProvider, router: router)
 		view.presenter = presenter

@@ -8,19 +8,18 @@
 
 import CoreData
 
-class CoreDataTaskRepository: TasksRepositoryType {
+class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
+	var coreDataStack: CoreDataStackType
 
-	let managedObjectContext: NSManagedObjectContext
-
-	init(context: NSManagedObjectContext) {
-		self.managedObjectContext = context
+	init(coreDataStack: CoreDataStackType) {
+		self.coreDataStack = coreDataStack
 	}
 
 	func getAll() -> [TaskEntity] {
 		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 
 		do {
-			let result = try managedObjectContext.fetch(fetchRequest)
+			let result = try coreDataStack.managedContext.fetch(fetchRequest)
 			return result.map { $0.domainModel }
 		} catch {
 			print(error.localizedDescription)
@@ -34,7 +33,7 @@ class CoreDataTaskRepository: TasksRepositoryType {
 		fetchRequest.predicate = predicate
 
 		do {
-			let result = try managedObjectContext.fetch(fetchRequest)
+			let result = try coreDataStack.managedContext.fetch(fetchRequest)
 			return result.first?.subTasks.count ?? 0
 		} catch {
 			print(error.localizedDescription)
@@ -45,27 +44,14 @@ class CoreDataTaskRepository: TasksRepositoryType {
 
 	func create(task: TaskEntity) -> Bool {
 		let name = String(describing: Task.self)
-		guard let taskMO = NSEntityDescription.insertNewObject(forEntityName: name, into: managedObjectContext) as? Task else {
+		guard let taskMO = NSEntityDescription.insertNewObject(forEntityName: name, into: coreDataStack.managedContext) as? Task else {
 			return false
 		}
 
 		taskMO.id = task.id
 		taskMO.name = task.name
 		taskMO.imagePath = task.imagePath
-		saveContext()
+		coreDataStack.saveContext()
 		return true
 	}
-
-	//todo: call from core data stack
-	private func saveContext() {
-        let context = managedObjectContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
 }

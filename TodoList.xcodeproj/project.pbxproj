@@ -16,6 +16,7 @@
 		041E876E2484D7C900876EDB /* LocalSubTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E876D2484D7C900876EDB /* LocalSubTasksRepository.swift */; };
 		044254182480D09800ED4C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254172480D09800ED4C72 /* Router.swift */; };
 		0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254192480D0E900ED4C72 /* AssemblyBuilder.swift */; };
+		0449BD902487706400A76223 /* CoreDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0449BD8F2487706400A76223 /* CoreDataRepository.swift */; };
 		04606D122486164A00AE5633 /* AddTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04606D112486164A00AE5633 /* AddTaskPresenter.swift */; };
 		047C64F724858AA400BB6702 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C64F624858AA400BB6702 /* AddTaskViewController.swift */; };
 		047C64FB24858B5C00BB6702 /* AddTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047C64FA24858B5C00BB6702 /* AddTask.storyboard */; };
@@ -58,6 +59,7 @@
 		041E876D2484D7C900876EDB /* LocalSubTasksRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSubTasksRepository.swift; sourceTree = "<group>"; };
 		044254172480D09800ED4C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		044254192480D0E900ED4C72 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
+		0449BD8F2487706400A76223 /* CoreDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepository.swift; sourceTree = "<group>"; };
 		04606D112486164A00AE5633 /* AddTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPresenter.swift; sourceTree = "<group>"; };
 		047C64F624858AA400BB6702 /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		047C64FA24858B5C00BB6702 /* AddTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddTask.storyboard; sourceTree = "<group>"; };
@@ -102,6 +104,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0449BD8C24876A0200A76223 /* PresentationLayer */ = {
+			isa = PBXGroup;
+			children = (
+				044254172480D09800ED4C72 /* Router.swift */,
+				044254192480D0E900ED4C72 /* AssemblyBuilder.swift */,
+				04EFFD1524801A720048336E /* TaskModule */,
+				04EFFD22248031800048336E /* SubTaskModule */,
+				047C64F824858AAF00BB6702 /* AddTaskViewControllerModule */,
+			);
+			path = PresentationLayer;
+			sourceTree = "<group>";
+		};
 		04606D132486164F00AE5633 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +142,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		049A98EC2484C37400CCE654 /* Data */ = {
+		049A98EC2484C37400CCE654 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
 				041E87612484C50200876EDB /* SubTask+CoreDataClass.swift */,
@@ -136,11 +150,12 @@
 				041E87632484C50200876EDB /* Task+CoreDataClass.swift */,
 				041E87642484C50200876EDB /* Task+CoreDataProperties.swift */,
 				04EFFD1624801AC00048336E /* TaskDataProvider.swift */,
-				041E87692484C79F00876EDB /* Repository.swift */,
 				041E876B2484C88900876EDB /* LocalTasksRepository.swift */,
 				041E876D2484D7C900876EDB /* LocalSubTasksRepository.swift */,
+				041E87692484C79F00876EDB /* Repository.swift */,
+				0449BD8F2487706400A76223 /* CoreDataRepository.swift */,
 			);
-			path = Data;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 		049FB5162480157E000A7133 = {
@@ -164,18 +179,14 @@
 		049FB5212480157E000A7133 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
-				049A98EC2484C37400CCE654 /* Data */,
+				049A98EC2484C37400CCE654 /* Persistence */,
 				049FB5222480157E000A7133 /* AppDelegate.swift */,
 				049FB5242480157E000A7133 /* SceneDelegate.swift */,
 				049FB52E24801580000A7133 /* Assets.xcassets */,
 				049FB53024801580000A7133 /* LaunchScreen.storyboard */,
 				049FB53324801580000A7133 /* Info.plist */,
 				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
-				04EFFD1524801A720048336E /* TaskModule */,
-				04EFFD22248031800048336E /* SubTaskModule */,
-				044254172480D09800ED4C72 /* Router.swift */,
-				044254192480D0E900ED4C72 /* AssemblyBuilder.swift */,
-				047C64F824858AAF00BB6702 /* AddTaskViewControllerModule */,
+				0449BD8C24876A0200A76223 /* PresentationLayer */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -386,6 +397,7 @@
 				04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */,
 				04EFFD2D248061CA0048336E /* SubTaskCollectionViewCell.swift in Sources */,
 				04EFFD2924805CAC0048336E /* SubTaskTransportModel.swift in Sources */,
+				0449BD902487706400A76223 /* CoreDataRepository.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

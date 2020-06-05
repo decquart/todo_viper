@@ -32,7 +32,7 @@ private extension SceneDelegate {
 		let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 		let navController = mainStoryboard.instantiateViewController(withIdentifier: "navController") as! UINavigationController
 
-		let builder = AssemblyBuilder()
+		let builder = AssemblyBuilder(coreDataStack: CoreDataStack(modelName: "TodoList"))
 		let router = Router(navigationController: navController, assemblyBuilder: builder)
 		router.showTaskListViewController()
 

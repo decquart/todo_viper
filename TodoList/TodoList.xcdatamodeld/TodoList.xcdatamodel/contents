@@ -6,12 +6,13 @@
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="Task" inverseName="subTasks" inverseEntity="Task"/>
     </entity>
     <entity name="Task" representedClassName="Task" syncable="YES">
+        <attribute name="id" attributeType="String"/>
         <attribute name="imagePath" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="subTasks" toMany="YES" deletionRule="Cascade" destinationEntity="SubTask" inverseName="owner" inverseEntity="SubTask"/>
     </entity>
     <elements>
         <element name="SubTask" positionX="0" positionY="63" width="128" height="88"/>
-        <element name="Task" positionX="-36" positionY="9" width="128" height="88"/>
+        <element name="Task" positionX="-295.36328125" positionY="-30.8046875" width="128" height="103"/>
     </elements>
 </model>

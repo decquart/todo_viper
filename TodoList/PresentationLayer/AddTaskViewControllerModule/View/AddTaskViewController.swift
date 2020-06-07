@@ -12,6 +12,7 @@ class AddTaskViewController: UIViewController {
 
 	static let identifire = "addTaskVC"
 	var presenter: AddTaskOutput!
+	var taskToEdit: TaskEntity?
 
 	@IBOutlet weak var taskIconImageView: UIImageView!
 	@IBOutlet weak var titleTextField: UITextField!
@@ -21,23 +22,23 @@ class AddTaskViewController: UIViewController {
 		}
 	}
 
+	@IBAction func saveButtonPressed(_ sender: Any) {
+		let task = TaskEntity(id: UUID().uuidString, name: titleTextField.text ?? "", imagePath: "shopping")
+		presenter.saveButtonPressed(with: task)
+	}
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		taskIconImageView.image = UIImage(named: "shopping")
 		setupGestureRecognizer()
     }
-
-	@IBAction func saveButtonPressed(_ sender: Any) {
-		let task = TaskEntity(id: UUID().uuidString, name: titleTextField.text ?? "", imagePath: "shopping")
-		presenter.saveButtonPressed(with: task)
-	}
 }
 
 extension AddTaskViewController: AddTaskInput {
-	func taskDidSave() {
-
-	}
+//	func taskDidSave() {
+//
+//	}
 }
 
 extension AddTaskViewController {

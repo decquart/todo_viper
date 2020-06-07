@@ -46,3 +46,11 @@ extension Task: StorableModel {
 		TaskEntity(id: id, name: name, imagePath: imagePath)
 	}
 }
+
+extension Task: EntityMappable {
+	func map(_ entity: TaskEntity) {
+		id = entity.id
+		name = entity.name
+		imagePath = entity.imagePath
+	}
+}

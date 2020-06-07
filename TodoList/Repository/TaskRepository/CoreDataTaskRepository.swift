@@ -48,10 +48,21 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 			return false
 		}
 
-		taskMO.id = task.id
-		taskMO.name = task.name
-		taskMO.imagePath = task.imagePath
+		taskMO.map(task)
 		coreDataStack.saveContext()
 		return true
+	}
+
+	func delete(task: TaskEntity) {
+		let predicate = NSPredicate(format: "id = %@", task.id)
+		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+		fetchRequest.predicate = predicate
+
+		guard let taskMO = try? coreDataStack.managedContext.fetch(fetchRequest).first else {
+			return
+		}
+
+		coreDataStack.managedContext.delete(taskMO)
+		coreDataStack.saveContext()
 	}
 }

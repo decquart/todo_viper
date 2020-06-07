@@ -6,8 +6,6 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-import Foundation
-
 protocol SubTasksRepositoryType {
 	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void)
 	func getAll(where task: TaskEntity) -> [SubTaskEntity]

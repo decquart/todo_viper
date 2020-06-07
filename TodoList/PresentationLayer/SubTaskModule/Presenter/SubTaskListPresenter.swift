@@ -23,7 +23,7 @@ protocol SubTaskListViewInput: class {
 
 class SubTaskListPresenter: SubTaskListViewOutput {
 
-	let dataProvider: SubTasksRepositoryType
+	let repository: SubTasksRepositoryType
 	weak var view: SubTaskListViewInput?
 
 	var task: TaskEntity!
@@ -36,18 +36,18 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
 	required init(view: SubTaskListViewInput, dataProvider: SubTasksRepositoryType, task: TaskEntity) {
 		self.view = view
-		self.dataProvider = dataProvider
+		self.repository = dataProvider
 		self.task = task
 	}
 
 	func addSubTask(with data: SubTaskEntity) {
 
-		dataProvider.add(subtask: data, to: task) {
+		repository.add(subtask: data, to: task) {
 			subTasks?.append(data)
 		}
 	}
 
 	func loadSubTasks() {
-		self.subTasks = dataProvider.getAll(where: task)
+		self.subTasks = repository.getAll(where: task)
 	}
 }

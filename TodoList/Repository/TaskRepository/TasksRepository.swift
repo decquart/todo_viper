@@ -6,10 +6,9 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-import Foundation
-
 protocol TasksRepositoryType {
 	func getAll() -> [TaskEntity]
 	func getSubTasksCount(for task: TaskEntity) -> Int
 	func create(task: TaskEntity) -> Bool
+	func delete(task: TaskEntity)
 }

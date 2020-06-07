@@ -12,23 +12,23 @@ protocol AddTaskOutput: class {
 }
 
 protocol AddTaskInput: class {
-	func taskDidSave()
+	//func taskDidSave()
 }
 
 final class AddTaskPresenter: AddTaskOutput {
 
 	weak var view: AddTaskInput?
-	let dataProvider: TasksRepositoryType!
+	let repository: TasksRepositoryType!
 	let router: RouterProtocol?
 
 	init(view: AddTaskInput, dataProvider: TasksRepositoryType, router: RouterProtocol) {
 		self.view = view
-		self.dataProvider = dataProvider
+		self.repository = dataProvider
 		self.router = router
 	}
 
 	func saveButtonPressed(with data: TaskEntity) {
-		_ = dataProvider.create(task: data)
+		_ = repository.create(task: data)
 		router?.popToRoot()
 		
 	}

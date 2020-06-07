@@ -16,17 +16,18 @@ protocol TaskListViewOutput: class {
 	func loadTasks()
 	func getSubTasksCount(for task: TaskEntity) -> Int
 	func addTaskButtonPressed()
-	func didSelectTask(with index: Int)
+	func didSelectTask(with index: Int, isEditing: Bool)
 }
 
 protocol TaskListViewInput: class {
 	func didTaskFetch()
+	func showEditAlert(selectedTask: TaskEntity)
 }
 
 class TaskListPresenter: TaskListViewOutput {
 
 	weak var view: TaskListViewInput?
-	let dataProvider: TasksRepositoryType!
+	let repository: TasksRepositoryType!
 	let router: RouterProtocol?
 
 	var tasks: [TaskEntity]? {
@@ -37,20 +38,31 @@ class TaskListPresenter: TaskListViewOutput {
 
 	required init(view: TaskListViewInput, dataProvider: TasksRepositoryType, router: RouterProtocol?) {
 		self.view = view
-		self.dataProvider = dataProvider
+		self.repository = dataProvider
 		self.router = router
 	}
 
 	func loadTasks() {
-		tasks = dataProvider.getAll()
+		tasks = repository.getAll()
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {
-		return dataProvider.getSubTasksCount(for: task)
+		return repository.getSubTasksCount(for: task)
 	}
 
-	func didSelectTask(with index: Int) {
+	func didSelectTask(with index: Int, isEditing: Bool) {
 		guard let task = tasks?[index] else {
+			return
+		}
+
+		if isEditing {
+			router?.showEditTaskAlertViewController(editAction: {
+				self.router?.showAddTaskViewController()
+			}, deleteAction: {
+				self.repository.delete(task: task)
+				self.tasks = self.tasks?.filter { task.id != $0.id }
+			})
+
 			return
 		}
 

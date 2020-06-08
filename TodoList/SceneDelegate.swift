@@ -28,10 +28,8 @@ private extension SceneDelegate {
 		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 		window?.windowScene = windowScene
 
-
 		let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 		let navController = mainStoryboard.instantiateViewController(withIdentifier: "navController") as! UINavigationController
-		navController.navigationBar.prefersLargeTitles = true
 
 		let builder = AssemblyBuilder()
 		let router = Router(navigationController: navController, assemblyBuilder: builder)

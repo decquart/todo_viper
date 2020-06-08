@@ -17,25 +17,13 @@ class TaskListViewController: UIViewController {
 		}
 	}
 
-	@IBOutlet weak var addButton: UIButton! {
-		didSet {
-			addButton.layer.cornerRadius = addButton.frame.height / 2
-		}
-	}
-
-
 	var presenter: TaskListViewOutput!
-
-	override func viewDidLoad() {
-		super.viewDidLoad()
-	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		presenter.loadTasks()
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(changeEditMode))
-		isEditing = false
 	}
 }
 
@@ -44,25 +32,6 @@ extension TaskListViewController: TaskListViewInput {
 	func didTaskFetch() {
 		self.tasksCollectionView.reloadData()
 	}
-
-	func showEditAlert(selectedTask: TaskEntity) {
-
-	}
-//	func showEditAlert() {
-//		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-//		let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-//			print("deleted")
-//		}
-//		let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
-//			print("edited")
-//		}
-//		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//		alert.addAction(deleteAction)
-//		alert.addAction(editAction)
-//		alert.addAction(cancelAction)
-//		present(alert, animated: true)
-//	}
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource

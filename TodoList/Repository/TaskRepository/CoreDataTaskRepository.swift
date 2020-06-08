@@ -30,7 +30,6 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		return taskMO.subTasks.count
 	}
 
-	//todo: reconsider
 	func create(task: TaskEntity) -> Bool {
 
 		if let existingTask = get(by: task.id) {

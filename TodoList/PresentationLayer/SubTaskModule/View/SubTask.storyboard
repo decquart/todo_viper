@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,83 +15,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-I8-fgG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" allowsSelectionDuringEditing="YES" allowsMultipleSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="C92-wF-Xff">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IR6-lK-1gR">
-                                    <size key="itemSize" width="179" height="130"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="subTaskCell" id="V4Z-qf-bRF" customClass="SubTaskCollectionViewCell" customModule="TodoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="179" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gzn-d5-CsB">
-                                            <rect key="frame" x="0.0" y="0.0" width="179" height="130"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="subTaskCell" id="BF8-HR-pxQ" customClass="SubTaskCell" customModule="TodoList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="40.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BF8-HR-pxQ" id="aJ5-PB-gsG">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="40.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jm7-qx-Dv3">
-                                                    <rect key="frame" x="8" y="8" width="49" height="31"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lTf-6s-3Xc">
+                                                    <rect key="frame" x="8" y="4" width="398" height="32.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="47" id="8qr-g5-GIf"/>
-                                                        <constraint firstAttribute="height" constant="31" id="XKH-hQ-DTv"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="9IY-C0-AUa"/>
                                                     </constraints>
-                                                </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O04-7t-gsd">
-                                                    <rect key="frame" x="68.5" y="10" width="100.5" height="110"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="O04-7t-gsd" secondAttribute="trailing" constant="10" id="2zF-xZ-ipa"/>
-                                                <constraint firstAttribute="bottom" secondItem="O04-7t-gsd" secondAttribute="bottom" constant="10" id="KgI-Ld-9uL"/>
-                                                <constraint firstItem="O04-7t-gsd" firstAttribute="leading" secondItem="jm7-qx-Dv3" secondAttribute="trailing" constant="13.5" id="WTy-R0-tnP"/>
-                                                <constraint firstItem="jm7-qx-Dv3" firstAttribute="leading" secondItem="gzn-d5-CsB" secondAttribute="leading" constant="8" id="nxs-MW-UGe"/>
-                                                <constraint firstItem="O04-7t-gsd" firstAttribute="top" secondItem="gzn-d5-CsB" secondAttribute="top" constant="10" id="rWb-qf-tHi"/>
-                                                <constraint firstItem="jm7-qx-Dv3" firstAttribute="top" secondItem="gzn-d5-CsB" secondAttribute="top" constant="8" id="xFM-Sa-Gx9"/>
+                                                <constraint firstItem="lTf-6s-3Xc" firstAttribute="leading" secondItem="aJ5-PB-gsG" secondAttribute="leading" constant="8" id="BMU-zM-SHn"/>
+                                                <constraint firstAttribute="bottom" secondItem="lTf-6s-3Xc" secondAttribute="bottom" constant="4" id="iCM-Jj-ioP"/>
+                                                <constraint firstItem="lTf-6s-3Xc" firstAttribute="top" secondItem="aJ5-PB-gsG" secondAttribute="top" constant="4" id="qiz-ac-HJb"/>
+                                                <constraint firstAttribute="trailing" secondItem="lTf-6s-3Xc" secondAttribute="trailing" constant="8" id="spq-Rx-EXv"/>
                                             </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="179" height="130"/>
+                                        </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="O04-7t-gsd" id="uWX-7c-yE5"/>
+                                            <outlet property="textField" destination="lTf-6s-3Xc" id="pmo-au-xTU"/>
                                         </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R3S-pw-3jv">
-                                <rect key="frame" x="152" y="832" width="110" height="30"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lHq-PW-VlG" id="mgb-2T-nD9"/>
+                                    <outlet property="delegate" destination="lHq-PW-VlG" id="iKi-9C-qVa"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-SH-1bi" customClass="AddButton" customModule="TodoList" customModuleProvider="target">
+                                <rect key="frame" x="314" y="796" width="60" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="KKo-4T-XfY"/>
-                                    <constraint firstAttribute="width" constant="110" id="U35-lr-RcF"/>
+                                    <constraint firstAttribute="width" constant="60" id="eRy-Wv-cat"/>
+                                    <constraint firstAttribute="height" constant="60" id="qkW-re-rdO"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Add Random">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="addRandomPressed:" destination="lHq-PW-VlG" eventType="touchUpInside" id="tHO-2v-97W"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="R3S-pw-3jv" firstAttribute="bottom" secondItem="HmM-Uy-hBe" secondAttribute="bottom" id="1Nd-OG-kTA"/>
-                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="Wvl-I8-fgG" secondAttribute="trailing" id="EdU-Iy-fzy"/>
-                            <constraint firstItem="R3S-pw-3jv" firstAttribute="centerX" secondItem="Nax-jS-8bl" secondAttribute="centerX" id="H2B-HX-C3g"/>
-                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="bottom" secondItem="Wvl-I8-fgG" secondAttribute="bottom" id="PGN-f8-JmS"/>
-                            <constraint firstItem="Wvl-I8-fgG" firstAttribute="top" secondItem="HmM-Uy-hBe" secondAttribute="top" id="RlI-RR-V6H"/>
-                            <constraint firstItem="Wvl-I8-fgG" firstAttribute="leading" secondItem="HmM-Uy-hBe" secondAttribute="leading" id="cgz-M8-TyF"/>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="bottom" secondItem="C92-wF-Xff" secondAttribute="bottom" id="FhG-bF-6q0"/>
+                            <constraint firstItem="C92-wF-Xff" firstAttribute="leading" secondItem="HmM-Uy-hBe" secondAttribute="leading" id="GUB-ft-cV5"/>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="jlp-SH-1bi" secondAttribute="trailing" constant="40" id="YHB-mz-Tb8"/>
+                            <constraint firstItem="C92-wF-Xff" firstAttribute="top" secondItem="HmM-Uy-hBe" secondAttribute="top" id="eso-hs-pd6"/>
+                            <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="C92-wF-Xff" secondAttribute="trailing" id="hgH-GC-mye"/>
+                            <constraint firstAttribute="bottom" secondItem="jlp-SH-1bi" secondAttribute="bottom" constant="40" id="klI-un-Rgq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HmM-Uy-hBe"/>
                     </view>
                     <navigationItem key="navigationItem" id="n12-Rv-iBu"/>
                     <connections>
-                        <outlet property="subCategoriesCollectionView" destination="Wvl-I8-fgG" id="WDc-ty-UJK"/>
+                        <outlet property="tableView" destination="C92-wF-Xff" id="LOY-CD-VBY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uCg-gW-ASa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

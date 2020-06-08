@@ -12,23 +12,31 @@ class SubTaskListViewController: UIViewController {
 
 	static let identifire = "subTaskVC"
 	var presenter: SubTaskListViewOutput!
-	
-	@IBOutlet weak var subCategoriesCollectionView: UICollectionView! {
+	var tempSubTask: String?
+
+	@IBOutlet weak var tableView: UITableView! {
 		didSet {
-			subCategoriesCollectionView.delegate = self
-			subCategoriesCollectionView.dataSource = self
+			tableView.isEditing = true
 		}
 	}
+
+	private var selectedCell: SubTaskCell? {
+		didSet {
+			selectedCell?.textField.becomeFirstResponder()
+		}
+	}
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		presenter.loadSubTasks()
+		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEmptyCell))
     }
 }
 
 extension SubTaskListViewController: SubTaskListViewInput {
 	func subTaskDidLoad() {
-		subCategoriesCollectionView.reloadData()
+		tableView.reloadData()
 	}
 
 	func taskDidAdd() {
@@ -36,26 +44,55 @@ extension SubTaskListViewController: SubTaskListViewInput {
 	}
 }
 
-extension SubTaskListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return presenter.subTasks?.count ?? 0
 	}
 
-	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SubTaskCollectionViewCell.identifire, for: indexPath) as? SubTaskCollectionViewCell else {
-			return UICollectionViewCell()
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell else {
+			return UITableViewCell()
 		}
 
 		let subTask = presenter.subTasks?[indexPath.row]
-		cell.descriptionLabel.text = subTask?.description
+		cell.textField.text = subTask?.description
+		cell.textField.delegate = self
+		cell.textField.returnKeyType = .next
+	
+		if subTask?.completed == true {
+			tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+		}
+
 		return cell
 	}
 }
 
 extension SubTaskListViewController {
-	@IBAction func addRandomPressed(_ sender: Any) {
-		let data = TaskDataProvider.subTaskData
-		presenter.addSubTask(with: data)
-		subCategoriesCollectionView.reloadData()
+	@objc func addEmptyCell() {
+		presenter.subTasks?.append(SubTaskEntity(description: "", completed: false))
+
+		let lastRowIndex = self.tableView.numberOfRows(inSection: 0) - 1
+		let indexPath = IndexPath(row: lastRowIndex, section: 0)
+		selectedCell = tableView.cellForRow(at: indexPath) as? SubTaskCell
+	}
+
+	func removeEmptyCell() {
+		presenter.subTasks = presenter.subTasks?.filter { !$0.description.isEmpty }
+		selectedCell = nil
+	}
+}
+
+//MARK: - UITextFieldDelegate
+extension SubTaskListViewController: UITextFieldDelegate {
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		removeEmptyCell()
+
+		guard let text = textField.text, !text.isEmpty else {
+			return false
+		}
+
+		presenter.addSubTask(with: SubTaskEntity(description: text, completed: false))
+		addEmptyCell()
+		return true
 	}
 }

@@ -21,7 +21,6 @@ protocol TaskListViewOutput: class {
 
 protocol TaskListViewInput: class {
 	func didTaskFetch()
-	func showEditAlert(selectedTask: TaskEntity)
 }
 
 class TaskListPresenter: TaskListViewOutput {

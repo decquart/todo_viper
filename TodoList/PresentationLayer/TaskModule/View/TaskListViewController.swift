@@ -24,6 +24,7 @@ class TaskListViewController: UIViewController {
 
 		presenter.loadTasks()
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(changeEditMode))
+		isEditing = false
 	}
 }
 

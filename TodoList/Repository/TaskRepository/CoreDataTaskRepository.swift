@@ -38,10 +38,7 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 			return true
 		}
 
-		let name = String(describing: Task.self)
-		guard let taskMO = NSEntityDescription.insertNewObject(forEntityName: name, into: coreDataStack.managedContext) as? Task else {
-			return false
-		}
+		let taskMO = Task(context: coreDataStack.managedContext)
 
 		taskMO.map(task)
 		coreDataStack.saveContext()

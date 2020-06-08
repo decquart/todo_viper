@@ -57,7 +57,7 @@ class TaskListPresenter: TaskListViewOutput {
 
 		if isEditing {
 			router?.showEditTaskAlertViewController(editAction: {
-				self.router?.showAddTaskViewController()
+				self.router?.showTaskDetailsViewController(scope: .edit(task: task))
 			}, deleteAction: {
 				self.repository.delete(task: task)
 				self.tasks = self.tasks?.filter { task.id != $0.id }
@@ -70,6 +70,6 @@ class TaskListPresenter: TaskListViewOutput {
 	}
 
 	func addTaskButtonPressed() {
-		router?.showAddTaskViewController()
+		router?.showTaskDetailsViewController(scope: .create)
 	}
 }

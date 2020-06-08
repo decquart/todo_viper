@@ -7,7 +7,7 @@
 //
 
 protocol AddTaskOutput: class {
-	init(view: AddTaskInput, dataProvider: TasksRepositoryType, router: RouterProtocol)
+	init(view: AddTaskInput, repository: TasksRepositoryType, router: RouterProtocol)
 	func saveButtonPressed(with data: TaskEntity)
 }
 
@@ -21,9 +21,9 @@ final class AddTaskPresenter: AddTaskOutput {
 	let repository: TasksRepositoryType!
 	let router: RouterProtocol?
 
-	init(view: AddTaskInput, dataProvider: TasksRepositoryType, router: RouterProtocol) {
+	init(view: AddTaskInput, repository: TasksRepositoryType, router: RouterProtocol) {
 		self.view = view
-		self.repository = dataProvider
+		self.repository = repository
 		self.router = router
 	}
 

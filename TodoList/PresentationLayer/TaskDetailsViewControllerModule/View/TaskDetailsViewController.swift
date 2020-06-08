@@ -8,11 +8,16 @@
 
 import UIKit
 
-class AddTaskViewController: UIViewController {
+enum TaskDetailsScope {
+	case create
+	case edit(task: TaskEntity)
+}
 
-	static let identifire = "addTaskVC"
+class TaskDetailsViewController: UIViewController {
+
+	static let identifire = "taskDetailsVC"
 	var presenter: AddTaskOutput!
-	var taskToEdit: TaskEntity?
+	var scope: TaskDetailsScope!
 
 	@IBOutlet weak var taskIconImageView: UIImageView!
 	@IBOutlet weak var titleTextField: UITextField!
@@ -23,7 +28,13 @@ class AddTaskViewController: UIViewController {
 	}
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
-		let task = TaskEntity(id: UUID().uuidString, name: titleTextField.text ?? "", imagePath: "shopping")
+
+		var id = UUID().uuidString
+		if case let .edit(task) = scope {
+			id = task.id
+		}
+
+		let task = TaskEntity(id: id, name: titleTextField.text ?? "", imagePath: "shopping")
 		presenter.saveButtonPressed(with: task)
 	}
 
@@ -33,15 +44,25 @@ class AddTaskViewController: UIViewController {
 		taskIconImageView.image = UIImage(named: "shopping")
 		setupGestureRecognizer()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		//todo
+		switch scope {
+		case .edit(let task): titleTextField.text = task.name
+		default: break
+		}
+	}
 }
 
-extension AddTaskViewController: AddTaskInput {
+extension TaskDetailsViewController: AddTaskInput {
 //	func taskDidSave() {
 //
 //	}
 }
 
-extension AddTaskViewController {
+extension TaskDetailsViewController {
 	func setupGestureRecognizer() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false

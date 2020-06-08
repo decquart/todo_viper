@@ -11,7 +11,7 @@ import UIKit
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
-	func createAddTaskModule(router: RouterProtocol) -> UIViewController
+	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -41,14 +41,14 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createAddTaskModule(router: RouterProtocol) -> UIViewController {
-		let storyboard = UIStoryboard(name: "AddTask", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: AddTaskViewController.identifire) as! AddTaskViewController
+	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController {
+		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
+		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
 
-		let dataProvider = CoreDataTaskRepository(coreDataStack: coreDataStack)
-
-		let presenter = AddTaskPresenter(view: view, dataProvider: dataProvider, router: router)
 		view.presenter = presenter
+		view.scope = scope
 		return view
 	}
 }

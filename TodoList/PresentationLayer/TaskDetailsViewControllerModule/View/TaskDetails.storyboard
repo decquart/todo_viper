@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add Task View Controller-->
+        <!--Task Details View Controller-->
         <scene sceneID="2Ih-qr-1Bl">
             <objects>
-                <viewController storyboardIdentifier="addTaskVC" id="2Gs-aA-cos" customClass="AddTaskViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="taskDetailsVC" id="2Gs-aA-cos" customClass="TaskDetailsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gdj-fp-Iy3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

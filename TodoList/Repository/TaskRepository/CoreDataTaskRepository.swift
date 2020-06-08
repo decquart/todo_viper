@@ -17,32 +17,28 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 
 	func getAll() -> [TaskEntity] {
 		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+		let result = try? coreDataStack.managedContext.fetch(fetchRequest)
 
-		do {
-			let result = try coreDataStack.managedContext.fetch(fetchRequest)
-			return result.map { $0.domainModel }
-		} catch {
-			print(error.localizedDescription)
-			return []
-		}
+		return result?.map { $0.domainModel } ?? []
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {
-		let predicate = NSPredicate(format: "id = %@", task.id)
-		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-		fetchRequest.predicate = predicate
-
-		do {
-			let result = try coreDataStack.managedContext.fetch(fetchRequest)
-			return result.first?.subTasks.count ?? 0
-		} catch {
-			print(error.localizedDescription)
+		guard let taskMO = get(by: task.id) else {
 			return 0
 		}
 
+		return taskMO.subTasks.count
 	}
 
+	//todo: reconsider
 	func create(task: TaskEntity) -> Bool {
+
+		if let existingTask = get(by: task.id) {
+			existingTask.map(task)
+			coreDataStack.saveContext()
+			return true
+		}
+
 		let name = String(describing: Task.self)
 		guard let taskMO = NSEntityDescription.insertNewObject(forEntityName: name, into: coreDataStack.managedContext) as? Task else {
 			return false
@@ -54,15 +50,19 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 	}
 
 	func delete(task: TaskEntity) {
-		let predicate = NSPredicate(format: "id = %@", task.id)
-		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-		fetchRequest.predicate = predicate
-
-		guard let taskMO = try? coreDataStack.managedContext.fetch(fetchRequest).first else {
+		guard let taskMO = get(by: task.id) else {
 			return
 		}
 
 		coreDataStack.managedContext.delete(taskMO)
 		coreDataStack.saveContext()
+	}
+
+	private func get(by id: String) -> Task? {
+		let predicate = NSPredicate(format: "id = %@", id)
+		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+		fetchRequest.predicate = predicate
+
+		return try? coreDataStack.managedContext.fetch(fetchRequest).first
 	}
 }

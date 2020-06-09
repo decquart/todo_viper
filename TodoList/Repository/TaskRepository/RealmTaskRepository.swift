@@ -21,10 +21,18 @@ class RealmTaskRepository: TasksRepositoryType {
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {
-		return 0
+		return realm.object(ofType: TaskObject.self, forPrimaryKey: task.id)?.subTasks.count ?? 0
 	}
 
 	func create(task: TaskEntity) -> Bool {
+
+		if let existingTaskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) {
+			try! realm.write {
+				existingTaskObj.map(task)
+			}
+			return true
+		}
+
 		let taskObj = TaskObject()
 		taskObj.map(task)
 

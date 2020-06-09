@@ -12,7 +12,7 @@ import UIKit
 protocol TaskListViewOutput: class {
 
 	var tasks: [TaskEntity]? { get set }
-	init(view: TaskListViewInput, dataProvider: TasksRepositoryType, router: RouterProtocol?)
+	init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol?)
 	func loadTasks()
 	func getSubTasksCount(for task: TaskEntity) -> Int
 	func addTaskButtonPressed()
@@ -35,9 +35,9 @@ class TaskListPresenter: TaskListViewOutput {
 		}
 	}
 
-	required init(view: TaskListViewInput, dataProvider: TasksRepositoryType, router: RouterProtocol?) {
+	required init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol?) {
 		self.view = view
-		self.repository = dataProvider
+		self.repository = repository
 		self.router = router
 	}
 

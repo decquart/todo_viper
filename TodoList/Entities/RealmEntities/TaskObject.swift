@@ -14,6 +14,8 @@ class TaskObject: Object {
 	@objc dynamic var name = ""
 	@objc dynamic var imagePath = ""
 
+	let subTasks = List<SubTaskObject>()
+
 	override class func primaryKey() -> String? {
 		return "id"
 	}
@@ -27,7 +29,12 @@ extension TaskObject: StorableModel {
 
 extension TaskObject: EntityMappable {
 	func map(_ entity: TaskEntity) {
-		id = entity.id
+
+		//Workaraund since primary key can't be changed after an object is inserted
+		if id.isEmpty {
+			id = entity.id
+		}
+
 		name = entity.name
 		imagePath = entity.imagePath
 	}

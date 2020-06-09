@@ -37,6 +37,8 @@
 		04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */; };
 		04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B692DA248ECA7B00428ECC /* TaskObject.swift */; };
 		04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C45B1B248E91B90073CA2B /* AddButton.swift */; };
+		04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF0789248F5FB400440A43 /* SubTaskObject.swift */; };
+		04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */; };
 		04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1224801A5F0048336E /* TaskListViewController.swift */; };
 		04EFFD1C24801B660048336E /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1B24801B660048336E /* TaskListPresenter.swift */; };
 		04EFFD1F24801F680048336E /* TaskCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD1E24801F680048336E /* TaskCollectionViewCell.swift */; };
@@ -92,6 +94,8 @@
 		04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaskRepository.swift; sourceTree = "<group>"; };
 		04B692DA248ECA7B00428ECC /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
 		04C45B1B248E91B90073CA2B /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		04CF0789248F5FB400440A43 /* SubTaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskObject.swift; sourceTree = "<group>"; };
+		04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSubTaskRepository.swift; sourceTree = "<group>"; };
 		04EFFD1224801A5F0048336E /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		04EFFD1B24801B660048336E /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
 		04EFFD1E24801F680048336E /* TaskCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -168,8 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				049FF59E248A960600BF0FDD /* CoreDataStack.swift */,
-				04B692D9248ECA6200428ECC /* RealmEntities */,
-				04B692D8248ECA4F00428ECC /* CoreDataEntities */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -197,6 +199,7 @@
 		049FB5212480157E000A7133 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				049A98EC2484C37400CCE654 /* Persistence */,
 				049FB5222480157E000A7133 /* AppDelegate.swift */,
@@ -237,6 +240,7 @@
 			children = (
 				049FF590248A959F00BF0FDD /* SubTasksRepository.swift */,
 				049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */,
+				04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */,
 			);
 			path = SubTaskRepository;
 			sourceTree = "<group>";
@@ -244,8 +248,8 @@
 		049FF592248A959F00BF0FDD /* TaskRepository */ = {
 			isa = PBXGroup;
 			children = (
-				049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */,
 				049FF594248A959F00BF0FDD /* TasksRepository.swift */,
+				049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */,
 				04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */,
 			);
 			path = TaskRepository;
@@ -259,13 +263,15 @@
 				041E87632484C50200876EDB /* Task+CoreDataClass.swift */,
 				041E87642484C50200876EDB /* Task+CoreDataProperties.swift */,
 			);
-			path = CoreDataEntities;
+			name = CoreDataEntities;
+			path = ../Persistence/CoreDataEntities;
 			sourceTree = "<group>";
 		};
 		04B692D9248ECA6200428ECC /* RealmEntities */ = {
 			isa = PBXGroup;
 			children = (
 				04B692DA248ECA7B00428ECC /* TaskObject.swift */,
+				04CF0789248F5FB400440A43 /* SubTaskObject.swift */,
 			);
 			path = RealmEntities;
 			sourceTree = "<group>";
@@ -286,6 +292,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		04CF0787248F5EB100440A43 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				04B692D8248ECA4F00428ECC /* CoreDataEntities */,
+				04B692D9248ECA6200428ECC /* RealmEntities */,
+				049FF59A248A95D100BF0FDD /* TaskEntity.swift */,
+				049FF59C248A95E900BF0FDD /* SubTaskEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		04EFFD1424801A660048336E /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,19 +316,10 @@
 		04EFFD1524801A720048336E /* TaskModule */ = {
 			isa = PBXGroup;
 			children = (
-				04EFFD1A24801B4D0048336E /* Model */,
 				04EFFD1424801A660048336E /* View */,
 				04EFFD1D24801B6D0048336E /* Presenter */,
 			);
 			path = TaskModule;
-			sourceTree = "<group>";
-		};
-		04EFFD1A24801B4D0048336E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				049FF59A248A95D100BF0FDD /* TaskEntity.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		04EFFD1D24801B6D0048336E /* Presenter */ = {
@@ -327,7 +335,6 @@
 			children = (
 				04EFFD23248031940048336E /* View */,
 				04EFFD2724805BCC0048336E /* Presenter */,
-				04EFFD2B24805CB90048336E /* Model */,
 			);
 			path = SubTaskModule;
 			sourceTree = "<group>";
@@ -348,14 +355,6 @@
 				04EFFD2524805BC80048336E /* SubTaskListPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		04EFFD2B24805CB90048336E /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				049FF59C248A95E900BF0FDD /* SubTaskEntity.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E47D6FBC2B43FC97B22BC00B /* Pods */ = {
@@ -553,12 +552,14 @@
 				041E87672484C50200876EDB /* Task+CoreDataClass.swift in Sources */,
 				04EFFD1F24801F680048336E /* TaskCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* SubTaskListViewController.swift in Sources */,
+				04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */,
 				041E87682484C50200876EDB /* Task+CoreDataProperties.swift in Sources */,
 				041E87652484C50200876EDB /* SubTask+CoreDataClass.swift in Sources */,
 				049FF59D248A95E900BF0FDD /* SubTaskEntity.swift in Sources */,
 				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
 				049FB5232480157E000A7133 /* AppDelegate.swift in Sources */,
 				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
+				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
 				041E87662484C50200876EDB /* SubTask+CoreDataProperties.swift in Sources */,
 				0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */,

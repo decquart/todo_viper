@@ -11,7 +11,7 @@ import Foundation
 protocol SubTaskListViewOutput: class {
 	var task: TaskEntity! { get set }
 	var subTasks: [SubTaskEntity]? { get set }
-	init(view: SubTaskListViewInput, dataProvider: SubTasksRepositoryType, task: TaskEntity)
+	init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity)
 	func addSubTask(with data: SubTaskEntity)
 	func loadSubTasks()
 }
@@ -34,9 +34,9 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		}
 	}
 
-	required init(view: SubTaskListViewInput, dataProvider: SubTasksRepositoryType, task: TaskEntity) {
+	required init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity) {
 		self.view = view
-		self.repository = dataProvider
+		self.repository = repository
 		self.task = task
 	}
 

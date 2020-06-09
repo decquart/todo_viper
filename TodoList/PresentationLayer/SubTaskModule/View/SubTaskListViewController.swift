@@ -67,6 +67,7 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 	}
 }
 
+//I have no idea how to simplify this functionality, is it ok?
 extension SubTaskListViewController {
 	@objc func addEmptyCell() {
 		presenter.subTasks?.append(SubTaskEntity(description: "", completed: false))

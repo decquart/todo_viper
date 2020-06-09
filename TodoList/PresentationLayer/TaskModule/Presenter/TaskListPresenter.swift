@@ -49,6 +49,7 @@ class TaskListPresenter: TaskListViewOutput {
 		return repository.getSubTasksCount(for: task)
 	}
 
+	// Should this method know about isEditing p-ty?
 	func didSelectTask(with index: Int, isEditing: Bool) {
 		guard let task = tasks?[index] else {
 			return

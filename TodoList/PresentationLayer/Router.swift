@@ -51,6 +51,7 @@ class Router: RouterProtocol {
 		navigationController.popToRootViewController(animated: true)
 	}
 
+	//Should Router hold this method?
 	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
 		let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in

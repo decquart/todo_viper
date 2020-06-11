@@ -22,9 +22,3 @@ extension SubTask {
     @NSManaged public var owner: Task
 
 }
-
-extension SubTask: StorableModel {
-	var domainModel: SubTaskEntity {
-		return SubTaskEntity(description: description_p, completed: completed)
-	}
-}

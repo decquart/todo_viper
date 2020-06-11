@@ -21,23 +21,24 @@ class TaskObject: Object {
 	}
 }
 
-//todo: Extend with new Fields
 
-//extension TaskObject: StorableModel {
-//	var domainModel: TaskEntity {
-//		return TaskEntity(id: id, name: name, imagePath: imagePath)
-//	}
-//}
-//
-//extension TaskObject: EntityMappable {
-//	func map(_ entity: TaskEntity) {
-//
-//		//Workaround since primary key can't be changed after an object is inserted
-//		if id.isEmpty {
-//			id = entity.id
-//		}
-//
-//		name = entity.name
-//		imagePath = entity.imagePath
-//	}
-//}
+
+extension TaskObject: StorableModel {
+	var domainModel: TaskEntity {
+		//todo add new fields
+		return TaskEntity(id: id, name: name, image: Data(), color: NSCoder())
+	}
+}
+
+extension TaskObject: EntityMappable {
+	func map(_ entity: TaskEntity) {
+
+		//Workaround since primary key can't be changed after an object is inserted
+		if id.isEmpty {
+			id = entity.id
+		}
+
+		name = entity.name
+		imagePath = ""//entity.imagePath
+	}
+}

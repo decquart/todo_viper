@@ -11,11 +11,13 @@ import Foundation
 struct TaskEntity {
 	let id: String
 	let name: String
-	let imagePath: String
+	let imageData: Data
+	let imageColor: NSObject
 
-	init(id: String, name: String, imagePath: String) {
+	init(id: String = UUID().uuidString, name: String, image: Data, color: NSObject) {
 		self.id = id
 		self.name = name
-		self.imagePath = imagePath
+		self.imageData = image
+		self.imageColor = color
 	}
 }

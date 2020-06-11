@@ -19,6 +19,16 @@ class TaskDetailsViewController: UIViewController {
 	var presenter: AddTaskOutput!
 	var scope: TaskDetailsScope!
 
+	private var color: UIColor! {
+		didSet {
+			taskIconImageView.tintColor = color
+		}
+	}
+
+	@IBOutlet weak var redSlider: UISlider!
+	@IBOutlet weak var greenSlider: UISlider!
+	@IBOutlet weak var blueSlider: UISlider!
+
 	@IBOutlet weak var taskIconImageView: UIImageView!
 	@IBOutlet weak var titleTextField: UITextField!
 	@IBOutlet weak var addButton: UIButton! {
@@ -27,42 +37,67 @@ class TaskDetailsViewController: UIViewController {
 		}
 	}
 
-	@IBAction func saveButtonPressed(_ sender: Any) {
-
-		// There's TaskDetailsScope property defined here to indicate whether controller work with existing object or should create new one. It feels like there's another easier way to do this.
-		var id = UUID().uuidString
-		if case let .edit(task) = scope {
-			id = task.id
-		}
-
-		let task = TaskEntity(id: id, name: titleTextField.text ?? "", imagePath: "shopping")
-		presenter.saveButtonPressed(with: task)
-	}
-
 	override func viewDidLoad() {
         super.viewDidLoad()
-
-		taskIconImageView.image = UIImage(named: "shopping")
 		setupGestureRecognizer()
     }
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+		initAppearance()
+	}
+}
 
-		//todo
-		switch scope {
-		case .edit(let task): titleTextField.text = task.name
-		default: break
+//MARK: - IBActions
+extension TaskDetailsViewController {
+	@IBAction func sliderValueDidChange(_ sender: UISlider) {
+		color = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
+	}
+
+	@IBAction func saveButtonPressed(_ sender: Any) {
+
+		let name = titleTextField.text ?? ""
+		let image = UIImage(named: "shopping")!.pngData()!
+
+		if case let .edit(task) = scope {
+			let task = TaskEntity(id: task.id, name: name, image: image, color: color)
+			presenter.saveButtonPressed(with: task)
+			return
 		}
+
+		let task = TaskEntity(name: name, image: image, color: color)
+		presenter.saveButtonPressed(with: task)
 	}
 }
 
 extension TaskDetailsViewController: AddTaskInput {
-//	func taskDidSave() {
-//
-//	}
+
 }
 
+//MARK: - Appearance
+extension TaskDetailsViewController {
+	func initAppearance() {
+		switch scope {
+		case .edit(let task):
+			setupAppearance(with: task)
+		default:
+			setupDefaultAppearance()
+		}
+	}
+
+	func setupDefaultAppearance() {
+		taskIconImageView.image = UIImage(named: "shopping")
+		color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+	}
+
+	func setupAppearance(with existingTask: TaskEntity) {
+		titleTextField.text = existingTask.name
+		taskIconImageView.image = UIImage(data: existingTask.imageData)?.withRenderingMode(.alwaysTemplate)
+		color = existingTask.imageColor as? UIColor
+	}
+}
+
+//MARK: - GestureRecognizer
 extension TaskDetailsViewController {
 	func setupGestureRecognizer() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

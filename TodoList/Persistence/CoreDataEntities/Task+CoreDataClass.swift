@@ -14,3 +14,18 @@ import CoreData
 public class Task: NSManagedObject {
 
 }
+
+extension Task: StorableModel {
+	var domainModel: TaskEntity {
+		TaskEntity(id: id, name: name, image: image, color: iconColor)
+	}
+}
+
+extension Task: EntityMappable {
+	func map(_ entity: TaskEntity) {
+		id = entity.id
+		name = entity.name
+		image = entity.imageData
+		iconColor = entity.imageColor
+	}
+}

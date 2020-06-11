@@ -42,14 +42,13 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell else {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let task = presenter.tasks?[indexPath.row] else {
 			return UICollectionViewCell()
 		}
 
-		let task = presenter.tasks?[indexPath.row]
-		cell.taskImageView.image = UIImage(named: task?.imagePath ?? "")
-		cell.taskNameLabel.text = task?.name
-		cell.subTaskCountLabel.text = String(presenter.getSubTasksCount(for: task!))
+		cell.taskImageView.image = UIImage(data: task.imageData)?.withTintColor(task.imageColor as! UIColor)
+		cell.taskNameLabel.text = task.name
+		cell.subTaskCountLabel.text = String(presenter.getSubTasksCount(for: task))
 
 		return cell
 	}

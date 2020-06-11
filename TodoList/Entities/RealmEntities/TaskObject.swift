@@ -30,7 +30,7 @@ extension TaskObject: StorableModel {
 extension TaskObject: EntityMappable {
 	func map(_ entity: TaskEntity) {
 
-		//Workaraund since primary key can't be changed after an object is inserted
+		//Workaround since primary key can't be changed after an object is inserted
 		if id.isEmpty {
 			id = entity.id
 		}

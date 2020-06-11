@@ -22,18 +22,18 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 
 		let subTaskName = String(describing: SubTask.self)
 
-		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: coreDataStack.managedContext) as? SubTask else {
+		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: coreDataStack.mainContext) as? SubTask else {
 			return
 		}
 
-		guard let taskMO = try? coreDataStack.managedContext.fetch(taskFetchRequest).first else {
+		guard let taskMO = try? coreDataStack.mainContext.fetch(taskFetchRequest).first else {
 			return
 		}
 
 		subTaskMO.description_p = subtask.description
 		subTaskMO.completed = subtask.completed
 		taskMO.addToSubTasks(subTaskMO)
-		coreDataStack.saveContext()
+		coreDataStack.save(context: coreDataStack.mainContext)
 		completion()
 	}
 
@@ -41,7 +41,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", task.id)
 
-		guard let subTasksMO = try? coreDataStack.managedContext.fetch(fetchRequest) else {
+		guard let subTasksMO = try? coreDataStack.mainContext.fetch(fetchRequest) else {
 			return []
 		}
 

@@ -10,8 +10,9 @@ import Foundation
 import CoreData
 
 protocol CoreDataStackType {
-	var managedContext: NSManagedObjectContext { get }
-	func saveContext()
+	var mainContext: NSManagedObjectContext { get }
+	var backgroundContext: NSManagedObjectContext { get }
+	func save(context: NSManagedObjectContext)
 }
 
 final class CoreDataStack: CoreDataStackType {
@@ -33,15 +34,19 @@ final class CoreDataStack: CoreDataStackType {
 		return container
 	}()
 
-	lazy var managedContext: NSManagedObjectContext = {
+	lazy var mainContext: NSManagedObjectContext = {
 		return self.storeContainer.viewContext
 	}()
 
-	func saveContext() {
-		guard managedContext.hasChanges else { return }
+	lazy var backgroundContext: NSManagedObjectContext = {
+		return self.storeContainer.newBackgroundContext()
+	}()
+
+	func save(context: NSManagedObjectContext) {
+		guard context.hasChanges else { return }
 
 		do {
-			try managedContext.save()
+			try context.save()
 		} catch let error as NSError {
 			print("Unresolved error \(error), \(error.userInfo)")
 		}

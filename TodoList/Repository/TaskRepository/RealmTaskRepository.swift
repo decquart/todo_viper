@@ -24,13 +24,14 @@ class RealmTaskRepository: TasksRepositoryType {
 		return realm.object(ofType: TaskObject.self, forPrimaryKey: task.id)?.subTasks.count ?? 0
 	}
 
-	func create(task: TaskEntity) -> Bool {
+	func create(task: TaskEntity, completion: () -> Void) {
 
 		if let existingTaskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) {
 			try! realm.write {
 				existingTaskObj.map(task)
 			}
-			return true
+			completion()
+			return
 		}
 
 		let taskObj = TaskObject()
@@ -38,10 +39,11 @@ class RealmTaskRepository: TasksRepositoryType {
 
 		do {
 			try realm.write { realm.add(taskObj) }
-			return true
+			completion()
+			return
 		} catch {
 			print("Can not add: \(error.localizedDescription)")
-			return false
+			return
 		}
 
 	}

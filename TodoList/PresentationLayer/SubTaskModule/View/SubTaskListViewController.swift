@@ -30,7 +30,6 @@ class SubTaskListViewController: UIViewController {
         super.viewDidLoad()
 
 		presenter.loadSubTasks()
-		navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addEmptyCell))
     }
 }
 
@@ -65,6 +64,21 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 
 		return cell
 	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		//todo
+
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire) as? SubTaskCell else {
+			return
+		}
+
+		let subTask = presenter.subTasks?[indexPath.row]
+		//todo
+	}
+
+	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+		//todo
+	}
 }
 
 //I have no idea how to simplify this functionality, is it ok?
@@ -80,6 +94,10 @@ extension SubTaskListViewController {
 	func removeEmptyCell() {
 		presenter.subTasks = presenter.subTasks?.filter { !$0.description.isEmpty }
 		selectedCell = nil
+	}
+
+	@IBAction func addButtonPressed(_ sender: UIButton) {
+		addEmptyCell()
 	}
 }
 

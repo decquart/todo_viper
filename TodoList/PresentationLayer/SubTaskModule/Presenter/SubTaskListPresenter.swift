@@ -14,6 +14,8 @@ protocol SubTaskListViewOutput: class {
 	init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity)
 	func addSubTask(with data: SubTaskEntity)
 	func loadSubTasks()
+	func didSelect(subTask: SubTaskEntity)
+	func didDeselect(subTask: SubTaskEntity)
 }
 
 protocol SubTaskListViewInput: class {
@@ -49,5 +51,13 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
 	func loadSubTasks() {
 		self.subTasks = repository.getAll(where: task)
+	}
+
+	func didSelect(subTask: SubTaskEntity) {
+		
+	}
+
+	func didDeselect(subTask: SubTaskEntity) {
+
 	}
 }

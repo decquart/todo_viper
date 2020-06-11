@@ -28,8 +28,9 @@ final class AddTaskPresenter: AddTaskOutput {
 	}
 
 	func saveButtonPressed(with data: TaskEntity) {
-		_ = repository.create(task: data)
-		router?.popToRoot()
+		repository.create(task: data) {
+			self.router?.popToRoot()
+		}
 		
 	}
 }

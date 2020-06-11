@@ -9,6 +9,6 @@
 protocol TasksRepositoryType {
 	func getAll() -> [TaskEntity]
 	func getSubTasksCount(for task: TaskEntity) -> Int
-	func create(task: TaskEntity) -> Bool
+	func create(task: TaskEntity, completion: @escaping () -> Void)
 	func delete(task: TaskEntity)
 }

@@ -29,6 +29,7 @@ class TaskDetailsViewController: UIViewController {
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
+		// There's TaskDetailsScope property defined here to indicate whether controller work with existing object or should create new one. It feels like there's another easier way to do this.
 		var id = UUID().uuidString
 		if case let .edit(task) = scope {
 			id = task.id

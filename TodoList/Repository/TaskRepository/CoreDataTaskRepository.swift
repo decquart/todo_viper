@@ -17,7 +17,7 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 
 	func getAll() -> [TaskEntity] {
 		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-		let result = try? coreDataStack.managedContext.fetch(fetchRequest)
+		let result = try? coreDataStack.mainContext.fetch(fetchRequest)
 
 		return result?.map { $0.domainModel } ?? []
 	}
@@ -30,22 +30,37 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		return taskMO.subTasks.count
 	}
 
-	func create(task: TaskEntity) -> Bool {
+	func create(task: TaskEntity, completion: @escaping () -> Void) {
 
 		if let existingTask = get(by: task.id) {
 			existingTask.map(task)
-			coreDataStack.saveContext()
-			return true
+			coreDataStack.save(context: coreDataStack.mainContext)
+			completion()
+			return
 		}
 
-		let name = String(describing: Task.self)
-		guard let taskMO = NSEntityDescription.insertNewObject(forEntityName: name, into: coreDataStack.managedContext) as? Task else {
-			return false
-		}
+		let taskMO = Task(context: coreDataStack.mainContext)
 
 		taskMO.map(task)
-		coreDataStack.saveContext()
-		return true
+		coreDataStack.save(context: coreDataStack.mainContext)
+		completion()
+
+		//This part of code creates lots of NSManagedObjects inside a background context
+
+//		coreDataStack.backgroundContext.perform {
+//			for _ in 0...10000 {
+//				let taskMO = Task(context: self.coreDataStack.backgroundContext)
+//				taskMO.map(task)
+//				taskMO.id = UUID().uuidString
+//			}
+//
+//			self.coreDataStack.save(context: self.coreDataStack.backgroundContext)
+//			DispatchQueue.main.async {
+//				completion()
+//			}
+//		}
+
+		return
 	}
 
 	func delete(task: TaskEntity) {
@@ -53,8 +68,8 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 			return
 		}
 
-		coreDataStack.managedContext.delete(taskMO)
-		coreDataStack.saveContext()
+		coreDataStack.mainContext.delete(taskMO)
+		coreDataStack.save(context: coreDataStack.mainContext)
 	}
 
 	private func get(by id: String) -> Task? {
@@ -62,6 +77,6 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 		fetchRequest.predicate = predicate
 
-		return try? coreDataStack.managedContext.fetch(fetchRequest).first
+		return try? coreDataStack.mainContext.fetch(fetchRequest).first
 	}
 }

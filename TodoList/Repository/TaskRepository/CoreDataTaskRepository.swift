@@ -23,11 +23,19 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {
-		guard let taskMO = get(by: task.id) else {
+		let predicate = NSPredicate(format: "owner.id = %@", task.id)
+		let fetchRequest = NSFetchRequest<NSNumber>(entityName: "SubTask")
+
+		fetchRequest.predicate = predicate
+		fetchRequest.resultType = .countResultType
+
+		do {
+			let count = try coreDataStack.mainContext.fetch(fetchRequest)
+			return count.first?.intValue ?? 0
+		} catch let error {
+			print(error.localizedDescription)
 			return 0
 		}
-
-		return taskMO.subTasks.count
 	}
 
 	func create(task: TaskEntity, completion: @escaping () -> Void) {

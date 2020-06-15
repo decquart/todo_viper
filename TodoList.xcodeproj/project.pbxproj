@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		041E87652484C50200876EDB /* SubTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E87612484C50200876EDB /* SubTask+CoreDataClass.swift */; };
-		041E87662484C50200876EDB /* SubTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E87622484C50200876EDB /* SubTask+CoreDataProperties.swift */; };
-		041E87672484C50200876EDB /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E87632484C50200876EDB /* Task+CoreDataClass.swift */; };
-		041E87682484C50200876EDB /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E87642484C50200876EDB /* Task+CoreDataProperties.swift */; };
 		042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042176D2248D1DF100FDDAE3 /* EntityMappable.swift */; };
 		044254182480D09800ED4C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254172480D09800ED4C72 /* Router.swift */; };
 		0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254192480D0E900ED4C72 /* AssemblyBuilder.swift */; };
@@ -18,24 +14,28 @@
 		047C64F724858AA400BB6702 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C64F624858AA400BB6702 /* TaskDetailsViewController.swift */; };
 		047C64FB24858B5C00BB6702 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047C64FA24858B5C00BB6702 /* TaskDetails.storyboard */; };
 		049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049B50E82483D8C200ED1581 /* SubTask.storyboard */; };
-		049FB5232480157E000A7133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB5222480157E000A7133 /* AppDelegate.swift */; };
-		049FB5252480157E000A7133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB5242480157E000A7133 /* SceneDelegate.swift */; };
 		049FB52A2480157E000A7133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049FB5282480157E000A7133 /* Main.storyboard */; };
 		049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */; };
-		049FB52F24801580000A7133 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 049FB52E24801580000A7133 /* Assets.xcassets */; };
-		049FB53224801580000A7133 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049FB53024801580000A7133 /* LaunchScreen.storyboard */; };
 		049FB53D24801580000A7133 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB53C24801580000A7133 /* TodoListTests.swift */; };
 		049FF595248A959F00BF0FDD /* StorableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF58E248A959F00BF0FDD /* StorableModel.swift */; };
 		049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF590248A959F00BF0FDD /* SubTasksRepository.swift */; };
 		049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */; };
 		049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */; };
 		049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF594248A959F00BF0FDD /* TasksRepository.swift */; };
-		049FF59B248A95D100BF0FDD /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF59A248A95D100BF0FDD /* TaskEntity.swift */; };
-		049FF59D248A95E900BF0FDD /* SubTaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF59C248A95E900BF0FDD /* SubTaskEntity.swift */; };
 		049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF59E248A960600BF0FDD /* CoreDataStack.swift */; };
 		049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */; };
 		04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */; };
 		04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B692DA248ECA7B00428ECC /* TaskObject.swift */; };
+		04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB6D2498134D00A38846 /* AppDelegate.swift */; };
+		04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB6E2498134D00A38846 /* SceneDelegate.swift */; };
+		04BCAB752498134D00A38846 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB6F2498134D00A38846 /* Assets.xcassets */; };
+		04BCAB762498134D00A38846 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB712498134D00A38846 /* LaunchScreen.storyboard */; };
+		04BCAB7F2498136C00A38846 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB782498136C00A38846 /* Task+CoreDataProperties.swift */; };
+		04BCAB802498136C00A38846 /* SubTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB792498136C00A38846 /* SubTask+CoreDataClass.swift */; };
+		04BCAB812498136C00A38846 /* SubTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7A2498136C00A38846 /* SubTask+CoreDataProperties.swift */; };
+		04BCAB822498136C00A38846 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7B2498136C00A38846 /* Task+CoreDataClass.swift */; };
+		04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */; };
+		04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7E2498136C00A38846 /* TaskEntity.swift */; };
 		04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C45B1B248E91B90073CA2B /* AddButton.swift */; };
 		04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF0789248F5FB400440A43 /* SubTaskObject.swift */; };
 		04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */; };
@@ -60,10 +60,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		041E87612484C50200876EDB /* SubTask+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataClass.swift"; sourceTree = "<group>"; };
-		041E87622484C50200876EDB /* SubTask+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		041E87632484C50200876EDB /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
-		041E87642484C50200876EDB /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		042176D2248D1DF100FDDAE3 /* EntityMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMappable.swift; sourceTree = "<group>"; };
 		044254172480D09800ED4C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		044254192480D0E900ED4C72 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
@@ -72,12 +68,8 @@
 		047C64FA24858B5C00BB6702 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		049B50E82483D8C200ED1581 /* SubTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubTask.storyboard; sourceTree = "<group>"; };
 		049FB51F2480157E000A7133 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		049FB5222480157E000A7133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		049FB5242480157E000A7133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		049FB5292480157E000A7133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		049FB52C2480157E000A7133 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
-		049FB52E24801580000A7133 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		049FB53124801580000A7133 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		049FB53324801580000A7133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		049FB53824801580000A7133 /* TodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049FB53C24801580000A7133 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
@@ -87,12 +79,20 @@
 		049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSubTaskRepository.swift; sourceTree = "<group>"; };
 		049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTaskRepository.swift; sourceTree = "<group>"; };
 		049FF594248A959F00BF0FDD /* TasksRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksRepository.swift; sourceTree = "<group>"; };
-		049FF59A248A95D100BF0FDD /* TaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
-		049FF59C248A95E900BF0FDD /* SubTaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTaskEntity.swift; sourceTree = "<group>"; };
 		049FF59E248A960600BF0FDD /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepositoryType.swift; sourceTree = "<group>"; };
 		04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaskRepository.swift; sourceTree = "<group>"; };
 		04B692DA248ECA7B00428ECC /* TaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskObject.swift; sourceTree = "<group>"; };
+		04BCAB6D2498134D00A38846 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04BCAB6E2498134D00A38846 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		04BCAB6F2498134D00A38846 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04BCAB722498134D00A38846 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04BCAB782498136C00A38846 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04BCAB792498136C00A38846 /* SubTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04BCAB7A2498136C00A38846 /* SubTask+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		04BCAB7B2498136C00A38846 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTaskEntity.swift; sourceTree = "<group>"; };
+		04BCAB7E2498136C00A38846 /* TaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
 		04C45B1B248E91B90073CA2B /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		04CF0789248F5FB400440A43 /* SubTaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskObject.swift; sourceTree = "<group>"; };
 		04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSubTaskRepository.swift; sourceTree = "<group>"; };
@@ -202,10 +202,6 @@
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				049A98EC2484C37400CCE654 /* Persistence */,
-				049FB5222480157E000A7133 /* AppDelegate.swift */,
-				049FB5242480157E000A7133 /* SceneDelegate.swift */,
-				049FB52E24801580000A7133 /* Assets.xcassets */,
-				049FB53024801580000A7133 /* LaunchScreen.storyboard */,
 				049FB53324801580000A7133 /* Info.plist */,
 				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
@@ -255,18 +251,6 @@
 			path = TaskRepository;
 			sourceTree = "<group>";
 		};
-		04B692D8248ECA4F00428ECC /* CoreDataEntities */ = {
-			isa = PBXGroup;
-			children = (
-				041E87612484C50200876EDB /* SubTask+CoreDataClass.swift */,
-				041E87622484C50200876EDB /* SubTask+CoreDataProperties.swift */,
-				041E87632484C50200876EDB /* Task+CoreDataClass.swift */,
-				041E87642484C50200876EDB /* Task+CoreDataProperties.swift */,
-			);
-			name = CoreDataEntities;
-			path = ../Persistence/CoreDataEntities;
-			sourceTree = "<group>";
-		};
 		04B692D9248ECA6200428ECC /* RealmEntities */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,9 +260,33 @@
 			path = RealmEntities;
 			sourceTree = "<group>";
 		};
+		04BCAB772498136C00A38846 /* CoreDataEntities */ = {
+			isa = PBXGroup;
+			children = (
+				04BCAB782498136C00A38846 /* Task+CoreDataProperties.swift */,
+				04BCAB792498136C00A38846 /* SubTask+CoreDataClass.swift */,
+				04BCAB7A2498136C00A38846 /* SubTask+CoreDataProperties.swift */,
+				04BCAB7B2498136C00A38846 /* Task+CoreDataClass.swift */,
+			);
+			path = CoreDataEntities;
+			sourceTree = "<group>";
+		};
+		04BCAB7C2498136C00A38846 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */,
+				04BCAB7E2498136C00A38846 /* TaskEntity.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		04C45B1D248E91C20073CA2B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				04BCAB6D2498134D00A38846 /* AppDelegate.swift */,
+				04BCAB6F2498134D00A38846 /* Assets.xcassets */,
+				04BCAB712498134D00A38846 /* LaunchScreen.storyboard */,
+				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
 				04C45B1E248E91C90073CA2B /* Views */,
 			);
 			path = Shared;
@@ -295,10 +303,9 @@
 		04CF0787248F5EB100440A43 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				04B692D8248ECA4F00428ECC /* CoreDataEntities */,
+				04BCAB772498136C00A38846 /* CoreDataEntities */,
+				04BCAB7C2498136C00A38846 /* Domain */,
 				04B692D9248ECA6200428ECC /* RealmEntities */,
-				049FF59A248A95D100BF0FDD /* TaskEntity.swift */,
-				049FF59C248A95E900BF0FDD /* SubTaskEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -461,10 +468,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				049FB53224801580000A7133 /* LaunchScreen.storyboard in Resources */,
-				049FB52F24801580000A7133 /* Assets.xcassets in Resources */,
 				049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */,
 				047C64FB24858B5C00BB6702 /* TaskDetails.storyboard in Resources */,
+				04BCAB752498134D00A38846 /* Assets.xcassets in Resources */,
+				04BCAB762498134D00A38846 /* LaunchScreen.storyboard in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -549,33 +556,33 @@
 			files = (
 				04EFFD1C24801B660048336E /* TaskListPresenter.swift in Sources */,
 				04606D122486164A00AE5633 /* AddTaskPresenter.swift in Sources */,
-				041E87672484C50200876EDB /* Task+CoreDataClass.swift in Sources */,
 				04EFFD1F24801F680048336E /* TaskCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* SubTaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */,
-				041E87682484C50200876EDB /* Task+CoreDataProperties.swift in Sources */,
-				041E87652484C50200876EDB /* SubTask+CoreDataClass.swift in Sources */,
-				049FF59D248A95E900BF0FDD /* SubTaskEntity.swift in Sources */,
 				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
-				049FB5232480157E000A7133 /* AppDelegate.swift in Sources */,
 				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
-				041E87662484C50200876EDB /* SubTask+CoreDataProperties.swift in Sources */,
 				0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */,
 				049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */,
-				049FB5252480157E000A7133 /* SceneDelegate.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
+				04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,
 				04EFFD2624805BC80048336E /* SubTaskListPresenter.swift in Sources */,
+				04BCAB822498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* TaskDetailsViewController.swift in Sources */,
+				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
+				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
+				04BCAB812498136C00A38846 /* SubTask+CoreDataProperties.swift in Sources */,
+				04BCAB802498136C00A38846 /* SubTask+CoreDataClass.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */,
+				04BCAB7F2498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
+				04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */,
-				049FF59B248A95D100BF0FDD /* TaskEntity.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
 				049FF595248A959F00BF0FDD /* StorableModel.swift in Sources */,
 				049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */,
@@ -609,10 +616,10 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		049FB53024801580000A7133 /* LaunchScreen.storyboard */ = {
+		04BCAB712498134D00A38846 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				049FB53124801580000A7133 /* Base */,
+				04BCAB722498134D00A38846 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

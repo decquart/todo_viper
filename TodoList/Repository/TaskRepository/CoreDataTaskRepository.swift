@@ -15,19 +15,34 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		self.coreDataStack = coreDataStack
 	}
 
-	func getAll() -> [TaskEntity] {
+	func getAll(completion: @escaping ([TaskEntity]) -> ()) {
 		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
-		let result = try? coreDataStack.mainContext.fetch(fetchRequest)
+		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
+			let entities = result.finalResult?.map { $0.domainModel } ?? []
+			completion(entities)
+		}
 
-		return result?.map { $0.domainModel } ?? []
+		do {
+			try coreDataStack.mainContext.execute(asyncFetchRequest)
+		} catch let error {
+			print(error.localizedDescription)
+		}
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {
-		guard let taskMO = get(by: task.id) else {
+		let predicate = NSPredicate(format: "owner.id = %@", task.id)
+		let fetchRequest = NSFetchRequest<NSNumber>(entityName: "SubTask")
+
+		fetchRequest.predicate = predicate
+		fetchRequest.resultType = .countResultType
+
+		do {
+			let count = try coreDataStack.mainContext.fetch(fetchRequest)
+			return count.first?.intValue ?? 0
+		} catch let error {
+			print(error.localizedDescription)
 			return 0
 		}
-
-		return taskMO.subTasks.count
 	}
 
 	func create(task: TaskEntity, completion: @escaping () -> Void) {
@@ -44,23 +59,6 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		taskMO.map(task)
 		coreDataStack.save(context: coreDataStack.mainContext)
 		completion()
-
-		//This part of code creates lots of NSManagedObjects inside a background context
-
-//		coreDataStack.backgroundContext.perform {
-//			for _ in 0...10000 {
-//				let taskMO = Task(context: self.coreDataStack.backgroundContext)
-//				taskMO.map(task)
-//				taskMO.id = UUID().uuidString
-//			}
-//
-//			self.coreDataStack.save(context: self.coreDataStack.backgroundContext)
-//			DispatchQueue.main.async {
-//				completion()
-//			}
-//		}
-
-		return
 	}
 
 	func delete(task: TaskEntity) {

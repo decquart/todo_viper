@@ -1,9 +1,8 @@
 //
 //  Task+CoreDataProperties.swift
-//  TodoList
+//  
 //
-//  Created by Volodymyr Mykhailiuk on 04.06.2020.
-//  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
+//  Created by Volodymyr Mykhailiuk on 11.06.2020.
 //
 //
 
@@ -17,9 +16,10 @@ extension Task {
         return NSFetchRequest<Task>(entityName: "Task")
     }
 
-    @NSManaged public var imagePath: String
-    @NSManaged public var name: String
     @NSManaged public var id: String
+    @NSManaged public var name: String
+    @NSManaged public var image: Data
+    @NSManaged public var iconColor: NSObject
     @NSManaged public var subTasks: NSSet
 
 }
@@ -39,18 +39,4 @@ extension Task {
     @objc(removeSubTasks:)
     @NSManaged public func removeFromSubTasks(_ values: NSSet)
 
-}
-
-extension Task: StorableModel {
-	var domainModel: TaskEntity {
-		TaskEntity(id: id, name: name, imagePath: imagePath)
-	}
-}
-
-extension Task: EntityMappable {
-	func map(_ entity: TaskEntity) {
-		id = entity.id
-		name = entity.name
-		imagePath = entity.imagePath
-	}
 }

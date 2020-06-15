@@ -42,7 +42,9 @@ class TaskListPresenter: TaskListViewOutput {
 	}
 
 	func loadTasks() {
-		tasks = repository.getAll()
+		repository.getAll() {
+			self.tasks = $0
+		}
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {

@@ -12,12 +12,12 @@ import RealmSwift
 class RealmTaskRepository: TasksRepositoryType {
 	let realm = try! Realm()
 
-	func getAll() -> [TaskEntity] {
+	func getAll(completion: @escaping ([TaskEntity]) -> ()) {
 		let entities = realm.objects(TaskObject.self)
 			.sorted(byKeyPath: "name", ascending: true)
 			.compactMap { $0.domainModel }
 
-		return Array(entities)
+		completion(Array(entities))
 	}
 
 	func getSubTasksCount(for task: TaskEntity) -> Int {

@@ -14,3 +14,9 @@ import CoreData
 public class SubTask: NSManagedObject {
 
 }
+
+extension SubTask: StorableModel {
+	var domainModel: SubTaskEntity {
+		return SubTaskEntity(description: description_p, completed: completed)
+	}
+}

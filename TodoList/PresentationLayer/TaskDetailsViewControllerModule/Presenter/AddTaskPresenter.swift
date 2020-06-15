@@ -12,7 +12,7 @@ protocol AddTaskOutput: class {
 }
 
 protocol AddTaskInput: class {
-	//func taskDidSave()
+	//todo: extend with new functionality
 }
 
 final class AddTaskPresenter: AddTaskOutput {

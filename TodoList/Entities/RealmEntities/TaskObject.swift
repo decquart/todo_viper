@@ -21,9 +21,12 @@ class TaskObject: Object {
 	}
 }
 
+
+
 extension TaskObject: StorableModel {
 	var domainModel: TaskEntity {
-		return TaskEntity(id: id, name: name, imagePath: imagePath)
+		//todo add new fields
+		return TaskEntity(id: id, name: name, image: Data(), color: NSCoder())
 	}
 }
 
@@ -36,6 +39,6 @@ extension TaskObject: EntityMappable {
 		}
 
 		name = entity.name
-		imagePath = entity.imagePath
+		imagePath = ""//entity.imagePath
 	}
 }

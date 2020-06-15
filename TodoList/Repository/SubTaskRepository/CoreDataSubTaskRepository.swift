@@ -15,7 +15,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 	init(coreDataStack: CoreDataStackType) {
 		self.coreDataStack = coreDataStack
 	}
-	
+
 	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void) {
 		let taskFetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 		taskFetchRequest.predicate = NSPredicate(format: "id = %@", task.id)
@@ -37,14 +37,19 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		completion()
 	}
 
-	func getAll(where task: TaskEntity) -> [SubTaskEntity] {
+	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
 		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", task.id)
 
-		guard let subTasksMO = try? coreDataStack.mainContext.fetch(fetchRequest) else {
-			return []
+		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
+			let entities = result.finalResult?.map { $0.domainModel } ?? []
+			completion(entities)
 		}
 
-		return subTasksMO.map { $0.domainModel }
+		do {
+			try coreDataStack.mainContext.execute(asyncFetchRequest)
+		} catch let error {
+			print(error.localizedDescription)
+		}
 	}
 }

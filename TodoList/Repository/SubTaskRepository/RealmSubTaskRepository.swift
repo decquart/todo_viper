@@ -27,11 +27,12 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 		completion()
 	}
 
-	func getAll(where task: TaskEntity) -> [SubTaskEntity] {
+	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
 		guard let entity = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id)  else {
-			return []
+			return
 		}
 
-		return Array(entity.subTasks.map { $0.domainModel })
+		let entities = Array(entity.subTasks.map { $0.domainModel })
+		completion(entities)
 	}
 }

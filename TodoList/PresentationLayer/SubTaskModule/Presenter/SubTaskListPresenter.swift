@@ -50,7 +50,9 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func loadSubTasks() {
-		self.subTasks = repository.getAll(where: task)
+		repository.getAll(where: task) {
+			self.subTasks = $0
+		}
 	}
 
 	func didSelect(subTask: SubTaskEntity) {

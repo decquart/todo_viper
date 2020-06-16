@@ -35,4 +35,8 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 		let entities = Array(entity.subTasks.map { $0.domainModel })
 		completion(entities)
 	}
+
+	func update(subtask: SubTaskEntity, completion: () -> Void) {
+		fatalError("Need to implement")
+	}
 }

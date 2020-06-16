@@ -17,6 +17,14 @@ public class SubTask: NSManagedObject {
 
 extension SubTask: StorableModel {
 	var domainModel: SubTaskEntity {
-		return SubTaskEntity(description: description_p, completed: completed)
+		return SubTaskEntity(uuid: id, description: description_p, completed: completed)
+	}
+}
+
+extension SubTask: EntityMappable {
+	func map(_ entity: SubTaskEntity) {
+		self.id = entity.uuid
+		self.description_p = entity.description
+		self.completed = entity.completed
 	}
 }

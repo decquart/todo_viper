@@ -15,6 +15,7 @@ protocol SubTaskListViewOutput: class {
 	func addSubTask(with data: SubTaskEntity)
 	func loadSubTasks()
 	func didSelect(index: Int)
+	func didCompleteAll()
 }
 
 protocol SubTaskListViewInput: class {
@@ -62,6 +63,13 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		repository.update(subtask: subTask) {
 			//apply refresh for custom layout
 			//view?.refreshSubTasks()
+		}
+	}
+
+	func didCompleteAll() {
+		repository.markAsCompleted(where: task) {
+			//todo: reconsider
+			loadSubTasks()
 		}
 	}
 }

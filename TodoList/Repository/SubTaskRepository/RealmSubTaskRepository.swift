@@ -39,4 +39,8 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 	func update(subtask: SubTaskEntity, completion: () -> Void) {
 		fatalError("Need to implement")
 	}
+
+	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {
+		fatalError("Need to implement")
+	}
 }

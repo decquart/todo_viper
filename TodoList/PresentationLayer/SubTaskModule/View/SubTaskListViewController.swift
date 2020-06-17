@@ -29,6 +29,7 @@ class SubTaskListViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
 		presenter.loadSubTasks()
     }
 }
@@ -37,6 +38,13 @@ class SubTaskListViewController: UIViewController {
 extension SubTaskListViewController: SubTaskListViewInput {
 	func refreshSubTasks() {
 		tableView.reloadData()
+	}
+}
+
+//MARK: - Selectors
+extension SubTaskListViewController {
+	@objc func completeAll() {
+		presenter.didCompleteAll()
 	}
 }
 

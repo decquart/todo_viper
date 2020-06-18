@@ -38,7 +38,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let repository = //RealmSubTaskRepository()
 		CoreDataSubTaskRepository(coreDataStack: coreDataStack)
 
-		let presenter = SubTaskListPresenter(view: view, repository: repository, task: task)
+        let presenter = SubTaskListPresenter(view: view, repository: repository, task: task, coreDataStack: coreDataStack)
 		view.presenter = presenter
 		return view
 	}

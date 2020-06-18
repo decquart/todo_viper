@@ -51,7 +51,8 @@ extension SubTaskListViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return presenter.subTasks?.count ?? 0
+        return presenter.numberOfRows(in: section)
+        //presenter.subTasks?.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -59,17 +60,20 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 			return UITableViewCell()
 		}
 
-		let subTask = presenter.subTasks?[indexPath.row]
-		cell.textField.delegate = self
-		cell.textField.text = subTask?.description
-		cell.textField.returnKeyType = .next
-	
-		if subTask?.completed == true {
-			tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-		}
-
+		configure(cell: cell, for: indexPath)
 		return cell
 	}
+    
+    func configure(cell: SubTaskCell, for indexPath: IndexPath) {
+        let subTask = presenter.subTask(at: indexPath)
+        cell.textField.delegate = self
+        cell.textField.text = subTask?.description
+        cell.textField.returnKeyType = .next
+
+        if subTask?.completed == true {
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+        }
+    }
 
 	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
 		guard let cell = tableView.cellForRow(at: indexPath) as? SubTaskCell else {
@@ -80,12 +84,12 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 			return nil
 		}
 
-		presenter.didSelect(index: indexPath.row)
+		presenter.didSelect(at: indexPath)
 		return indexPath
 	}
 
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		presenter.didSelect(index: indexPath.row)
+		presenter.didSelect(at: indexPath)
 	}
 }
 

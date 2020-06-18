@@ -6,7 +6,16 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
+import Foundation
+
 struct SubTaskEntity {
+	let uuid: String
 	let description: String
-	let completed: Bool
+	var completed: Bool
+
+	init(uuid: String = UUID().uuidString, description: String, completed: Bool) {
+		self.uuid = uuid
+		self.description = description
+		self.completed = completed
+	}
 }

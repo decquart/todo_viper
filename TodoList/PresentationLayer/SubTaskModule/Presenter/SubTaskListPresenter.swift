@@ -14,13 +14,12 @@ protocol SubTaskListViewOutput: class {
 	init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity)
 	func addSubTask(with data: SubTaskEntity)
 	func loadSubTasks()
-	func didSelect(subTask: SubTaskEntity)
-	func didDeselect(subTask: SubTaskEntity)
+	func didSelect(index: Int)
+	func didCompleteAll()
 }
 
 protocol SubTaskListViewInput: class {
-	func taskDidAdd()
-	func subTaskDidLoad()
+	func refreshSubTasks()
 }
 
 class SubTaskListPresenter: SubTaskListViewOutput {
@@ -32,7 +31,7 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
 	var subTasks: [SubTaskEntity]? {
 		didSet {
-			self.view?.subTaskDidLoad()
+			self.view?.refreshSubTasks()
 		}
 	}
 
@@ -55,11 +54,22 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		}
 	}
 
-	func didSelect(subTask: SubTaskEntity) {
-		
+	func didSelect(index: Int) {
+		guard var subTask = subTasks?[index] else {
+			return
+		}
+
+		subTask.completed = !subTask.completed
+		repository.update(subtask: subTask) {
+			//apply refresh for custom layout
+			//view?.refreshSubTasks()
+		}
 	}
 
-	func didDeselect(subTask: SubTaskEntity) {
-
+	func didCompleteAll() {
+		repository.markAsCompleted(where: task) {
+			//todo: reconsider
+			loadSubTasks()
+		}
 	}
 }

@@ -30,8 +30,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 			return
 		}
 
-		subTaskMO.description_p = subtask.description
-		subTaskMO.completed = subtask.completed
+		subTaskMO.map(subtask)
 		taskMO.addToSubTasks(subTaskMO)
 		coreDataStack.save(context: coreDataStack.mainContext)
 		completion()
@@ -51,5 +50,38 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		} catch let error {
 			print(error.localizedDescription)
 		}
+	}
+
+	func update(subtask: SubTaskEntity, completion: () -> Void) {
+		guard let storedSubTask = get(by: subtask.uuid) else {
+			return
+		}
+
+		storedSubTask.map(subtask)
+		coreDataStack.save(context: coreDataStack.mainContext)
+		completion()
+	}
+
+	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {
+		let batchUpdate = NSBatchUpdateRequest(entityName: "SubTask")
+		batchUpdate.propertiesToUpdate = [#keyPath(SubTask.completed) : true]
+		batchUpdate.affectedStores = coreDataStack.mainContext.persistentStoreCoordinator?.persistentStores
+		//todo: look for a solution to use predicate
+		//batchUpdate.predicate = NSPredicate(format: "%K = %@", #keyPath(SubTask.owner.id), task.id)
+
+		do {
+			try coreDataStack.mainContext.execute(batchUpdate)
+			completion()
+		} catch {
+			print(error.localizedDescription)
+		}
+
+	}
+
+	private func get(by id: String) -> SubTask? {
+		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
+		fetchRequest.predicate = NSPredicate(format: "id = %@", id)
+
+		return try? coreDataStack.mainContext.fetch(fetchRequest).first
 	}
 }

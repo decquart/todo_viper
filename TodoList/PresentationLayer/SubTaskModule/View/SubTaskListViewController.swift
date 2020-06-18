@@ -29,20 +29,26 @@ class SubTaskListViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
 		presenter.loadSubTasks()
     }
 }
 
+//MARK: - SubTaskListViewInput
 extension SubTaskListViewController: SubTaskListViewInput {
-	func subTaskDidLoad() {
+	func refreshSubTasks() {
 		tableView.reloadData()
-	}
-
-	func taskDidAdd() {
-		//todo
 	}
 }
 
+//MARK: - Selectors
+extension SubTaskListViewController {
+	@objc func completeAll() {
+		presenter.didCompleteAll()
+	}
+}
+
+//MARK: - UITableViewDelegate, UITableViewDataSource
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return presenter.subTasks?.count ?? 0
@@ -54,8 +60,8 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 		}
 
 		let subTask = presenter.subTasks?[indexPath.row]
-		cell.textField.text = subTask?.description
 		cell.textField.delegate = self
+		cell.textField.text = subTask?.description
 		cell.textField.returnKeyType = .next
 	
 		if subTask?.completed == true {
@@ -65,23 +71,24 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 		return cell
 	}
 
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		//todo
-
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire) as? SubTaskCell else {
-			return
+	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+		guard let cell = tableView.cellForRow(at: indexPath) as? SubTaskCell else {
+			return nil
 		}
 
-		let subTask = presenter.subTasks?[indexPath.row]
-		//todo
+		if (cell.textField.text ?? "").isEmpty {
+			return nil
+		}
+
+		presenter.didSelect(index: indexPath.row)
+		return indexPath
 	}
 
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		//todo
+		presenter.didSelect(index: indexPath.row)
 	}
 }
 
-//I have no idea how to simplify this functionality, is it ok?
 extension SubTaskListViewController {
 	@objc func addEmptyCell() {
 		presenter.subTasks?.append(SubTaskEntity(description: "", completed: false))

@@ -9,4 +9,6 @@
 protocol SubTasksRepositoryType {
 	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void)
 	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void)
+	func update(subtask: SubTaskEntity, completion: () -> Void)
+	func markAsCompleted(where task: TaskEntity, completion: () -> Void)
 }

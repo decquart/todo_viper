@@ -12,9 +12,8 @@ import CoreData
 protocol SubTaskListViewOutput: class {
 	var task: TaskEntity! { get set }
 	var subTasks: [SubTaskEntity]? { get set }
-	init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity, coreDataStack: CoreDataStack)
+    init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType)
 	func addSubTask(with data: SubTaskEntity)
-	func loadSubTasks()
 
 	func didCompleteAll()
     
@@ -29,9 +28,8 @@ protocol SubTaskListViewInput: class {
 
 class SubTaskListPresenter: SubTaskListViewOutput {
 
-	let repository: SubTasksRepositoryType
+    let adapter: SubTaskListAdapterType
 	weak var view: SubTaskListViewInput?
-    var coreDataStack: CoreDataStackType
 
 	var task: TaskEntity!
 
@@ -40,73 +38,36 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 			self.view?.refreshSubTasks()
 		}
 	}
-    
-    let fetchedResultsController: NSFetchedResultsController<SubTask>!
 
-    required init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity, coreDataStack: CoreDataStack) {
+    required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType) {
 		self.view = view
-		self.repository = repository
 		self.task = task
-        
-        //todo: Move out
-        
-        self.coreDataStack = coreDataStack
-        let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: #keyPath(SubTask.description_p), ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
-                                                              managedObjectContext: coreDataStack.mainContext,
-                                                              sectionNameKeyPath: nil,
-                                                              cacheName: nil)
-        
-        do {
-            try fetchedResultsController.performFetch()
-        } catch let error as NSError {
-            print("Fetching error: \(error), \(error.userInfo)")
-        }
+        self.adapter = adapter
 	}
 
 	func addSubTask(with data: SubTaskEntity) {
-
-		repository.add(subtask: data, to: task) {
-			subTasks?.append(data)
-		}
-	}
-
-	func loadSubTasks() {
-		repository.getAll(where: task) {
-			self.subTasks = $0
-		}
+        adapter.add(subtask: data, to: task)
 	}
 
 	func didCompleteAll() {
-		repository.markAsCompleted(where: task) {
-			//todo: reconsider
-			loadSubTasks()
-		}
+		
 	}
     
     func numberOfRows(in section: Int) -> Int {
-        return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        return adapter.numberOfRows(in: section)
     }
     
     func subTask(at indexPath: IndexPath) -> SubTaskEntity? {
-        fetchedResultsController.object(at: indexPath).domainModel
-        
+        return adapter.subTask(at: indexPath)
+
     }
 
     func didSelect(at indexPath: IndexPath) {
-        let subTask = fetchedResultsController.object(at: indexPath)
+        guard var subTask = adapter.subTask(at: indexPath) else {
+            return
+        }
+
         subTask.completed = !subTask.completed
-        coreDataStack.save(context: coreDataStack.mainContext)
-//        guard var subTask = subTasks?[index] else {
-//            return
-//        }
-//
-//        subTask.completed = !subTask.completed
-//        repository.update(subtask: subTask) {
-//            //apply refresh for custom layout
-//            //view?.refreshSubTasks()
-//        }
+        adapter.update(subtask: subTask)
     }
 }

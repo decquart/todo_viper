@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SubTaskListViewController: UIViewController {
 
@@ -20,17 +21,11 @@ class SubTaskListViewController: UIViewController {
 		}
 	}
 
-	private var selectedCell: SubTaskCell? {
-		didSet {
-			selectedCell?.textField.becomeFirstResponder()
-		}
-	}
-
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
-		presenter.loadSubTasks()
+        tableView.reloadData()
     }
 }
 
@@ -52,7 +47,6 @@ extension SubTaskListViewController {
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfRows(in: section)
-        //presenter.subTasks?.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,7 +60,6 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func configure(cell: SubTaskCell, for indexPath: IndexPath) {
         let subTask = presenter.subTask(at: indexPath)
-        cell.textField.delegate = self
         cell.textField.text = subTask?.description
         cell.textField.returnKeyType = .next
 
@@ -93,36 +86,60 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 	}
 }
 
+//MARK: - UIAlertController
 extension SubTaskListViewController {
-	@objc func addEmptyCell() {
-		presenter.subTasks?.append(SubTaskEntity(description: "", completed: false))
-
-		let lastRowIndex = self.tableView.numberOfRows(inSection: 0) - 1
-		let indexPath = IndexPath(row: lastRowIndex, section: 0)
-		selectedCell = tableView.cellForRow(at: indexPath) as? SubTaskCell
-	}
-
-	func removeEmptyCell() {
-		presenter.subTasks = presenter.subTasks?.filter { !$0.description.isEmpty }
-		selectedCell = nil
-	}
 
 	@IBAction func addButtonPressed(_ sender: UIButton) {
-		addEmptyCell()
+        let alert = UIAlertController(title: nil, message: "Add new sub task", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Name"
+        }
+
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
+            guard let name = alert.textFields?.first?.text, !name.isEmpty else {
+                return
+            }
+
+            let newSubTask = SubTaskEntity(description: name, completed: false)
+            self.presenter.addSubTask(with: newSubTask)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+
+        present(alert, animated: true)
 	}
 }
 
-//MARK: - UITextFieldDelegate
-extension SubTaskListViewController: UITextFieldDelegate {
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		removeEmptyCell()
+//MARK: - NSFetchedResultsControllerDelegate
+//todo: move to adapter
+extension SubTaskListViewController: NSFetchedResultsControllerDelegate {
 
-		guard let text = textField.text, !text.isEmpty else {
-			return false
-		}
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
 
-		presenter.addSubTask(with: SubTaskEntity(description: text, completed: false))
-		addEmptyCell()
-		return true
-	}
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .update:
+            let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
+            configure(cell: cell, for: indexPath!)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        @unknown default:
+            break
+        }
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
 }

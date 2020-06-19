@@ -12,9 +12,9 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 
 	var coreDataStack: CoreDataStackType
 
-	init(coreDataStack: CoreDataStackType) {
-		self.coreDataStack = coreDataStack
-	}
+    init(coreDataStack: CoreDataStackType) {
+        self.coreDataStack = coreDataStack
+    }
 
 	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void) {
 		let taskFetchRequest: NSFetchRequest<Task> = Task.fetchRequest()

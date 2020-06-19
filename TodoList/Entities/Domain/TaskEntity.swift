@@ -21,3 +21,9 @@ struct TaskEntity {
 		self.imageColor = color
 	}
 }
+
+//extension TaskEntity: ViewModelMapping {
+//	var viewModel: TaskViewModel {
+//		return TaskViewModel(image: <#T##UIImage#>, name: <#T##String#>, subTasksCount: <#T##Int#>)
+//	}
+//}

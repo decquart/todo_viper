@@ -65,18 +65,12 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 
         if subTask?.completed == true {
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-        }
+		} else {
+			tableView.deselectRow(at: indexPath, animated: false)
+		}
     }
 
 	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-		guard let cell = tableView.cellForRow(at: indexPath) as? SubTaskCell else {
-			return nil
-		}
-
-		if (cell.textField.text ?? "").isEmpty {
-			return nil
-		}
-
 		presenter.didSelect(at: indexPath)
 		return indexPath
 	}
@@ -113,33 +107,30 @@ extension SubTaskListViewController {
 	}
 }
 
-//MARK: - NSFetchedResultsControllerDelegate
-//todo: move to adapter
-extension SubTaskListViewController: NSFetchedResultsControllerDelegate {
+extension SubTaskListViewController: SubTaskListAdapterView {
+	func beginUpdates() {
+		tableView.beginUpdates()
+	}
 
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
+	func endUpdates() {
+		tableView.endUpdates()
+	}
 
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+	func insertRow(at newIndexPath: IndexPath?) {
+		tableView.insertRows(at: [newIndexPath!], with: .automatic)
+	}
 
-        switch type {
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-        case .update:
-            let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
-            configure(cell: cell, for: indexPath!)
-        case .move:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        @unknown default:
-            break
-        }
-    }
+	func deleteRow(at indexPath: IndexPath?) {
+		tableView.deleteRows(at: [indexPath!], with: .automatic)
+	}
 
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
+	func updateRow(at indexPath: IndexPath?) {
+		let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
+		configure(cell: cell, for: indexPath!)
+	}
+
+	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {
+		tableView.deleteRows(at: [indexPath!], with: .automatic)
+		tableView.insertRows(at: [newIndexPath!], with: .automatic)
+	}
 }

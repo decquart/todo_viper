@@ -35,7 +35,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-        let adapter = SubTaskListAdapter(coreDataStack: coreDataStack, taskId: task.id, delegate: view, repository: repository)
+		let adapter = SubTaskListAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
 
         let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter)
 		view.presenter = presenter

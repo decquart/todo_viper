@@ -12,10 +12,9 @@ import UIKit
 protocol TaskListViewOutput: class {
 
 	var numberOfTasks: Int { get }
-	func task(at index: Int) -> TaskEntity?
+	func task(at index: Int) -> TaskViewModel?
 
 	func loadTasks()
-	func getSubTasksCount(for task: TaskEntity) -> Int
 	func addTaskButtonPressed()
 	func didSelectTask(with index: Int)
 }
@@ -47,18 +46,20 @@ class TaskListPresenter: TaskListViewOutput {
 		self.router = router
 	}
 
-	func task(at index: Int) -> TaskEntity? {
-		return tasks?[index]
+	func task(at index: Int) -> TaskViewModel? {
+		guard let task = tasks?[index] else {
+			return nil
+		}
+
+		let count = repository.getSubTasksCount(for: task)
+
+		return TaskViewModel(taskEntity: task, subTasksCount: count)
 	}
 
 	func loadTasks() {
 		repository.getAll() {
 			self.tasks = $0
 		}
-	}
-
-	func getSubTasksCount(for task: TaskEntity) -> Int {
-		return repository.getSubTasksCount(for: task)
 	}
 
 	func didSelectTask(with index: Int) {

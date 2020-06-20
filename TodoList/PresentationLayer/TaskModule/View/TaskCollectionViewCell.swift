@@ -23,10 +23,9 @@ class TaskCollectionViewCell: UICollectionViewCell {
 		layer.backgroundColor = UIColor.white.cgColor
 	}
 
-	func configure(with task: TaskEntity) {
-		taskImageView.image = UIImage(data: task.imageData)?.withTintColor(task.imageColor as! UIColor)
-		taskNameLabel.text = task.name
-		//todo
-		subTaskCountLabel.text = "19"//String(presenter.getSubTasksCount(for: task))
+	func configure(with viewModel: TaskViewModel) {
+		taskImageView.image = viewModel.image
+		taskNameLabel.text = viewModel.name
+		subTaskCountLabel.text = String(viewModel.subTasksCount)
 	}
 }

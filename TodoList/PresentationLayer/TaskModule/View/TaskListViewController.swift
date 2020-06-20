@@ -56,12 +56,11 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let task = presenter.task(at: indexPath.row) else {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let vm = presenter.task(at: indexPath.row) else {
 			return UICollectionViewCell()
 		}
 
-		//todo: replace with vm
-		cell.configure(with: task)
+		cell.configure(with: vm)
 		return cell
 	}
 }

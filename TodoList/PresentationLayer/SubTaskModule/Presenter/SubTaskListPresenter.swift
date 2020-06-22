@@ -19,7 +19,7 @@ protocol SubTaskListViewOutput: class {
     
     func numberOfRows(in section: Int) -> Int
     func subTask(at indexPath: IndexPath) -> SubTaskEntity?
-    func didSelect(at indexPath: IndexPath)
+	func didSelect(subTaskEntity: SubTaskEntity)
 }
 
 protocol SubTaskListViewInput: class {
@@ -62,12 +62,10 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
     }
 
-    func didSelect(at indexPath: IndexPath) {
-        guard var subTask = adapter.subTask(at: indexPath) else {
-            return
-        }
+    func didSelect(subTaskEntity: SubTaskEntity) {
 
-        subTask.completed = !subTask.completed
+        //replace with vm
+		let subTask = SubTaskEntity(uuid: subTaskEntity.uuid, description: subTaskEntity.description, completed: !subTaskEntity.completed)
         adapter.update(subtask: subTask)
     }
 }

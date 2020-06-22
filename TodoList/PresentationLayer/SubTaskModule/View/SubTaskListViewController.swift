@@ -15,11 +15,7 @@ class SubTaskListViewController: UIViewController {
 	var presenter: SubTaskListViewOutput!
 	var tempSubTask: String?
 
-	@IBOutlet weak var tableView: UITableView! {
-		didSet {
-			tableView.isEditing = true
-		}
-	}
+	@IBOutlet weak var tableView: UITableView!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,33 +46,15 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell else {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell, let subTask = presenter.subTask(at: indexPath) else {
 			return UITableViewCell()
 		}
 
-		configure(cell: cell, for: indexPath)
-		return cell
-	}
-    
-    func configure(cell: SubTaskCell, for indexPath: IndexPath) {
-        let subTask = presenter.subTask(at: indexPath)
-        cell.textField.text = subTask?.description
-        cell.textField.returnKeyType = .next
-
-        if subTask?.completed == true {
-            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
-		} else {
-			tableView.deselectRow(at: indexPath, animated: false)
+		cell.configure(witn: subTask)
+		cell.buttonPressedClosure = { [weak self] in
+			self?.presenter.didSelect(subTaskEntity: subTask)
 		}
-    }
-
-	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-		presenter.didSelect(at: indexPath)
-		return indexPath
-	}
-
-	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		presenter.didSelect(at: indexPath)
+		return cell
 	}
 }
 
@@ -107,6 +85,7 @@ extension SubTaskListViewController {
 	}
 }
 
+//MARK: - SubTaskListAdapterView
 extension SubTaskListViewController: SubTaskListAdapterView {
 	func beginUpdates() {
 		tableView.beginUpdates()
@@ -126,7 +105,10 @@ extension SubTaskListViewController: SubTaskListAdapterView {
 
 	func updateRow(at indexPath: IndexPath?) {
 		let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
-		configure(cell: cell, for: indexPath!)
+		guard let subTask = presenter.subTasks?[indexPath!.row] else {
+			return
+		}
+		cell.configure(witn: subTask)
 	}
 
 	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {

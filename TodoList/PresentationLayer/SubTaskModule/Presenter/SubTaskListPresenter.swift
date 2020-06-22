@@ -10,16 +10,11 @@ import Foundation
 import CoreData
 
 protocol SubTaskListViewOutput: class {
-	var task: TaskEntity! { get set }
-	var subTasks: [SubTaskEntity]? { get set }
-    init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType)
-	func addSubTask(with data: SubTaskEntity)
-
-	func didCompleteAll()
-    
     func numberOfRows(in section: Int) -> Int
-    func subTask(at indexPath: IndexPath) -> SubTaskEntity?
-	func didSelect(subTaskEntity: SubTaskEntity)
+    func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
+	func addSubTask(with viewModel: SubTaskViewModel)
+	func didSelect(at indexPath: IndexPath)
+	func didCompleteAll()
 }
 
 protocol SubTaskListViewInput: class {
@@ -31,13 +26,7 @@ class SubTaskListPresenter: SubTaskListViewOutput {
     let adapter: SubTaskListAdapterType
 	weak var view: SubTaskListViewInput?
 
-	var task: TaskEntity!
-
-	var subTasks: [SubTaskEntity]? {
-		didSet {
-			self.view?.refreshSubTasks()
-		}
-	}
+	private var task: TaskEntity!
 
     required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType) {
 		self.view = view
@@ -45,27 +34,34 @@ class SubTaskListPresenter: SubTaskListViewOutput {
         self.adapter = adapter
 	}
 
-	func addSubTask(with data: SubTaskEntity) {
-        adapter.add(subtask: data, to: task)
-	}
-
-	func didCompleteAll() {
-		
-	}
-    
-    func numberOfRows(in section: Int) -> Int {
+	func numberOfRows(in section: Int) -> Int {
         return adapter.numberOfRows(in: section)
     }
-    
-    func subTask(at indexPath: IndexPath) -> SubTaskEntity? {
-        return adapter.subTask(at: indexPath)
 
+	func subTask(at indexPath: IndexPath) -> SubTaskViewModel? {
+		guard let subTask = adapter.subTask(at: indexPath) else {
+			return nil
+		}
+
+		return SubTaskViewModel(subTaskEntity: subTask)
     }
 
-    func didSelect(subTaskEntity: SubTaskEntity) {
+	func addSubTask(with viewModel: SubTaskViewModel) {
+		let entity = SubTaskEntity(description: viewModel.description, completed: false)
+        adapter.add(subtask: entity, to: task)
+	}
 
-        //replace with vm
-		let subTask = SubTaskEntity(uuid: subTaskEntity.uuid, description: subTaskEntity.description, completed: !subTaskEntity.completed)
+    func didSelect(at indexPath: IndexPath) {
+		guard var subTask = adapter.subTask(at: indexPath) else {
+			return
+		}
+
+		//todo: reconsider
+		subTask.completed = !subTask.completed
         adapter.update(subtask: subTask)
     }
+
+	func didCompleteAll() {
+
+	}
 }

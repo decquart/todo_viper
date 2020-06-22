@@ -49,6 +49,7 @@
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D777BE3249D652000720B5D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE2249D652000720B5D /* TaskViewModel.swift */; };
 		2D777BEA24A0E93000720B5D /* SubTaskListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */; };
+		2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +107,7 @@
 		04F9BC33248E4B6E00DC0AE8 /* SubTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskCell.swift; sourceTree = "<group>"; };
 		2D777BE2249D652000720B5D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTaskListAdapter.swift; sourceTree = "<group>"; };
+		2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +339,7 @@
 		04EFFD22248031800048336E /* SubTaskModule */ = {
 			isa = PBXGroup;
 			children = (
+				2D777BED24A12EBD00720B5D /* ViewModel */,
 				04EFFD23248031940048336E /* View */,
 				04EFFD2724805BCC0048336E /* Presenter */,
 				2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */,
@@ -366,6 +369,14 @@
 			isa = PBXGroup;
 			children = (
 				2D777BE2249D652000720B5D /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D777BED24A12EBD00720B5D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -491,6 +502,7 @@
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
 				0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */,
 				049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */,
+				2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
 				04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */,

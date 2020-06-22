@@ -20,9 +20,8 @@ class SubTaskCell: UITableViewCell {
 		buttonPressedClosure?()
 	}
 
-	func configure(witn subTaskEntity: SubTaskEntity) {
-		self.descriptionLabel.text = subTaskEntity.description
-		let image = subTaskEntity.completed ? UIImage(systemName: "checkmark.circle.fill") : UIImage(systemName: "circle")
-		self.checkButton.setImage(image, for: .normal)
+	func configure(with viewModel: SubTaskViewModel) {
+		self.descriptionLabel.text = viewModel.description
+		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
 	}
 }

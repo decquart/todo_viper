@@ -18,10 +18,8 @@ protocol SubTaskListAdapterView: class {
 }
 
 protocol SubTaskListAdapterType: class {
-	init(coreDataStack: CoreDataStackType, taskId: String, view: SubTaskListAdapterView, repository: SubTasksRepositoryType)
 	func subTask(at indexPath: IndexPath) -> SubTaskEntity?
 	func numberOfRows(in section: Int) -> Int
-
 	func update(subtask: SubTaskEntity)
 	func add(subtask: SubTaskEntity, to task: TaskEntity)
 }

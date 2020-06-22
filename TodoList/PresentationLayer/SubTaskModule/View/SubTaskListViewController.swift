@@ -50,9 +50,9 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 			return UITableViewCell()
 		}
 
-		cell.configure(witn: subTask)
+		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
-			self?.presenter.didSelect(subTaskEntity: subTask)
+			self?.presenter.didSelect(at: indexPath)
 		}
 		return cell
 	}
@@ -72,8 +72,8 @@ extension SubTaskListViewController {
                 return
             }
 
-            let newSubTask = SubTaskEntity(description: name, completed: false)
-            self.presenter.addSubTask(with: newSubTask)
+			let viewModel = SubTaskViewModel(description: name)
+			self.presenter.addSubTask(with: viewModel)
         }
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .default)
@@ -105,14 +105,16 @@ extension SubTaskListViewController: SubTaskListAdapterView {
 
 	func updateRow(at indexPath: IndexPath?) {
 		let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
-		guard let subTask = presenter.subTasks?[indexPath!.row] else {
+		guard let subTask = presenter.subTask(at: indexPath!) else {
 			return
 		}
-		cell.configure(witn: subTask)
+
+		cell.configure(with: subTask)
 	}
 
 	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {
-		tableView.deleteRows(at: [indexPath!], with: .automatic)
-		tableView.insertRows(at: [newIndexPath!], with: .automatic)
+		tableView.deleteRows(at: [indexPath!], with: .fade)
+		tableView.insertRows(at: [newIndexPath!], with: .fade)
+		tableView.reloadData()
 	}
 }

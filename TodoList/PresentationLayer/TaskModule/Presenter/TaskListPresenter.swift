@@ -11,23 +11,24 @@ import UIKit
 
 protocol TaskListViewOutput: class {
 
-	var tasks: [TaskEntity]? { get set }
-	init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol?)
+	var numberOfTasks: Int { get }
+	func task(at index: Int) -> TaskViewModel?
+
 	func loadTasks()
-	func getSubTasksCount(for task: TaskEntity) -> Int
 	func addTaskButtonPressed()
-	func didSelectTask(with index: Int, isEditing: Bool)
+	func didSelectTask(with index: Int)
 }
 
 protocol TaskListViewInput: class {
+	var isEditMode: Bool { get }
 	func didTaskFetch()
 }
 
 class TaskListPresenter: TaskListViewOutput {
 
 	weak var view: TaskListViewInput?
-	let repository: TasksRepositoryType!
-	let router: RouterProtocol?
+	let repository: TasksRepositoryType
+	let router: RouterProtocol
 
 	var tasks: [TaskEntity]? {
 		didSet {
@@ -35,10 +36,24 @@ class TaskListPresenter: TaskListViewOutput {
 		}
 	}
 
-	required init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol?) {
+	var numberOfTasks: Int {
+		return tasks?.count ?? 0
+	}
+
+	required init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol) {
 		self.view = view
 		self.repository = repository
 		self.router = router
+	}
+
+	func task(at index: Int) -> TaskViewModel? {
+		guard let task = tasks?[index] else {
+			return nil
+		}
+
+		let count = repository.getSubTasksCount(for: task)
+
+		return TaskViewModel(taskEntity: task, subTasksCount: count)
 	}
 
 	func loadTasks() {
@@ -47,19 +62,14 @@ class TaskListPresenter: TaskListViewOutput {
 		}
 	}
 
-	func getSubTasksCount(for task: TaskEntity) -> Int {
-		return repository.getSubTasksCount(for: task)
-	}
-
-	// Should this method know about isEditing p-ty?
-	func didSelectTask(with index: Int, isEditing: Bool) {
-		guard let task = tasks?[index] else {
+	func didSelectTask(with index: Int) {
+		guard let task = tasks?[index], let view = view else {
 			return
 		}
 
-		if isEditing {
-			router?.showEditTaskAlertViewController(editAction: {
-				self.router?.showTaskDetailsViewController(scope: .edit(task: task))
+		if view.isEditMode {
+			router.showEditTaskAlertViewController(editAction: {
+				self.router.showTaskDetailsViewController(scope: .edit(task: task))
 			}, deleteAction: {
 				self.repository.delete(task: task)
 				self.tasks = self.tasks?.filter { task.id != $0.id }
@@ -68,10 +78,10 @@ class TaskListPresenter: TaskListViewOutput {
 			return
 		}
 
-		router?.showSubTaskListViewController(task: task)
+		router.showSubTaskListViewController(task: task)
 	}
 
 	func addTaskButtonPressed() {
-		router?.showTaskDetailsViewController(scope: .create)
+		router.showTaskDetailsViewController(scope: .create)
 	}
 }

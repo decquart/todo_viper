@@ -9,47 +9,58 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
-	@IBOutlet weak var tasksCollectionView: UICollectionView! {
+	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
-			tasksCollectionView.delegate = self
-			tasksCollectionView.dataSource = self
-			tasksCollectionView.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1)
+			collectionView.delegate = self
+			collectionView.dataSource = self
+			collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
 		}
 	}
 
 	var presenter: TaskListViewOutput!
+	let inset: CGFloat = 8.0
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(changeEditMode))
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		presenter.loadTasks()
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(changeEditMode))
-		isEditing = false
+	}
+
+	@objc func changeEditMode() {
+		isEditing = !isEditing
+		navigationItem.rightBarButtonItem!.title = isEditing ? "Cancel" : "Edit"
 	}
 }
 
 //MARK: - TaskListViewInput
 extension TaskListViewController: TaskListViewInput {
+	var isEditMode: Bool {
+		return isEditing
+	}
+
 	func didTaskFetch() {
-		self.tasksCollectionView.reloadData()
+		self.collectionView.reloadData()
 	}
 }
 
 //MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension TaskListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return presenter.tasks?.count ?? 0
+		return presenter.numberOfTasks
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let task = presenter.tasks?[indexPath.row] else {
+		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let vm = presenter.task(at: indexPath.row) else {
 			return UICollectionViewCell()
 		}
 
-		cell.taskImageView.image = UIImage(data: task.imageData)?.withTintColor(task.imageColor as! UIColor)
-		cell.taskNameLabel.text = task.name
-		cell.subTaskCountLabel.text = String(presenter.getSubTasksCount(for: task))
-
+		cell.configure(with: vm)
 		return cell
 	}
 }
@@ -58,18 +69,18 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		let width = (collectionView.bounds.width / 2) - 16
+		let width = (collectionView.bounds.width / 2) - inset * 2
 
 		return CGSize(width: width, height: width / 3)
 	}
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+		return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
-		presenter.didSelectTask(with: indexPath.row, isEditing: isEditing)
+		presenter.didSelectTask(with: indexPath.row)
 	}
 }
 
@@ -77,13 +88,5 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 extension TaskListViewController {
 	@IBAction func buttonAddPressed(_ sender: Any) {
 		presenter.addTaskButtonPressed()
-	}
-}
-
-//MARK: - Edit Mode
-extension TaskListViewController {
-	@objc func changeEditMode() {
-		isEditing = !isEditing
-		navigationItem.rightBarButtonItem!.title = isEditing ? "Cancel" : "Edit"
 	}
 }

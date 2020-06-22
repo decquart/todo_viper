@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SubTaskListViewController: UIViewController {
 
@@ -14,23 +15,13 @@ class SubTaskListViewController: UIViewController {
 	var presenter: SubTaskListViewOutput!
 	var tempSubTask: String?
 
-	@IBOutlet weak var tableView: UITableView! {
-		didSet {
-			tableView.isEditing = true
-		}
-	}
-
-	private var selectedCell: SubTaskCell? {
-		didSet {
-			selectedCell?.textField.becomeFirstResponder()
-		}
-	}
+	@IBOutlet weak var tableView: UITableView!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
-		presenter.loadSubTasks()
+        tableView.reloadData()
     }
 }
 
@@ -51,74 +42,79 @@ extension SubTaskListViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return presenter.subTasks?.count ?? 0
+        return presenter.numberOfRows(in: section)
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell else {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell, let subTask = presenter.subTask(at: indexPath) else {
 			return UITableViewCell()
 		}
 
-		let subTask = presenter.subTasks?[indexPath.row]
-		cell.textField.delegate = self
-		cell.textField.text = subTask?.description
-		cell.textField.returnKeyType = .next
-	
-		if subTask?.completed == true {
-			tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
+		cell.configure(with: subTask)
+		cell.buttonPressedClosure = { [weak self] in
+			self?.presenter.didSelect(at: indexPath)
 		}
-
 		return cell
 	}
-
-	func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-		guard let cell = tableView.cellForRow(at: indexPath) as? SubTaskCell else {
-			return nil
-		}
-
-		if (cell.textField.text ?? "").isEmpty {
-			return nil
-		}
-
-		presenter.didSelect(index: indexPath.row)
-		return indexPath
-	}
-
-	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-		presenter.didSelect(index: indexPath.row)
-	}
 }
 
+//MARK: - UIAlertController
 extension SubTaskListViewController {
-	@objc func addEmptyCell() {
-		presenter.subTasks?.append(SubTaskEntity(description: "", completed: false))
-
-		let lastRowIndex = self.tableView.numberOfRows(inSection: 0) - 1
-		let indexPath = IndexPath(row: lastRowIndex, section: 0)
-		selectedCell = tableView.cellForRow(at: indexPath) as? SubTaskCell
-	}
-
-	func removeEmptyCell() {
-		presenter.subTasks = presenter.subTasks?.filter { !$0.description.isEmpty }
-		selectedCell = nil
-	}
 
 	@IBAction func addButtonPressed(_ sender: UIButton) {
-		addEmptyCell()
+        let alert = UIAlertController(title: nil, message: "Add new sub task", preferredStyle: .alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Name"
+        }
+
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
+            guard let name = alert.textFields?.first?.text, !name.isEmpty else {
+                return
+            }
+
+			let viewModel = SubTaskViewModel(description: name)
+			self.presenter.addSubTask(with: viewModel)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+
+        alert.addAction(cancelAction)
+        alert.addAction(saveAction)
+
+        present(alert, animated: true)
 	}
 }
 
-//MARK: - UITextFieldDelegate
-extension SubTaskListViewController: UITextFieldDelegate {
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		removeEmptyCell()
+//MARK: - SubTaskListAdapterView
+extension SubTaskListViewController: SubTaskListAdapterView {
+	func beginUpdates() {
+		tableView.beginUpdates()
+	}
 
-		guard let text = textField.text, !text.isEmpty else {
-			return false
+	func endUpdates() {
+		tableView.endUpdates()
+	}
+
+	func insertRow(at newIndexPath: IndexPath?) {
+		tableView.insertRows(at: [newIndexPath!], with: .automatic)
+	}
+
+	func deleteRow(at indexPath: IndexPath?) {
+		tableView.deleteRows(at: [indexPath!], with: .automatic)
+	}
+
+	func updateRow(at indexPath: IndexPath?) {
+		let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
+		guard let subTask = presenter.subTask(at: indexPath!) else {
+			return
 		}
 
-		presenter.addSubTask(with: SubTaskEntity(description: text, completed: false))
-		addEmptyCell()
-		return true
+		cell.configure(with: subTask)
+	}
+
+	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {
+		tableView.deleteRows(at: [indexPath!], with: .fade)
+		tableView.insertRows(at: [newIndexPath!], with: .fade)
+		tableView.reloadData()
 	}
 }

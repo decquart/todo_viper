@@ -9,6 +9,19 @@
 import UIKit
 
 class SubTaskCell: UITableViewCell {
+
+	var buttonPressedClosure: (() -> Void)?
+
 	static let identifire = "subTaskCell"
-	@IBOutlet weak var textField: UITextField!
+	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var checkButton: UIButton!
+
+	@IBAction func checkButtonPressed(_ sender: UIButton) {
+		buttonPressedClosure?()
+	}
+
+	func configure(with viewModel: SubTaskViewModel) {
+		self.descriptionLabel.text = viewModel.description
+		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
+	}
 }

@@ -7,14 +7,13 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SubTaskListViewOutput: class {
-	var task: TaskEntity! { get set }
-	var subTasks: [SubTaskEntity]? { get set }
-	init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity)
-	func addSubTask(with data: SubTaskEntity)
-	func loadSubTasks()
-	func didSelect(index: Int)
+    func numberOfRows(in section: Int) -> Int
+    func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
+	func addSubTask(with viewModel: SubTaskViewModel)
+	func didSelect(at indexPath: IndexPath)
 	func didCompleteAll()
 }
 
@@ -24,52 +23,45 @@ protocol SubTaskListViewInput: class {
 
 class SubTaskListPresenter: SubTaskListViewOutput {
 
-	let repository: SubTasksRepositoryType
+    let adapter: SubTaskListAdapterType
 	weak var view: SubTaskListViewInput?
 
-	var task: TaskEntity!
+	private var task: TaskEntity!
 
-	var subTasks: [SubTaskEntity]? {
-		didSet {
-			self.view?.refreshSubTasks()
-		}
-	}
-
-	required init(view: SubTaskListViewInput, repository: SubTasksRepositoryType, task: TaskEntity) {
+    required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType) {
 		self.view = view
-		self.repository = repository
 		self.task = task
+        self.adapter = adapter
 	}
 
-	func addSubTask(with data: SubTaskEntity) {
+	func numberOfRows(in section: Int) -> Int {
+        return adapter.numberOfRows(in: section)
+    }
 
-		repository.add(subtask: data, to: task) {
-			subTasks?.append(data)
+	func subTask(at indexPath: IndexPath) -> SubTaskViewModel? {
+		guard let subTask = adapter.subTask(at: indexPath) else {
+			return nil
 		}
+
+		return SubTaskViewModel(subTaskEntity: subTask)
+    }
+
+	func addSubTask(with viewModel: SubTaskViewModel) {
+		let entity = SubTaskEntity(description: viewModel.description, completed: false)
+        adapter.add(subtask: entity, to: task)
 	}
 
-	func loadSubTasks() {
-		repository.getAll(where: task) {
-			self.subTasks = $0
-		}
-	}
-
-	func didSelect(index: Int) {
-		guard var subTask = subTasks?[index] else {
+    func didSelect(at indexPath: IndexPath) {
+		guard var subTask = adapter.subTask(at: indexPath) else {
 			return
 		}
 
+		//todo: reconsider
 		subTask.completed = !subTask.completed
-		repository.update(subtask: subTask) {
-			//apply refresh for custom layout
-			//view?.refreshSubTasks()
-		}
-	}
+        adapter.update(subtask: subTask)
+    }
 
 	func didCompleteAll() {
-		repository.markAsCompleted(where: task) {
-			//todo: reconsider
-			loadSubTasks()
-		}
+
 	}
 }

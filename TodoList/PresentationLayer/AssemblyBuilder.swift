@@ -24,7 +24,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = RealmTaskRepository()//CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presrnter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presrnter
 		return view
@@ -35,9 +35,9 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-		let adapter = SubTaskListAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
+		let adapter = CoreDataSubTaskAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
 
-        let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter)
+        let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, repository: repository)
 		view.presenter = presenter
 		return view
 	}
@@ -45,7 +45,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController {
 		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = RealmTaskRepository()//CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
 
 		view.presenter = presenter

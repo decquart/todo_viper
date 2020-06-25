@@ -24,14 +24,16 @@ protocol SubTaskListViewInput: class {
 class SubTaskListPresenter: SubTaskListViewOutput {
 
     let adapter: SubTaskListAdapterType
+	let repository: SubTasksRepositoryType
 	weak var view: SubTaskListViewInput?
 
 	private var task: TaskEntity!
 
-    required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType) {
+	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, repository: SubTasksRepositoryType) {
 		self.view = view
 		self.task = task
         self.adapter = adapter
+		self.repository = repository
 	}
 
 	func numberOfRows(in section: Int) -> Int {

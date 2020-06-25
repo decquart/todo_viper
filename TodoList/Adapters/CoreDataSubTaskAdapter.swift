@@ -1,5 +1,5 @@
 //
-//  SubTaskListAdapter.swift
+//  CoreDataSubTaskAdapter.swift
 //  TodoList
 //
 //  Created by volodymyr on 19.06.2020.
@@ -8,23 +8,7 @@
 
 import CoreData
 
-protocol SubTaskListAdapterView: class {
-	func beginUpdates()
-	func endUpdates()
-	func insertRow(at newIndexPath: IndexPath?)
-	func deleteRow(at indexPath: IndexPath?)
-	func updateRow(at indexPath: IndexPath?)
-	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?)
-}
-
-protocol SubTaskListAdapterType: class {
-	func subTask(at indexPath: IndexPath) -> SubTaskEntity?
-	func numberOfRows(in section: Int) -> Int
-	func update(subtask: SubTaskEntity)
-	func add(subtask: SubTaskEntity, to task: TaskEntity)
-}
-
-class SubTaskListAdapter: NSObject, SubTaskListAdapterType {
+class CoreDataSubTaskAdapter: NSObject, SubTaskListAdapterType {
 	let coreDataStack: CoreDataStackType
 	let repository: SubTasksRepositoryType
 	private var fetchedResultsController: NSFetchedResultsController<SubTask>!
@@ -56,7 +40,7 @@ class SubTaskListAdapter: NSObject, SubTaskListAdapterType {
 	}
 }
 
-private extension SubTaskListAdapter {
+private extension CoreDataSubTaskAdapter {
 	func setup(with taskId: String) -> NSFetchedResultsController<SubTask> {
 		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", taskId)
@@ -75,7 +59,7 @@ private extension SubTaskListAdapter {
 }
 
 //MARK: - NSFetchedResultsControllerDelegate
-extension SubTaskListAdapter: NSFetchedResultsControllerDelegate {
+extension CoreDataSubTaskAdapter: NSFetchedResultsControllerDelegate {
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
 		view?.beginUpdates()
@@ -101,3 +85,4 @@ extension SubTaskListAdapter: NSFetchedResultsControllerDelegate {
 		view?.endUpdates()
     }
 }
+

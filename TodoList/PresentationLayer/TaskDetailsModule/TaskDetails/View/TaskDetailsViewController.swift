@@ -37,6 +37,19 @@ class TaskDetailsViewController: UIViewController {
 		}
 	}
 
+	var iconPickerView: UIView! {
+		didSet {
+			self.view.addSubview(iconPickerView)
+
+			iconPickerView.translatesAutoresizingMaskIntoConstraints = false
+
+			iconPickerView.topAnchor.constraint(equalTo: blueSlider.bottomAnchor, constant: 20).isActive = true
+			iconPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+			iconPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+			iconPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160).isActive = true
+		}
+	}
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupGestureRecognizer()
@@ -71,7 +84,9 @@ extension TaskDetailsViewController {
 }
 
 extension TaskDetailsViewController: AddTaskInput {
-
+	func refreshIcon(_ imagePath: String) {
+		taskIconImageView.image = UIImage(named: imagePath)
+	}
 }
 
 //MARK: - Appearance
@@ -109,3 +124,4 @@ extension TaskDetailsViewController {
         view.endEditing(true)
     }
 }
+

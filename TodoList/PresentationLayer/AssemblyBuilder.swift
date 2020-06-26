@@ -24,7 +24,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let repository = RealmTaskRepository()//CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presrnter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presrnter
 		return view
@@ -43,10 +43,18 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 	}
 
 	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController {
+
+		let iconPickerPresenter = IconPickerPresenter()
+		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
+		iconPickerPresenter.view = subview
+
 		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
-		let repository = RealmTaskRepository()//CoreDataTaskRepository(coreDataStack: coreDataStack)
+
+		view.iconPickerView = subview
+		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
+		iconPickerPresenter.detailsPresenter = presenter
 
 		view.presenter = presenter
 		view.scope = scope

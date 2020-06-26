@@ -7,12 +7,12 @@
 //
 
 protocol AddTaskOutput: class {
-	init(view: AddTaskInput, repository: TasksRepositoryType, router: RouterProtocol)
 	func saveButtonPressed(with data: TaskEntity)
+	func updateIcon(_ imagePath: String)
 }
 
 protocol AddTaskInput: class {
-	//todo: extend with new functionality
+	func refreshIcon(_ imagePath: String)
 }
 
 final class AddTaskPresenter: AddTaskOutput {
@@ -31,6 +31,9 @@ final class AddTaskPresenter: AddTaskOutput {
 		repository.create(task: data) {
 			self.router?.popToRoot()
 		}
-		
+	}
+
+	func updateIcon(_ imagePath: String) {
+		view?.refreshIcon(imagePath)
 	}
 }

@@ -44,6 +44,9 @@
 		04EFFD212480317B0048336E /* SubTaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD202480317B0048336E /* SubTaskListViewController.swift */; };
 		04EFFD2624805BC80048336E /* SubTaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD2524805BC80048336E /* SubTaskListPresenter.swift */; };
 		04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9BC33248E4B6E00DC0AE8 /* SubTaskCell.swift */; };
+		2D0CBC7124A9565F00AC23F6 /* SubTaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* SubTaskDetails.storyboard */; };
+		2D0CBC7324A956A800AC23F6 /* SubTaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* SubTaskDetailsViewController.swift */; };
+		2D0CBC7624A957B600AC23F6 /* SubTaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* SubTaskDetailsPresenter.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -112,6 +115,9 @@
 		04EFFD202480317B0048336E /* SubTaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskListViewController.swift; sourceTree = "<group>"; };
 		04EFFD2524805BC80048336E /* SubTaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskListPresenter.swift; sourceTree = "<group>"; };
 		04F9BC33248E4B6E00DC0AE8 /* SubTaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskCell.swift; sourceTree = "<group>"; };
+		2D0CBC7024A9565F00AC23F6 /* SubTaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubTaskDetails.storyboard; sourceTree = "<group>"; };
+		2D0CBC7224A956A800AC23F6 /* SubTaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskDetailsViewController.swift; sourceTree = "<group>"; };
+		2D0CBC7524A957B600AC23F6 /* SubTaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -151,6 +157,7 @@
 				044254172480D09800ED4C72 /* Router.swift */,
 				04EFFD1524801A720048336E /* TaskModule */,
 				04EFFD22248031800048336E /* SubTaskModule */,
+				2D0CBC6F24A955FB00AC23F6 /* SubTaskDetailsModule */,
 				047C64F824858AAF00BB6702 /* TaskDetailsModule */,
 			);
 			path = PresentationLayer;
@@ -379,6 +386,32 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		2D0CBC6F24A955FB00AC23F6 /* SubTaskDetailsModule */ = {
+			isa = PBXGroup;
+			children = (
+				2D0CBC7424A956B900AC23F6 /* View */,
+				2D0CBC7724A957C300AC23F6 /* Presenter */,
+			);
+			path = SubTaskDetailsModule;
+			sourceTree = "<group>";
+		};
+		2D0CBC7424A956B900AC23F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D0CBC7024A9565F00AC23F6 /* SubTaskDetails.storyboard */,
+				2D0CBC7224A956A800AC23F6 /* SubTaskDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D0CBC7724A957C300AC23F6 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2D0CBC7524A957B600AC23F6 /* SubTaskDetailsPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +566,7 @@
 				049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */,
 				047C64FB24858B5C00BB6702 /* TaskDetails.storyboard in Resources */,
 				04BCAB752498134D00A38846 /* Assets.xcassets in Resources */,
+				2D0CBC7124A9565F00AC23F6 /* SubTaskDetails.storyboard in Resources */,
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
@@ -559,6 +593,7 @@
 				04EFFD1F24801F680048336E /* TaskCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* SubTaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */,
+				2D0CBC7624A957B600AC23F6 /* SubTaskDetailsPresenter.swift in Sources */,
 				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
 				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
@@ -569,6 +604,7 @@
 				2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
+				2D0CBC7324A956A800AC23F6 /* SubTaskDetailsViewController.swift in Sources */,
 				04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,

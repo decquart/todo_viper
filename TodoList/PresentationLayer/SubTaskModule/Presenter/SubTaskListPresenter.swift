@@ -13,8 +13,9 @@ protocol SubTaskListViewOutput: class {
     func numberOfRows(in section: Int) -> Int
     func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
 	func addSubTask(with viewModel: SubTaskViewModel)
-	func didSelect(at indexPath: IndexPath)
+	func buttonCompletePressed(at indexPath: IndexPath)
 	func didCompleteAll()
+	func didSelect()//todo: add params
 }
 
 protocol SubTaskListViewInput: class {
@@ -25,15 +26,17 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
     let adapter: SubTaskListAdapterType
 	let repository: SubTasksRepositoryType
+	let router: RouterProtocol
 	weak var view: SubTaskListViewInput?
 
 	private var task: TaskEntity!
 
-	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, repository: SubTasksRepositoryType) {
+	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, repository: SubTasksRepositoryType, router: RouterProtocol) {
 		self.view = view
 		self.task = task
         self.adapter = adapter
 		self.repository = repository
+		self.router = router
 	}
 
 	func numberOfRows(in section: Int) -> Int {
@@ -53,17 +56,20 @@ class SubTaskListPresenter: SubTaskListViewOutput {
         adapter.add(subtask: entity, to: task)
 	}
 
-    func didSelect(at indexPath: IndexPath) {
+    func buttonCompletePressed(at indexPath: IndexPath) {
 		guard var subTask = adapter.subTask(at: indexPath) else {
 			return
 		}
 
-		//todo: reconsider
 		subTask.completed = !subTask.completed
         adapter.update(subtask: subTask)
     }
 
 	func didCompleteAll() {
 
+	}
+
+	func didSelect() {
+		router.showSubTaskDetailsViewController()
 	}
 }

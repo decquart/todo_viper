@@ -12,6 +12,7 @@ protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
 	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController
+	func createSubTaskDetailsModule(router: RouterProtocol) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -25,8 +26,8 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		}
 
 		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
-		let presrnter = TaskListPresenter(view: view, repository: repository, router: router)
-		view.presenter = presrnter
+		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
+		view.presenter = presenter
 		return view
 	}
 
@@ -37,7 +38,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
 		let adapter = CoreDataSubTaskAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
 
-        let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, repository: repository)
+		let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, repository: repository, router: router)
 		view.presenter = presenter
 		return view
 	}
@@ -58,6 +59,14 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		view.presenter = presenter
 		view.scope = scope
+		return view
+	}
+
+	func createSubTaskDetailsModule(router: RouterProtocol) -> UIViewController {
+		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
+		let presenter = SubTaskDetailsPresenter(view: view)
+		view.presenter = presenter
 		return view
 	}
 }

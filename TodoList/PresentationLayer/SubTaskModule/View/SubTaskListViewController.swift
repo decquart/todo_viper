@@ -52,9 +52,13 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 
 		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
-			self?.presenter.didSelect(at: indexPath)
+			self?.presenter.buttonCompletePressed(at: indexPath)
 		}
 		return cell
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		presenter.didSelect()
 	}
 }
 

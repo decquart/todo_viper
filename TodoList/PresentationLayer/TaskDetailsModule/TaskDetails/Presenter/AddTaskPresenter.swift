@@ -12,12 +12,13 @@ protocol AddTaskOutput: class {
 }
 
 protocol AddTaskInput: class {
+	var isNewTask: Bool { get }
 	func refreshIcon(_ imagePath: String)
 }
 
 final class AddTaskPresenter: AddTaskOutput {
 
-	weak var view: AddTaskInput?
+	weak var view: AddTaskInput!
 	let repository: TasksRepositoryType!
 	let router: RouterProtocol?
 
@@ -28,6 +29,14 @@ final class AddTaskPresenter: AddTaskOutput {
 	}
 
 	func saveButtonPressed(with data: TaskEntity) {
+		guard view.isNewTask else {
+			repository.update(task: data) {
+				self.router?.popToRoot()
+			}
+
+			return
+		}
+
 		repository.create(task: data) {
 			self.router?.popToRoot()
 		}

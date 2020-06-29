@@ -46,17 +46,19 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 	}
 
 	func create(task: TaskEntity, completion: @escaping () -> Void) {
-
-		if let existingTask = get(by: task.id) {
-			existingTask.map(task)
-			coreDataStack.save(context: coreDataStack.mainContext)
-			completion()
-			return
-		}
-
 		let taskMO = Task(context: coreDataStack.mainContext)
 
 		taskMO.map(task)
+		coreDataStack.save(context: coreDataStack.mainContext)
+		completion()
+	}
+
+	func update(task: TaskEntity, completion: @escaping () -> Void) {
+		guard let existingTask = get(by: task.id) else {
+			return
+		}
+
+		existingTask.map(task)
 		coreDataStack.save(context: coreDataStack.mainContext)
 		completion()
 	}

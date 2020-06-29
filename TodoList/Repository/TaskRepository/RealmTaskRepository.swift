@@ -48,6 +48,10 @@ class RealmTaskRepository: TasksRepositoryType {
 
 	}
 
+	func update(task: TaskEntity, completion: @escaping () -> Void) {
+		fatalError()
+	}
+
 	func delete(task: TaskEntity) {
 		guard let taskToDelete = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) else {
 			return

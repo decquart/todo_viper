@@ -83,7 +83,16 @@ extension TaskDetailsViewController {
 	}
 }
 
+//MARK: - AddTaskInput
 extension TaskDetailsViewController: AddTaskInput {
+	var isNewTask: Bool {
+		if case .create = scope {
+			return true
+		}
+
+		return false
+	}
+
 	func refreshIcon(_ imagePath: String) {
 		taskIconImageView.image = UIImage(named: imagePath)
 	}

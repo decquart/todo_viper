@@ -16,7 +16,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
         self.coreDataStack = coreDataStack
     }
 
-	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void) {
+	func add(subtask: SubTaskEntity, to task: TaskEntity) {
 		let taskFetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 		taskFetchRequest.predicate = NSPredicate(format: "id = %@", task.id)
 
@@ -33,7 +33,6 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		subTaskMO.map(subtask)
 		taskMO.addToSubTasks(subTaskMO)
 		coreDataStack.save(context: coreDataStack.mainContext)
-		completion()
 	}
 
 	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
@@ -52,14 +51,13 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		}
 	}
 
-	func update(subtask: SubTaskEntity, completion: () -> Void) {
+	func update(subtask: SubTaskEntity) {
 		guard let storedSubTask = get(by: subtask.uuid) else {
 			return
 		}
 
 		storedSubTask.map(subtask)
 		coreDataStack.save(context: coreDataStack.mainContext)
-		completion()
 	}
 
 	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {

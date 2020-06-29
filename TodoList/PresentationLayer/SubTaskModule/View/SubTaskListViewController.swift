@@ -99,21 +99,16 @@ extension SubTaskListViewController: SubTaskListAdapterView {
 		tableView.endUpdates()
 	}
 
-	func insertRow(at newIndexPath: IndexPath?) {
-		tableView.insertRows(at: [newIndexPath!], with: .automatic)
+	func insertRows(at newIndexPaths: [IndexPath]) {
+		tableView.insertRows(at: newIndexPaths, with: .automatic)
 	}
 
-	func deleteRow(at indexPath: IndexPath?) {
-		tableView.deleteRows(at: [indexPath!], with: .automatic)
+	func deleteRows(at indexPaths: [IndexPath]) {
+		tableView.deleteRows(at: indexPaths, with: .automatic)
 	}
 
-	func updateRow(at indexPath: IndexPath?) {
-		let cell = tableView.cellForRow(at: indexPath!) as! SubTaskCell
-		guard let subTask = presenter.subTask(at: indexPath!) else {
-			return
-		}
-
-		cell.configure(with: subTask)
+	func updateRows(at indexPaths: [IndexPath]) {
+		tableView.reloadRows(at: indexPaths, with: .automatic)
 	}
 
 	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {

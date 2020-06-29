@@ -25,17 +25,15 @@ protocol SubTaskListViewInput: class {
 class SubTaskListPresenter: SubTaskListViewOutput {
 
     let adapter: SubTaskListAdapterType
-	let repository: SubTasksRepositoryType
 	let router: RouterProtocol
 	weak var view: SubTaskListViewInput?
 
 	private var task: TaskEntity!
 
-	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, repository: SubTasksRepositoryType, router: RouterProtocol) {
+	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, router: RouterProtocol) {
 		self.view = view
 		self.task = task
         self.adapter = adapter
-		self.repository = repository
 		self.router = router
 	}
 

@@ -11,20 +11,27 @@ import Foundation
 
 final class SubTaskObject: Object {
 
+	@objc dynamic var id = ""
 	@objc dynamic var isCompleted = false
 	@objc dynamic var description_p = ""
 	let owner = LinkingObjects(fromType: TaskObject.self, property: "subTasks")
-}
 
+	override class func primaryKey() -> String? {
+		return "id"
+	}
+}
 
 extension SubTaskObject: StorableModel {
 	var domainModel: SubTaskEntity {
-		return SubTaskEntity(description: description_p, completed: isCompleted)
+		return SubTaskEntity(uuid: id, description: description_p, completed: isCompleted)
 	}
 }
 
 extension SubTaskObject: EntityMappable {
 	func map(_ entity: SubTaskEntity) {
+		if id.isEmpty {
+			id = entity.uuid
+		}
 		description_p = entity.description
 		isCompleted = entity.completed
 	}

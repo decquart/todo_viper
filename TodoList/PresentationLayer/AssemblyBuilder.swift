@@ -25,7 +25,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = RealmTaskRepository()
 		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
 		return view
@@ -35,10 +35,11 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-		let adapter = CoreDataSubTaskAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
+		let repository = RealmSubTaskRepository() //CoreDataSubTaskRepository(coreDataStack: coreDataStack)
+		let adapter = RealmSubTaskAdapter(taskId: task.id, view: view, repository: repository
+		) //CoreDataSubTaskAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
 
-		let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, repository: repository, router: router)
+		let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, router: router)
 		view.presenter = presenter
 		return view
 	}
@@ -53,7 +54,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
 
 		view.iconPickerView = subview
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = RealmTaskRepository()
 		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 

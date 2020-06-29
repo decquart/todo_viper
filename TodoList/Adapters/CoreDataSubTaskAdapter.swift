@@ -33,10 +33,11 @@ class CoreDataSubTaskAdapter: NSObject, SubTaskListAdapterType {
 	}
 
 	func update(subtask: SubTaskEntity) {
-		repository.update(subtask: subtask) {}
+		repository.update(subtask: subtask)
 	}
+
 	func add(subtask: SubTaskEntity, to task: TaskEntity) {
-		repository.add(subtask: subtask, to: task) {}
+		repository.add(subtask: subtask, to: task)
 	}
 }
 
@@ -69,11 +70,11 @@ extension CoreDataSubTaskAdapter: NSFetchedResultsControllerDelegate {
 
         switch type {
         case .insert:
-			view?.insertRow(at: newIndexPath)
+			view?.insertRows(at: [newIndexPath!])
         case .delete:
-			view?.deleteRow(at: indexPath)
+			view?.deleteRows(at: [indexPath!])
         case .update:
-			view?.updateRow(at: indexPath)
+			view?.updateRows(at: [indexPath!])
         case .move:
 			view?.moveRow(from: indexPath, to: newIndexPath)
         @unknown default:

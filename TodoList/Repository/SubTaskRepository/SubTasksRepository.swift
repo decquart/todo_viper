@@ -7,8 +7,8 @@
 //
 
 protocol SubTasksRepositoryType {
-	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void)
+	func add(subtask: SubTaskEntity, to task: TaskEntity)
 	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void)
-	func update(subtask: SubTaskEntity, completion: () -> Void)
+	func update(subtask: SubTaskEntity)
 	func markAsCompleted(where task: TaskEntity, completion: () -> Void)
 }

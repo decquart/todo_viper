@@ -11,9 +11,9 @@ import CoreData
 protocol SubTaskListAdapterView: class {
 	func beginUpdates()
 	func endUpdates()
-	func insertRow(at newIndexPath: IndexPath?)
-	func deleteRow(at indexPath: IndexPath?)
-	func updateRow(at indexPath: IndexPath?)
+	func insertRows(at newIndexPaths: [IndexPath])
+	func deleteRows(at indexPaths: [IndexPath])
+	func updateRows(at indexPaths: [IndexPath])
 	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?)
 }
 

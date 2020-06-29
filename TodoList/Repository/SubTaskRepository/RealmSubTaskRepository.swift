@@ -11,7 +11,7 @@ import RealmSwift
 class RealmSubTaskRepository: SubTasksRepositoryType {
 	let realm = try! Realm()
 
-	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: () -> Void) {
+	func add(subtask: SubTaskEntity, to task: TaskEntity) {
 		guard let taskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) else {
 			return
 		}
@@ -21,10 +21,8 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 
 		try! realm.write {
 			taskObj.subTasks.append(subTaskObj)
-			realm.add(taskObj, update: .modified)
+			realm.add(subTaskObj)
 		}
-
-		completion()
 	}
 
 	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
@@ -36,8 +34,14 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 		completion(entities)
 	}
 
-	func update(subtask: SubTaskEntity, completion: () -> Void) {
-		fatalError("Need to implement")
+	func update(subtask: SubTaskEntity) {
+		guard let subTaskObj = realm.object(ofType: SubTaskObject.self, forPrimaryKey: subtask.uuid) else {
+			return
+		}
+
+		try! realm.write {
+			subTaskObj.map(subtask)
+		}
 	}
 
 	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {

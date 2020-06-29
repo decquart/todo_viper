@@ -25,15 +25,6 @@ class RealmTaskRepository: TasksRepositoryType {
 	}
 
 	func create(task: TaskEntity, completion: () -> Void) {
-
-		if let existingTaskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) {
-			try! realm.write {
-				existingTaskObj.map(task)
-			}
-			completion()
-			return
-		}
-
 		let taskObj = TaskObject()
 		taskObj.map(task)
 
@@ -49,7 +40,12 @@ class RealmTaskRepository: TasksRepositoryType {
 	}
 
 	func update(task: TaskEntity, completion: @escaping () -> Void) {
-		fatalError()
+		guard let existingTaskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) else {
+			return
+		}
+
+		try! realm.write { existingTaskObj.map(task) }
+		completion()
 	}
 
 	func delete(task: TaskEntity) {

@@ -70,7 +70,7 @@ extension TaskDetailsViewController {
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
 		let name = titleTextField.text ?? ""
-		let image = UIImage(named: "shopping")!.pngData()!
+		let image = taskIconImageView.image!.pngData()!
 
 		if case let .edit(task) = scope {
 			let task = TaskEntity(id: task.id, name: name, image: image, color: color)

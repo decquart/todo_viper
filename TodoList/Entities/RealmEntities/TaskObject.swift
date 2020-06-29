@@ -8,12 +8,14 @@
 
 import RealmSwift
 import Foundation
+import UIKit
 
 class TaskObject: Object {
 
 	@objc dynamic var id = ""
 	@objc dynamic var name = ""
-	@objc dynamic var imagePath = ""
+	@objc dynamic var image: Data!
+	@objc dynamic var color: Data?
 
 	let subTasks = List<SubTaskObject>()
 
@@ -22,24 +24,20 @@ class TaskObject: Object {
 	}
 }
 
-
-
 extension TaskObject: StorableModel {
 	var domainModel: TaskEntity {
-		//todo add new fields
-		return TaskEntity(id: id, name: name, image: Data(), color: NSCoder())
+		return TaskEntity(id: id, name: name, image: image, color: UIColor.green)//todo
 	}
 }
 
 extension TaskObject: EntityMappable {
 	func map(_ entity: TaskEntity) {
-
-		//Workaround since primary key can't be changed after an object is inserted
 		if id.isEmpty {
 			id = entity.id
 		}
 
 		name = entity.name
-		imagePath = ""//entity.imagePath
+		image = entity.imageData
+		color = entity.imageColor as? Data
 	}
 }

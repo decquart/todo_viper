@@ -15,6 +15,7 @@ protocol SubTaskListAdapterView: class {
 	func deleteRows(at indexPaths: [IndexPath])
 	func updateRows(at indexPaths: [IndexPath])
 	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?)
+	func reloadData()
 }
 
 protocol SubTaskListAdapterType: class {

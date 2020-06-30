@@ -52,6 +52,7 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 
 		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
+			//todo: fix a bug
 			self?.presenter.buttonCompletePressed(at: indexPath)
 		}
 		return cell
@@ -115,5 +116,9 @@ extension SubTaskListViewController: SubTaskListAdapterView {
 		tableView.deleteRows(at: [indexPath!], with: .fade)
 		tableView.insertRows(at: [newIndexPath!], with: .fade)
 		tableView.reloadData()
+	}
+
+	func reloadData() {
+		tableView?.reloadData()
 	}
 }

@@ -29,7 +29,13 @@ class RealmSubTaskAdapter: NSObject, SubTaskListAdapterType {
 	}
 
 	func setup() {
-		results = realm.objects(SubTaskObject.self)//.filter("owner.id == %@", taskId)
+		results = realm.objects(SubTaskObject.self)
+			.filter("ANY owner.id == %@", taskId)
+			.sorted(by: [
+				SortDescriptor(keyPath: "isCompleted", ascending: true),
+				SortDescriptor(keyPath: "description_p", ascending: true)
+			])
+
 		observe()
 	}
 
@@ -61,7 +67,7 @@ extension RealmSubTaskAdapter {
 
 			switch changes {
 			case .initial:
-				print("reloa ")
+				view.reloadData()
 			case .update(_, let deletions, let insertions, let modifications):
 				view.beginUpdates()
 				view.deleteRows(at: deletions.map { IndexPath(row: $0, section: 0) })

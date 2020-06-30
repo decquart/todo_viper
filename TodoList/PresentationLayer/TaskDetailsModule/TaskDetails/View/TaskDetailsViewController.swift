@@ -93,8 +93,8 @@ extension TaskDetailsViewController: AddTaskInput {
 		return false
 	}
 
-	func refreshIcon(_ imagePath: String) {
-		taskIconImageView.image = UIImage(named: imagePath)
+	func refreshIcon(_ image: Data) {
+		taskIconImageView.image = UIImage(data: image)?.withRenderingMode(.alwaysTemplate)
 	}
 }
 

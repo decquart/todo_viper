@@ -6,14 +6,16 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
+import Foundation
+
 protocol AddTaskOutput: class {
 	func saveButtonPressed(with data: TaskEntity)
-	func updateIcon(_ imagePath: String)
+	func updateIcon(_ imageData: Data)
 }
 
 protocol AddTaskInput: class {
 	var isNewTask: Bool { get }
-	func refreshIcon(_ imagePath: String)
+	func refreshIcon(_ image: Data)
 }
 
 final class AddTaskPresenter: AddTaskOutput {
@@ -42,7 +44,7 @@ final class AddTaskPresenter: AddTaskOutput {
 		}
 	}
 
-	func updateIcon(_ imagePath: String) {
-		view?.refreshIcon(imagePath)
+	func updateIcon(_ imageData: Data) {
+		view?.refreshIcon(imageData)
 	}
 }

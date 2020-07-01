@@ -32,7 +32,7 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 
 		if var existingSubTask = subTask {
 			existingSubTask.description = viewModel.description // todo
-			repository.update(subtask: existingSubTask)
+			repository.update(subtask: existingSubTask){}
 		} else {
 			repository.add(subtask: SubTaskEntity(description: viewModel.description, completed: false), to: task)
 		}

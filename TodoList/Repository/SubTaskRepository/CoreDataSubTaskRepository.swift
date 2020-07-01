@@ -51,7 +51,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		}
 	}
 
-	func update(subtask: SubTaskEntity) {
+	func update(subtask: SubTaskEntity, completion: () -> Void) {
 		guard let storedSubTask = get(by: subtask.uuid) else {
 			return
 		}

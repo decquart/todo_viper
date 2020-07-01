@@ -34,13 +34,14 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 		completion(entities)
 	}
 
-	func update(subtask: SubTaskEntity) {
+	func update(subtask: SubTaskEntity, completion: () -> Void) {
 		guard let subTaskObj = realm.object(ofType: SubTaskObject.self, forPrimaryKey: subtask.uuid) else {
 			return
 		}
 
 		try! realm.write {
 			subTaskObj.map(subtask)
+			completion()
 		}
 	}
 

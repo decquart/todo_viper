@@ -9,6 +9,7 @@
 import Foundation
 
 protocol SubTaskListViewOutput: class {
+	func loadSubTasks()
     func numberOfRows(in section: Int) -> Int
     func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
 	func buttonCompletePressed(at indexPath: IndexPath)
@@ -22,39 +23,46 @@ protocol SubTaskListViewInput: class {
 }
 
 class SubTaskListPresenter: SubTaskListViewOutput {
-
-    let adapter: SubTaskListAdapterType
-	let router: RouterProtocol
 	weak var view: SubTaskListViewInput?
+	let router: RouterProtocol
+	let repository: SubTasksRepositoryType
 
 	private var task: TaskEntity!
+	private var subTasks: [SubTaskEntity] = [] {
+		didSet {
+			view?.refreshSubTasks()
+		}
+	}
 
-	required init(view: SubTaskListViewInput, task: TaskEntity, adapter: SubTaskListAdapterType, router: RouterProtocol) {
+	required init(view: SubTaskListViewInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: TaskEntity) {
 		self.view = view
-		self.task = task
-        self.adapter = adapter
 		self.router = router
+		self.repository = repository
+		self.task = task
+	}
+
+	func loadSubTasks() {
+		repository.getAll(where: task) { [weak self] in
+			self?.subTasks = $0
+		}
 	}
 
 	func numberOfRows(in section: Int) -> Int {
-        return adapter.numberOfRows(in: section)
+		return subTasks.count
     }
 
 	func subTask(at indexPath: IndexPath) -> SubTaskViewModel? {
-		guard let subTask = adapter.subTask(at: indexPath) else {
-			return nil
-		}
-
-		return SubTaskViewModel(subTaskEntity: subTask)
+		return SubTaskViewModel(subTaskEntity: subTasks[indexPath.row])
     }
 
     func buttonCompletePressed(at indexPath: IndexPath) {
-		guard var subTask = adapter.subTask(at: indexPath) else {
-			return
-		}
+		var subTask = subTasks[indexPath.row]
 
 		subTask.completed = !subTask.completed
-        adapter.update(subtask: subTask)
+		repository.update(subtask: subTask) {
+			subTasks[indexPath.row] = subTask
+			view?.refreshSubTasks()
+		}
     }
 
 	func didCompleteAll() {
@@ -62,10 +70,7 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func didSelect(at indexPath: IndexPath) {
-		guard let subTask = adapter.subTask(at: indexPath) else {
-			return
-		}
-
+		let subTask = subTasks[indexPath.row]
 		router.showSubTaskDetailsViewController(task: task, subTask: subTask)
 	}
 

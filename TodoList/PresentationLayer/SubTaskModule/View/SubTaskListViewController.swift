@@ -21,7 +21,7 @@ class SubTaskListViewController: UIViewController {
         super.viewDidLoad()
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
-        tableView.reloadData()
+		presenter.loadSubTasks()
     }
 }
 
@@ -52,7 +52,6 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 
 		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
-			//todo: fix a bug
 			self?.presenter.buttonCompletePressed(at: indexPath)
 		}
 		return cell
@@ -67,38 +66,5 @@ extension SubTaskListViewController {
 
 	@IBAction func addButtonPressed(_ sender: UIButton) {
 		presenter.addButtonPressed()
-	}
-}
-
-//MARK: - SubTaskListAdapterView
-extension SubTaskListViewController: SubTaskListAdapterView {
-	func beginUpdates() {
-		tableView.beginUpdates()
-	}
-
-	func endUpdates() {
-		tableView.endUpdates()
-	}
-
-	func insertRows(at newIndexPaths: [IndexPath]) {
-		tableView.insertRows(at: newIndexPaths, with: .automatic)
-	}
-
-	func deleteRows(at indexPaths: [IndexPath]) {
-		tableView.deleteRows(at: indexPaths, with: .automatic)
-	}
-
-	func updateRows(at indexPaths: [IndexPath]) {
-		tableView.reloadRows(at: indexPaths, with: .automatic)
-	}
-
-	func moveRow(from indexPath: IndexPath?, to newIndexPath: IndexPath?) {
-		tableView.deleteRows(at: [indexPath!], with: .fade)
-		tableView.insertRows(at: [newIndexPath!], with: .fade)
-		tableView.reloadData()
-	}
-
-	func reloadData() {
-		tableView?.reloadData()
 	}
 }

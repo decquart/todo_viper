@@ -36,10 +36,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
 		let repository = RealmSubTaskRepository() //CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-		let adapter = RealmSubTaskAdapter(taskId: task.id, view: view, repository: repository
-		) //CoreDataSubTaskAdapter(coreDataStack: coreDataStack, taskId: task.id, view: view, repository: repository)
-
-		let presenter = SubTaskListPresenter(view: view, task: task, adapter: adapter, router: router)
+		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
 		view.presenter = presenter
 		return view
 	}

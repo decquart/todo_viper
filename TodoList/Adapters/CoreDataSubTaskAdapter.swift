@@ -33,7 +33,7 @@ class CoreDataSubTaskAdapter: NSObject, SubTaskListAdapterType {
 	}
 
 	func update(subtask: SubTaskEntity) {
-		repository.update(subtask: subtask)
+		repository.update(subtask: subtask) {}
 	}
 
 	func add(subtask: SubTaskEntity, to task: TaskEntity) {

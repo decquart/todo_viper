@@ -7,15 +7,14 @@
 //
 
 import Foundation
-import CoreData
 
 protocol SubTaskListViewOutput: class {
     func numberOfRows(in section: Int) -> Int
     func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
-	func addSubTask(with viewModel: SubTaskViewModel)
 	func buttonCompletePressed(at indexPath: IndexPath)
 	func didCompleteAll()
-	func didSelect()//todo: add params
+	func didSelect(at indexPath: IndexPath)
+	func addButtonPressed()
 }
 
 protocol SubTaskListViewInput: class {
@@ -49,11 +48,6 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		return SubTaskViewModel(subTaskEntity: subTask)
     }
 
-	func addSubTask(with viewModel: SubTaskViewModel) {
-		let entity = SubTaskEntity(description: viewModel.description, completed: false)
-        adapter.add(subtask: entity, to: task)
-	}
-
     func buttonCompletePressed(at indexPath: IndexPath) {
 		guard var subTask = adapter.subTask(at: indexPath) else {
 			return
@@ -67,7 +61,15 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
 	}
 
-	func didSelect() {
-		router.showSubTaskDetailsViewController()
+	func didSelect(at indexPath: IndexPath) {
+		guard let subTask = adapter.subTask(at: indexPath) else {
+			return
+		}
+
+		router.showSubTaskDetailsViewController(task: task, subTask: subTask)
+	}
+
+	func addButtonPressed() {
+		router.showSubTaskDetailsViewController(task: task, subTask: nil)
 	}
 }

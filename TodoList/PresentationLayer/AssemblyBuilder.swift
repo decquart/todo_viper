@@ -12,7 +12,7 @@ protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
 	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController
-	func createSubTaskDetailsModule(router: RouterProtocol) -> UIViewController
+	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, subTask: SubTaskEntity?) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -63,10 +63,11 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSubTaskDetailsModule(router: RouterProtocol) -> UIViewController {
+	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, subTask: SubTaskEntity?) -> UIViewController {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
-		let presenter = SubTaskDetailsPresenter(view: view)
+		let repository = RealmSubTaskRepository()
+		let presenter = SubTaskDetailsPresenter(view: view, repository: repository, task: task, subTask: subTask)
 		view.presenter = presenter
 		return view
 	}

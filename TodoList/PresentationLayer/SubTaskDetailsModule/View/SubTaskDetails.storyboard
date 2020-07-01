@@ -15,24 +15,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qBR-Ha-KKP">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNU-Zg-Hxy">
+                                <rect key="frame" x="366" y="52" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="1b2-ey-XoK"/>
+                                    <constraint firstAttribute="height" constant="40" id="QzE-CY-GgR"/>
+                                </constraints>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="multiply.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="uq8-3b-xvO" eventType="touchUpInside" id="Sm6-ou-C5X"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., Buy some food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-c8-9Iu">
+                                <rect key="frame" x="20" y="84" width="346" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-eR-hiq">
+                                <rect key="frame" x="326" y="140" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="1ya-kB-u2S"/>
+                                    <constraint firstAttribute="width" constant="40" id="sxD-bb-6SW"/>
+                                </constraints>
+                                <color key="tintColor" red="1" green="0.031700934191911889" blue="0.27408440264912692" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" image="arrow.up.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="sendButtonPressed:" destination="uq8-3b-xvO" eventType="touchUpInside" id="HOA-wK-udL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="qBR-Ha-KKP" firstAttribute="centerX" secondItem="rNv-gd-5sX" secondAttribute="centerX" id="1Kc-pU-Pep"/>
-                            <constraint firstItem="qBR-Ha-KKP" firstAttribute="centerY" secondItem="rNv-gd-5sX" secondAttribute="centerY" id="K6K-Ig-kp9"/>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="trailing" secondItem="H8U-c8-9Iu" secondAttribute="trailing" id="3D0-IB-UlQ"/>
+                            <constraint firstItem="cNU-Zg-Hxy" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="8" id="5wG-F5-6n5"/>
+                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" constant="20" id="Ntu-g3-E7R"/>
+                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="40" id="QOi-iJ-Nqd"/>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="22" id="ag1-iR-KkQ"/>
+                            <constraint firstItem="cNU-Zg-Hxy" firstAttribute="leading" secondItem="H8U-c8-9Iu" secondAttribute="trailing" id="m2k-fH-qCP"/>
+                            <constraint firstItem="2v1-U1-10A" firstAttribute="trailing" secondItem="cNU-Zg-Hxy" secondAttribute="trailing" constant="8" id="tVf-8P-xr6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2v1-U1-10A"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="cNU-Zg-Hxy" id="DMZ-4R-xjr"/>
+                        <outlet property="sendButton" destination="gvF-eR-hiq" id="Wel-PH-2W1"/>
+                        <outlet property="textField" destination="H8U-c8-9Iu" id="LTg-3f-3T3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7XL-Lq-sYK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="44"/>
+            <point key="canvasLocation" x="153.62318840579712" y="43.526785714285715"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>

@@ -10,7 +10,7 @@ import Foundation
 
 struct SubTaskEntity {
 	let uuid: String
-	let description: String
+	var description: String
 	var completed: Bool
 
 	init(uuid: String = UUID().uuidString, description: String, completed: Bool) {

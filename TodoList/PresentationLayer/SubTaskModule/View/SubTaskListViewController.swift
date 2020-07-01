@@ -59,34 +59,14 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter.didSelect()
+		presenter.didSelect(at: indexPath)
 	}
 }
 
-//MARK: - UIAlertController
 extension SubTaskListViewController {
 
 	@IBAction func addButtonPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: nil, message: "Add new sub task", preferredStyle: .alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Name"
-        }
-
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
-            guard let name = alert.textFields?.first?.text, !name.isEmpty else {
-                return
-            }
-
-			let viewModel = SubTaskViewModel(description: name)
-			self.presenter.addSubTask(with: viewModel)
-        }
-
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default)
-
-        alert.addAction(cancelAction)
-        alert.addAction(saveAction)
-
-        present(alert, animated: true)
+		presenter.addButtonPressed()
 	}
 }
 

@@ -54,9 +54,7 @@
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D777BE3249D652000720B5D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE2249D652000720B5D /* TaskViewModel.swift */; };
-		2D777BEA24A0E93000720B5D /* SubTaskListAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */; };
 		2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */; };
-		2DC82F2924A47C5E00EFEF97 /* CoreDataSubTaskAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC82F2824A47C5E00EFEF97 /* CoreDataSubTaskAdapter.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 /* End PBXBuildFile section */
@@ -121,9 +119,7 @@
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D777BE2249D652000720B5D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
-		2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTaskListAdapter.swift; sourceTree = "<group>"; };
 		2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewModel.swift; sourceTree = "<group>"; };
-		2DC82F2824A47C5E00EFEF97 /* CoreDataSubTaskAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataSubTaskAdapter.swift; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -216,7 +212,6 @@
 		049FB5212480157E000A7133 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
-				2DC82F2524A47C1F00EFEF97 /* Adapters */,
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				049A98EC2484C37400CCE654 /* Persistence */,
@@ -463,15 +458,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		2DC82F2524A47C1F00EFEF97 /* Adapters */ = {
-			isa = PBXGroup;
-			children = (
-				2D777BE924A0E93000720B5D /* SubTaskListAdapter.swift */,
-				2DC82F2824A47C5E00EFEF97 /* CoreDataSubTaskAdapter.swift */,
-			);
-			path = Adapters;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -605,7 +591,6 @@
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,
 				04EFFD2624805BC80048336E /* SubTaskListPresenter.swift in Sources */,
-				2D777BEA24A0E93000720B5D /* SubTaskListAdapter.swift in Sources */,
 				04BCAB822498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* TaskDetailsViewController.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
@@ -622,7 +607,6 @@
 				04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
-				2DC82F2924A47C5E00EFEF97 /* CoreDataSubTaskAdapter.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
 				049FF595248A959F00BF0FDD /* StorableModel.swift in Sources */,
 				049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */,

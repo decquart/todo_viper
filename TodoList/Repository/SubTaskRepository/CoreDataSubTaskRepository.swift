@@ -16,7 +16,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
         self.coreDataStack = coreDataStack
     }
 
-	func add(subtask: SubTaskEntity, to task: TaskEntity) {
+	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: @escaping () -> Void) {
 		let taskFetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
 		taskFetchRequest.predicate = NSPredicate(format: "id = %@", task.id)
 
@@ -33,11 +33,16 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		subTaskMO.map(subtask)
 		taskMO.addToSubTasks(subTaskMO)
 		coreDataStack.save(context: coreDataStack.mainContext)
+		completion()
 	}
 
 	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
 		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", task.id)
+		fetchRequest.sortDescriptors = [
+			NSSortDescriptor(key: "completed", ascending: true),
+			NSSortDescriptor(key: "description_p", ascending: true)
+		]
 
 		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
 			let entities = result.finalResult?.map { $0.domainModel } ?? []
@@ -51,13 +56,14 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		}
 	}
 
-	func update(subtask: SubTaskEntity, completion: () -> Void) {
+	func update(subtask: SubTaskEntity, completion: @escaping () -> Void) {
 		guard let storedSubTask = get(by: subtask.uuid) else {
 			return
 		}
 
 		storedSubTask.map(subtask)
 		coreDataStack.save(context: coreDataStack.mainContext)
+		completion()
 	}
 
 	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {

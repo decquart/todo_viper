@@ -25,7 +25,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let repository = RealmTaskRepository()
+		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
 		return view
@@ -35,7 +35,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let repository = RealmSubTaskRepository() //CoreDataSubTaskRepository(coreDataStack: coreDataStack)
+		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
 		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
 		view.presenter = presenter
 		return view
@@ -51,7 +51,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
 
 		view.iconPickerView = subview
-		let repository = RealmTaskRepository()
+		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
 		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
@@ -63,7 +63,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, subTask: SubTaskEntity?) -> UIViewController {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
-		let repository = RealmSubTaskRepository()
+		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
 		let presenter = SubTaskDetailsPresenter(view: view, repository: repository, task: task, subTask: subTask)
 		view.presenter = presenter
 		return view

@@ -59,9 +59,8 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		var subTask = subTasks[indexPath.row]
 
 		subTask.completed = !subTask.completed
-		repository.update(subtask: subTask) {
-			subTasks[indexPath.row] = subTask
-			view?.refreshSubTasks()
+		repository.update(subtask: subTask) { [weak self] in
+			self?.loadSubTasks()
 		}
     }
 

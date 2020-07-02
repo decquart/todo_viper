@@ -12,7 +12,7 @@ import UIKit
 protocol TaskListViewOutput: class {
 
 	var numberOfTasks: Int { get }
-	func task(at index: Int) -> TaskViewModel?
+	func task(at index: Int) -> TaskViewModel
 
 	func loadTasks()
 	func addTaskButtonPressed()
@@ -46,9 +46,8 @@ class TaskListPresenter: TaskListViewOutput {
 		self.router = router
 	}
 
-	func task(at index: Int) -> TaskViewModel? {
+	func task(at index: Int) -> TaskViewModel {
 		let task = tasks[index]
-
 		let count = repository.getSubTasksCount(for: task)
 
 		return TaskViewModel(taskEntity: task, subTasksCount: count)

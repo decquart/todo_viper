@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
-	@IBOutlet weak private var collectionView: UICollectionView! {
+	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self
@@ -56,10 +56,8 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TaskCollectionViewCell.identifire, for: indexPath) as? TaskCollectionViewCell, let vm = presenter.task(at: indexPath.row) else {
-			return UICollectionViewCell()
-		}
-
+		let cell = collectionView.dequeue(cellType: TaskCollectionViewCell.self, for: indexPath)
+		let vm = presenter.task(at: indexPath.row)
 		cell.configure(with: vm)
 		return cell
 	}

@@ -11,8 +11,6 @@ import UIKit
 class SubTaskCell: UITableViewCell {
 
 	var buttonPressedClosure: (() -> Void)?
-
-	static let identifire = "subTaskCell"
 	@IBOutlet weak private var descriptionLabel: UILabel!
 	@IBOutlet weak private var checkButton: UIButton!
 

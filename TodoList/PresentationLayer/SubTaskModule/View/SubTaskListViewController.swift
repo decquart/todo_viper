@@ -51,15 +51,14 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell else {
-			return UITableViewCell	()
-		}
-
+		let cell = tableView.dequeue(cellType: SubTaskCell.self, for: indexPath)
 		let subTask = presenter.subTask(at: indexPath)
+
 		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
 			self?.presenter.buttonCompletePressed(at: indexPath.row)
 		}
+
 		return cell
 	}
 

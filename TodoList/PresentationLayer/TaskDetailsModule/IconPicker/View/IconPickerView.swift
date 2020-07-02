@@ -20,7 +20,7 @@ class IconPickerView: UIView {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self
-			collectionView.register(UINib.init(nibName: "IconPickerCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "IconPickerCollectionViewCell")
+			collectionView.registerNib(cellType: IconPickerCollectionViewCell.self)
 			collectionView.allowsSelection = true
 		}
 	}
@@ -46,10 +46,7 @@ extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IconPickerCollectionViewCell", for: indexPath) as? IconPickerCollectionViewCell else {
-			return UICollectionViewCell()
-		}
-
+		let cell = collectionView.dequeue(cellType: IconPickerCollectionViewCell.self, for: indexPath)
 		cell.imageView.image = images[indexPath.row]
 		return cell
 	}

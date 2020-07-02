@@ -16,7 +16,7 @@ class IconPickerView: UIView {
 	private var selectedCell: IconPickerCollectionViewCell? = nil
 	private var presenter: IconPickerInput!
 
-	@IBOutlet weak var collectionView: UICollectionView! {
+	@IBOutlet weak private var collectionView: UICollectionView! {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self

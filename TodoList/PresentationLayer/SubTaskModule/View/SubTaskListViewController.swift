@@ -15,7 +15,12 @@ class SubTaskListViewController: UIViewController {
 	var presenter: SubTaskListViewOutput!
 	var tempSubTask: String?
 
-	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak private var tableView: UITableView! {
+		didSet {
+			tableView.delegate = self
+			tableView.dataSource = self
+		}
+	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +47,18 @@ extension SubTaskListViewController {
 //MARK: - UITableViewDelegate, UITableViewDataSource
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRows(in: section)
+        return presenter.numberOfRows()
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell, let subTask = presenter.subTask(at: indexPath) else {
-			return UITableViewCell()
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: SubTaskCell.identifire, for: indexPath) as? SubTaskCell else {
+			return UITableViewCell	()
 		}
 
+		let subTask = presenter.subTask(at: indexPath)
 		cell.configure(with: subTask)
 		cell.buttonPressedClosure = { [weak self] in
-			self?.presenter.buttonCompletePressed(at: indexPath)
+			self?.presenter.buttonCompletePressed(at: indexPath.row)
 		}
 		return cell
 	}

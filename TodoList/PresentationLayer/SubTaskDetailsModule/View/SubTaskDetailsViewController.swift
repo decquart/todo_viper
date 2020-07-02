@@ -12,19 +12,19 @@ class SubTaskDetailsViewController: UIViewController {
 	static let identifire = "subTaskDetailsVC"
 	var presenter: SubTaskDetailsOutput!
 
-	@IBOutlet weak var textField: UITextField!
-	@IBOutlet weak var closeButton: UIButton!
-	@IBOutlet weak var sendButton: UIButton!
+	@IBOutlet weak private var textField: UITextField!
+	@IBOutlet weak private var closeButton: UIButton!
+	@IBOutlet weak private var sendButton: UIButton!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-	@IBAction func closeButtonPressed(_ sender: Any) {
+	@IBAction private func closeButtonPressed(_ sender: Any) {
 		dismiss(animated: true)
 	}
 
-	@IBAction func sendButtonPressed(_ sender: Any) {
+	@IBAction private func sendButtonPressed(_ sender: Any) {
 		guard let text = textField.text, !text.isEmpty else {
 			return
 		}

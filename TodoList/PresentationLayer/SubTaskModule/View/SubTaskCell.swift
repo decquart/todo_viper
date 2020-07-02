@@ -13,10 +13,10 @@ class SubTaskCell: UITableViewCell {
 	var buttonPressedClosure: (() -> Void)?
 
 	static let identifire = "subTaskCell"
-	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var checkButton: UIButton!
+	@IBOutlet weak private var descriptionLabel: UILabel!
+	@IBOutlet weak private var checkButton: UIButton!
 
-	@IBAction func checkButtonPressed(_ sender: UIButton) {
+	@IBAction private func checkButtonPressed(_ sender: UIButton) {
 		buttonPressedClosure?()
 	}
 

@@ -79,7 +79,6 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		} catch {
 			print(error.localizedDescription)
 		}
-
 	}
 
 	private func get(by id: String) -> SubTask? {

@@ -9,7 +9,7 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
-	@IBOutlet weak var collectionView: UICollectionView! {
+	@IBOutlet weak private var collectionView: UICollectionView! {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self

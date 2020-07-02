@@ -10,9 +10,9 @@ import Foundation
 
 protocol SubTaskListViewOutput: class {
 	func loadSubTasks()
-    func numberOfRows(in section: Int) -> Int
-    func subTask(at indexPath: IndexPath) -> SubTaskViewModel?
-	func buttonCompletePressed(at indexPath: IndexPath)
+	func numberOfRows() -> Int
+	func subTask(at indexPath: IndexPath) -> SubTaskViewModel
+	func buttonCompletePressed(at index: Int)
 	func didCompleteAll()
 	func didSelect(at indexPath: IndexPath)
 	func addButtonPressed()
@@ -47,22 +47,22 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		}
 	}
 
-	func numberOfRows(in section: Int) -> Int {
+	func numberOfRows() -> Int {
 		return subTasks.count
-    }
+	}
 
-	func subTask(at indexPath: IndexPath) -> SubTaskViewModel? {
+	func subTask(at indexPath: IndexPath) -> SubTaskViewModel {
 		return SubTaskViewModel(subTaskEntity: subTasks[indexPath.row])
-    }
+	}
 
-    func buttonCompletePressed(at indexPath: IndexPath) {
-		var subTask = subTasks[indexPath.row]
+	func buttonCompletePressed(at index: Int) {
+		var subTask = subTasks[index]
 
 		subTask.completed = !subTask.completed
 		repository.update(subtask: subTask) { [weak self] in
 			self?.loadSubTasks()
 		}
-    }
+	}
 
 	func didCompleteAll() {
 

@@ -25,13 +25,13 @@ class TaskDetailsViewController: UIViewController {
 		}
 	}
 
-	@IBOutlet weak var redSlider: UISlider!
-	@IBOutlet weak var greenSlider: UISlider!
-	@IBOutlet weak var blueSlider: UISlider!
+	@IBOutlet weak private var redSlider: UISlider!
+	@IBOutlet weak private var greenSlider: UISlider!
+	@IBOutlet weak private var blueSlider: UISlider!
 
-	@IBOutlet weak var taskIconImageView: UIImageView!
-	@IBOutlet weak var titleTextField: UITextField!
-	@IBOutlet weak var addButton: UIButton! {
+	@IBOutlet weak private var taskIconImageView: UIImageView!
+	@IBOutlet weak private var titleTextField: UITextField!
+	@IBOutlet weak private var addButton: UIButton! {
 		didSet {
 			addButton.layer.cornerRadius = addButton.frame.height / 2
 		}
@@ -70,7 +70,7 @@ extension TaskDetailsViewController {
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
 		let name = titleTextField.text ?? ""
-		let image = taskIconImageView.image!.pngData()!
+		let image = taskIconImageView.image?.pngData() ?? Data()
 
 		if case let .edit(task) = scope {
 			let task = TaskEntity(id: task.id, name: name, image: image, color: color)

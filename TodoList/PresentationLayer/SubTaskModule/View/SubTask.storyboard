@@ -63,10 +63,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="lHq-PW-VlG" id="mgb-2T-nD9"/>
-                                    <outlet property="delegate" destination="lHq-PW-VlG" id="iKi-9C-qVa"/>
-                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-SH-1bi" customClass="AddButton" customModule="TodoList" customModuleProvider="target">
                                 <rect key="frame" x="314" y="796" width="60" height="60"/>

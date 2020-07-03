@@ -68,7 +68,7 @@ class TaskListPresenter: TaskListViewOutput {
 
 		if view.isEditMode {
 			router.showEditTaskAlertViewController(editAction: {
-				self.router.showTaskDetailsViewController(scope: .edit(task: task))
+				self.router.showTaskDetailsViewController(scope: .edit(model: task))
 			}, deleteAction: {
 				self.repository.delete(task: task)
 				self.tasks = self.tasks.filter { task.id != $0.id }

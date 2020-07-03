@@ -11,6 +11,7 @@ import UIKit
 class SubTaskDetailsViewController: UIViewController {
 	static let identifire = "subTaskDetailsVC"
 	var presenter: SubTaskDetailsOutput!
+	var scope: Scope<SubTaskEntity>!
 
 	@IBOutlet weak private var textField: UITextField!
 	@IBOutlet weak private var closeButton: UIButton!
@@ -18,6 +19,8 @@ class SubTaskDetailsViewController: UIViewController {
 
 	override func viewDidLoad() {
         super.viewDidLoad()
+
+		initAppearance()
     }
 
 	@IBAction private func closeButtonPressed(_ sender: Any) {
@@ -31,9 +34,26 @@ class SubTaskDetailsViewController: UIViewController {
 
 		presenter.sendButtonPressed(viewModel: SubTaskViewModel(description: text))
 	}
+
+	func initAppearance() {
+		switch scope {
+		case .edit(let subtask):
+			textField.text = subtask.description
+		default:
+			break
+		}
+	}
 }
 
 extension SubTaskDetailsViewController: SubTaskDetailsInput {
+	var isNewSubtask: Bool {
+		if case .create = scope {
+			return true
+		}
+
+		return false
+	}
+
 	func invalidateView() {
 		textField.text = ""
 	}

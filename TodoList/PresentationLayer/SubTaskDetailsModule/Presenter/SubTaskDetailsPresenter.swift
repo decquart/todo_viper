@@ -11,6 +11,7 @@ protocol SubTaskDetailsOutput: class {
 }
 
 protocol SubTaskDetailsInput: class {
+	var isNewSubtask: Bool { get }
 	func invalidateView()
 }
 
@@ -21,20 +22,18 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	private var task: TaskEntity
 	private var subTask: SubTaskEntity?
 
-	init(view: SubTaskDetailsInput, repository: SubTasksRepositoryType, task: TaskEntity, subTask: SubTaskEntity?) {
+	init(view: SubTaskDetailsInput, repository: SubTasksRepositoryType, task: TaskEntity) {
 		self.view = view
 		self.repository = repository
 		self.task = task
-		self.subTask = subTask
 	}
 
 	func sendButtonPressed(viewModel: SubTaskViewModel) {
 
-		if var existingSubTask = subTask {
-			existingSubTask.description = viewModel.description // todo
-				repository.update(subtask: existingSubTask){ }
-		} else {
+		if view.isNewSubtask {
 			repository.add(subtask: SubTaskEntity(description: viewModel.description, completed: false), to: task) { }
+		} else {
+			////todo: update
 		}
 
 		view.invalidateView()

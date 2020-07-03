@@ -16,8 +16,8 @@ protocol RouterMain {
 protocol RouterProtocol: RouterMain {
 	func showTaskListViewController()
 	func showSubTaskListViewController(task: TaskEntity)
-	func showTaskDetailsViewController(scope: TaskDetailsScope)
-	func showSubTaskDetailsViewController(task: TaskEntity, subTask: SubTaskEntity?)
+	func showTaskDetailsViewController(scope: Scope<TaskEntity>)
+	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskEntity>)
 	func popToRoot()
 	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void)
 }
@@ -43,13 +43,13 @@ class Router: RouterProtocol {
 		navigationController.pushViewController(vc, animated: true)
 	}
 
-	func showTaskDetailsViewController(scope: TaskDetailsScope) {
+	func showTaskDetailsViewController(scope: Scope<TaskEntity>) {
 		let vc = assemblyBuilder.createTaskDetailsModule(router: self, scope: scope)
 		navigationController.pushViewController(vc, animated: true)
 	}
 
-	func showSubTaskDetailsViewController(task: TaskEntity, subTask: SubTaskEntity?) {
-		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, subTask: subTask)
+	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskEntity>) {
+		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, scope: scope)
 		vc.modalPresentationStyle = .formSheet
 		navigationController.present(vc, animated: true)
 	}

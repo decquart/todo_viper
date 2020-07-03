@@ -11,8 +11,8 @@ import UIKit
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
-	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController
-	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, subTask: SubTaskEntity?) -> UIViewController
+	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskEntity>) -> UIViewController
+	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, scope: Scope<SubTaskEntity>) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -41,7 +41,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createTaskDetailsModule(router: RouterProtocol, scope: TaskDetailsScope) -> UIViewController {
+	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskEntity>) -> UIViewController {
 
 		let iconPickerPresenter = IconPickerPresenter()
 		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
@@ -60,12 +60,14 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, subTask: SubTaskEntity?) -> UIViewController {
+	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, scope: Scope<SubTaskEntity>) -> UIViewController {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-		let presenter = SubTaskDetailsPresenter(view: view, repository: repository, task: task, subTask: subTask)
+		let presenter = SubTaskDetailsPresenter(view: view, repository: repository, task: task)
+
 		view.presenter = presenter
+		view.scope = scope
 		return view
 	}
 }

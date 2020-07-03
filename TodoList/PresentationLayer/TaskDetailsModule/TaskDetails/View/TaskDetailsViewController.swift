@@ -8,16 +8,16 @@
 
 import UIKit
 
-enum TaskDetailsScope {
+enum Scope<Model> {
 	case create
-	case edit(task: TaskEntity)
+	case edit(model: Model)
 }
 
 class TaskDetailsViewController: UIViewController {
 
 	static let identifire = "taskDetailsVC"
 	var presenter: AddTaskOutput!
-	var scope: TaskDetailsScope!
+	var scope: Scope<TaskEntity>!
 
 	private var color: UIColor! {
 		didSet {

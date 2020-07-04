@@ -34,7 +34,7 @@ class IconPickerView: UIView {
 }
 
 extension IconPickerView: IconPickerOutput {
-	func iconDidSelect(_ imageData: Data) {
+	func iconDidSelect(_ imagePath: String) {
 
 	}
 }
@@ -60,8 +60,8 @@ extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 		cell.layer.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
 		selectedCell = cell
 
-		let img = UIImage(named: imageNames[indexPath.row])!
-		presenter.updateIcon(img.pngData()!)
+		//let img = UIImage(named: imageNames[indexPath.row])!
+		presenter.updateIcon(imageNames[indexPath.row])
 	}
 }
 

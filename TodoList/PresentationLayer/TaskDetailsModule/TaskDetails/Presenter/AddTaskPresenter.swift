@@ -10,12 +10,12 @@ import Foundation
 
 protocol AddTaskOutput: class {
 	func saveButtonPressed(with data: TaskEntity)
-	func updateIcon(_ imageData: Data)
+	func updateIcon(_ imagePath: String)
 }
 
 protocol AddTaskInput: class {
 	var isNewTask: Bool { get }
-	func refreshIcon(_ image: Data)
+	func refreshIcon(_ imagePath: String)
 }
 
 final class AddTaskPresenter: AddTaskOutput {
@@ -44,7 +44,7 @@ final class AddTaskPresenter: AddTaskOutput {
 		}
 	}
 
-	func updateIcon(_ imageData: Data) {
-		view?.refreshIcon(imageData)
+	func updateIcon(_ imagePath: String) {
+		view?.refreshIcon(imagePath)
 	}
 }

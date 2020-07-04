@@ -19,6 +19,7 @@ class TaskDetailsViewController: UIViewController {
 	var presenter: AddTaskOutput!
 	var scope: Scope<TaskEntity>!
 
+	private var imagePath: String = ""
 	private var color: UIColor! {
 		didSet {
 			taskIconImageView.tintColor = color
@@ -70,7 +71,7 @@ extension TaskDetailsViewController {
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
 		let name = titleTextField.text ?? ""
-		let image = "shopping"//taskIconImageView.image?.pngData() ?? Data()
+		let image = imagePath//taskIconImageView.image?.pngData() ?? Data()
 
 		if case let .edit(task) = scope {
 			let task = TaskEntity(id: task.id, name: name, imagePath: image, color: color)
@@ -93,8 +94,9 @@ extension TaskDetailsViewController: AddTaskInput {
 		return false
 	}
 
-	func refreshIcon(_ image: Data) {
-		taskIconImageView.image = UIImage(data: image)?.withRenderingMode(.alwaysTemplate)
+	func refreshIcon(_ imagePath: String) {
+		self.imagePath = imagePath
+		taskIconImageView.image = UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
 	}
 }
 
@@ -112,6 +114,7 @@ extension TaskDetailsViewController {
 	func setupDefaultAppearance() {
 		taskIconImageView.image = UIImage(named: "shopping")
 		color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
+		self.imagePath = "shopping"
 	}
 
 	func setupAppearance(with existingTask: TaskEntity) {
@@ -122,6 +125,9 @@ extension TaskDetailsViewController {
 		redSlider.value = Float(CIColor(color: color).red)
 		greenSlider.value = Float(CIColor(color: color).green)
 		blueSlider.value = Float(CIColor(color: color).blue)
+
+		//todo: move to view model
+		self.imagePath = existingTask.imagePath
 	}
 }
 

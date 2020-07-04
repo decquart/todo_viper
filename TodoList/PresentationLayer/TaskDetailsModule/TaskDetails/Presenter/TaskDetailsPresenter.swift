@@ -8,38 +8,38 @@
 
 import Foundation
 
-protocol AddTaskOutput: class {
-	func saveButtonPressed(with data: TaskEntity)
+protocol TaskDetailsOutput: class {
+	func saveButtonPressed(with viewModel: TaskViewModel)
 	func updateIcon(_ imagePath: String)
 }
 
-protocol AddTaskInput: class {
+protocol TaskDetailsInput: class {
 	var isNewTask: Bool { get }
 	func refreshIcon(_ imagePath: String)
 }
 
-final class AddTaskPresenter: AddTaskOutput {
+final class TaskDetailsPresenter: TaskDetailsOutput {
 
-	weak var view: AddTaskInput!
+	weak var view: TaskDetailsInput!
 	let repository: TasksRepositoryType!
 	let router: RouterProtocol?
 
-	init(view: AddTaskInput, repository: TasksRepositoryType, router: RouterProtocol) {
+	init(view: TaskDetailsInput, repository: TasksRepositoryType, router: RouterProtocol) {
 		self.view = view
 		self.repository = repository
 		self.router = router
 	}
 
-	func saveButtonPressed(with data: TaskEntity) {
+	func saveButtonPressed(with viewModel: TaskViewModel) {
 		guard view.isNewTask else {
-			repository.update(task: data) {
+			repository.update(task: viewModel.domainModel) {
 				self.router?.popToRoot()
 			}
 
 			return
 		}
 
-		repository.create(task: data) {
+		repository.create(task: viewModel.domainModel) {
 			self.router?.popToRoot()
 		}
 	}

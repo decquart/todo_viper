@@ -10,7 +10,7 @@
 		042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042176D2248D1DF100FDDAE3 /* EntityMappable.swift */; };
 		044254182480D09800ED4C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254172480D09800ED4C72 /* Router.swift */; };
 		0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254192480D0E900ED4C72 /* AssemblyBuilder.swift */; };
-		04606D122486164A00AE5633 /* AddTaskPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04606D112486164A00AE5633 /* AddTaskPresenter.swift */; };
+		04606D122486164A00AE5633 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04606D112486164A00AE5633 /* TaskDetailsPresenter.swift */; };
 		047C64F724858AA400BB6702 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047C64F624858AA400BB6702 /* TaskDetailsViewController.swift */; };
 		047C64FB24858B5C00BB6702 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047C64FA24858B5C00BB6702 /* TaskDetails.storyboard */; };
 		049B50E92483D8C200ED1581 /* SubTask.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049B50E82483D8C200ED1581 /* SubTask.storyboard */; };
@@ -77,7 +77,7 @@
 		042176D2248D1DF100FDDAE3 /* EntityMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMappable.swift; sourceTree = "<group>"; };
 		044254172480D09800ED4C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		044254192480D0E900ED4C72 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
-		04606D112486164A00AE5633 /* AddTaskPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskPresenter.swift; sourceTree = "<group>"; };
+		04606D112486164A00AE5633 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		047C64F624858AA400BB6702 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		047C64FA24858B5C00BB6702 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		049B50E82483D8C200ED1581 /* SubTask.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SubTask.storyboard; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 		04606D132486164F00AE5633 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				04606D112486164A00AE5633 /* AddTaskPresenter.swift */,
+				04606D112486164A00AE5633 /* TaskDetailsPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -592,7 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EFFD1C24801B660048336E /* TaskListPresenter.swift in Sources */,
-				04606D122486164A00AE5633 /* AddTaskPresenter.swift in Sources */,
+				04606D122486164A00AE5633 /* TaskDetailsPresenter.swift in Sources */,
 				04EFFD1F24801F680048336E /* TaskCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* SubTaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */,

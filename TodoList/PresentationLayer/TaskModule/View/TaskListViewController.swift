@@ -77,7 +77,6 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
 		presenter.didSelectTask(with: indexPath.row)
 	}
 }

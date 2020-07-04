@@ -25,6 +25,7 @@ class TaskCollectionViewCell: UICollectionViewCell {
 
 	func configure(with viewModel: TaskViewModel) {
 		taskImageView.image = viewModel.image
+		taskImageView.tintColor = viewModel.color
 		taskNameLabel.text = viewModel.name
 		subTaskCountLabel.text = String(viewModel.subTasksCount)
 	}

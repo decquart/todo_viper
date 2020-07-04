@@ -16,8 +16,8 @@ enum Scope<Model> {
 class TaskDetailsViewController: UIViewController {
 
 	static let identifire = "taskDetailsVC"
-	var presenter: AddTaskOutput!
-	var scope: Scope<TaskEntity>!
+	var presenter: TaskDetailsOutput!
+	var scope: Scope<TaskViewModel>!
 
 	private var imagePath: String = ""
 	private var color: UIColor! {
@@ -70,22 +70,27 @@ extension TaskDetailsViewController {
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
+		//todo: improve
 		let name = titleTextField.text ?? ""
-		let image = imagePath//taskIconImageView.image?.pngData() ?? Data()
 
-		if case let .edit(task) = scope {
-			let task = TaskEntity(id: task.id, name: name, imagePath: image, color: color)
+		if case var .edit(task) = scope {
+			task.name = name
+			task.imagePath = imagePath
+			task.color = color
 			presenter.saveButtonPressed(with: task)
 			return
 		}
 
-		let task = TaskEntity(name: name, imagePath: image, color: color)
+		var task = TaskViewModel()
+		task.name = name
+		task.imagePath = imagePath
+		task.color = color
 		presenter.saveButtonPressed(with: task)
 	}
 }
 
 //MARK: - AddTaskInput
-extension TaskDetailsViewController: AddTaskInput {
+extension TaskDetailsViewController: TaskDetailsInput {
 	var isNewTask: Bool {
 		if case .create = scope {
 			return true
@@ -117,10 +122,10 @@ extension TaskDetailsViewController {
 		self.imagePath = "shopping"
 	}
 
-	func setupAppearance(with existingTask: TaskEntity) {
+	func setupAppearance(with existingTask: TaskViewModel) {
 		titleTextField.text = existingTask.name
-		taskIconImageView.image = UIImage(named: existingTask.imagePath)?.withRenderingMode(.alwaysTemplate)
-		color = existingTask.imageColor as? UIColor
+		taskIconImageView.image = existingTask.image
+		color = existingTask.color
 
 		redSlider.value = Float(CIColor(color: color).red)
 		greenSlider.value = Float(CIColor(color: color).green)

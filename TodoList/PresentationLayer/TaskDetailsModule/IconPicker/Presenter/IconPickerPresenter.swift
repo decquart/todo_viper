@@ -18,7 +18,7 @@ protocol IconPickerInput: class {
 
 class IconPickerPresenter: IconPickerInput {
 	weak var view: IconPickerOutput?
-	weak var detailsPresenter: AddTaskOutput?
+	weak var detailsPresenter: TaskDetailsOutput?
 
 	func updateIcon(_ imagePath: String) {
 		detailsPresenter?.updateIcon(imagePath)

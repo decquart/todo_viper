@@ -11,7 +11,7 @@ import UIKit
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
 	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
-	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskEntity>) -> UIViewController
+	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskViewModel>) -> UIViewController
 	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, scope: Scope<SubTaskEntity>) -> UIViewController
 }
 
@@ -41,7 +41,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskEntity>) -> UIViewController {
+	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskViewModel>) -> UIViewController {
 
 		let iconPickerPresenter = IconPickerPresenter()
 		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
@@ -52,7 +52,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		view.iconPickerView = subview
 		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
-		let presenter = AddTaskPresenter(view: view, repository: repository, router: router)
+		let presenter = TaskDetailsPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
 		view.presenter = presenter

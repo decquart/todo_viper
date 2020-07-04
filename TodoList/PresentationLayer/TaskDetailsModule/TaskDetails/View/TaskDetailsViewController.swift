@@ -118,6 +118,10 @@ extension TaskDetailsViewController {
 		titleTextField.text = existingTask.name
 		taskIconImageView.image = UIImage(data: existingTask.imageData)?.withRenderingMode(.alwaysTemplate)
 		color = existingTask.imageColor as? UIColor
+
+		redSlider.value = Float(CIColor(color: color).red)
+		greenSlider.value = Float(CIColor(color: color).green)
+		blueSlider.value = Float(CIColor(color: color).blue)
 	}
 }
 

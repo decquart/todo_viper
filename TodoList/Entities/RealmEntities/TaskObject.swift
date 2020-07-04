@@ -14,7 +14,7 @@ class TaskObject: Object {
 
 	@objc dynamic var id = ""
 	@objc dynamic var name = ""
-	@objc dynamic var image: Data!
+	@objc dynamic var imagePath = ""
 	@objc dynamic var color: Data?
 
 	let subTasks = List<SubTaskObject>()
@@ -26,7 +26,7 @@ class TaskObject: Object {
 
 extension TaskObject: StorableModel {
 	var domainModel: TaskEntity {
-		return TaskEntity(id: id, name: name, image: image, color: UIColor.green)//todo
+		return TaskEntity(id: id, name: name, imagePath: imagePath, color: UIColor.green)//todo
 	}
 }
 
@@ -37,7 +37,7 @@ extension TaskObject: EntityMappable {
 		}
 
 		name = entity.name
-		image = entity.imageData
+		//image = entity.imageData
 		color = entity.imageColor as? Data
 	}
 }

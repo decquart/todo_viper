@@ -14,7 +14,7 @@ struct TaskViewModel {
 	let subTasksCount: Int
 
 	init(taskEntity: TaskEntity, subTasksCount: Int) {
-		self.image = UIImage(data: taskEntity.imageData)?.withTintColor(taskEntity.imageColor as! UIColor)
+		self.image = UIImage(named: taskEntity.imagePath)?.withTintColor(taskEntity.imageColor as! UIColor)
 		self.name = taskEntity.name
 		self.subTasksCount = subTasksCount
 	}

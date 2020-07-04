@@ -70,15 +70,15 @@ extension TaskDetailsViewController {
 	@IBAction func saveButtonPressed(_ sender: Any) {
 
 		let name = titleTextField.text ?? ""
-		let image = taskIconImageView.image?.pngData() ?? Data()
+		let image = "shopping"//taskIconImageView.image?.pngData() ?? Data()
 
 		if case let .edit(task) = scope {
-			let task = TaskEntity(id: task.id, name: name, image: image, color: color)
+			let task = TaskEntity(id: task.id, name: name, imagePath: image, color: color)
 			presenter.saveButtonPressed(with: task)
 			return
 		}
 
-		let task = TaskEntity(name: name, image: image, color: color)
+		let task = TaskEntity(name: name, imagePath: image, color: color)
 		presenter.saveButtonPressed(with: task)
 	}
 }
@@ -116,7 +116,7 @@ extension TaskDetailsViewController {
 
 	func setupAppearance(with existingTask: TaskEntity) {
 		titleTextField.text = existingTask.name
-		taskIconImageView.image = UIImage(data: existingTask.imageData)?.withRenderingMode(.alwaysTemplate)
+		taskIconImageView.image = UIImage(named: existingTask.imagePath)?.withRenderingMode(.alwaysTemplate)
 		color = existingTask.imageColor as? UIColor
 
 		redSlider.value = Float(CIColor(color: color).red)

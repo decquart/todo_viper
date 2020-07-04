@@ -17,7 +17,7 @@ public class Task: NSManagedObject {
 
 extension Task: StorableModel {
 	var domainModel: TaskEntity {
-		TaskEntity(id: id, name: name, image: image, color: iconColor)
+		TaskEntity(id: id, name: name, imagePath: imagePath, color: iconColor)
 	}
 }
 
@@ -25,7 +25,7 @@ extension Task: EntityMappable {
 	func map(_ entity: TaskEntity) {
 		id = entity.id
 		name = entity.name
-		image = entity.imageData
+		imagePath = entity.imagePath
 		iconColor = entity.imageColor
 	}
 }

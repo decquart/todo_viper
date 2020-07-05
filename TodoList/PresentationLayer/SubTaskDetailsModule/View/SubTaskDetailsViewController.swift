@@ -11,7 +11,7 @@ import UIKit
 class SubTaskDetailsViewController: UIViewController {
 	static let identifire = "subTaskDetailsVC"
 	var presenter: SubTaskDetailsOutput!
-	var scope: Scope<SubTaskEntity>!
+	var scope: Scope<SubTaskViewModel>!
 
 	@IBOutlet weak private var textField: UITextField!
 	@IBOutlet weak private var closeButton: UIButton!

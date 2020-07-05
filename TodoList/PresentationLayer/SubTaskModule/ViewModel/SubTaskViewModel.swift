@@ -9,10 +9,12 @@
 import UIKit
 
 struct SubTaskViewModel {
+	private let id: String
 	let description: String
 	let checkmarkIcon: UIImage
 
 	init(subTaskEntity: SubTaskEntity) {
+		self.id = subTaskEntity.uuid
 		self.description = subTaskEntity.description
 		self.checkmarkIcon = subTaskEntity.completed
 			? UIImage(systemName: "checkmark.circle.fill")!
@@ -20,6 +22,7 @@ struct SubTaskViewModel {
 	}
 
 	init(description: String) {
+		self.id = UUID().uuidString
 		self.description = description
 		self.checkmarkIcon = UIImage(systemName: "circle")!
 	}

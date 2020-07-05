@@ -70,7 +70,8 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 
 	func didSelect(at indexPath: IndexPath) {
 		let subTask = subTasks[indexPath.row]
-		router.showSubTaskDetailsViewController(task: task, scope: .edit(model: subTask))
+		let viewModel = SubTaskViewModel(subTaskEntity: subTask)
+		router.showSubTaskDetailsViewController(task: task, scope: .edit(model: viewModel))
 	}
 
 	func addButtonPressed() {

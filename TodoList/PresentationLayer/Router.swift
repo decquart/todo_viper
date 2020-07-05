@@ -17,7 +17,7 @@ protocol RouterProtocol: RouterMain {
 	func showTaskListViewController()
 	func showSubTaskListViewController(task: TaskEntity)
 	func showTaskDetailsViewController(scope: Scope<TaskViewModel>)
-	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskEntity>)
+	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskViewModel>)
 	func popToRoot()
 	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void)
 }
@@ -48,7 +48,7 @@ class Router: RouterProtocol {
 		navigationController.pushViewController(vc, animated: true)
 	}
 
-	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskEntity>) {
+	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskViewModel>) {
 		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, scope: scope)
 		vc.modalPresentationStyle = .formSheet
 		navigationController.present(vc, animated: true)

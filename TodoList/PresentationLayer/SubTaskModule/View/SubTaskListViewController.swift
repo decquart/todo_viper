@@ -26,8 +26,13 @@ class SubTaskListViewController: UIViewController {
         super.viewDidLoad()
 
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Complete All", style: .plain, target: self, action: #selector(completeAll))
-		presenter.loadSubTasks()
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		presenter.loadSubTasks()
+	}
 }
 
 //MARK: - SubTaskListViewInput

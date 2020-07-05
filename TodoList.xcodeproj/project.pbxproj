@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042176D2248D1DF100FDDAE3 /* EntityMappable.swift */; };
+		042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042176D2248D1DF100FDDAE3 /* Mappable.swift */; };
 		044254182480D09800ED4C72 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254172480D09800ED4C72 /* Router.swift */; };
 		0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044254192480D0E900ED4C72 /* AssemblyBuilder.swift */; };
 		04606D122486164A00AE5633 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04606D112486164A00AE5633 /* TaskDetailsPresenter.swift */; };
@@ -17,7 +17,6 @@
 		049FB52A2480157E000A7133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049FB5282480157E000A7133 /* Main.storyboard */; };
 		049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */; };
 		049FB53D24801580000A7133 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB53C24801580000A7133 /* TodoListTests.swift */; };
-		049FF595248A959F00BF0FDD /* StorableModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF58E248A959F00BF0FDD /* StorableModel.swift */; };
 		049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF590248A959F00BF0FDD /* SubTasksRepository.swift */; };
 		049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */; };
 		049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */; };
@@ -74,7 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		042176D2248D1DF100FDDAE3 /* EntityMappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityMappable.swift; sourceTree = "<group>"; };
+		042176D2248D1DF100FDDAE3 /* Mappable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mappable.swift; sourceTree = "<group>"; };
 		044254172480D09800ED4C72 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		044254192480D0E900ED4C72 /* AssemblyBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyBuilder.swift; sourceTree = "<group>"; };
 		04606D112486164A00AE5633 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -88,7 +87,6 @@
 		049FB53824801580000A7133 /* TodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049FB53C24801580000A7133 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
 		049FB53E24801580000A7133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		049FF58E248A959F00BF0FDD /* StorableModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorableModel.swift; sourceTree = "<group>"; };
 		049FF590248A959F00BF0FDD /* SubTasksRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTasksRepository.swift; sourceTree = "<group>"; };
 		049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSubTaskRepository.swift; sourceTree = "<group>"; };
 		049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTaskRepository.swift; sourceTree = "<group>"; };
@@ -246,8 +244,7 @@
 				049FF58F248A959F00BF0FDD /* SubTaskRepository */,
 				049FF592248A959F00BF0FDD /* TaskRepository */,
 				049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */,
-				049FF58E248A959F00BF0FDD /* StorableModel.swift */,
-				042176D2248D1DF100FDDAE3 /* EntityMappable.swift */,
+				042176D2248D1DF100FDDAE3 /* Mappable.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -628,11 +625,10 @@
 				04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */,
-				042176D3248D1DF100FDDAE3 /* EntityMappable.swift in Sources */,
+				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
-				049FF595248A959F00BF0FDD /* StorableModel.swift in Sources */,
 				049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

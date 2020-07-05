@@ -13,14 +13,17 @@ protocol IconPickerOutput: class {
 }
 
 protocol IconPickerInput: class {
-	func updateIcon(_ imagePath: String)
+	var imageNames: [String] { get }
+	func updateIcon(at index: Int)
 }
 
 class IconPickerPresenter: IconPickerInput {
 	weak var view: IconPickerOutput?
 	weak var detailsPresenter: TaskDetailsOutput?
+	
+	let imageNames = ["shopping", "todo", "work"]
 
-	func updateIcon(_ imagePath: String) {
-		detailsPresenter?.updateIcon(imagePath)
+	func updateIcon(at index: Int) {
+		detailsPresenter?.updateIcon(imageNames[index])
 	}
 }

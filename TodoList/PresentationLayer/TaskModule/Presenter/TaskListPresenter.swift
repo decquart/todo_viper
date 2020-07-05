@@ -13,7 +13,7 @@ protocol TaskListViewOutput: class {
 
 	var numberOfTasks: Int { get }
 	func task(at index: Int) -> TaskViewModel
-
+	func subTasksCount(at index: Int) -> Int
 	func loadTasks()
 	func addTaskButtonPressed()
 	func didSelectTask(with index: Int)
@@ -47,10 +47,11 @@ class TaskListPresenter: TaskListViewOutput {
 	}
 
 	func task(at index: Int) -> TaskViewModel {
-		let task = tasks[index]
-		let count = repository.getSubTasksCount(for: task)
+		return tasks[index].viewModel
+	}
 
-		return TaskViewModel(taskEntity: task, subTasksCount: count)
+	func subTasksCount(at index: Int) -> Int {
+		return repository.getSubTasksCount(for: tasks[index])
 	}
 
 	func loadTasks() {
@@ -64,21 +65,20 @@ class TaskListPresenter: TaskListViewOutput {
 			return
 		}
 
-		let task = tasks[index]
-		let viewModel = TaskViewModel(taskEntity: task, subTasksCount: 0)
+		let taskEntity = tasks[index]
 
 		if view.isEditMode {
 			router.showEditTaskAlertViewController(editAction: {
-				self.router.showTaskDetailsViewController(scope: .edit(model: viewModel))
+				self.router.showTaskDetailsViewController(scope: .edit(model: taskEntity.viewModel))
 			}, deleteAction: {
-				self.repository.delete(task: task)
-				self.tasks = self.tasks.filter { task.id != $0.id }
+				self.repository.delete(task: taskEntity)
+				self.tasks = self.tasks.filter { taskEntity.id != $0.id }
 			})
 
 			return
 		}
 
-		router.showSubTaskListViewController(task: task)
+		router.showSubTaskListViewController(task: taskEntity)
 	}
 
 	func addTaskButtonPressed() {

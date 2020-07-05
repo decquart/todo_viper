@@ -69,19 +69,15 @@ extension TaskDetailsViewController {
 	}
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
-
 		//todo: improve
 		let name = titleTextField.text ?? ""
 
-		if case var .edit(task) = scope {
-			task.name = name
-			task.imagePath = imagePath
-			task.color = color
-			presenter.saveButtonPressed(with: task)
+		guard case var .edit(task) = scope else {
+			let newTask = TaskViewModel(imagePath: imagePath, color: color, name: name)
+			presenter.saveButtonPressed(with: newTask)
 			return
 		}
 
-		var task = TaskViewModel()
 		task.name = name
 		task.imagePath = imagePath
 		task.color = color
@@ -131,7 +127,6 @@ extension TaskDetailsViewController {
 		greenSlider.value = Float(CIColor(color: color).green)
 		blueSlider.value = Float(CIColor(color: color).blue)
 
-		//todo: move to view model
 		self.imagePath = existingTask.imagePath
 	}
 }

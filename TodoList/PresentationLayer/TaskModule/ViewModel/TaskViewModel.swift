@@ -9,27 +9,26 @@
 import UIKit
 
 struct TaskViewModel {
-	private var id = UUID().uuidString
-	var imagePath = ""
-	var color = UIColor()
-	var name = ""
-	var subTasksCount = 0
+	private let id: String
+	var imagePath: String
+	var color: UIColor
+	var name: String
 
 	var image: UIImage? {
 		return UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
 	}
 
+	init(id: String = UUID().uuidString, imagePath: String, color: NSObject, name: String) {
+		self.id = id
+		self.imagePath = imagePath
+		self.color = color as! UIColor
+		self.name = name
+	}
+}
+
+// MARK: - DomainModelMapping
+extension TaskViewModel: DomainModelMapping {
 	var domainModel: TaskEntity {
 		return TaskEntity(id: id, name: name, imagePath: imagePath, color: color)
-	}
-
-	init() {}
-
-	init(taskEntity: TaskEntity, subTasksCount: Int) {
-		self.id = taskEntity.id
-		self.imagePath = taskEntity.imagePath
-		self.color = taskEntity.imageColor as! UIColor
-		self.name = taskEntity.name
-		self.subTasksCount = subTasksCount
 	}
 }

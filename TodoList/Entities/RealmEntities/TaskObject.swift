@@ -24,20 +24,22 @@ class TaskObject: Object {
 	}
 }
 
-extension TaskObject: StorableModel {
+// MARK: - DomainModelMapping
+extension TaskObject: DomainModelMapping {
 	var domainModel: TaskEntity {
 		return TaskEntity(id: id, name: name, imagePath: imagePath, color: UIColor.green)//todo
 	}
 }
 
-extension TaskObject: EntityMappable {
+// MARK: - Mappable
+extension TaskObject: Mappable {
 	func map(_ entity: TaskEntity) {
 		if id.isEmpty {
 			id = entity.id
 		}
 
 		name = entity.name
-		//image = entity.imageData
+		imagePath = entity.imagePath
 		color = entity.imageColor as? Data
 	}
 }

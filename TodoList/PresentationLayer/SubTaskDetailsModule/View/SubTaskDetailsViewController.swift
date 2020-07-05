@@ -32,7 +32,14 @@ class SubTaskDetailsViewController: UIViewController {
 			return
 		}
 
-		presenter.sendButtonPressed(viewModel: SubTaskViewModel(description: text))
+		guard case var .edit(subtask) = scope else {
+			let newSubtask = SubTaskViewModel(description: text)
+			presenter.sendButtonPressed(viewModel: newSubtask)
+			return
+		}
+
+		subtask.description = text
+		presenter.sendButtonPressed(viewModel: subtask)
 	}
 
 	func initAppearance() {
@@ -56,5 +63,9 @@ extension SubTaskDetailsViewController: SubTaskDetailsInput {
 
 	func invalidateView() {
 		textField.text = ""
+	}
+
+	func dismiss() {
+		self.dismiss(animated: true)
 	}
 }

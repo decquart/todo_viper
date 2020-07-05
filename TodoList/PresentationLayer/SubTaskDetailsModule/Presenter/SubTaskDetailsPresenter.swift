@@ -13,17 +13,20 @@ protocol SubTaskDetailsOutput: class {
 protocol SubTaskDetailsInput: class {
 	var isNewSubtask: Bool { get }
 	func invalidateView()
+	func dismiss()
 }
 
 class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	weak var view: SubTaskDetailsInput!
+	let router: RouterProtocol
 	let repository: SubTasksRepositoryType
 
 	private var task: TaskEntity
 	private var subTask: SubTaskEntity?
 
-	init(view: SubTaskDetailsInput, repository: SubTasksRepositoryType, task: TaskEntity) {
+	init(view: SubTaskDetailsInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: TaskEntity) {
 		self.view = view
+		self.router = router
 		self.repository = repository
 		self.task = task
 	}
@@ -31,11 +34,13 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	func sendButtonPressed(viewModel: SubTaskViewModel) {
 
 		if view.isNewSubtask {
-			repository.add(subtask: SubTaskEntity(description: viewModel.description, completed: false), to: task) { }
+			repository.add(subtask: viewModel.domainModel, to: task) { [weak self] in
+				self?.view.invalidateView()
+			}
 		} else {
-			////todo: update
+			repository.update(subtask: viewModel.domainModel) { [weak self] in
+				self?.router.pop()
+			}
 		}
-
-		view.invalidateView()
 	}
 }

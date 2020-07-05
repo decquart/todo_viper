@@ -58,7 +58,8 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeue(cellType: TaskCollectionViewCell.self, for: indexPath)
 		let vm = presenter.task(at: indexPath.row)
-		cell.configure(with: vm)
+		let subTasksCount = presenter.subTasksCount(at: indexPath.row)
+		cell.configure(with: vm, subTasksCount: subTasksCount)
 		return cell
 	}
 }

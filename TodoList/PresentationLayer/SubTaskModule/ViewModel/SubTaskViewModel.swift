@@ -10,20 +10,31 @@ import UIKit
 
 struct SubTaskViewModel {
 	private let id: String
-	let description: String
-	let checkmarkIcon: UIImage
+	private let isCompleted: Bool
+	var description: String
 
-	init(subTaskEntity: SubTaskEntity) {
-		self.id = subTaskEntity.uuid
-		self.description = subTaskEntity.description
-		self.checkmarkIcon = subTaskEntity.completed
+	var checkmarkIcon: UIImage {
+		isCompleted
 			? UIImage(systemName: "checkmark.circle.fill")!
 			: UIImage(systemName: "circle")!
 	}
 
+	init(uuid: String, description: String, isCompleted: Bool) {
+		self.id = uuid
+		self.isCompleted = isCompleted
+		self.description = description
+	}
+
 	init(description: String) {
 		self.id = UUID().uuidString
+		self.isCompleted = false
 		self.description = description
-		self.checkmarkIcon = UIImage(systemName: "circle")!
+	}
+}
+
+// MARK: - DomainModelMapping
+extension SubTaskViewModel: DomainModelMapping {
+	var domainModel: SubTaskEntity {
+		return SubTaskEntity(uuid: id, description: description, completed: isCompleted)
 	}
 }

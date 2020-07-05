@@ -64,7 +64,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
-		let presenter = SubTaskDetailsPresenter(view: view, repository: repository, task: task)
+		let presenter = SubTaskDetailsPresenter(view: view, router: router, repository: repository, task: task)
 
 		view.presenter = presenter
 		view.scope = scope

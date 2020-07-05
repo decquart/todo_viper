@@ -21,3 +21,10 @@ struct TaskEntity {
 		self.imageColor = color
 	}
 }
+
+// MARK: ViewModelMapping
+extension TaskEntity: ViewModelMapping {
+	var viewModel: TaskViewModel {
+		TaskViewModel(id: id, imagePath: imagePath, color: imageColor, name: name)
+	}
+}

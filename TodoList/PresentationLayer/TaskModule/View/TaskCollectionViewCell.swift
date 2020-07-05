@@ -23,10 +23,10 @@ class TaskCollectionViewCell: UICollectionViewCell {
 		layer.backgroundColor = UIColor.white.cgColor
 	}
 
-	func configure(with viewModel: TaskViewModel) {
+	func configure(with viewModel: TaskViewModel, subTasksCount: Int) {
 		taskImageView.image = viewModel.image
 		taskImageView.tintColor = viewModel.color
 		taskNameLabel.text = viewModel.name
-		subTaskCountLabel.text = String(viewModel.subTasksCount)
+		subTaskCountLabel.text = String(subTasksCount)
 	}
 }

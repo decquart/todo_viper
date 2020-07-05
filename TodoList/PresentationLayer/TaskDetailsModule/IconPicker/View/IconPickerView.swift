@@ -9,10 +9,6 @@
 import UIKit
 
 class IconPickerView: UIView {
-
-	//todo
-	let images = [UIImage(named: "shopping"), UIImage(named: "todo"), UIImage(named: "work")]
-	let imageNames = ["shopping", "todo", "work"]
 	private var selectedCell: IconPickerCollectionViewCell? = nil
 	private var presenter: IconPickerInput!
 
@@ -42,12 +38,12 @@ extension IconPickerView: IconPickerOutput {
 // MARK: UICollectionViewDelegate, UICollectionViewDataSource
 extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		images.count
+		presenter.imageNames.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeue(cellType: IconPickerCollectionViewCell.self, for: indexPath)
-		cell.imageView.image = images[indexPath.row]
+		cell.imageView.image = UIImage(named: presenter.imageNames[indexPath.row])
 		return cell
 	}
 
@@ -60,8 +56,7 @@ extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 		cell.layer.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
 		selectedCell = cell
 
-		//let img = UIImage(named: imageNames[indexPath.row])!
-		presenter.updateIcon(imageNames[indexPath.row])
+		presenter.updateIcon(at: indexPath.row)
 	}
 }
 

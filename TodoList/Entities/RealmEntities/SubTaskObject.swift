@@ -21,13 +21,17 @@ final class SubTaskObject: Object {
 	}
 }
 
-extension SubTaskObject: StorableModel {
+// MARK: - DomainModelMapping
+extension SubTaskObject: DomainModelMapping {
 	var domainModel: SubTaskEntity {
-		return SubTaskEntity(uuid: id, description: description_p, completed: isCompleted)
+		return SubTaskEntity(uuid: id,
+							 description: description_p,
+							 completed: isCompleted)
 	}
 }
 
-extension SubTaskObject: EntityMappable {
+// MARK: - Mappable
+extension SubTaskObject: Mappable {
 	func map(_ entity: SubTaskEntity) {
 		if id.isEmpty {
 			id = entity.uuid

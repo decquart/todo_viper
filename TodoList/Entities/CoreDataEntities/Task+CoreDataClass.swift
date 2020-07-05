@@ -15,13 +15,13 @@ public class Task: NSManagedObject {
 
 }
 
-extension Task: StorableModel {
+extension Task: DomainModelMapping {
 	var domainModel: TaskEntity {
 		TaskEntity(id: id, name: name, imagePath: imagePath, color: iconColor)
 	}
 }
 
-extension Task: EntityMappable {
+extension Task: Mappable {
 	func map(_ entity: TaskEntity) {
 		id = entity.id
 		name = entity.name

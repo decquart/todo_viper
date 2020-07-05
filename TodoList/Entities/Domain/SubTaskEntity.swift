@@ -19,3 +19,12 @@ struct SubTaskEntity {
 		self.completed = completed
 	}
 }
+
+// MARK: ViewModelMapping
+extension SubTaskEntity: ViewModelMapping {
+	var viewModel: SubTaskViewModel {
+		return SubTaskViewModel(uuid: uuid,
+								description: description,
+								isCompleted: completed)
+	}
+}

@@ -18,7 +18,9 @@ protocol RouterProtocol: RouterMain {
 	func showSubTaskListViewController(task: TaskEntity)
 	func showTaskDetailsViewController(scope: Scope<TaskViewModel>)
 	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskViewModel>)
+
 	func popToRoot()
+	func pop()
 	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void)
 }
 
@@ -50,12 +52,15 @@ class Router: RouterProtocol {
 
 	func showSubTaskDetailsViewController(task: TaskEntity, scope: Scope<SubTaskViewModel>) {
 		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, scope: scope)
-		vc.modalPresentationStyle = .formSheet
-		navigationController.present(vc, animated: true)
+		navigationController.pushViewController(vc, animated: true)
 	}
 
 	func popToRoot() {
 		navigationController.popToRootViewController(animated: true)
+	}
+
+	func pop() {
+		navigationController.popViewController(animated: true)
 	}
 
 	//Should Router hold this method?

@@ -9,9 +9,9 @@
 import UIKit
 
 struct SubTaskViewModel {
-	private let id: String
-	private let isCompleted: Bool
-	var description: String
+	private var id: String = UUID().uuidString
+	private var isCompleted: Bool = false
+	var description: String = ""
 
 	var checkmarkIcon: UIImage {
 		isCompleted
@@ -19,22 +19,18 @@ struct SubTaskViewModel {
 			: UIImage(systemName: "circle")!
 	}
 
-	init(uuid: String, description: String, isCompleted: Bool) {
-		self.id = uuid
-		self.isCompleted = isCompleted
-		self.description = description
-	}
+	init() {}
 
-	init(description: String) {
-		self.id = UUID().uuidString
-		self.isCompleted = false
-		self.description = description
+	init(model: SubTask) {
+		id = model.uuid
+		isCompleted = model.completed
+		description = model.description
 	}
 }
 
-// MARK: - DomainModelMapping
-extension SubTaskViewModel: DomainModelMapping {
-	var domainModel: SubTask {
-		return SubTask(uuid: id, description: description, completed: isCompleted)
+// MARK: - MappingOutput
+extension SubTaskViewModel: MappingOutput {
+	var mapToModel: SubTask {
+		SubTask(uuid: id, description: description, completed: isCompleted)
 	}
 }

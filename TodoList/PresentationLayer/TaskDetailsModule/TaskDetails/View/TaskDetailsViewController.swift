@@ -19,6 +19,15 @@ class TaskDetailsViewController: UIViewController {
 	var presenter: TaskDetailsOutput!
 	var scope: Scope<TaskViewModel>!
 
+	private var viewModel: TaskViewModel {
+		if case let .edit(task) = scope {
+			return task
+		}
+
+		return TaskViewModel()
+	}
+
+	//todo: get rid
 	private var imagePath: String = ""
 	private var color: UIColor! {
 		didSet {
@@ -69,15 +78,11 @@ extension TaskDetailsViewController {
 	}
 
 	@IBAction func saveButtonPressed(_ sender: Any) {
-		//todo: improve
-		let name = titleTextField.text ?? ""
-
-		guard case var .edit(task) = scope else {
-			let newTask = TaskViewModel(imagePath: imagePath, color: color, name: name)
-			presenter.saveButtonPressed(with: newTask)
+		guard let name = titleTextField.text, !name.isEmpty else {
 			return
 		}
 
+		var task = viewModel
 		task.name = name
 		task.imagePath = imagePath
 		task.color = color

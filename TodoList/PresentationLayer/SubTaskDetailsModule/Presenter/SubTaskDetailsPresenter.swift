@@ -34,11 +34,11 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	func sendButtonPressed(viewModel: SubTaskViewModel) {
 
 		if view.isNewSubtask {
-			repository.add(subtask: viewModel.domainModel, to: task) { [weak self] in
+			repository.add(subtask: viewModel.mapToModel, to: task) { [weak self] in
 				self?.view.invalidateView()
 			}
 		} else {
-			repository.update(subtask: viewModel.domainModel) { [weak self] in
+			repository.update(subtask: viewModel.mapToModel) { [weak self] in
 				self?.router.pop()
 			}
 		}

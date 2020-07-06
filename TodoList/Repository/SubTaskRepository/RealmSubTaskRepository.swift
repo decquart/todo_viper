@@ -35,7 +35,7 @@ class RealmSubTaskRepository: SubTasksRepositoryType {
 				SortDescriptor(keyPath: "description_p", ascending: true)
 			])
 
-		let entities = Array(objects.map { $0.domainModel })
+		let entities = Array(objects.map { $0.mapToModel })
 		completion(entities)
 	}
 

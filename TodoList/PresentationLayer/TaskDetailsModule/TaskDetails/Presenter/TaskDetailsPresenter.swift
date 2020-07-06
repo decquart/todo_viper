@@ -32,14 +32,14 @@ final class TaskDetailsPresenter: TaskDetailsOutput {
 
 	func saveButtonPressed(with viewModel: TaskViewModel) {
 		guard view.isNewTask else {
-			repository.update(task: viewModel.domainModel) {
+			repository.update(task: viewModel.mapToModel) {
 				self.router?.popToRoot()
 			}
 
 			return
 		}
 
-		repository.create(task: viewModel.domainModel) {
+		repository.create(task: viewModel.mapToModel) {
 			self.router?.popToRoot()
 		}
 	}

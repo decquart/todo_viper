@@ -15,20 +15,17 @@ public class SubTaskMO: NSManagedObject {
 
 }
 
-// MARK: - DomainModelMapping
-extension SubTaskMO: DomainModelMapping {
-	var domainModel: SubTask {
-		return SubTask(uuid: id,
-							 description: description_p,
-							 completed: completed)
-	}
-}
-
 // MARK: - Mappable
 extension SubTaskMO: Mappable {
-	func map(_ entity: SubTask) {
-		self.id = entity.uuid
-		self.description_p = entity.description
-		self.completed = entity.completed
+	var mapToModel: SubTask {
+		return SubTask(uuid: id,
+					   description: description_p,
+					   completed: completed)
+	}
+
+	func map(_ model: SubTask) {
+		self.id = model.uuid
+		self.description_p = model.description
+		self.completed = model.completed
 	}
 }

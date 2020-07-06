@@ -18,7 +18,7 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 	func getAll(completion: @escaping ([Task]) -> ()) {
 		let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
-			let entities = result.finalResult?.map { $0.domainModel } ?? []
+			let entities = result.finalResult?.map { $0.mapToModel } ?? []
 			completion(entities)
 		}
 

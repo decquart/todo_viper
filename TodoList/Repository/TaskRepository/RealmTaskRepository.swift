@@ -15,7 +15,8 @@ class RealmTaskRepository: TasksRepositoryType {
 	func getAll(completion: @escaping ([Task]) -> ()) {
 		let entities = realm.objects(TaskObject.self)
 			.sorted(byKeyPath: "name", ascending: true)
-			.compactMap { $0.domainModel }
+			.compactMap { $0.mapToModel }
+
 
 		completion(Array(entities))
 	}

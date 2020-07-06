@@ -52,7 +52,7 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func subTask(at indexPath: IndexPath) -> SubTaskViewModel {
-		return subTasks[indexPath.row].viewModel
+		return SubTaskViewModel(model: subTasks[indexPath.row])
 	}
 
 	func buttonCompletePressed(at index: Int) {
@@ -69,8 +69,8 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func didSelect(at indexPath: IndexPath) {
-		let subTask = subTasks[indexPath.row].viewModel
-		router.showSubTaskDetailsViewController(task: task, scope: .edit(model: subTask))
+		let vm = SubTaskViewModel(model: subTasks[indexPath.row])
+		router.showSubTaskDetailsViewController(task: task, scope: .edit(model: vm))
 	}
 
 	func addButtonPressed() {

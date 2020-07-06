@@ -24,15 +24,15 @@ class TaskObject: Object {
 	}
 }
 
-// MARK: - DomainModelMapping
-extension TaskObject: DomainModelMapping {
-	var domainModel: Task {
-		return Task(id: id, name: name, imagePath: imagePath, color: UIColor.green)//todo
-	}
-}
-
 // MARK: - Mappable
 extension TaskObject: Mappable {
+	var mapToModel: Task {
+		Task(id: id,
+			 name: name,
+			 imagePath: imagePath,
+			 color: UIColor.green)  //TODO
+	}
+
 	func map(_ entity: Task) {
 		if id.isEmpty {
 			id = entity.id

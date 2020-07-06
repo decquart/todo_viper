@@ -13,6 +13,14 @@ class SubTaskDetailsViewController: UIViewController {
 	var presenter: SubTaskDetailsOutput!
 	var scope: Scope<SubTaskViewModel>!
 
+	private var viewModel: SubTaskViewModel {
+		if case let .edit(subtask) = scope  {
+			return subtask
+		}
+
+		return SubTaskViewModel()
+	}
+
 	@IBOutlet weak private var textField: UITextField!
 	@IBOutlet weak private var closeButton: UIButton!
 	@IBOutlet weak private var sendButton: UIButton!
@@ -32,12 +40,7 @@ class SubTaskDetailsViewController: UIViewController {
 			return
 		}
 
-		guard case var .edit(subtask) = scope else {
-			let newSubtask = SubTaskViewModel(description: text)
-			presenter.sendButtonPressed(viewModel: newSubtask)
-			return
-		}
-
+		var subtask = viewModel
 		subtask.description = text
 		presenter.sendButtonPressed(viewModel: subtask)
 	}

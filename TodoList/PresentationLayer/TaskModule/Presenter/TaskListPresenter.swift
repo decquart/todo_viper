@@ -47,7 +47,7 @@ class TaskListPresenter: TaskListViewOutput {
 	}
 
 	func task(at index: Int) -> TaskViewModel {
-		return tasks[index].viewModel
+		return TaskViewModel(model: tasks[index])
 	}
 
 	func subTasksCount(at index: Int) -> Int {
@@ -69,7 +69,7 @@ class TaskListPresenter: TaskListViewOutput {
 
 		if view.isEditMode {
 			router.showEditTaskAlertViewController(editAction: {
-				self.router.showTaskDetailsViewController(scope: .edit(model: taskEntity.viewModel))
+				//self.router.showTaskDetailsViewController(scope: .edit(model: taskEntity.viewModel))
 			}, deleteAction: {
 				self.repository.delete(task: taskEntity)
 				self.tasks = self.tasks.filter { taskEntity.id != $0.id }

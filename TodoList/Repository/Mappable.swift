@@ -6,17 +6,16 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol Mappable {
-	associatedtype ModelType
-	func map(_ entity: ModelType)
+protocol MappingOutput {
+	associatedtype Model
+
+	var mapToModel: Model { get }
 }
 
-protocol DomainModelMapping {
-	associatedtype DomainModelType
-	var domainModel: DomainModelType { get }
+protocol MappingInput {
+	associatedtype Model
+
+	func map(_ model: Model)
 }
 
-protocol ViewModelMapping {
-	associatedtype ViewModelType
-	var viewModel: ViewModelType { get }
-}
+typealias Mappable = MappingOutput & MappingInput

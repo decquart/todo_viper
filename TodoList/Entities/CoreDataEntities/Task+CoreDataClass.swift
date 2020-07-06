@@ -15,13 +15,15 @@ public class TaskMO: NSManagedObject {
 
 }
 
-extension TaskMO: DomainModelMapping {
-	var domainModel: Task {
-		Task(id: id, name: name, imagePath: imagePath, color: iconColor)
-	}
-}
-
+// MARK: - Mappable
 extension TaskMO: Mappable {
+	var mapToModel: Task {
+		return Task(id: id,
+					name: name,
+					imagePath: imagePath,
+					color: iconColor)
+	}
+
 	func map(_ entity: Task) {
 		id = entity.id
 		name = entity.name

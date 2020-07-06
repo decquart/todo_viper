@@ -58,6 +58,7 @@
 		2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EAE24AE896D0005D4CB /* UICollectionView+Wrapper.swift */; };
 		2D777BE3249D652000720B5D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE2249D652000720B5D /* TaskViewModel.swift */; };
 		2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */; };
+		2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 /* End PBXBuildFile section */
@@ -126,6 +127,7 @@
 		2D692EAE24AE896D0005D4CB /* UICollectionView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Wrapper.swift"; sourceTree = "<group>"; };
 		2D777BE2249D652000720B5D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewModel.swift; sourceTree = "<group>"; };
+		2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+UIColor.swift"; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -307,6 +309,7 @@
 				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
 				04C45B1E248E91C90073CA2B /* Views */,
 				2D692EAB24AE890A0005D4CB /* ReusableCell */,
+				2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* SubTaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
+				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
 				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,

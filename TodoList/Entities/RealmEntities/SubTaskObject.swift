@@ -21,17 +21,12 @@ final class SubTaskObject: Object {
 	}
 }
 
-// MARK: - DomainModelMapping
-extension SubTaskObject: DomainModelMapping {
-	var domainModel: SubTask {
-		return SubTask(uuid: id,
-							 description: description_p,
-							 completed: isCompleted)
-	}
-}
-
 // MARK: - Mappable
 extension SubTaskObject: Mappable {
+	var mapToModel: SubTask {
+		SubTask(uuid: id, description: description_p, completed: isCompleted)
+	}
+
 	func map(_ entity: SubTask) {
 		if id.isEmpty {
 			id = entity.uuid

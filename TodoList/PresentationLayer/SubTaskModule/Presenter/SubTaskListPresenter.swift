@@ -25,7 +25,7 @@ protocol SubTaskListViewInput: class {
 class SubTaskListPresenter: SubTaskListViewOutput {
 	weak var view: SubTaskListViewInput?
 	let router: RouterProtocol
-	let repository: SubTasksRepositoryType
+	let repository: AnyRepository<SubTask>
 
 	private var task: Task!
 	private var subTasks: [SubTask] = [] {
@@ -34,7 +34,7 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		}
 	}
 
-	required init(view: SubTaskListViewInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: Task) {
+	required init(view: SubTaskListViewInput, router: RouterProtocol, repository: AnyRepository<SubTask>, task: Task) {
 		self.view = view
 		self.router = router
 		self.repository = repository
@@ -42,8 +42,10 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func loadSubTasks() {
-		repository.getAll(where: task) { [weak self] in
-			self?.subTasks = $0
+		repository.fetch { [weak self] result in
+			if case let .success(items) = result {
+				self?.subTasks = items
+			}
 		}
 	}
 
@@ -59,8 +61,10 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 		var subTask = subTasks[index]
 
 		subTask.completed = !subTask.completed
-		repository.update(subtask: subTask) { [weak self] in
-			self?.loadSubTasks()
+		repository.update(subTask) { [weak self] success in
+			if success {
+				self?.loadSubTasks()
+			}
 		}
 	}
 

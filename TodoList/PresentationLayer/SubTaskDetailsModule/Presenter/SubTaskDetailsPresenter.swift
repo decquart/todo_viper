@@ -19,12 +19,12 @@ protocol SubTaskDetailsInput: class {
 class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	weak var view: SubTaskDetailsInput!
 	let router: RouterProtocol
-	let repository: SubTasksRepositoryType
+	let repository: AnyRepository<SubTask>
 
 	private var task: Task
 	private var subTask: SubTask?
 
-	init(view: SubTaskDetailsInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: Task) {
+	init(view: SubTaskDetailsInput, router: RouterProtocol, repository: AnyRepository<SubTask>, task: Task) {
 		self.view = view
 		self.router = router
 		self.repository = repository
@@ -34,11 +34,11 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	func sendButtonPressed(viewModel: SubTaskViewModel) {
 
 		if view.isNewSubtask {
-			repository.add(subtask: viewModel.mapToModel, to: task) { [weak self] in
+			repository.add(viewModel.mapToModel) { [weak self] _ in
 				self?.view.invalidateView()
 			}
 		} else {
-			repository.update(subtask: viewModel.mapToModel) { [weak self] in
+			repository.update(viewModel.mapToModel) { [weak self] _ in
 				self?.router.pop()
 			}
 		}

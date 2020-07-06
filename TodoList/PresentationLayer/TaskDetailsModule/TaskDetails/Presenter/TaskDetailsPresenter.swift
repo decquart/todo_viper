@@ -21,25 +21,26 @@ protocol TaskDetailsInput: class {
 final class TaskDetailsPresenter: TaskDetailsOutput {
 
 	weak var view: TaskDetailsInput!
-	let repository: TasksRepositoryType!
+	let repository: AnyRepository<Task>
 	let router: RouterProtocol?
 
-	init(view: TaskDetailsInput, repository: TasksRepositoryType, router: RouterProtocol) {
+	init(view: TaskDetailsInput, repository: AnyRepository<Task>, router: RouterProtocol) {
 		self.view = view
 		self.repository = repository
 		self.router = router
 	}
 
 	func saveButtonPressed(with viewModel: TaskViewModel) {
+		//todo: resolve duplicate
 		guard view.isNewTask else {
-			repository.update(task: viewModel.mapToModel) {
+			repository.update(viewModel.mapToModel) { _ in
 				self.router?.popToRoot()
 			}
 
 			return
 		}
 
-		repository.create(task: viewModel.mapToModel) {
+		repository.add(viewModel.mapToModel) { _ in
 			self.router?.popToRoot()
 		}
 	}

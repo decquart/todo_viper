@@ -25,7 +25,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 			fatalError("Initial view controller should not be nil")
 		}
 
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = CDTaskRepository(coreDataStack: coreDataStack)
 		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
 		return view
@@ -35,7 +35,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
+		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
 		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
 		view.presenter = presenter
 		return view
@@ -51,19 +51,19 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
 
 		view.iconPickerView = subview
-		let repository = CoreDataTaskRepository(coreDataStack: coreDataStack)
+		let repository = CDTaskRepository(coreDataStack: coreDataStack)
 		let presenter = TaskDetailsPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
 		view.presenter = presenter
-		view.scope = scope
+		view.scope = scope  //TODO
 		return view
 	}
 
 	func createSubTaskDetailsModule(router: RouterProtocol, task: Task, scope: Scope<SubTaskViewModel>) -> UIViewController {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
-		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)
+		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
 		let presenter = SubTaskDetailsPresenter(view: view, router: router, repository: repository, task: task)
 
 		view.presenter = presenter

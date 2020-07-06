@@ -59,6 +59,10 @@
 		2D777BE3249D652000720B5D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE2249D652000720B5D /* TaskViewModel.swift */; };
 		2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */; };
 		2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */; };
+		2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295824B3B099008EE2C1 /* Repository.swift */; };
+		2D7C295B24B3BD68008EE2C1 /* CDTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */; };
+		2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */; };
+		2D7C295F24B3BDDD008EE2C1 /* CDSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 /* End PBXBuildFile section */
@@ -128,6 +132,10 @@
 		2D777BE2249D652000720B5D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		2D777BEB24A12EAC00720B5D /* SubTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskViewModel.swift; sourceTree = "<group>"; };
 		2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+UIColor.swift"; sourceTree = "<group>"; };
+		2D7C295824B3B099008EE2C1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTaskRepository.swift; sourceTree = "<group>"; };
+		2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRepository.swift; sourceTree = "<group>"; };
+		2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSubTaskRepository.swift; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,8 +253,11 @@
 			children = (
 				049FF58F248A959F00BF0FDD /* SubTaskRepository */,
 				049FF592248A959F00BF0FDD /* TaskRepository */,
+				2D7C295824B3B099008EE2C1 /* Repository.swift */,
 				049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */,
-				042176D2248D1DF100FDDAE3 /* Mappable.swift */,
+				2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */,
+				2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */,
+				2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -325,6 +336,7 @@
 		04CF0787248F5EB100440A43 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				042176D2248D1DF100FDDAE3 /* Mappable.swift */,
 				04BCAB772498136C00A38846 /* CoreDataEntities */,
 				04BCAB7C2498136C00A38846 /* Domain */,
 				04B692D9248ECA6200428ECC /* RealmEntities */,
@@ -602,6 +614,7 @@
 				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
 				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
+				2D7C295B24B3BD68008EE2C1 /* CDTaskRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */,
@@ -614,10 +627,12 @@
 				04BCAB832498136C00A38846 /* SubTask.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,
+				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				04EFFD2624805BC80048336E /* SubTaskListPresenter.swift in Sources */,
 				04BCAB822498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* TaskDetailsViewController.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
+				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* SubTask+CoreDataProperties.swift in Sources */,
@@ -629,6 +644,7 @@
 				04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				04BCAB842498136C00A38846 /* Task.swift in Sources */,
+				2D7C295F24B3BDDD008EE2C1 /* CDSubTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,

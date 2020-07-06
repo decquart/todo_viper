@@ -27,7 +27,7 @@ protocol TaskListViewInput: class {
 class TaskListPresenter: TaskListViewOutput {
 
 	weak var view: TaskListViewInput?
-	let repository: TasksRepositoryType
+	let repository: AnyRepository<Task>
 	let router: RouterProtocol
 
 	var tasks: [Task] = [] {
@@ -40,7 +40,7 @@ class TaskListPresenter: TaskListViewOutput {
 		return tasks.count
 	}
 
-	required init(view: TaskListViewInput, repository: TasksRepositoryType, router: RouterProtocol) {
+	required init(view: TaskListViewInput, repository: AnyRepository<Task>, router: RouterProtocol) {
 		self.view = view
 		self.repository = repository
 		self.router = router
@@ -51,12 +51,15 @@ class TaskListPresenter: TaskListViewOutput {
 	}
 
 	func subTasksCount(at index: Int) -> Int {
-		return repository.getSubTasksCount(for: tasks[index])
+		7
+		//return repository.getSubTasksCount(for: tasks[index])
 	}
 
 	func loadTasks() {
-		repository.getAll() {
-			self.tasks = $0
+		repository.fetch { result in
+			if case let .success(items) = result {
+				self.tasks = items
+			}
 		}
 	}
 
@@ -69,10 +72,14 @@ class TaskListPresenter: TaskListViewOutput {
 
 		if view.isEditMode {
 			router.showEditTaskAlertViewController(editAction: {
-				//self.router.showTaskDetailsViewController(scope: .edit(model: taskEntity.viewModel))
+				let vm = TaskViewModel(model: taskEntity)
+				self.router.showTaskDetailsViewController(scope: .edit(model: vm))
 			}, deleteAction: {
-				self.repository.delete(task: taskEntity)
-				self.tasks = self.tasks.filter { taskEntity.id != $0.id }
+				self.repository.delete(taskEntity) { success in
+					if success {
+						self.tasks = self.tasks.filter { taskEntity.id != $0.id }
+					}
+				}
 			})
 
 			return

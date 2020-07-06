@@ -34,7 +34,7 @@ struct SubTaskViewModel {
 
 // MARK: - DomainModelMapping
 extension SubTaskViewModel: DomainModelMapping {
-	var domainModel: SubTaskEntity {
-		return SubTaskEntity(uuid: id, description: description, completed: isCompleted)
+	var domainModel: SubTask {
+		return SubTask(uuid: id, description: description, completed: isCompleted)
 	}
 }

@@ -10,19 +10,19 @@
 import Foundation
 import CoreData
 
-@objc(Task)
-public class Task: NSManagedObject {
+@objc(TaskMO)
+public class TaskMO: NSManagedObject {
 
 }
 
-extension Task: DomainModelMapping {
-	var domainModel: TaskEntity {
-		TaskEntity(id: id, name: name, imagePath: imagePath, color: iconColor)
+extension TaskMO: DomainModelMapping {
+	var domainModel: Task {
+		Task(id: id, name: name, imagePath: imagePath, color: iconColor)
 	}
 }
 
-extension Task: Mappable {
-	func map(_ entity: TaskEntity) {
+extension TaskMO: Mappable {
+	func map(_ entity: Task) {
 		id = entity.id
 		name = entity.name
 		imagePath = entity.imagePath

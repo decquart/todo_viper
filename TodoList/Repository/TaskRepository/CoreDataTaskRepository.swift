@@ -15,8 +15,8 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		self.coreDataStack = coreDataStack
 	}
 
-	func getAll(completion: @escaping ([TaskEntity]) -> ()) {
-		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+	func getAll(completion: @escaping ([Task]) -> ()) {
+		let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
 			let entities = result.finalResult?.map { $0.domainModel } ?? []
 			completion(entities)
@@ -29,9 +29,9 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		}
 	}
 
-	func getSubTasksCount(for task: TaskEntity) -> Int {
+	func getSubTasksCount(for task: Task) -> Int {
 		let predicate = NSPredicate(format: "owner.id = %@", task.id)
-		let fetchRequest = NSFetchRequest<NSNumber>(entityName: "SubTask")
+		let fetchRequest = NSFetchRequest<NSNumber>(entityName: "SubTaskMO")
 
 		fetchRequest.predicate = predicate
 		fetchRequest.resultType = .countResultType
@@ -45,15 +45,15 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		}
 	}
 
-	func create(task: TaskEntity, completion: @escaping () -> Void) {
-		let taskMO = Task(context: coreDataStack.mainContext)
+	func create(task: Task, completion: @escaping () -> Void) {
+		let taskMO = TaskMO(context: coreDataStack.mainContext)
 
 		taskMO.map(task)
 		coreDataStack.save(context: coreDataStack.mainContext)
 		completion()
 	}
 
-	func update(task: TaskEntity, completion: @escaping () -> Void) {
+	func update(task: Task, completion: @escaping () -> Void) {
 		guard let existingTask = get(by: task.id) else {
 			return
 		}
@@ -63,7 +63,7 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		completion()
 	}
 
-	func delete(task: TaskEntity) {
+	func delete(task: Task) {
 		guard let taskMO = get(by: task.id) else {
 			return
 		}
@@ -72,9 +72,9 @@ class CoreDataTaskRepository: TasksRepositoryType, CoreDataRepositoryType {
 		coreDataStack.save(context: coreDataStack.mainContext)
 	}
 
-	private func get(by id: String) -> Task? {
+	private func get(by id: String) -> TaskMO? {
 		let predicate = NSPredicate(format: "id = %@", id)
-		let fetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+		let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 		fetchRequest.predicate = predicate
 
 		return try? coreDataStack.mainContext.fetch(fetchRequest).first

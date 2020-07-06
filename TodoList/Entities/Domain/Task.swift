@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TaskEntity {
+struct Task {
 	let id: String
 	let name: String
 	let imagePath: String
@@ -23,7 +23,7 @@ struct TaskEntity {
 }
 
 // MARK: ViewModelMapping
-extension TaskEntity: ViewModelMapping {
+extension Task: ViewModelMapping {
 	var viewModel: TaskViewModel {
 		TaskViewModel(id: id, imagePath: imagePath, color: imageColor, name: name)
 	}

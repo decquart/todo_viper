@@ -12,7 +12,7 @@ import RealmSwift
 class RealmTaskRepository: TasksRepositoryType {
 	let realm = try! Realm()
 
-	func getAll(completion: @escaping ([TaskEntity]) -> ()) {
+	func getAll(completion: @escaping ([Task]) -> ()) {
 		let entities = realm.objects(TaskObject.self)
 			.sorted(byKeyPath: "name", ascending: true)
 			.compactMap { $0.domainModel }
@@ -20,11 +20,11 @@ class RealmTaskRepository: TasksRepositoryType {
 		completion(Array(entities))
 	}
 
-	func getSubTasksCount(for task: TaskEntity) -> Int {
+	func getSubTasksCount(for task: Task) -> Int {
 		return realm.object(ofType: TaskObject.self, forPrimaryKey: task.id)?.subTasks.count ?? 0
 	}
 
-	func create(task: TaskEntity, completion: () -> Void) {
+	func create(task: Task, completion: () -> Void) {
 		let taskObj = TaskObject()
 		taskObj.map(task)
 
@@ -39,7 +39,7 @@ class RealmTaskRepository: TasksRepositoryType {
 
 	}
 
-	func update(task: TaskEntity, completion: @escaping () -> Void) {
+	func update(task: Task, completion: @escaping () -> Void) {
 		guard let existingTaskObj = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) else {
 			return
 		}
@@ -48,7 +48,7 @@ class RealmTaskRepository: TasksRepositoryType {
 		completion()
 	}
 
-	func delete(task: TaskEntity) {
+	func delete(task: Task) {
 		guard let taskToDelete = realm.object(ofType: TaskObject.self, forPrimaryKey: task.id) else {
 			return
 		}

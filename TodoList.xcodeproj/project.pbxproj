@@ -32,8 +32,8 @@
 		04BCAB802498136C00A38846 /* SubTask+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB792498136C00A38846 /* SubTask+CoreDataClass.swift */; };
 		04BCAB812498136C00A38846 /* SubTask+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7A2498136C00A38846 /* SubTask+CoreDataProperties.swift */; };
 		04BCAB822498136C00A38846 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7B2498136C00A38846 /* Task+CoreDataClass.swift */; };
-		04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */; };
-		04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7E2498136C00A38846 /* TaskEntity.swift */; };
+		04BCAB832498136C00A38846 /* SubTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7D2498136C00A38846 /* SubTask.swift */; };
+		04BCAB842498136C00A38846 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BCAB7E2498136C00A38846 /* Task.swift */; };
 		04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C45B1B248E91B90073CA2B /* AddButton.swift */; };
 		04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF0789248F5FB400440A43 /* SubTaskObject.swift */; };
 		04CF078C248F614400440A43 /* RealmSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */; };
@@ -103,8 +103,8 @@
 		04BCAB792498136C00A38846 /* SubTask+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataClass.swift"; sourceTree = "<group>"; };
 		04BCAB7A2498136C00A38846 /* SubTask+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SubTask+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		04BCAB7B2498136C00A38846 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
-		04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTaskEntity.swift; sourceTree = "<group>"; };
-		04BCAB7E2498136C00A38846 /* TaskEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskEntity.swift; sourceTree = "<group>"; };
+		04BCAB7D2498136C00A38846 /* SubTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTask.swift; sourceTree = "<group>"; };
+		04BCAB7E2498136C00A38846 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		04C45B1B248E91B90073CA2B /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		04CF0789248F5FB400440A43 /* SubTaskObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTaskObject.swift; sourceTree = "<group>"; };
 		04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSubTaskRepository.swift; sourceTree = "<group>"; };
@@ -292,8 +292,8 @@
 		04BCAB7C2498136C00A38846 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				04BCAB7D2498136C00A38846 /* SubTaskEntity.swift */,
-				04BCAB7E2498136C00A38846 /* TaskEntity.swift */,
+				04BCAB7D2498136C00A38846 /* SubTask.swift */,
+				04BCAB7E2498136C00A38846 /* Task.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -607,7 +607,7 @@
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* SubTaskDetailsViewController.swift in Sources */,
-				04BCAB832498136C00A38846 /* SubTaskEntity.swift in Sources */,
+				04BCAB832498136C00A38846 /* SubTask.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,
 				04EFFD2624805BC80048336E /* SubTaskListPresenter.swift in Sources */,
@@ -624,7 +624,7 @@
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* TaskListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
-				04BCAB842498136C00A38846 /* TaskEntity.swift in Sources */,
+				04BCAB842498136C00A38846 /* Task.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,

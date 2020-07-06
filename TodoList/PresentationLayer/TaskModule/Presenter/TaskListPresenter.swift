@@ -30,7 +30,7 @@ class TaskListPresenter: TaskListViewOutput {
 	let repository: TasksRepositoryType
 	let router: RouterProtocol
 
-	var tasks: [TaskEntity] = [] {
+	var tasks: [Task] = [] {
 		didSet {
 			view?.didTaskFetch()
 		}

@@ -16,13 +16,13 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
         self.coreDataStack = coreDataStack
     }
 
-	func add(subtask: SubTaskEntity, to task: TaskEntity, completion: @escaping () -> Void) {
-		let taskFetchRequest: NSFetchRequest<Task> = Task.fetchRequest()
+	func add(subtask: SubTask, to task: Task, completion: @escaping () -> Void) {
+		let taskFetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
 		taskFetchRequest.predicate = NSPredicate(format: "id = %@", task.id)
 
-		let subTaskName = String(describing: SubTask.self)
+		let subTaskName = String(describing: SubTaskMO.self)
 
-		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: coreDataStack.mainContext) as? SubTask else {
+		guard let subTaskMO = NSEntityDescription.insertNewObject(forEntityName: subTaskName, into: coreDataStack.mainContext) as? SubTaskMO else {
 			return
 		}
 
@@ -36,8 +36,8 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		completion()
 	}
 
-	func getAll(where task: TaskEntity, completion: @escaping ([SubTaskEntity]) -> Void) {
-		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
+	func getAll(where task: Task, completion: @escaping ([SubTask]) -> Void) {
+		let fetchRequest: NSFetchRequest<SubTaskMO> = SubTaskMO.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", task.id)
 		fetchRequest.sortDescriptors = [
 			NSSortDescriptor(key: "completed", ascending: true),
@@ -56,7 +56,7 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		}
 	}
 
-	func update(subtask: SubTaskEntity, completion: @escaping () -> Void) {
+	func update(subtask: SubTask, completion: @escaping () -> Void) {
 		guard let storedSubTask = get(by: subtask.uuid) else {
 			return
 		}
@@ -66,9 +66,9 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		completion()
 	}
 
-	func markAsCompleted(where task: TaskEntity, completion: () -> Void) {
-		let batchUpdate = NSBatchUpdateRequest(entityName: "SubTask")
-		batchUpdate.propertiesToUpdate = [#keyPath(SubTask.completed) : true]
+	func markAsCompleted(where task: Task, completion: () -> Void) {
+		let batchUpdate = NSBatchUpdateRequest(entityName: "SubTaskMO")
+		batchUpdate.propertiesToUpdate = [#keyPath(SubTaskMO.completed) : true]
 		batchUpdate.affectedStores = coreDataStack.mainContext.persistentStoreCoordinator?.persistentStores
 		//todo: look for a solution to use predicate
 		//batchUpdate.predicate = NSPredicate(format: "%K = %@", #keyPath(SubTask.owner.id), task.id)
@@ -81,8 +81,8 @@ class CoreDataSubTaskRepository: SubTasksRepositoryType, CoreDataRepositoryType 
 		}
 	}
 
-	private func get(by id: String) -> SubTask? {
-		let fetchRequest: NSFetchRequest<SubTask> = SubTask.fetchRequest()
+	private func get(by id: String) -> SubTaskMO? {
+		let fetchRequest: NSFetchRequest<SubTaskMO> = SubTaskMO.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "id = %@", id)
 
 		return try? coreDataStack.mainContext.fetch(fetchRequest).first

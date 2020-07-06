@@ -1,5 +1,5 @@
 //
-//  SubTask+CoreDataClass.swift
+//  SubTaskMO+CoreDataClass.swift
 //  TodoList
 //
 //  Created by Volodymyr Mykhailiuk on 01.06.2020.
@@ -10,23 +10,23 @@
 import Foundation
 import CoreData
 
-@objc(SubTask)
-public class SubTask: NSManagedObject {
+@objc(SubTaskMO)
+public class SubTaskMO: NSManagedObject {
 
 }
 
 // MARK: - DomainModelMapping
-extension SubTask: DomainModelMapping {
-	var domainModel: SubTaskEntity {
-		return SubTaskEntity(uuid: id,
+extension SubTaskMO: DomainModelMapping {
+	var domainModel: SubTask {
+		return SubTask(uuid: id,
 							 description: description_p,
 							 completed: completed)
 	}
 }
 
 // MARK: - Mappable
-extension SubTask: Mappable {
-	func map(_ entity: SubTaskEntity) {
+extension SubTaskMO: Mappable {
+	func map(_ entity: SubTask) {
 		self.id = entity.uuid
 		self.description_p = entity.description
 		self.completed = entity.completed

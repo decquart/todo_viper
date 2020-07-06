@@ -21,10 +21,10 @@ class SubTaskDetailsPresenter: SubTaskDetailsOutput {
 	let router: RouterProtocol
 	let repository: SubTasksRepositoryType
 
-	private var task: TaskEntity
-	private var subTask: SubTaskEntity?
+	private var task: Task
+	private var subTask: SubTask?
 
-	init(view: SubTaskDetailsInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: TaskEntity) {
+	init(view: SubTaskDetailsInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: Task) {
 		self.view = view
 		self.router = router
 		self.repository = repository

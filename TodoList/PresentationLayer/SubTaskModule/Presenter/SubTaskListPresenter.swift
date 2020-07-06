@@ -27,14 +27,14 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	let router: RouterProtocol
 	let repository: SubTasksRepositoryType
 
-	private var task: TaskEntity!
-	private var subTasks: [SubTaskEntity] = [] {
+	private var task: Task!
+	private var subTasks: [SubTask] = [] {
 		didSet {
 			view?.refreshSubTasks()
 		}
 	}
 
-	required init(view: SubTaskListViewInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: TaskEntity) {
+	required init(view: SubTaskListViewInput, router: RouterProtocol, repository: SubTasksRepositoryType, task: Task) {
 		self.view = view
 		self.router = router
 		self.repository = repository

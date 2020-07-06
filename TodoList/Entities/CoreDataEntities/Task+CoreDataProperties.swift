@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Task {
+extension TaskMO {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Task> {
-        return NSFetchRequest<Task>(entityName: "Task")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<TaskMO> {
+        return NSFetchRequest<TaskMO>(entityName: "TaskMO")
     }
 
     @NSManaged public var id: String
@@ -25,13 +25,13 @@ extension Task {
 }
 
 // MARK: Generated accessors for subTasks
-extension Task {
+extension TaskMO {
 
     @objc(addSubTasksObject:)
-    @NSManaged public func addToSubTasks(_ value: SubTask)
+    @NSManaged public func addToSubTasks(_ value: SubTaskMO)
 
     @objc(removeSubTasksObject:)
-    @NSManaged public func removeFromSubTasks(_ value: SubTask)
+    @NSManaged public func removeFromSubTasks(_ value: SubTaskMO)
 
     @objc(addSubTasks:)
     @NSManaged public func addToSubTasks(_ values: NSSet)

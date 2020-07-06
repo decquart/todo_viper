@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SubTaskEntity {
+struct SubTask {
 	let uuid: String
 	var description: String
 	var completed: Bool
@@ -21,7 +21,7 @@ struct SubTaskEntity {
 }
 
 // MARK: ViewModelMapping
-extension SubTaskEntity: ViewModelMapping {
+extension SubTask: ViewModelMapping {
 	var viewModel: SubTaskViewModel {
 		return SubTaskViewModel(uuid: uuid,
 								description: description,

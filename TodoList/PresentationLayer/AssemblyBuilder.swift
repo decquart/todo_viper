@@ -10,9 +10,9 @@ import UIKit
 
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
-	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController
+	func createSubTaskListModule(router: RouterProtocol, task: Task) -> UIViewController
 	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskViewModel>) -> UIViewController
-	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, scope: Scope<SubTaskViewModel>) -> UIViewController
+	func createSubTaskDetailsModule(router: RouterProtocol, task: Task, scope: Scope<SubTaskViewModel>) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -31,7 +31,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSubTaskListModule(router: RouterProtocol, task: TaskEntity) -> UIViewController {
+	func createSubTaskListModule(router: RouterProtocol, task: Task) -> UIViewController {
 
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
@@ -60,7 +60,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSubTaskDetailsModule(router: RouterProtocol, task: TaskEntity, scope: Scope<SubTaskViewModel>) -> UIViewController {
+	func createSubTaskDetailsModule(router: RouterProtocol, task: Task, scope: Scope<SubTaskViewModel>) -> UIViewController {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
 		let repository = CoreDataSubTaskRepository(coreDataStack: coreDataStack)

@@ -28,7 +28,7 @@ struct TaskViewModel {
 
 // MARK: - DomainModelMapping
 extension TaskViewModel: DomainModelMapping {
-	var domainModel: TaskEntity {
-		return TaskEntity(id: id, name: name, imagePath: imagePath, color: color)
+	var domainModel: Task {
+		return Task(id: id, name: name, imagePath: imagePath, color: color)
 	}
 }

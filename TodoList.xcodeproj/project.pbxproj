@@ -17,10 +17,6 @@
 		049FB52A2480157E000A7133 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 049FB5282480157E000A7133 /* Main.storyboard */; };
 		049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */; };
 		049FB53D24801580000A7133 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FB53C24801580000A7133 /* TodoListTests.swift */; };
-		049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF590248A959F00BF0FDD /* SubTasksRepository.swift */; };
-		049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */; };
-		049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */; };
-		049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF594248A959F00BF0FDD /* TasksRepository.swift */; };
 		049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF59E248A960600BF0FDD /* CoreDataStack.swift */; };
 		049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */; };
 		04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */; };
@@ -63,6 +59,7 @@
 		2D7C295B24B3BD68008EE2C1 /* CDTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */; };
 		2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */; };
 		2D7C295F24B3BDDD008EE2C1 /* CDSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */; };
+		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 /* End PBXBuildFile section */
@@ -92,10 +89,6 @@
 		049FB53824801580000A7133 /* TodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		049FB53C24801580000A7133 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
 		049FB53E24801580000A7133 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		049FF590248A959F00BF0FDD /* SubTasksRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubTasksRepository.swift; sourceTree = "<group>"; };
-		049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSubTaskRepository.swift; sourceTree = "<group>"; };
-		049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataTaskRepository.swift; sourceTree = "<group>"; };
-		049FF594248A959F00BF0FDD /* TasksRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksRepository.swift; sourceTree = "<group>"; };
 		049FF59E248A960600BF0FDD /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRepositoryType.swift; sourceTree = "<group>"; };
 		04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTaskRepository.swift; sourceTree = "<group>"; };
@@ -136,6 +129,7 @@
 		2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTaskRepository.swift; sourceTree = "<group>"; };
 		2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRepository.swift; sourceTree = "<group>"; };
 		2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSubTaskRepository.swift; sourceTree = "<group>"; };
+		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -251,35 +245,11 @@
 		049FF58D248A959F00BF0FDD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				049FF58F248A959F00BF0FDD /* SubTaskRepository */,
-				049FF592248A959F00BF0FDD /* TaskRepository */,
 				2D7C295824B3B099008EE2C1 /* Repository.swift */,
-				049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */,
-				2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */,
-				2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */,
-				2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */,
+				2D7C296024B451A6008EE2C1 /* CDRepository */,
+				2D7C296324B45275008EE2C1 /* RealmRepository */,
 			);
 			path = Repository;
-			sourceTree = "<group>";
-		};
-		049FF58F248A959F00BF0FDD /* SubTaskRepository */ = {
-			isa = PBXGroup;
-			children = (
-				049FF590248A959F00BF0FDD /* SubTasksRepository.swift */,
-				049FF591248A959F00BF0FDD /* CoreDataSubTaskRepository.swift */,
-				04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */,
-			);
-			path = SubTaskRepository;
-			sourceTree = "<group>";
-		};
-		049FF592248A959F00BF0FDD /* TaskRepository */ = {
-			isa = PBXGroup;
-			children = (
-				049FF594248A959F00BF0FDD /* TasksRepository.swift */,
-				049FF593248A959F00BF0FDD /* CoreDataTaskRepository.swift */,
-				04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */,
-			);
-			path = TaskRepository;
 			sourceTree = "<group>";
 		};
 		04B692D9248ECA6200428ECC /* RealmEntities */ = {
@@ -490,6 +460,27 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		2D7C296024B451A6008EE2C1 /* CDRepository */ = {
+			isa = PBXGroup;
+			children = (
+				049FF5A0248A969700BF0FDD /* CoreDataRepositoryType.swift */,
+				2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */,
+				2D7C295A24B3BD68008EE2C1 /* CDTaskRepository.swift */,
+				2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */,
+			);
+			path = CDRepository;
+			sourceTree = "<group>";
+		};
+		2D7C296324B45275008EE2C1 /* RealmRepository */ = {
+			isa = PBXGroup;
+			children = (
+				2D7C296124B451CE008EE2C1 /* RealmRepository.swift */,
+				04B692D6248ECA0E00428ECC /* RealmTaskRepository.swift */,
+				04CF078B248F614400440A43 /* RealmSubTaskRepository.swift */,
+			);
+			path = RealmRepository;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -611,15 +602,13 @@
 				2D0CBC7624A957B600AC23F6 /* SubTaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
-				049FF599248A959F00BF0FDD /* TasksRepository.swift in Sources */,
-				049FF597248A959F00BF0FDD /* CoreDataSubTaskRepository.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDTaskRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				0442541A2480D0E900ED4C72 /* AssemblyBuilder.swift in Sources */,
-				049FF598248A959F00BF0FDD /* CoreDataTaskRepository.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* SubTaskViewModel.swift in Sources */,
+				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
@@ -649,7 +638,6 @@
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
-				049FF596248A959F00BF0FDD /* SubTasksRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

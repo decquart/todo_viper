@@ -12,8 +12,9 @@ import Foundation
 final class SubTaskObject: Object {
 
 	@objc dynamic var id = ""
-	@objc dynamic var isCompleted = false
 	@objc dynamic var description_p = ""
+	@objc dynamic var isCompleted = false
+	@objc dynamic var date = Date()
 	let owner = LinkingObjects(fromType: TaskObject.self, property: "subTasks")
 
 	override class func primaryKey() -> String? {
@@ -24,7 +25,7 @@ final class SubTaskObject: Object {
 // MARK: - Mappable
 extension SubTaskObject: Mappable {
 	var mapToModel: SubTask {
-		SubTask(uuid: id, description: description_p, completed: isCompleted)
+		SubTask(uuid: id, description: description_p, completed: isCompleted, date: date)
 	}
 
 	func map(_ entity: SubTask) {
@@ -33,5 +34,6 @@ extension SubTaskObject: Mappable {
 		}
 		description_p = entity.description
 		isCompleted = entity.completed
+		date = entity.date
 	}
 }

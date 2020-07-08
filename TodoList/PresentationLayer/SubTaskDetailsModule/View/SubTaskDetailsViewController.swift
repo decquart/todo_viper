@@ -22,18 +22,18 @@ class SubTaskDetailsViewController: UIViewController {
 	}
 
 	@IBOutlet weak private var textField: UITextField!
-	@IBOutlet weak private var closeButton: UIButton!
 	@IBOutlet weak private var sendButton: UIButton!
+	@IBOutlet weak private var datePicker: UIDatePicker! {
+		didSet {
+			datePicker.timeZone = .current
+		}
+	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		initAppearance()
     }
-
-	@IBAction private func closeButtonPressed(_ sender: Any) {
-		dismiss(animated: true)
-	}
 
 	@IBAction private func sendButtonPressed(_ sender: Any) {
 		guard let text = textField.text, !text.isEmpty else {
@@ -42,6 +42,7 @@ class SubTaskDetailsViewController: UIViewController {
 
 		var subtask = viewModel
 		subtask.description = text
+		subtask.date = datePicker.date.localDate
 		presenter.sendButtonPressed(viewModel: subtask)
 	}
 

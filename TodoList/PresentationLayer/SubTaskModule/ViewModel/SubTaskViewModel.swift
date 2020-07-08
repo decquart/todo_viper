@@ -12,6 +12,7 @@ struct SubTaskViewModel {
 	private var id: String = UUID().uuidString
 	private var isCompleted: Bool = false
 	var description: String = ""
+	var date: Date = Date()
 
 	var checkmarkIcon: UIImage {
 		isCompleted
@@ -25,12 +26,13 @@ struct SubTaskViewModel {
 		id = model.uuid
 		isCompleted = model.completed
 		description = model.description
+		date = model.date
 	}
 }
 
 // MARK: - MappingOutput
 extension SubTaskViewModel: MappingOutput {
 	var mapToModel: SubTask {
-		SubTask(uuid: id, description: description, completed: isCompleted)
+		SubTask(uuid: id, description: description, completed: isCompleted, date: date)
 	}
 }

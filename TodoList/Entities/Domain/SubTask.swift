@@ -12,10 +12,12 @@ struct SubTask {
 	let uuid: String
 	var description: String
 	var completed: Bool
+	var date: Date
 
-	init(uuid: String = UUID().uuidString, description: String, completed: Bool) {
+	init(uuid: String = UUID().uuidString, description: String, completed: Bool, date: Date) {
 		self.uuid = uuid
 		self.description = description
 		self.completed = completed
+		self.date = date
 	}
 }

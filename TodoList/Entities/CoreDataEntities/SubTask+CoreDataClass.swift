@@ -20,12 +20,14 @@ extension SubTaskMO: Mappable {
 	var mapToModel: SubTask {
 		return SubTask(uuid: id,
 					   description: description_p,
-					   completed: completed)
+					   completed: completed,
+					   date: date)
 	}
 
 	func map(_ model: SubTask) {
 		self.id = model.uuid
 		self.description_p = model.description
 		self.completed = model.completed
+		self.date = model.date
 	}
 }

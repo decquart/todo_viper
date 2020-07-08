@@ -73,7 +73,6 @@ extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 extension SubTaskListViewController {
-
 	@IBAction func addButtonPressed(_ sender: UIButton) {
 		presenter.addButtonPressed()
 	}

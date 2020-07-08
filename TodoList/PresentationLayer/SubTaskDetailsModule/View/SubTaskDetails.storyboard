@@ -15,25 +15,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNU-Zg-Hxy">
-                                <rect key="frame" x="366" y="52" width="40" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g., Buy some food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-c8-9Iu">
+                                <rect key="frame" x="20" y="84" width="314" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="1b2-ey-XoK"/>
-                                    <constraint firstAttribute="height" constant="40" id="QzE-CY-GgR"/>
+                                    <constraint firstAttribute="height" constant="40" id="jut-sm-jj3"/>
                                 </constraints>
-                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="multiply.circle.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="closeButtonPressed:" destination="uq8-3b-xvO" eventType="touchUpInside" id="Sm6-ou-C5X"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g., Buy some food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-c8-9Iu">
-                                <rect key="frame" x="20" y="84" width="346" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="uGZ-W2-QwW">
+                                <rect key="frame" x="0.0" y="164" width="414" height="216"/>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-eR-hiq">
-                                <rect key="frame" x="326" y="140" width="40" height="40"/>
+                                <rect key="frame" x="354" y="84" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1ya-kB-u2S"/>
                                     <constraint firstAttribute="width" constant="40" id="sxD-bb-6SW"/>
@@ -47,18 +41,19 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="gvF-eR-hiq" firstAttribute="trailing" secondItem="H8U-c8-9Iu" secondAttribute="trailing" id="3D0-IB-UlQ"/>
-                            <constraint firstItem="cNU-Zg-Hxy" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="8" id="5wG-F5-6n5"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="trailing" secondItem="2v1-U1-10A" secondAttribute="trailing" id="4LY-98-h4o"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" id="5mP-f0-VmY"/>
                             <constraint firstItem="H8U-c8-9Iu" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" constant="20" id="Ntu-g3-E7R"/>
                             <constraint firstItem="H8U-c8-9Iu" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="40" id="QOi-iJ-Nqd"/>
-                            <constraint firstItem="gvF-eR-hiq" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="22" id="ag1-iR-KkQ"/>
-                            <constraint firstItem="cNU-Zg-Hxy" firstAttribute="leading" secondItem="H8U-c8-9Iu" secondAttribute="trailing" id="m2k-fH-qCP"/>
-                            <constraint firstItem="2v1-U1-10A" firstAttribute="trailing" secondItem="cNU-Zg-Hxy" secondAttribute="trailing" constant="8" id="tVf-8P-xr6"/>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="leading" secondItem="H8U-c8-9Iu" secondAttribute="trailing" constant="20" id="Ufd-1Z-AE8"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="40" id="bEr-EP-Q4H"/>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="40" id="gzs-AV-Wdk"/>
+                            <constraint firstItem="2v1-U1-10A" firstAttribute="trailing" secondItem="gvF-eR-hiq" secondAttribute="trailing" constant="20" id="tDM-Og-vCW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2v1-U1-10A"/>
                     </view>
                     <connections>
-                        <outlet property="closeButton" destination="cNU-Zg-Hxy" id="DMZ-4R-xjr"/>
+                        <outlet property="datePicker" destination="uGZ-W2-QwW" id="wu8-WI-A62"/>
                         <outlet property="sendButton" destination="gvF-eR-hiq" id="Wel-PH-2W1"/>
                         <outlet property="textField" destination="H8U-c8-9Iu" id="LTg-3f-3T3"/>
                     </connections>
@@ -70,6 +65,5 @@
     </scenes>
     <resources>
         <image name="arrow.up.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="multiply.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

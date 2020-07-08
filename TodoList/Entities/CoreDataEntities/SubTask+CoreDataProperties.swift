@@ -20,5 +20,6 @@ extension SubTaskMO {
 	@NSManaged public var id: String
     @NSManaged public var completed: Bool
     @NSManaged public var description_p: String
+	@NSManaged public var date: Date
     @NSManaged public var owner: TaskMO
 }

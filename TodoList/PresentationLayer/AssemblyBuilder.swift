@@ -26,6 +26,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		}
 
 		let repository = CDTaskRepository(coreDataStack: coreDataStack)
+		//let repository = RealmTaskRepository()
 		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
 		return view
@@ -36,6 +37,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
 		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
+		//let repository = RealmSubTaskRepository(taskId: task.id)
 		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
 		view.presenter = presenter
 		return view
@@ -52,6 +54,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		view.iconPickerView = subview
 		let repository = CDTaskRepository(coreDataStack: coreDataStack)
+		//let repository = RealmTaskRepository()
 		let presenter = TaskDetailsPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
@@ -64,6 +67,7 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
 		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
+		//let repository = RealmSubTaskRepository(taskId: task.id)
 		let presenter = SubTaskDetailsPresenter(view: view, router: router, repository: repository, task: task)
 
 		view.presenter = presenter

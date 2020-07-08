@@ -66,21 +66,6 @@ final class CDSubTaskRepository: CDRepository<SubTaskMO, SubTask> {
 		completion(true)
 	}
 
-//	func markAsCompleted(where task: Task, completion: () -> Void) {
-//		let batchUpdate = NSBatchUpdateRequest(entityName: "SubTaskMO")
-//		batchUpdate.propertiesToUpdate = [#keyPath(SubTaskMO.completed) : true]
-//		batchUpdate.affectedStores = coreDataStack.mainContext.persistentStoreCoordinator?.persistentStores
-//		//todo: look for a solution to use predicate
-//		//batchUpdate.predicate = NSPredicate(format: "%K = %@", #keyPath(SubTask.owner.id), task.id)
-//
-//		do {
-//			try coreDataStack.mainContext.execute(batchUpdate)
-//			completion()
-//		} catch {
-//			print(error.localizedDescription)
-//		}
-//	}
-
 	private func get(by id: String) -> SubTaskMO? {
 		let fetchRequest: NSFetchRequest<SubTaskMO> = SubTaskMO.fetchRequest()
 		fetchRequest.predicate = NSPredicate(format: "id = %@", id)

@@ -6,7 +6,7 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-import CoreData
+import Foundation
 
 protocol Repository {
 	associatedtype Item
@@ -32,5 +32,39 @@ class AnyRepository<Item>: Repository {
 
 	func delete(_ item: Item, completion: @escaping (Bool) -> Void) {
 		fatalError("")
+	}
+}
+
+extension AnyRepository {
+
+	typealias FunctionHandler = (Item, @escaping (Bool) -> Void) -> Void
+
+	func add(_ items: [Item], completion: @escaping (Bool) -> Void) {
+		execute(function: add, items: items, completion: completion)
+	}
+
+	func update(_ items: [Item], completion: @escaping (Bool) -> Void) {
+		execute(function: update, items: items, completion: completion)
+	}
+
+	func delete(_ items: [Item], completion: @escaping (Bool) -> Void) {
+		execute(function: delete, items: items, completion: completion)
+	}
+
+	private func execute(function: FunctionHandler, items: [Item], completion: @escaping (Bool) -> Void) {
+		let itemGroup = DispatchGroup()
+		var failedItems: [Item] = []
+
+		for subtask in items {
+			DispatchQueue.main.async(group: itemGroup) {
+				self.update(subtask) { success in
+					failedItems.append(subtask)
+				}
+			}
+		}
+
+		itemGroup.notify(queue: .main) {
+			completion(!failedItems.isEmpty)
+		}
 	}
 }

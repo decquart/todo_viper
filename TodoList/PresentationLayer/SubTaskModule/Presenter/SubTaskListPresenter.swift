@@ -69,7 +69,18 @@ class SubTaskListPresenter: SubTaskListViewOutput {
 	}
 
 	func didCompleteAll() {
+		let unfinished = subTasks.filter { !$0.completed }
+		if unfinished.isEmpty { return }
 
+		let modified = unfinished.map { subtask -> SubTask in
+			var item = subtask
+			item.completed.toggle()
+			return item
+		}
+
+		repository.update(modified) { [weak self] _ in
+			self?.loadSubTasks()
+		}
 	}
 
 	func didSelect(at indexPath: IndexPath) {

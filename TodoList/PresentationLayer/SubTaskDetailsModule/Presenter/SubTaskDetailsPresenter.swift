@@ -13,7 +13,6 @@ protocol SubTaskDetailsOutput: class {
 protocol SubTaskDetailsInput: class {
 	var isNewSubtask: Bool { get }
 	func invalidateView()
-	func dismiss()
 }
 
 class SubTaskDetailsPresenter: SubTaskDetailsOutput {

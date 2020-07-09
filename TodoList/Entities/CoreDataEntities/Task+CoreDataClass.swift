@@ -21,7 +21,8 @@ extension TaskMO: Mappable {
 		return Task(id: id,
 					name: name,
 					imagePath: imagePath,
-					color: iconColor)
+					color: iconColor,
+					subtasksCount: subTasks.count)
 	}
 
 	func map(_ entity: Task) {

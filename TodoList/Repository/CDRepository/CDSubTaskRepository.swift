@@ -21,6 +21,7 @@ final class CDSubTaskRepository: CDRepository<SubTaskMO, SubTask> {
 		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", taskId)
 		fetchRequest.sortDescriptors = [
 			NSSortDescriptor(key: "completed", ascending: true),
+			NSSortDescriptor(key: "date", ascending: true),
 			NSSortDescriptor(key: "description_p", ascending: true)
 		]
 

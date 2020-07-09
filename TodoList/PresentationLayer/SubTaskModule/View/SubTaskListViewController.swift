@@ -35,21 +35,21 @@ class SubTaskListViewController: UIViewController {
 	}
 }
 
-//MARK: - SubTaskListViewInput
+// MARK: - SubTaskListViewInput
 extension SubTaskListViewController: SubTaskListViewInput {
 	func refreshSubTasks() {
 		tableView.reloadData()
 	}
 }
 
-//MARK: - Selectors
+// MARK: - Selectors
 extension SubTaskListViewController {
 	@objc func completeAll() {
 		presenter.didCompleteAll()
 	}
 }
 
-//MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension SubTaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.numberOfRows()

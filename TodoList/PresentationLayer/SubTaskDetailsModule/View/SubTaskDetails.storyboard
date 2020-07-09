@@ -16,18 +16,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="e.g., Buy some food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8U-c8-9Iu">
-                                <rect key="frame" x="20" y="84" width="314" height="40"/>
+                                <rect key="frame" x="20" y="64" width="314" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="jut-sm-jj3"/>
+                                    <constraint firstAttribute="height" constant="60" id="jut-sm-jj3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="uGZ-W2-QwW">
-                                <rect key="frame" x="0.0" y="164" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="144" width="414" height="216"/>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-eR-hiq">
-                                <rect key="frame" x="354" y="84" width="40" height="40"/>
+                                <rect key="frame" x="354" y="74" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1ya-kB-u2S"/>
                                     <constraint firstAttribute="width" constant="40" id="sxD-bb-6SW"/>
@@ -41,13 +41,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="gvF-eR-hiq" firstAttribute="centerY" secondItem="H8U-c8-9Iu" secondAttribute="centerY" id="21S-MM-ryS"/>
                             <constraint firstItem="uGZ-W2-QwW" firstAttribute="trailing" secondItem="2v1-U1-10A" secondAttribute="trailing" id="4LY-98-h4o"/>
                             <constraint firstItem="uGZ-W2-QwW" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" id="5mP-f0-VmY"/>
                             <constraint firstItem="H8U-c8-9Iu" firstAttribute="leading" secondItem="2v1-U1-10A" secondAttribute="leading" constant="20" id="Ntu-g3-E7R"/>
-                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="40" id="QOi-iJ-Nqd"/>
+                            <constraint firstItem="H8U-c8-9Iu" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="20" id="QOi-iJ-Nqd"/>
                             <constraint firstItem="gvF-eR-hiq" firstAttribute="leading" secondItem="H8U-c8-9Iu" secondAttribute="trailing" constant="20" id="Ufd-1Z-AE8"/>
-                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="40" id="bEr-EP-Q4H"/>
-                            <constraint firstItem="gvF-eR-hiq" firstAttribute="top" secondItem="2v1-U1-10A" secondAttribute="top" constant="40" id="gzs-AV-Wdk"/>
+                            <constraint firstItem="uGZ-W2-QwW" firstAttribute="top" secondItem="H8U-c8-9Iu" secondAttribute="bottom" constant="20" id="bEr-EP-Q4H"/>
                             <constraint firstItem="2v1-U1-10A" firstAttribute="trailing" secondItem="gvF-eR-hiq" secondAttribute="trailing" constant="20" id="tDM-Og-vCW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2v1-U1-10A"/>

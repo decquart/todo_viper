@@ -21,7 +21,6 @@ protocol RouterProtocol: RouterMain {
 
 	func popToRoot()
 	func pop()
-	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void)
 }
 
 class Router: RouterProtocol {
@@ -61,22 +60,5 @@ class Router: RouterProtocol {
 
 	func pop() {
 		navigationController.popViewController(animated: true)
-	}
-
-	//Should Router hold this method?
-	func showEditTaskAlertViewController(editAction: @escaping () -> Void, deleteAction: @escaping () -> Void) {
-		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-		let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
-			deleteAction()
-		}
-		let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
-			editAction()
-		}
-		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-
-		alert.addAction(deleteAction)
-		alert.addAction(editAction)
-		alert.addAction(cancelAction)
-		navigationController.present(alert, animated: true)
 	}
 }

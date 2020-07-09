@@ -30,7 +30,8 @@ extension TaskObject: Mappable {
 		Task(id: id,
 			 name: name,
 			 imagePath: imagePath,
-			 color: UIColor.green)  //TODO
+			 color: UIColor.green,
+			 subtasksCount: subTasks.count)
 	}
 
 	func map(_ entity: Task) {

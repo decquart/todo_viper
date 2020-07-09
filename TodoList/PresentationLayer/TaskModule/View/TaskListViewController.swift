@@ -38,18 +38,14 @@ class TaskListViewController: UIViewController {
 	}
 }
 
-//MARK: - TaskListViewInput
+// MARK: - TaskListViewInput
 extension TaskListViewController: TaskListViewInput {
-	var isEditMode: Bool {
-		return isEditing
-	}
-
 	func didTaskFetch() {
 		self.collectionView.reloadData()
 	}
 }
 
-//MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension TaskListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return presenter.numberOfTasks
@@ -64,7 +60,7 @@ extension TaskListViewController: UICollectionViewDelegate, UICollectionViewData
 	}
 }
 
-//MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -78,13 +74,38 @@ extension TaskListViewController: UICollectionViewDelegateFlowLayout {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		presenter.didSelectTask(with: indexPath.row)
+		if isEditing {
+			showEditTaskAlertViewController(with: indexPath.row)
+		} else {
+			presenter.didSelectTask(with: indexPath.row)
+		}
 	}
 }
 
-//MARK: - Actions
+// MARK: - Actions
 extension TaskListViewController {
 	@IBAction func buttonAddPressed(_ sender: Any) {
 		presenter.addTaskButtonPressed()
+	}
+}
+
+// MARK: - Actions
+extension TaskListViewController {
+	func showEditTaskAlertViewController(with index: Int) {
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+			self.presenter.deleteButtonPressed(with: index)
+		}
+
+		let editAction = UIAlertAction(title: "Edit", style: .default) { _ in
+			self.presenter.editButtonPressed(with: index)
+		}
+
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+
+		alert.addAction(deleteAction)
+		alert.addAction(editAction)
+		alert.addAction(cancelAction)
+		self.present(alert, animated: true)
 	}
 }

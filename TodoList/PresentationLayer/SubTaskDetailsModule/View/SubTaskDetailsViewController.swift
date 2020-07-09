@@ -23,11 +23,7 @@ class SubTaskDetailsViewController: UIViewController {
 
 	@IBOutlet weak private var textField: UITextField!
 	@IBOutlet weak private var sendButton: UIButton!
-	@IBOutlet weak private var datePicker: UIDatePicker! {
-		didSet {
-			datePicker.timeZone = .current
-		}
-	}
+	@IBOutlet weak private var datePicker: UIDatePicker!
 
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +38,7 @@ class SubTaskDetailsViewController: UIViewController {
 
 		var subtask = viewModel
 		subtask.description = text
-		subtask.date = datePicker.date.localDate
+		subtask.date = datePicker.date
 		presenter.sendButtonPressed(viewModel: subtask)
 	}
 
@@ -50,6 +46,7 @@ class SubTaskDetailsViewController: UIViewController {
 		switch scope {
 		case .edit(let subtask):
 			textField.text = subtask.description
+			datePicker.date = subtask.date
 		default:
 			break
 		}
@@ -67,9 +64,6 @@ extension SubTaskDetailsViewController: SubTaskDetailsInput {
 
 	func invalidateView() {
 		textField.text = ""
-	}
-
-	func dismiss() {
-		self.dismiss(animated: true)
+		datePicker.date = Date()
 	}
 }

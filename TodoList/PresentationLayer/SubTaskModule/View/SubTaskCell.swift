@@ -13,6 +13,7 @@ class SubTaskCell: UITableViewCell {
 	var buttonPressedClosure: (() -> Void)?
 	@IBOutlet weak private var descriptionLabel: UILabel!
 	@IBOutlet weak private var checkButton: UIButton!
+	@IBOutlet weak var dateLabel: UILabel!
 
 	@IBAction private func checkButtonPressed(_ sender: UIButton) {
 		buttonPressedClosure?()
@@ -21,5 +22,6 @@ class SubTaskCell: UITableViewCell {
 	func configure(with viewModel: SubTaskViewModel) {
 		self.descriptionLabel.text = viewModel.description
 		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
+		self.dateLabel.text = viewModel.dateText
 	}
 }

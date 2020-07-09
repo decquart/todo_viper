@@ -26,15 +26,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="62.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-cT-rKS">
-                                                    <rect key="frame" x="48" y="15" width="338" height="32.5"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Ccu-fZ-GAL"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WRt-bc-G5b">
                                                     <rect key="frame" x="0.0" y="11.5" width="40" height="40"/>
                                                     <constraints>
@@ -47,18 +38,39 @@
                                                         <action selector="checkButtonPressed:" destination="BF8-HR-pxQ" eventType="touchUpInside" id="s1Q-Cp-S2B"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-22-wWo">
+                                                    <rect key="frame" x="325" y="21" width="81" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="81" id="Fq0-9w-uml"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-cT-rKS">
+                                                    <rect key="frame" x="48" y="15" width="269" height="32.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Ccu-fZ-GAL"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WRt-bc-G5b" firstAttribute="centerY" secondItem="aJ5-PB-gsG" secondAttribute="centerY" id="471-RX-i3z"/>
+                                                <constraint firstItem="lz7-22-wWo" firstAttribute="centerY" secondItem="1Pb-cT-rKS" secondAttribute="centerY" id="GSU-Bd-gfX"/>
                                                 <constraint firstItem="1Pb-cT-rKS" firstAttribute="top" secondItem="aJ5-PB-gsG" secondAttribute="topMargin" constant="4" id="JbD-fu-6O4"/>
+                                                <constraint firstAttribute="trailing" secondItem="lz7-22-wWo" secondAttribute="trailing" constant="8" id="JoS-yj-Bu5"/>
                                                 <constraint firstItem="1Pb-cT-rKS" firstAttribute="leading" secondItem="WRt-bc-G5b" secondAttribute="trailing" constant="8" id="SCA-bH-6hN"/>
                                                 <constraint firstItem="WRt-bc-G5b" firstAttribute="leading" secondItem="aJ5-PB-gsG" secondAttribute="leading" id="bJo-4y-6ff"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="1Pb-cT-rKS" secondAttribute="bottom" constant="4" id="jGt-WY-db3"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="1Pb-cT-rKS" secondAttribute="trailing" constant="8" id="wZ6-XE-BST"/>
+                                                <constraint firstItem="lz7-22-wWo" firstAttribute="leading" secondItem="1Pb-cT-rKS" secondAttribute="trailing" constant="8" id="soo-Ae-hwr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkButton" destination="WRt-bc-G5b" id="3C0-jT-Vmh"/>
+                                            <outlet property="dateLabel" destination="lz7-22-wWo" id="7l5-9K-lUM"/>
                                             <outlet property="descriptionLabel" destination="1Pb-cT-rKS" id="aIm-Ls-ozx"/>
                                         </connections>
                                     </tableViewCell>

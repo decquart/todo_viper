@@ -71,7 +71,7 @@ class TaskDetailsViewController: UIViewController {
 	}
 }
 
-//MARK: - IBActions
+// MARK: - IBActions
 extension TaskDetailsViewController {
 	@IBAction func sliderValueDidChange(_ sender: UISlider) {
 		color = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
@@ -90,7 +90,7 @@ extension TaskDetailsViewController {
 	}
 }
 
-//MARK: - AddTaskInput
+// MARK: - AddTaskInput
 extension TaskDetailsViewController: TaskDetailsInput {
 	var isNewTask: Bool {
 		if case .create = scope {
@@ -106,7 +106,7 @@ extension TaskDetailsViewController: TaskDetailsInput {
 	}
 }
 
-//MARK: - Appearance
+// MARK: - Appearance
 extension TaskDetailsViewController {
 	func initAppearance() {
 		switch scope {
@@ -136,7 +136,7 @@ extension TaskDetailsViewController {
 	}
 }
 
-//MARK: - GestureRecognizer
+// MARK: - GestureRecognizer
 extension TaskDetailsViewController {
 	func setupGestureRecognizer() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -148,4 +148,3 @@ extension TaskDetailsViewController {
         view.endEditing(true)
     }
 }
-

@@ -22,6 +22,7 @@ final class RealmSubTaskRepository: RealmRepository<SubTaskObject, SubTask> {
 			.filter(NSPredicate(format: "ANY owner.id == %@", taskId))
 			.sorted(by: [
 				SortDescriptor(keyPath: "isCompleted", ascending: true),
+				SortDescriptor(keyPath: "date", ascending: true),
 				SortDescriptor(keyPath: "description_p", ascending: true)
 			])
 

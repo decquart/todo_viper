@@ -20,6 +20,20 @@ struct SubTaskViewModel {
 			: UIImage(systemName: "circle")!
 	}
 
+	var dateText: String {
+		if Calendar.current.isDateInToday(date) {
+			return "Today"
+		}
+
+		if Calendar.current.isDateInTomorrow(date) {
+			return "Tomorrow"
+		}
+
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "MM'/'dd"
+		return dateFormatter.string(from: date)
+	}
+
 	init() {}
 
 	init(model: SubTask) {

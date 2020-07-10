@@ -9,7 +9,9 @@
 import UIKit
 
 protocol RouterMain {
-	var navigationController: UINavigationController! { get set }
+	//var navigationController: UINavigationController! { get set }
+	var mainNavigationController: UINavigationController! { get set }
+	var settingsNavigationController: UINavigationController! { get set }
 	var assemblyBuilder: AssemblyBuilderProtocol! { get set }
 }
 
@@ -24,41 +26,40 @@ protocol RouterProtocol: RouterMain {
 }
 
 class Router: RouterProtocol {
-	var navigationController: UINavigationController!
+	var mainNavigationController: UINavigationController!
+	var settingsNavigationController: UINavigationController!
 	var assemblyBuilder: AssemblyBuilderProtocol!
 
-	init(navigationController: UINavigationController, assemblyBuilder: AssemblyBuilder?) {
-		self.navigationController = navigationController
+	init(assemblyBuilder: AssemblyBuilder?) {
+		//self.navigationController = navigationController
 		self.assemblyBuilder = assemblyBuilder
 	}
 
 	func showTaskListViewController() {
 		let mainVC = assemblyBuilder.createMainModule(router: self)
-
-		navigationController.viewControllers = [mainVC]
+		mainNavigationController.viewControllers = [mainVC]
 	}
 
 	func showSubTaskListViewController(task: Task) {
 		let vc = assemblyBuilder.createSubTaskListModule(router: self, task: task)
-
-		navigationController.pushViewController(vc, animated: true)
+		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
 	func showTaskDetailsViewController(scope: Scope<TaskViewModel>) {
 		let vc = assemblyBuilder.createTaskDetailsModule(router: self, scope: scope)
-		navigationController.pushViewController(vc, animated: true)
+		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
 	func showSubTaskDetailsViewController(task: Task, scope: Scope<SubTaskViewModel>) {
 		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, scope: scope)
-		navigationController.pushViewController(vc, animated: true)
+		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
 	func popToRoot() {
-		navigationController.popToRootViewController(animated: true)
+		mainNavigationController.popToRootViewController(animated: true)
 	}
 
 	func pop() {
-		navigationController.popViewController(animated: true)
+		mainNavigationController.popViewController(animated: true)
 	}
 }

@@ -29,13 +29,26 @@ private extension SceneDelegate {
 		window?.windowScene = windowScene
 
 		let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-		let navController = mainStoryboard.instantiateViewController(withIdentifier: "navController") as! UINavigationController
+		let tabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
 
 		let builder = AssemblyBuilder()
-		let router = Router(navigationController: navController, assemblyBuilder: builder)
-		router.showTaskListViewController()
+		let router = Router(assemblyBuilder: builder)
 
-		window?.rootViewController = navController
+		let settingsVC = builder.createSettingsModule(router: router)
+		let tasksVC = builder.createMainModule(router: router)
+
+
+		settingsVC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
+		tasksVC.tabBarItem =  UITabBarItem(title: "Tasks", image: UIImage(systemName: "pencil.circle.fill"), tag: 1)
+
+		let tasksNavigationController = UINavigationController(rootViewController: tasksVC)
+		let settingsNavigationController = UINavigationController(rootViewController: settingsVC)
+		tabBarController.viewControllers = [tasksNavigationController, settingsNavigationController]
+
+		router.mainNavigationController = tasksNavigationController
+		router.settingsNavigationController = settingsNavigationController
+
+		window?.rootViewController = tabBarController
 		window?.makeKeyAndVisible()
 	}
 }

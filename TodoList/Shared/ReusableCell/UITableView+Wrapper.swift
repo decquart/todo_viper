@@ -20,4 +20,8 @@ extension UITableView {
 
 		return cell
 	}
+
+	func register<T: UITableViewCell>(cellType: T.Type) {
+		register(cellType, forCellReuseIdentifier: cellType.reuseIdentifier)
+	}
 }

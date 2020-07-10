@@ -9,6 +9,7 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
+	static let identifire = "taskListVC"
 	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
 			collectionView.delegate = self

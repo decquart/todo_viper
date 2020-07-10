@@ -48,6 +48,7 @@
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
+		2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6452C724B7C348009978EE /* SettingsViewController.swift */; };
 		2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */; };
 		2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */; };
 		2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EAC24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift */; };
@@ -60,6 +61,8 @@
 		2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */; };
 		2D7C295F24B3BDDD008EE2C1 /* CDSubTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */; };
 		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
+		2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */; };
+		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 /* End PBXBuildFile section */
@@ -118,6 +121,7 @@
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
+		2D6452C724B7C348009978EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Wrapper.swift"; sourceTree = "<group>"; };
 		2D692EAC24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
@@ -130,6 +134,8 @@
 		2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRepository.swift; sourceTree = "<group>"; };
 		2D7C295E24B3BDDD008EE2C1 /* CDSubTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDSubTaskRepository.swift; sourceTree = "<group>"; };
 		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +169,7 @@
 				04EFFD22248031800048336E /* SubTaskModule */,
 				2D0CBC6F24A955FB00AC23F6 /* SubTaskDetailsModule */,
 				047C64F824858AAF00BB6702 /* TaskDetailsModule */,
+				2D6452C924B7C379009978EE /* SettingsModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -425,6 +432,16 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		2D6452C924B7C379009978EE /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
+				2DE5847824B843DD0051680C /* Settings.storyboard */,
+				2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
 		2D692EAB24AE890A0005D4CB /* ReusableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,6 +584,7 @@
 				2D0CBC7124A9565F00AC23F6 /* SubTaskDetails.storyboard in Resources */,
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
+				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
@@ -594,6 +612,7 @@
 				2D0CBC7624A957B600AC23F6 /* SubTaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
+				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
 				04CF078A248F5FB400440A43 /* SubTaskObject.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDTaskRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* TaskObject.swift in Sources */,
@@ -605,6 +624,7 @@
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* SubTaskDetailsViewController.swift in Sources */,
+				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				04BCAB832498136C00A38846 /* SubTask.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* SubTaskCell.swift in Sources */,

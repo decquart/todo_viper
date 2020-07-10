@@ -20,13 +20,10 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 	lazy var coreDataStack: CoreDataStack = CoreDataStack(modelName: "TodoList")
 
 	func createMainModule(router: RouterProtocol) -> UIViewController {
-
-		guard let view = router.navigationController?.viewControllers.first as? TaskListViewController else {
-			fatalError("Initial view controller should not be nil")
-		}
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: TaskListViewController.identifire) as! TaskListViewController
 
 		let repository = CDTaskRepository(coreDataStack: coreDataStack)
-		//let repository = RealmTaskRepository()
 		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
 		return view
@@ -37,7 +34,6 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
 		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
-		//let repository = RealmSubTaskRepository(taskId: task.id)
 		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
 		view.presenter = presenter
 		return view
@@ -54,12 +50,11 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 		view.iconPickerView = subview
 		let repository = CDTaskRepository(coreDataStack: coreDataStack)
-		//let repository = RealmTaskRepository()
 		let presenter = TaskDetailsPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
 		view.presenter = presenter
-		view.scope = scope  //TODO
+		view.scope = scope
 		return view
 	}
 
@@ -67,11 +62,18 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
 		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
-		//let repository = RealmSubTaskRepository(taskId: task.id)
 		let presenter = SubTaskDetailsPresenter(view: view, router: router, repository: repository, task: task)
 
 		view.presenter = presenter
 		view.scope = scope
+		return view
+	}
+
+	func createSettingsModule(router: RouterProtocol) -> UIViewController {
+		let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: SettingsViewController.identifire) as! SettingsViewController
+
+		//todo: add view model
 		return view
 	}
 }

@@ -10,9 +10,9 @@ import UIKit
 
 protocol AssemblyBuilderProtocol {
 	func createMainModule(router: RouterProtocol) -> UIViewController
-	func createSubTaskListModule(router: RouterProtocol, task: Task) -> UIViewController
-	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskViewModel>) -> UIViewController
-	func createSubTaskDetailsModule(router: RouterProtocol, task: Task, scope: Scope<SubTaskViewModel>) -> UIViewController
+	func createTaskListModule(router: RouterProtocol, category: Category) -> UIViewController
+	func createCategoryDetailsModule(router: RouterProtocol, scope: Scope<CategoryViewModel>) -> UIViewController
+	func createTaskDetailsModule(router: RouterProtocol, category: Category, scope: Scope<TaskViewModel>) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
@@ -21,36 +21,35 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 	func createMainModule(router: RouterProtocol) -> UIViewController {
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: CategoryListViewController.identifire) as! CategoryListViewController
+		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
+		let presenter = CategoryListPresenter(view: view, repository: repository, router: router)
+		view.presenter = presenter
+		return view
+	}
+
+	func createTaskListModule(router: RouterProtocol, category: Category) -> UIViewController {
+
+		let storyboard = UIStoryboard(name: "Task", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: TaskListViewController.identifire) as! TaskListViewController
-
-		let repository = CDTaskRepository(coreDataStack: coreDataStack)
-		let presenter = TaskListPresenter(view: view, repository: repository, router: router)
+		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: coreDataStack)
+		let presenter = TaskListPresenter(view: view, router: router, repository: repository, task: category)
 		view.presenter = presenter
 		return view
 	}
 
-	func createSubTaskListModule(router: RouterProtocol, task: Task) -> UIViewController {
-
-		let storyboard = UIStoryboard(name: "SubTask", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: SubTaskListViewController.identifire) as! SubTaskListViewController
-		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
-		let presenter = SubTaskListPresenter(view: view, router: router, repository: repository, task: task)
-		view.presenter = presenter
-		return view
-	}
-
-	func createTaskDetailsModule(router: RouterProtocol, scope: Scope<TaskViewModel>) -> UIViewController {
+	func createCategoryDetailsModule(router: RouterProtocol, scope: Scope<CategoryViewModel>) -> UIViewController {
 
 		let iconPickerPresenter = IconPickerPresenter()
 		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
 		iconPickerPresenter.view = subview
 
-		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
+		let storyboard = UIStoryboard(name: "CategoryDetails", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: CategoryDetailsViewController.identifire) as! CategoryDetailsViewController
 
 		view.iconPickerView = subview
-		let repository = CDTaskRepository(coreDataStack: coreDataStack)
-		let presenter = TaskDetailsPresenter(view: view, repository: repository, router: router)
+		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
+		let presenter = CategoryDetailsPresenter(view: view, repository: repository, router: router)
 		iconPickerPresenter.detailsPresenter = presenter
 
 		view.presenter = presenter
@@ -58,11 +57,11 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSubTaskDetailsModule(router: RouterProtocol, task: Task, scope: Scope<SubTaskViewModel>) -> UIViewController {
-		let storyboard = UIStoryboard(name: "SubTaskDetails", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: SubTaskDetailsViewController.identifire) as! SubTaskDetailsViewController
-		let repository = CDSubTaskRepository(taskId: task.id, coreDataStack: coreDataStack)
-		let presenter = SubTaskDetailsPresenter(view: view, router: router, repository: repository, task: task)
+	func createTaskDetailsModule(router: RouterProtocol, category: Category, scope: Scope<TaskViewModel>) -> UIViewController {
+		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
+		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
+		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: coreDataStack)
+		let presenter = TaskDetailsPresenter(view: view, router: router, repository: repository, category: category)
 
 		view.presenter = presenter
 		view.scope = scope

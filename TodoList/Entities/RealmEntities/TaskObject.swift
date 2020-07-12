@@ -2,22 +2,20 @@
 //  TaskObject.swift
 //  TodoList
 //
-//  Created by Volodymyr Mykhailiuk on 08.06.2020.
+//  Created by Volodymyr Mykhailiuk on 09.06.2020.
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
 import RealmSwift
 import Foundation
-import UIKit
 
-class TaskObject: Object {
+final class TaskObject: Object {
 
 	@objc dynamic var id = ""
-	@objc dynamic var name = ""
-	@objc dynamic var imagePath = ""
-	@objc dynamic var color: Data?
-
-	let subTasks = List<SubTaskObject>()
+	@objc dynamic var description_p = ""
+	@objc dynamic var isCompleted = false
+	@objc dynamic var date = Date()
+	let owner = LinkingObjects(fromType: CategoryObject.self, property: "tasks")
 
 	override class func primaryKey() -> String? {
 		return "id"
@@ -27,20 +25,15 @@ class TaskObject: Object {
 // MARK: - Mappable
 extension TaskObject: Mappable {
 	var mapToModel: Task {
-		Task(id: id,
-			 name: name,
-			 imagePath: imagePath,
-			 color: UIColor.green,
-			 subtasksCount: subTasks.count)
+		Task(uuid: id, description: description_p, completed: isCompleted, date: date)
 	}
 
 	func map(_ entity: Task) {
 		if id.isEmpty {
-			id = entity.id
+			id = entity.uuid
 		}
-
-		name = entity.name
-		imagePath = entity.imagePath
-		color = entity.imageColor as? Data
+		description_p = entity.description
+		isCompleted = entity.completed
+		date = entity.date
 	}
 }

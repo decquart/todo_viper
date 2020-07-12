@@ -1,8 +1,9 @@
 //
-//  Task+CoreDataProperties.swift
-//  
+//  SubTaskMO+CoreDataProperties.swift
+//  TodoList
 //
-//  Created by Volodymyr Mykhailiuk on 11.06.2020.
+//  Created by Volodymyr Mykhailiuk on 01.06.2020.
+//  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 //
 
@@ -16,27 +17,9 @@ extension TaskMO {
         return NSFetchRequest<TaskMO>(entityName: "TaskMO")
     }
 
-    @NSManaged public var id: String
-    @NSManaged public var name: String
-    @NSManaged public var imagePath: String
-    @NSManaged public var iconColor: NSObject
-    @NSManaged public var subTasks: NSSet
-
-}
-
-// MARK: Generated accessors for subTasks
-extension TaskMO {
-
-    @objc(addSubTasksObject:)
-    @NSManaged public func addToSubTasks(_ value: SubTaskMO)
-
-    @objc(removeSubTasksObject:)
-    @NSManaged public func removeFromSubTasks(_ value: SubTaskMO)
-
-    @objc(addSubTasks:)
-    @NSManaged public func addToSubTasks(_ values: NSSet)
-
-    @objc(removeSubTasks:)
-    @NSManaged public func removeFromSubTasks(_ values: NSSet)
-
+	@NSManaged public var id: String
+    @NSManaged public var completed: Bool
+    @NSManaged public var description_p: String
+	@NSManaged public var date: Date
+    @NSManaged public var owner: CategoryMO
 }

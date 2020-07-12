@@ -16,10 +16,9 @@ protocol RouterMain {
 }
 
 protocol RouterProtocol: RouterMain {
-	func showTaskListViewController()
-	func showSubTaskListViewController(task: Task)
-	func showTaskDetailsViewController(scope: Scope<TaskViewModel>)
-	func showSubTaskDetailsViewController(task: Task, scope: Scope<SubTaskViewModel>)
+	func showSubTaskListViewController(category: Category)
+	func showTaskDetailsViewController(scope: Scope<CategoryViewModel>)
+	func showSubTaskDetailsViewController(category: Category, scope: Scope<TaskViewModel>)
 
 	func popToRoot()
 	func pop()
@@ -35,23 +34,18 @@ class Router: RouterProtocol {
 		self.assemblyBuilder = assemblyBuilder
 	}
 
-	func showTaskListViewController() {
-		let mainVC = assemblyBuilder.createMainModule(router: self)
-		mainNavigationController.viewControllers = [mainVC]
-	}
-
-	func showSubTaskListViewController(task: Task) {
-		let vc = assemblyBuilder.createSubTaskListModule(router: self, task: task)
+	func showSubTaskListViewController(category: Category) {
+		let vc = assemblyBuilder.createTaskListModule(router: self, category: category)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
-	func showTaskDetailsViewController(scope: Scope<TaskViewModel>) {
-		let vc = assemblyBuilder.createTaskDetailsModule(router: self, scope: scope)
+	func showTaskDetailsViewController(scope: Scope<CategoryViewModel>) {
+		let vc = assemblyBuilder.createCategoryDetailsModule(router: self, scope: scope)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
-	func showSubTaskDetailsViewController(task: Task, scope: Scope<SubTaskViewModel>) {
-		let vc = assemblyBuilder.createSubTaskDetailsModule(router: self, task: task, scope: scope)
+	func showSubTaskDetailsViewController(category: Category, scope: Scope<TaskViewModel>) {
+		let vc = assemblyBuilder.createTaskDetailsModule(router: self, category: category, scope: scope)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 

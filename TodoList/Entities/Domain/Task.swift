@@ -9,17 +9,15 @@
 import Foundation
 
 struct Task {
-	let id: String
-	let name: String
-	let imagePath: String
-	let imageColor: NSObject
-	let subtasksCount: Int
+	let uuid: String
+	var description: String
+	var completed: Bool
+	var date: Date
 
-	init(id: String = UUID().uuidString, name: String, imagePath: String, color: NSObject, subtasksCount: Int = 0) {
-		self.id = id
-		self.name = name
-		self.imagePath = imagePath
-		self.imageColor = color
-		self.subtasksCount = subtasksCount
+	init(uuid: String = UUID().uuidString, description: String, completed: Bool, date: Date) {
+		self.uuid = uuid
+		self.description = description
+		self.completed = completed
+		self.date = date
 	}
 }

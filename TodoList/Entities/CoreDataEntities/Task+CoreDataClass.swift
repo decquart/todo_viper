@@ -1,8 +1,8 @@
 //
-//  Task+CoreDataClass.swift
+//  TaskMO+CoreDataClass.swift
 //  TodoList
 //
-//  Created by Volodymyr Mykhailiuk on 04.06.2020.
+//  Created by Volodymyr Mykhailiuk on 01.06.2020.
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 //
@@ -18,17 +18,16 @@ public class TaskMO: NSManagedObject {
 // MARK: - Mappable
 extension TaskMO: Mappable {
 	var mapToModel: Task {
-		return Task(id: id,
-					name: name,
-					imagePath: imagePath,
-					color: iconColor,
-					subtasksCount: subTasks.count)
+		return Task(uuid: id,
+					   description: description_p,
+					   completed: completed,
+					   date: date)
 	}
 
-	func map(_ entity: Task) {
-		id = entity.id
-		name = entity.name
-		imagePath = entity.imagePath
-		iconColor = entity.imageColor
+	func map(_ model: Task) {
+		self.id = model.uuid
+		self.description_p = model.description
+		self.completed = model.completed
+		self.date = model.date
 	}
 }

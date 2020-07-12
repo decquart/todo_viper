@@ -14,7 +14,6 @@ class SettingsViewController: UIViewController {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
-			tableView.register(cellType: SettingsTableViewCell.self)
 		}
 	}
 
@@ -31,7 +30,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
-		cell.textLabel?.text = "Theme"
+		cell.descriptionLabel?.text = "Theme"
 		return cell
 	}
 }

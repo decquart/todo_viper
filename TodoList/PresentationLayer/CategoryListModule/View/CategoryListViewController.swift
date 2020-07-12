@@ -14,12 +14,12 @@ class CategoryListViewController: UIViewController {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self
-			collectionView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+			collectionView.backgroundColor = .collectionViewBackgroundColor
 		}
 	}
 
 	var presenter: CategoryListViewOutput!
-	let inset: CGFloat = 8.0
+	let inset: CGFloat = 12.0
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -66,7 +66,7 @@ extension CategoryListViewController: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		let width = (collectionView.bounds.width / 2) - inset * 2
 
-		return CGSize(width: width, height: width / 3)
+		return CGSize(width: width, height: width)
 	}
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

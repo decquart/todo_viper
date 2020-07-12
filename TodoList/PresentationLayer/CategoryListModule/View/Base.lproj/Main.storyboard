@@ -20,17 +20,17 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cAl-Je-E6b">
-                                    <size key="itemSize" width="143" height="62"/>
+                                    <size key="itemSize" width="180" height="180"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CategoryCollectionViewCell" id="1N3-Se-HAd" customClass="CategoryCollectionViewCell" customModule="TodoList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="143" height="62"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="8VW-Uc-1LJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="143" height="62"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-So-h3h">
@@ -42,7 +42,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNY-rx-TqH">
-                                                    <rect key="frame" x="54" y="20.5" width="42" height="21"/>
+                                                    <rect key="frame" x="12" y="124.5" width="42" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="2u8-DG-8zP"/>
                                                     </constraints>
@@ -50,8 +50,17 @@
                                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yLj-Zy-xP1">
+                                                    <rect key="frame" x="134" y="0.0" width="46" height="46"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="46" id="5Vn-VI-KdA"/>
+                                                        <constraint firstAttribute="width" constant="46" id="qDl-EG-O4b"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="ellipsis" catalog="system"/>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="7ew-Pv-HFJ">
-                                                    <rect key="frame" x="98" y="20.5" width="29" height="21"/>
+                                                    <rect key="frame" x="12" y="149.5" width="29" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="neO-XL-shN"/>
                                                     </constraints>
@@ -61,16 +70,19 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="cNY-rx-TqH" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="2Qu-dN-DLy"/>
-                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="GgG-Go-fJ2"/>
+                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="leading" secondItem="8VW-Uc-1LJ" secondAttribute="leading" constant="12" id="0q8-Fz-cEc"/>
+                                                <constraint firstItem="cNY-rx-TqH" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" multiplier="1.5" id="2Qu-dN-DLy"/>
+                                                <constraint firstItem="yLj-Zy-xP1" firstAttribute="top" secondItem="8VW-Uc-1LJ" secondAttribute="top" id="5ix-vp-N2z"/>
                                                 <constraint firstItem="fHN-So-h3h" firstAttribute="leading" secondItem="8VW-Uc-1LJ" secondAttribute="leading" constant="16" id="S23-J3-7Me"/>
-                                                <constraint firstItem="cNY-rx-TqH" firstAttribute="leading" secondItem="fHN-So-h3h" secondAttribute="trailing" constant="8" id="Voq-XG-08m"/>
-                                                <constraint firstItem="fHN-So-h3h" firstAttribute="centerY" secondItem="8VW-Uc-1LJ" secondAttribute="centerY" id="adv-Z5-nqK"/>
-                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="cNY-rx-TqH" secondAttribute="trailing" id="x4M-Kz-SKm"/>
-                                                <constraint firstAttribute="trailing" secondItem="7ew-Pv-HFJ" secondAttribute="trailing" constant="16" id="xU7-2M-eHS"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7ew-Pv-HFJ" secondAttribute="trailing" constant="20" symbolic="YES" id="TsM-dW-oLE"/>
+                                                <constraint firstItem="cNY-rx-TqH" firstAttribute="leading" secondItem="8VW-Uc-1LJ" secondAttribute="leading" constant="12" id="Umh-Zq-8vs"/>
+                                                <constraint firstItem="fHN-So-h3h" firstAttribute="top" secondItem="8VW-Uc-1LJ" secondAttribute="top" constant="16" id="Yx7-dC-N7B"/>
+                                                <constraint firstAttribute="trailing" secondItem="yLj-Zy-xP1" secondAttribute="trailing" id="fDF-sl-xRS"/>
+                                                <constraint firstItem="7ew-Pv-HFJ" firstAttribute="top" secondItem="cNY-rx-TqH" secondAttribute="bottom" constant="4" id="jCc-L8-o8b"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cNY-rx-TqH" secondAttribute="trailing" constant="20" symbolic="YES" id="vki-X3-xZ2"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="143" height="62"/>
+                                        <size key="customSize" width="180" height="180"/>
                                         <connections>
                                             <outlet property="subTaskCountLabel" destination="7ew-Pv-HFJ" id="vVm-oH-rIf"/>
                                             <outlet property="taskImageView" destination="fHN-So-h3h" id="fSc-7Y-Tn5"/>
@@ -136,5 +148,6 @@
     </scenes>
     <resources>
         <image name="cart" catalog="system" width="128" height="102"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
     </resources>
 </document>

@@ -16,10 +16,15 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
-		layer.borderWidth = 0.5
-		layer.borderColor = UIColor.lightGray.cgColor
-		layer.cornerRadius = frame.height / 2
+		layer.cornerRadius = 12.0
 		layer.backgroundColor = UIColor.white.cgColor
+
+		layer.shadowOffset = CGSize(width: 0, height: 2)
+		layer.shadowRadius = 5.0
+		layer.shadowOpacity = 0.4
+		layer.masksToBounds = false
+		clipsToBounds = false
+
 	}
 
 	func configure(with viewModel: CategoryViewModel, tasksCount: Int) {

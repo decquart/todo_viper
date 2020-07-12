@@ -22,16 +22,18 @@
                                     <constraint firstAttribute="height" constant="60" id="mCL-wD-NLL"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rDd-Nr-HID">
-                                <rect key="frame" x="24" y="136" width="366" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rDd-Nr-HID">
+                                <rect key="frame" x="24" y="136" width="366" height="48"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="dXH-Ed-xSM"/>
+                                    <constraint firstAttribute="height" constant="48" id="dXH-Ed-xSM"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LWw-JJ-FjC">
-                                <rect key="frame" x="24" y="186" width="366" height="106"/>
+                                <rect key="frame" x="24" y="200" width="366" height="106"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-vb-5v6">
                                         <rect key="frame" x="-2" y="0.0" width="370" height="31"/>
@@ -59,20 +61,6 @@
                                     <constraint firstAttribute="height" constant="106" id="Pwb-LI-kAa"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlI-pp-gsi">
-                                <rect key="frame" x="314" y="762" width="60" height="60"/>
-                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="3DW-LK-4zN"/>
-                                    <constraint firstAttribute="height" constant="60" id="YtA-WM-way"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
-                                <state key="normal" image="save"/>
-                                <connections>
-                                    <action selector="saveButtonPressed:" destination="2Gs-aA-cos" eventType="touchUpInside" id="XFl-kV-skl"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -80,17 +68,14 @@
                             <constraint firstItem="Rfc-s6-pfT" firstAttribute="trailing" secondItem="LWw-JJ-FjC" secondAttribute="trailing" constant="24" id="7cj-p2-x5g"/>
                             <constraint firstItem="5Df-6G-Rro" firstAttribute="centerX" secondItem="gdj-fp-Iy3" secondAttribute="centerX" id="Cpo-Jf-GMR"/>
                             <constraint firstItem="LWw-JJ-FjC" firstAttribute="leading" secondItem="Rfc-s6-pfT" secondAttribute="leading" constant="24" id="E51-mk-14F"/>
-                            <constraint firstItem="Rfc-s6-pfT" firstAttribute="trailing" secondItem="NlI-pp-gsi" secondAttribute="trailing" constant="40" id="KXM-wu-Eb6"/>
                             <constraint firstItem="5Df-6G-Rro" firstAttribute="top" secondItem="Rfc-s6-pfT" secondAttribute="top" constant="16" id="RbY-RX-SRn"/>
                             <constraint firstItem="rDd-Nr-HID" firstAttribute="top" secondItem="5Df-6G-Rro" secondAttribute="bottom" constant="16" id="Snx-no-OiS"/>
-                            <constraint firstItem="Rfc-s6-pfT" firstAttribute="bottom" secondItem="NlI-pp-gsi" secondAttribute="bottom" constant="40" id="Xc9-gc-9fd"/>
                             <constraint firstItem="Rfc-s6-pfT" firstAttribute="trailing" secondItem="rDd-Nr-HID" secondAttribute="trailing" constant="24" id="cpJ-uY-cN2"/>
                             <constraint firstItem="rDd-Nr-HID" firstAttribute="leading" secondItem="Rfc-s6-pfT" secondAttribute="leading" constant="24" id="kwZ-7x-9Ww"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rfc-s6-pfT"/>
                     </view>
                     <connections>
-                        <outlet property="addButton" destination="NlI-pp-gsi" id="aCI-LA-yIF"/>
                         <outlet property="blueSlider" destination="cVM-g6-PU1" id="OE4-A0-RGu"/>
                         <outlet property="greenSlider" destination="McG-2f-0h3" id="WLB-e9-V6E"/>
                         <outlet property="redSlider" destination="vhh-vb-5v6" id="uWY-MY-mPR"/>
@@ -103,7 +88,4 @@
             <point key="canvasLocation" x="279.71014492753625" y="81.696428571428569"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="save" width="512" height="512"/>
-    </resources>
 </document>

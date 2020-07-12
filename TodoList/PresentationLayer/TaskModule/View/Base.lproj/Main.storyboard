@@ -80,7 +80,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OZK-Xr-kb3" customClass="AddButton" customModule="TodoList" customModuleProvider="target">
-                                <rect key="frame" x="314" y="756" width="60" height="60"/>
+                                <rect key="frame" x="314" y="746" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="S9q-0c-ysN"/>
                                     <constraint firstAttribute="width" constant="60" id="hdJ-UF-Ujh"/>
@@ -96,7 +96,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GYS-b2-45j" secondAttribute="trailing" id="CLv-jT-4er"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OZK-Xr-kb3" secondAttribute="trailing" constant="40" id="Df7-q9-cM0"/>
                             <constraint firstAttribute="bottom" secondItem="GYS-b2-45j" secondAttribute="bottom" id="HwO-f5-nqc"/>
-                            <constraint firstAttribute="bottom" secondItem="OZK-Xr-kb3" secondAttribute="bottom" constant="80" id="IYv-s4-6Yq"/>
+                            <constraint firstAttribute="bottom" secondItem="OZK-Xr-kb3" secondAttribute="bottom" constant="90" id="IYv-s4-6Yq"/>
                             <constraint firstItem="GYS-b2-45j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wJo-FE-Ztl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -121,6 +121,7 @@
                 <tabBarController storyboardIdentifier="tabBarController" automaticallyAdjustsScrollViewInsets="NO" id="tEm-2D-1E9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nui-2U-s5O">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

@@ -35,17 +35,16 @@ class TaskDetailsViewController: UIViewController {
 		}
 	}
 
+	private lazy var saveBarButton: UIBarButtonItem = {
+		return UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
+	}()
+
 	@IBOutlet weak private var redSlider: UISlider!
 	@IBOutlet weak private var greenSlider: UISlider!
 	@IBOutlet weak private var blueSlider: UISlider!
 
 	@IBOutlet weak private var taskIconImageView: UIImageView!
 	@IBOutlet weak private var titleTextField: UITextField!
-	@IBOutlet weak private var addButton: UIButton! {
-		didSet {
-			addButton.layer.cornerRadius = addButton.frame.height / 2
-		}
-	}
 
 	var iconPickerView: UIView! {
 		didSet {
@@ -77,7 +76,7 @@ extension TaskDetailsViewController {
 		color = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
 	}
 
-	@IBAction func saveButtonPressed(_ sender: Any) {
+	@objc func saveButtonPressed() {
 		guard let name = titleTextField.text, !name.isEmpty else {
 			return
 		}
@@ -109,6 +108,8 @@ extension TaskDetailsViewController: TaskDetailsInput {
 // MARK: - Appearance
 extension TaskDetailsViewController {
 	func initAppearance() {
+		navigationItem.rightBarButtonItem = saveBarButton
+
 		switch scope {
 		case .edit(let task):
 			setupAppearance(with: task)

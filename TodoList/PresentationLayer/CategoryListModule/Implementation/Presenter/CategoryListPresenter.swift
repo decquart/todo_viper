@@ -10,9 +10,9 @@ import Foundation
 
 class CategoryListPresenter: CategoryListPresenterProtocol {
 
-	weak var view: CategoryListViewProtocol?
+	weak var view: CategoryListViewProtocol!
 	let repository: AnyRepository<Category>
-	let router: CategoryListRouterProtocol
+	let router: CategoryListRouterProtocol!
 
 	private var categories: [Category] = [] {
 		didSet {

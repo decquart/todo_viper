@@ -15,7 +15,7 @@ enum Scope<Model> {
 
 class CategoryDetailsViewController: UIViewController {
 	static let identifire = "categoryDetailsVC"
-	var presenter: CategoryDetailsOutput!
+	var presenter: CategoryDetailsPresenterProtocol!
 	var scope: Scope<CategoryViewModel>!
 
 	private var viewModel: CategoryViewModel {
@@ -89,7 +89,7 @@ extension CategoryDetailsViewController {
 }
 
 // MARK: - CategoryDetailsInput
-extension CategoryDetailsViewController: CategoryDetailsInput {
+extension CategoryDetailsViewController: CategoryDetailsViewProtocol {
 	var isNewCategory: Bool {
 		if case .create = scope {
 			return true

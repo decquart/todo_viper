@@ -73,6 +73,11 @@
 		2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295E24B3BDDD008EE2C1 /* CDTaskRepository.swift */; };
 		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
 		2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */; };
+		2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */; };
+		2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */; };
+		2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */; };
+		2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */; };
+		2D82A0BE24BCFE2B00A04190 /* CategoryDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
@@ -161,6 +166,11 @@
 		2D7C295E24B3BDDD008EE2C1 /* CDTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTaskRepository.swift; sourceTree = "<group>"; };
 		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
 		2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackHolder.swift; sourceTree = "<group>"; };
+		2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsModule.swift; sourceTree = "<group>"; };
+		2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewProtocol.swift; sourceTree = "<group>"; };
+		2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
+		2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsRouterProtocol.swift; sourceTree = "<group>"; };
+		2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsRouter.swift; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
@@ -193,9 +203,9 @@
 		0449BD8C24876A0200A76223 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				2D5F229324BCDCFF00A46ED6 /* MainModule */,
 				044254192480D0E900ED4C72 /* AssemblyBuilder.swift */,
 				044254172480D09800ED4C72 /* Router.swift */,
+				2D5F229324BCDCFF00A46ED6 /* MainModule */,
 				04EFFD1524801A720048336E /* CategoryListModule */,
 				047C64F824858AAF00BB6702 /* CategoryDetailsModule */,
 				04EFFD22248031800048336E /* TaskListModule */,
@@ -452,8 +462,9 @@
 		2D4928CD24A5C5D3008AF740 /* CategoryDetails */ = {
 			isa = PBXGroup;
 			children = (
-				047C64F924858ACE00BB6702 /* View */,
-				04606D132486164F00AE5633 /* Presenter */,
+				2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */,
+				2D82A0B624BCF9BE00A04190 /* Implementation */,
+				2D82A0B524BCF9B000A04190 /* Protocols */,
 			);
 			path = CategoryDetails;
 			sourceTree = "<group>";
@@ -575,6 +586,34 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		2D82A0B524BCF9B000A04190 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */,
+				2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */,
+				2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2D82A0B624BCF9BE00A04190 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				047C64F924858ACE00BB6702 /* View */,
+				04606D132486164F00AE5633 /* Presenter */,
+				2D82A0BF24BCFE9700A04190 /* Router */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2D82A0BF24BCFE9700A04190 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -692,6 +731,7 @@
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */,
+				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
@@ -730,13 +770,16 @@
 				047C64F724858AA400BB6702 /* CategoryDetailsViewController.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
+				2D82A0BE24BCFE2B00A04190 /* CategoryDetailsRouter.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */,
 				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
+				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
+				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
@@ -748,6 +791,7 @@
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
 				044254182480D09800ED4C72 /* Router.swift in Sources */,
 			);

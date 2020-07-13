@@ -10,7 +10,6 @@ import UIKit
 
 protocol AssemblyBuilderProtocol {
 	func createTaskListModule(category: Category) -> UIViewController
-	func createCategoryDetailsModule(scope: Scope<CategoryViewModel>) -> UIViewController
 	func createTaskDetailsModule(category: Category, scope: Scope<TaskViewModel>) -> UIViewController
 }
 
@@ -30,25 +29,6 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createCategoryDetailsModule(scope: Scope<CategoryViewModel>) -> UIViewController {
-
-		let router = Router(assemblyBuilder: self)
-		let iconPickerPresenter = IconPickerPresenter()
-		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
-		iconPickerPresenter.view = subview
-
-		let storyboard = UIStoryboard(name: "CategoryDetails", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: CategoryDetailsViewController.identifire) as! CategoryDetailsViewController
-
-		view.iconPickerView = subview
-		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let presenter = CategoryDetailsPresenter(view: view, repository: repository, router: router)
-		iconPickerPresenter.detailsPresenter = presenter
-
-		view.presenter = presenter
-		view.scope = scope
-		return view
-	}
 
 	func createTaskDetailsModule(category: Category, scope: Scope<TaskViewModel>) -> UIViewController {
 		let router = Router(assemblyBuilder: self)

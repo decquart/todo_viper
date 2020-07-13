@@ -19,7 +19,7 @@ protocol IconPickerInput: class {
 
 class IconPickerPresenter: IconPickerInput {
 	weak var view: IconPickerOutput?
-	weak var detailsPresenter: CategoryDetailsOutput?
+	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
 	
 	let imageNames = ["shopping", "todo", "work"]
 

@@ -12,9 +12,7 @@ class CategoryListRouter: CategoryListRouterProtocol {
 	var view: CategoryListViewProtocol!
 
 	func showCategoryDetailsViewController(scope: Scope<CategoryViewModel>) {
-		//TODO: get rid of AssemblyBuilder
-		let bldr = AssemblyBuilder()
-		let vc = bldr.createCategoryDetailsModule(scope: scope)
+		let vc = CategoryDetailsModule().build(scope: scope)
 		view.navigationController?.pushViewController(vc, animated: true)
 	}
 

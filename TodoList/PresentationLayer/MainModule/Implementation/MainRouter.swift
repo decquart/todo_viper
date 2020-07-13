@@ -12,10 +12,9 @@ class MainRouter: MainRouterProtocol {
 	weak var view: MainViewProtocol!
 
 	func viewControllers() -> [UIViewController] {
-		//TODO: move to module builders
-		let builder = AssemblyBuilder()
-
-		return [CategoryListModule().build(), builder.createSettingsModule()]
-			.map { UINavigationController(rootViewController: $0) }
+		return [
+			CategoryListModule().build(),
+			SettingsModule().build()
+		].map { UINavigationController(rootViewController: $0) }
 	}
 }

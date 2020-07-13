@@ -7,7 +7,7 @@
 //
 
 class CategoryDetailsRouter: CategoryDetailsRouterProtocol {
-	var view: CategoryDetailsViewProtocol!
+	weak var view: CategoryDetailsViewProtocol!
 
 	func popToRoot() {
 		view.navigationController?.popToRootViewController(animated: true)

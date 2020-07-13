@@ -8,23 +8,9 @@
 
 import Foundation
 
-protocol TaskListViewOutput: class {
-	func loadTasks()
-	func numberOfRows() -> Int
-	func task(at indexPath: IndexPath) -> TaskViewModel
-	func buttonCompletePressed(at index: Int)
-	func didCompleteAll()
-	func didSelect(at indexPath: IndexPath)
-	func addButtonPressed()
-}
-
-protocol TaskListViewInput: class {
-	func refreshTasks()
-}
-
-class TaskListPresenter: TaskListViewOutput {
-	weak var view: TaskListViewInput?
-	let router: RouterProtocol
+class TaskListPresenter: TaskListPresenterProtocol {
+	weak var view: TaskListViewProtocol!
+	let router: TaskListRouterProtocol!
 	let repository: AnyRepository<Task>
 
 	private var category: Category!
@@ -34,7 +20,7 @@ class TaskListPresenter: TaskListViewOutput {
 		}
 	}
 
-	required init(view: TaskListViewInput, router: RouterProtocol, repository: AnyRepository<Task>, task: Category) {
+	required init(view: TaskListViewProtocol, router: TaskListRouterProtocol, repository: AnyRepository<Task>, task: Category) {
 		self.view = view
 		self.router = router
 		self.repository = repository

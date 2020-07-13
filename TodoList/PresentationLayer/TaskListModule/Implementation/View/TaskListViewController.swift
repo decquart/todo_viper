@@ -11,7 +11,7 @@ import UIKit
 class TaskListViewController: UIViewController {
 
 	static let identifire = "taskVC"
-	var presenter: TaskListViewOutput!
+	var presenter: TaskListPresenterProtocol!
 
 	@IBOutlet weak private var tableView: UITableView! {
 		didSet {
@@ -34,7 +34,7 @@ class TaskListViewController: UIViewController {
 }
 
 // MARK: - TaskListViewInput
-extension TaskListViewController: TaskListViewInput {
+extension TaskListViewController: TaskListViewProtocol {
 	func refreshTasks() {
 		tableView.reloadData()
 	}

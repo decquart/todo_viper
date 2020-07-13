@@ -6,24 +6,16 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol TaskDetailsOutput: class {
-	func sendButtonPressed(viewModel: TaskViewModel)
-}
 
-protocol TaskDetailsInput: class {
-	var isNewTask: Bool { get }
-	func invalidateView()
-}
-
-class TaskDetailsPresenter: TaskDetailsOutput {
-	weak var view: TaskDetailsInput!
-	let router: RouterProtocol
+class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
+	weak var view: TaskDetailsViewProtocol!
+	let router: TaskDetailsRouterProtocol!
 	let repository: AnyRepository<Task>
 
 	private var category: Category
 	private var subTask: Task?
 
-	init(view: TaskDetailsInput, router: RouterProtocol, repository: AnyRepository<Task>, category: Category) {
+	init(view: TaskDetailsViewProtocol, router: TaskDetailsRouterProtocol, repository: AnyRepository<Task>, category: Category) {
 		self.view = view
 		self.router = router
 		self.repository = repository

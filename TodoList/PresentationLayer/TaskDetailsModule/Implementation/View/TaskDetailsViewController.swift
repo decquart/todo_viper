@@ -10,7 +10,7 @@ import UIKit
 
 class TaskDetailsViewController: UIViewController {
 	static let identifire = "taskDetailsVC"
-	var presenter: TaskDetailsOutput!
+	var presenter: TaskDetailsPresenterProtocol!
 	var scope: Scope<TaskViewModel>!
 
 	private var viewModel: TaskViewModel {
@@ -53,7 +53,8 @@ class TaskDetailsViewController: UIViewController {
 	}
 }
 
-extension TaskDetailsViewController: TaskDetailsInput {
+extension TaskDetailsViewController: TaskDetailsViewProtocol {
+
 	var isNewTask: Bool {
 		if case .create = scope {
 			return true

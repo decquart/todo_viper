@@ -6,19 +6,8 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-import Foundation
-
-protocol IconPickerOutput: class {
-	func iconDidSelect(_ imagePath: String)
-}
-
-protocol IconPickerInput: class {
-	var imageNames: [String] { get }
-	func updateIcon(at index: Int)
-}
-
-class IconPickerPresenter: IconPickerInput {
-	weak var view: IconPickerOutput?
+class IconPickerPresenter: IconPickerPresenterProtocol {
+	weak var view: IconPickerViewProtocol!
 	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
 	
 	let imageNames = ["shopping", "todo", "work"]

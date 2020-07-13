@@ -10,7 +10,7 @@ import UIKit
 
 class IconPickerView: UIView {
 	private var selectedCell: IconPickerCollectionViewCell? = nil
-	private var presenter: IconPickerInput!
+	var presenter: IconPickerPresenterProtocol!
 
 	@IBOutlet weak private var collectionView: UICollectionView! {
 		didSet {
@@ -21,7 +21,7 @@ class IconPickerView: UIView {
 		}
 	}
 
-	class func instantiate(presenter: IconPickerInput) -> IconPickerView {
+	class func instantiate(presenter: IconPickerPresenterProtocol) -> IconPickerView {
 		let view = Bundle.main.loadNibNamed("IconPickerView", owner: self, options: nil)?.first as! IconPickerView
 		view.presenter = presenter
 
@@ -29,7 +29,7 @@ class IconPickerView: UIView {
 	}
 }
 
-extension IconPickerView: IconPickerOutput {
+extension IconPickerView: IconPickerViewProtocol {
 	func iconDidSelect(_ imagePath: String) {
 
 	}

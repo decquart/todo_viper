@@ -9,7 +9,7 @@
 import Foundation
 
 class CategoryListRouter: CategoryListRouterProtocol {
-	var view: CategoryListViewProtocol!
+	weak var view: CategoryListViewProtocol!
 
 	func showCategoryDetailsViewController(scope: Scope<CategoryViewModel>) {
 		let vc = CategoryDetailsModule().build(scope: scope)
@@ -17,9 +17,7 @@ class CategoryListRouter: CategoryListRouterProtocol {
 	}
 
 	func showTaskListViewController(category: Category) {
-		//TODO: get rid of AssemblyBuilder
-		let bldr = AssemblyBuilder()
-		let vc = bldr.createTaskListModule(category: category)
+		let vc = TaskListModule().build(category: category)
 		view.navigationController?.pushViewController(vc, animated: true)
 	}
 }

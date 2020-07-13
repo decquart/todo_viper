@@ -57,8 +57,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeue(cellType: TaskCell.self, for: indexPath)
 		let task = presenter.task(at: indexPath)
 
-		cell.configure(with: task)
-		cell.buttonPressedClosure = { [weak self] in
+		cell.configure(with: task) { [weak self] in
 			self?.presenter.buttonCompletePressed(at: indexPath.row)
 		}
 

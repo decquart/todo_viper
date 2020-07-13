@@ -14,7 +14,6 @@ class CategoryListViewController: UIViewController {
 		didSet {
 			collectionView.delegate = self
 			collectionView.dataSource = self
-			collectionView.backgroundColor = .collectionViewBackgroundColor
 		}
 	}
 
@@ -23,19 +22,12 @@ class CategoryListViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(changeEditMode))
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
 		presenter.loadCategories()
-	}
-
-	@objc func changeEditMode() {
-		isEditing = !isEditing
-		navigationItem.rightBarButtonItem!.title = isEditing ? "Cancel" : "Edit"
 	}
 }
 
@@ -56,7 +48,10 @@ extension CategoryListViewController: UICollectionViewDelegate, UICollectionView
 		let cell = collectionView.dequeue(cellType: CategoryCollectionViewCell.self, for: indexPath)
 		let vm = presenter.category(at: indexPath.row)
 		let tasksCount = presenter.tasksCount(at: indexPath.row)
-		cell.configure(with: vm, tasksCount: tasksCount)
+
+		cell.configure(with: vm, tasksCount: tasksCount) { [weak self] in
+			self?.showEditCategoryAlertViewController(with: indexPath.row)
+		}
 		return cell
 	}
 }
@@ -74,11 +69,7 @@ extension CategoryListViewController: UICollectionViewDelegateFlowLayout {
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		if isEditing {
-			showEditCategoryAlertViewController(with: indexPath.row)
-		} else {
-			presenter.didSelectCategory(with: indexPath.row)
-		}
+		presenter.didSelectCategory(with: indexPath.row)
 	}
 }
 

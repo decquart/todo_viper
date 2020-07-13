@@ -10,7 +10,7 @@ import UIKit
 
 class TaskCell: UITableViewCell {
 
-	var buttonPressedClosure: (() -> Void)?
+	private var buttonPressedClosure: (() -> Void)?
 	@IBOutlet weak private var descriptionLabel: UILabel!
 	@IBOutlet weak private var checkButton: UIButton!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -19,9 +19,10 @@ class TaskCell: UITableViewCell {
 		buttonPressedClosure?()
 	}
 
-	func configure(with viewModel: TaskViewModel) {
+	func configure(with viewModel: TaskViewModel, callback: @escaping (() -> Void)) {
 		self.descriptionLabel.text = viewModel.description
 		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
 		self.dateLabel.text = viewModel.dateText
+		self.buttonPressedClosure = callback
 	}
 }

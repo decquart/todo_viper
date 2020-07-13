@@ -8,6 +8,7 @@
 
 import UIKit
 
+@available(iOS 11, *)
 extension UIColor {
 	class var collectionViewBackgroundColor: UIColor! {
 		return UIColor(named: "CollectionViewBackgroundColor")

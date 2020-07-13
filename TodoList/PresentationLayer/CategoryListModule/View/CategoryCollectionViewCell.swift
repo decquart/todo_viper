@@ -9,16 +9,20 @@
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
+	private var editButtonPressedCallback: (() -> Void)?
+
 	@IBOutlet weak private var taskImageView: UIImageView!
 	@IBOutlet weak private var taskNameLabel: UILabel!
 	@IBOutlet weak private var subTaskCountLabel: UILabel!
-	
+
+	@IBAction func editButtonPressed(_ sender: Any) {
+		editButtonPressedCallback?()
+	}
+
 	override func layoutSubviews() {
 		super.layoutSubviews()
 
 		layer.cornerRadius = 12.0
-		layer.backgroundColor = UIColor.white.cgColor
-
 		layer.shadowOffset = CGSize(width: 0, height: 2)
 		layer.shadowRadius = 5.0
 		layer.shadowOpacity = 0.4
@@ -27,10 +31,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 	}
 
-	func configure(with viewModel: CategoryViewModel, tasksCount: Int) {
+	func configure(with viewModel: CategoryViewModel, tasksCount: Int, callback: @escaping () -> Void) {
 		taskImageView.image = viewModel.image
 		taskImageView.tintColor = viewModel.color
 		taskNameLabel.text = viewModel.name
 		subTaskCountLabel.text = String(tasksCount)
+		editButtonPressedCallback = callback
 	}
 }

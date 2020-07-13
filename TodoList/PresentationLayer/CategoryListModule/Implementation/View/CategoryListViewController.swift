@@ -17,7 +17,7 @@ class CategoryListViewController: UIViewController {
 		}
 	}
 
-	var presenter: CategoryListViewOutput!
+	var presenter: CategoryListPresenterProtocol!
 	let inset: CGFloat = 12.0
 
 	override func viewDidLoad() {
@@ -32,8 +32,8 @@ class CategoryListViewController: UIViewController {
 }
 
 // MARK: - CategoryListViewInput
-extension CategoryListViewController: CategoryListViewInput {
-	func didCategoriesFetch() {
+extension CategoryListViewController: CategoryListViewProtocol {
+	func reloadCategoriesList() {
 		self.collectionView.reloadData()
 	}
 }

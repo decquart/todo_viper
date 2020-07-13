@@ -8,31 +8,15 @@
 
 import Foundation
 
-protocol CategoryListViewOutput: class {
-	var categoriesCount: Int { get }
+class CategoryListPresenter: CategoryListPresenterProtocol {
 
-	func category(at index: Int) -> CategoryViewModel
-	func tasksCount(at index: Int) -> Int
-	func loadCategories()
-	func addCategoryButtonPressed()
-	func didSelectCategory(with index: Int)
-	func deleteButtonPressed(with index: Int)
-	func editButtonPressed(with index: Int)
-}
-
-protocol CategoryListViewInput: class {
-	func didCategoriesFetch()
-}
-
-class CategoryListPresenter: CategoryListViewOutput {
-
-	weak var view: CategoryListViewInput?
+	weak var view: CategoryListViewProtocol?
 	let repository: AnyRepository<Category>
-	let router: RouterProtocol
+	let router: CategoryListRouterProtocol
 
 	private var categories: [Category] = [] {
 		didSet {
-			view?.didCategoriesFetch()
+			view?.reloadCategoriesList()
 		}
 	}
 
@@ -40,7 +24,7 @@ class CategoryListPresenter: CategoryListViewOutput {
 		return categories.count
 	}
 
-	required init(view: CategoryListViewInput, repository: AnyRepository<Category>, router: RouterProtocol) {
+	required init(view: CategoryListViewProtocol, repository: AnyRepository<Category>, router: CategoryListRouterProtocol) {
 		self.view = view
 		self.repository = repository
 		self.router = router
@@ -64,7 +48,7 @@ class CategoryListPresenter: CategoryListViewOutput {
 
 	func didSelectCategory(with index: Int) {
 		let category = categories[index]
-		router.showSubTaskListViewController(category: category)
+		router.showTaskListViewController(category: category)
 	}
 
 	func deleteButtonPressed(with index: Int) {
@@ -80,10 +64,10 @@ class CategoryListPresenter: CategoryListViewOutput {
 	func editButtonPressed(with index: Int) {
 		let task = categories[index]
 		let vm = CategoryViewModel(model: task)
-		self.router.showTaskDetailsViewController(scope: .edit(model: vm))
+		self.router.showCategoryDetailsViewController(scope: .edit(model: vm))
 	}
 
 	func addCategoryButtonPressed() {
-		router.showTaskDetailsViewController(scope: .create)
+		router.showCategoryDetailsViewController(scope: .create)
 	}
 }

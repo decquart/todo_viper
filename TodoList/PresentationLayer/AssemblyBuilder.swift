@@ -9,7 +9,6 @@
 import UIKit
 
 protocol AssemblyBuilderProtocol {
-	func createCategoryListModule() -> UIViewController
 	func createTaskListModule(category: Category) -> UIViewController
 	func createCategoryDetailsModule(scope: Scope<CategoryViewModel>) -> UIViewController
 	func createTaskDetailsModule(category: Category, scope: Scope<TaskViewModel>) -> UIViewController
@@ -19,17 +18,6 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 
 	lazy var coreDataStack: CoreDataStack = CoreDataStack(modelName: "TodoList")
 
-	func createCategoryListModule() -> UIViewController {
-		let router = Router(assemblyBuilder: self)
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: CategoryListViewController.identifire) as! CategoryListViewController
-		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let presenter = CategoryListPresenter(view: view, repository: repository, router: router)
-		view.presenter = presenter
-
-		view.tabBarItem =  UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 1)
-		return view
-	}
 
 	func createTaskListModule(category: Category) -> UIViewController {
 

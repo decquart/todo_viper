@@ -54,6 +54,11 @@
 		2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229E24BCE2DF00A46ED6 /* MainViewProtocol.swift */; };
 		2D5F22A124BCE33D00A46ED6 /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A024BCE33D00A46ED6 /* MainPresenterProtocol.swift */; };
 		2D5F22A324BCE3CD00A46ED6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A224BCE3CD00A46ED6 /* MainPresenter.swift */; };
+		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
+		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
+		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
+		2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */; };
+		2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */; };
 		2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6452C724B7C348009978EE /* SettingsViewController.swift */; };
 		2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */; };
 		2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */; };
@@ -67,6 +72,7 @@
 		2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */; };
 		2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295E24B3BDDD008EE2C1 /* CDTaskRepository.swift */; };
 		2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C296124B451CE008EE2C1 /* RealmRepository.swift */; };
+		2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
@@ -136,6 +142,11 @@
 		2D5F229E24BCE2DF00A46ED6 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A024BCE33D00A46ED6 /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A224BCE3CD00A46ED6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
+		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
+		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
+		2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRouterProtocol.swift; sourceTree = "<group>"; };
+		2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRouter.swift; sourceTree = "<group>"; };
 		2D6452C724B7C348009978EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Wrapper.swift"; sourceTree = "<group>"; };
@@ -149,6 +160,7 @@
 		2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDRepository.swift; sourceTree = "<group>"; };
 		2D7C295E24B3BDDD008EE2C1 /* CDTaskRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTaskRepository.swift; sourceTree = "<group>"; };
 		2D7C296124B451CE008EE2C1 /* RealmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmRepository.swift; sourceTree = "<group>"; };
+		2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackHolder.swift; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
@@ -311,6 +323,7 @@
 				04C45B1E248E91C90073CA2B /* Views */,
 				2D692EAB24AE890A0005D4CB /* ReusableCell */,
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
+				2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -327,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				042176D2248D1DF100FDDAE3 /* Mappable.swift */,
+				2D777BE6249E42D700720B5D /* ViewModels */,
 				04BCAB772498136C00A38846 /* CoreDataEntities */,
 				04BCAB7C2498136C00A38846 /* Domain */,
 				04B692D9248ECA6200428ECC /* RealmEntities */,
@@ -347,9 +361,9 @@
 		04EFFD1524801A720048336E /* CategoryListModule */ = {
 			isa = PBXGroup;
 			children = (
-				2D777BE6249E42D700720B5D /* ViewModel */,
-				04EFFD1424801A660048336E /* View */,
-				04EFFD1D24801B6D0048336E /* Presenter */,
+				2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */,
+				2D5F22AA24BCEDA600A46ED6 /* Protocols */,
+				2D5F22AB24BCEE1400A46ED6 /* Implementation */,
 			);
 			path = CategoryListModule;
 			sourceTree = "<group>";
@@ -365,7 +379,6 @@
 		04EFFD22248031800048336E /* TaskListModule */ = {
 			isa = PBXGroup;
 			children = (
-				2D777BED24A12EBD00720B5D /* ViewModel */,
 				04EFFD23248031940048336E /* View */,
 				04EFFD2724805BCC0048336E /* Presenter */,
 			);
@@ -483,6 +496,26 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		2D5F22AA24BCEDA600A46ED6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */,
+				2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */,
+				2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2D5F22AB24BCEE1400A46ED6 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				04EFFD1D24801B6D0048336E /* Presenter */,
+				04EFFD1424801A660048336E /* View */,
+				2D82A0AE24BCF13400A04190 /* Router */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		2D6452C924B7C379009978EE /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,20 +537,13 @@
 			path = ReusableCell;
 			sourceTree = "<group>";
 		};
-		2D777BE6249E42D700720B5D /* ViewModel */ = {
+		2D777BE6249E42D700720B5D /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				2D777BE2249D652000720B5D /* CategoryViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2D777BED24A12EBD00720B5D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				2D777BEB24A12EAC00720B5D /* TaskViewModel.swift */,
 			);
-			path = ViewModel;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		2D7C296024B451A6008EE2C1 /* CDRepository */ = {
@@ -539,6 +565,14 @@
 				04CF078B248F614400440A43 /* RealmTaskRepository.swift */,
 			);
 			path = RealmRepository;
+			sourceTree = "<group>";
+		};
+		2D82A0AE24BCF13400A04190 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -659,6 +693,7 @@
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
+				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
@@ -679,6 +714,7 @@
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
+				2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */,
@@ -698,13 +734,17 @@
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
+				2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */,
 				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
+				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
+				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
+				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,

@@ -15,7 +15,7 @@ class MainRouter: MainRouterProtocol {
 		//TODO: move to module builders
 		let builder = AssemblyBuilder()
 
-		return [builder.createCategoryListModule(), builder.createSettingsModule()]
+		return [CategoryListModule().build(), builder.createSettingsModule()]
 			.map { UINavigationController(rootViewController: $0) }
 	}
 }

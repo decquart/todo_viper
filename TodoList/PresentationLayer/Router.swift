@@ -35,17 +35,17 @@ class Router: RouterProtocol {
 	}
 
 	func showSubTaskListViewController(category: Category) {
-		let vc = assemblyBuilder.createTaskListModule(router: self, category: category)
+		let vc = assemblyBuilder.createTaskListModule(category: category)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
 	func showTaskDetailsViewController(scope: Scope<CategoryViewModel>) {
-		let vc = assemblyBuilder.createCategoryDetailsModule(router: self, scope: scope)
+		let vc = assemblyBuilder.createCategoryDetailsModule(scope: scope)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 
 	func showSubTaskDetailsViewController(category: Category, scope: Scope<TaskViewModel>) {
-		let vc = assemblyBuilder.createTaskDetailsModule(router: self, category: category, scope: scope)
+		let vc = assemblyBuilder.createTaskDetailsModule(category: category, scope: scope)
 		mainNavigationController.pushViewController(vc, animated: true)
 	}
 

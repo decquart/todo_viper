@@ -9,27 +9,31 @@
 import UIKit
 
 protocol AssemblyBuilderProtocol {
-	func createMainModule(router: RouterProtocol) -> UIViewController
-	func createTaskListModule(router: RouterProtocol, category: Category) -> UIViewController
-	func createCategoryDetailsModule(router: RouterProtocol, scope: Scope<CategoryViewModel>) -> UIViewController
-	func createTaskDetailsModule(router: RouterProtocol, category: Category, scope: Scope<TaskViewModel>) -> UIViewController
+	func createCategoryListModule() -> UIViewController
+	func createTaskListModule(category: Category) -> UIViewController
+	func createCategoryDetailsModule(scope: Scope<CategoryViewModel>) -> UIViewController
+	func createTaskDetailsModule(category: Category, scope: Scope<TaskViewModel>) -> UIViewController
 }
 
 class AssemblyBuilder: AssemblyBuilderProtocol {
 
 	lazy var coreDataStack: CoreDataStack = CoreDataStack(modelName: "TodoList")
 
-	func createMainModule(router: RouterProtocol) -> UIViewController {
+	func createCategoryListModule() -> UIViewController {
+		let router = Router(assemblyBuilder: self)
 		let storyboard = UIStoryboard(name: "Main", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: CategoryListViewController.identifire) as! CategoryListViewController
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
 		let presenter = CategoryListPresenter(view: view, repository: repository, router: router)
 		view.presenter = presenter
+
+		view.tabBarItem =  UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 1)
 		return view
 	}
 
-	func createTaskListModule(router: RouterProtocol, category: Category) -> UIViewController {
+	func createTaskListModule(category: Category) -> UIViewController {
 
+		let router = Router(assemblyBuilder: self)
 		let storyboard = UIStoryboard(name: "Task", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: TaskListViewController.identifire) as! TaskListViewController
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: coreDataStack)
@@ -38,8 +42,9 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createCategoryDetailsModule(router: RouterProtocol, scope: Scope<CategoryViewModel>) -> UIViewController {
+	func createCategoryDetailsModule(scope: Scope<CategoryViewModel>) -> UIViewController {
 
+		let router = Router(assemblyBuilder: self)
 		let iconPickerPresenter = IconPickerPresenter()
 		let subview = IconPickerView.instantiate(presenter: iconPickerPresenter)
 		iconPickerPresenter.view = subview
@@ -57,7 +62,8 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createTaskDetailsModule(router: RouterProtocol, category: Category, scope: Scope<TaskViewModel>) -> UIViewController {
+	func createTaskDetailsModule(category: Category, scope: Scope<TaskViewModel>) -> UIViewController {
+		let router = Router(assemblyBuilder: self)
 		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: coreDataStack)
@@ -68,10 +74,10 @@ class AssemblyBuilder: AssemblyBuilderProtocol {
 		return view
 	}
 
-	func createSettingsModule(router: RouterProtocol) -> UIViewController {
+	func createSettingsModule() -> UIViewController {
 		let storyboard = UIStoryboard(name: "Settings", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SettingsViewController.identifire) as! SettingsViewController
-
+		view.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 0)
 		//todo: add view model
 		return view
 	}

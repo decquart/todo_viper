@@ -14,12 +14,13 @@ class SettingsViewController: UIViewController {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
+			tableView.registerNib(cellType: SwitchTableViewCell.self)
+			tableView.registerNib(cellType: ColorTableViewCell.self)
 		}
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
 }
 
@@ -29,8 +30,8 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
-		cell.descriptionLabel?.text = "Theme"
+		let cell = tableView.dequeue(cellType: ColorTableViewCell.self, for: indexPath)
+		cell.descriptionLabel?.text = "Application Tint Color"
 		return cell
 	}
 }

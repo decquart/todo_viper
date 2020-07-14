@@ -89,6 +89,10 @@
 		2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DA24BD13F300A04190 /* SettingsModule.swift */; };
 		2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */; };
 		2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */; };
+		2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */; };
+		2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */; };
+		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
+		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
@@ -193,6 +197,10 @@
 		2D82A0DA24BD13F300A04190 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenterProtocol.swift; sourceTree = "<group>"; };
+		2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
+		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
@@ -362,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
+				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -711,6 +720,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		2D82A0E624BD8AEA00A04190 /* UITableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */,
+				2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */,
+				2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */,
+				2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */,
+			);
+			path = UITableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -804,6 +824,8 @@
 				2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */,
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
 				2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */,
+				2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */,
+				2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */,
 				2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
@@ -828,6 +850,7 @@
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */,
+				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
@@ -854,6 +877,7 @@
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */,
+				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
 				2D82A0D624BD108400A04190 /* TaskDetailsRouterProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,

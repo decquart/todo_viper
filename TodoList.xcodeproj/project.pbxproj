@@ -93,10 +93,18 @@
 		2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */; };
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
+		2D82A0EC24BE28AE00A04190 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */; };
+		2D82A0EF24BE28D600A04190 /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */; };
+		2D82A0F224BE29C400A04190 /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */; };
+		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
 		2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */; };
+		2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */; };
+		2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */; };
+		2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */; };
+		2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */; };
 		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
@@ -201,10 +209,18 @@
 		2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
+		2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
+		2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenter.swift; sourceTree = "<group>"; };
+		2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenterProtocol.swift; sourceTree = "<group>"; };
+		2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewProtocol.swift; sourceTree = "<group>"; };
+		2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerModule.swift; sourceTree = "<group>"; };
 		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
@@ -254,6 +270,7 @@
 		047C64F824858AAF00BB6702 /* CategoryDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
+				2D82A0ED24BE28BB00A04190 /* ColorPicker */,
 				2D4928CB24A5C5B0008AF740 /* IconPicker */,
 				2D4928CD24A5C5D3008AF740 /* CategoryDetails */,
 			);
@@ -473,6 +490,7 @@
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
 			isa = PBXGroup;
 			children = (
+				2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */,
 				2D82A0DC24BD153B00A04190 /* Implementation */,
 				2D82A0DD24BD154A00A04190 /* Protocols */,
 			);
@@ -731,6 +749,52 @@
 			path = UITableViewCell;
 			sourceTree = "<group>";
 		};
+		2D82A0ED24BE28BB00A04190 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				2DD037AC24BEDA3200FC6102 /* ColorPickerModule.swift */,
+				2DD037A924BED7BC00FC6102 /* Implementation */,
+				2DD037A724BED77300FC6102 /* Protocols */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		2DD037A724BED77300FC6102 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */,
+				2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2DD037A924BED7BC00FC6102 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2DD037AA24BED7D200FC6102 /* View */,
+				2DD037AB24BED7DB00FC6102 /* Presenter */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2DD037AA24BED7D200FC6102 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */,
+				2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */,
+				2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2DD037AB24BED7DB00FC6102 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -830,6 +894,7 @@
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
+				2D82A0EF24BE28D600A04190 /* ColorPickerView.xib in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -856,6 +921,7 @@
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
+				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
@@ -864,6 +930,7 @@
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
+				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
 				2D5F22A124BCE33D00A46ED6 /* MainPresenterProtocol.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
@@ -884,6 +951,7 @@
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
+				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
@@ -901,6 +969,7 @@
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
 				2D82A0BE24BCFE2B00A04190 /* CategoryDetailsRouter.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
+				2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
@@ -914,14 +983,17 @@
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
+				2D82A0F224BE29C400A04190 /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
+				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
 				2D82A0D824BD115300A04190 /* TaskDetailsRouter.swift in Sources */,
 				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
+				2D82A0EC24BE28AE00A04190 /* ColorPickerView.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */,

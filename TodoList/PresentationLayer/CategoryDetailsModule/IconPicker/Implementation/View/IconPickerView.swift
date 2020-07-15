@@ -20,13 +20,6 @@ class IconPickerView: UIView {
 			collectionView.allowsSelection = true
 		}
 	}
-
-	class func instantiate(presenter: IconPickerPresenterProtocol) -> IconPickerView {
-		let view = Bundle.main.loadNibNamed("IconPickerView", owner: self, options: nil)?.first as! IconPickerView
-		view.presenter = presenter
-
-		return view
-	}
 }
 
 extension IconPickerView: IconPickerViewProtocol {

@@ -46,7 +46,7 @@ extension IconPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 		}
 
 		selectedCell?.layer.backgroundColor = UIColor.clear.cgColor
-		cell.layer.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+		cell.layer.backgroundColor = UIColor.secondarySystemBackground.cgColor
 		selectedCell = cell
 
 		presenter.updateIcon(at: indexPath.row)

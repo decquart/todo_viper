@@ -28,33 +28,36 @@ class CategoryDetailsViewController: UIViewController {
 
 	//todo: get rid
 	private var imagePath: String = ""
-	private var color: UIColor! {
-		didSet {
-			categoryIconImageView.tintColor = color
-		}
-	}
 
 	private lazy var saveBarButton: UIBarButtonItem = {
 		return UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
 	}()
 
-	@IBOutlet weak private var redSlider: UISlider!
-	@IBOutlet weak private var greenSlider: UISlider!
-	@IBOutlet weak private var blueSlider: UISlider!
-
 	@IBOutlet weak private var categoryIconImageView: UIImageView!
 	@IBOutlet weak private var titleTextField: UITextField!
+
+	var colorPickerView: UIView! {
+		didSet {
+			self.view.addSubview(colorPickerView)
+
+			colorPickerView.translatesAutoresizingMaskIntoConstraints = false
+			colorPickerView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 20).isActive = true
+			colorPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
+			colorPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
+			//TODO
+			colorPickerView.heightAnchor.constraint(lessThanOrEqualToConstant: 120).isActive = true
+		}
+	}
 
 	var iconPickerView: UIView! {
 		didSet {
 			self.view.addSubview(iconPickerView)
 
 			iconPickerView.translatesAutoresizingMaskIntoConstraints = false
-
-			iconPickerView.topAnchor.constraint(equalTo: blueSlider.bottomAnchor, constant: 20).isActive = true
+			iconPickerView.topAnchor.constraint(equalTo: colorPickerView.bottomAnchor, constant: 20).isActive = true
 			iconPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
 			iconPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-			iconPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -160).isActive = true
+			iconPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
 		}
 	}
 
@@ -69,12 +72,8 @@ class CategoryDetailsViewController: UIViewController {
 	}
 }
 
-// MARK: - IBActions
+// MARK: - Handlers
 extension CategoryDetailsViewController {
-	@IBAction func sliderValueDidChange(_ sender: UISlider) {
-		color = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: 1)
-	}
-
 	@objc func saveButtonPressed() {
 		guard let name = titleTextField.text, !name.isEmpty else {
 			return
@@ -83,7 +82,7 @@ extension CategoryDetailsViewController {
 		var category = viewModel
 		category.name = name
 		category.imagePath = imagePath
-		category.color = color
+		category.color = categoryIconImageView.tintColor
 		presenter.saveButtonPressed(with: category)
 	}
 }
@@ -102,6 +101,10 @@ extension CategoryDetailsViewController: CategoryDetailsViewProtocol {
 		self.imagePath = imagePath
 		categoryIconImageView.image = UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
 	}
+
+	func refreshColor(_ colorPath: String) {
+		categoryIconImageView.tintColor = UIColor(named: colorPath)
+	}
 }
 
 // MARK: - Appearance
@@ -119,18 +122,13 @@ extension CategoryDetailsViewController {
 
 	func setupDefaultAppearance() {
 		categoryIconImageView.image = UIImage(named: "shopping")
-		color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
 		self.imagePath = "shopping"
 	}
 
 	func setupAppearance(with existingCategory: CategoryViewModel) {
 		titleTextField.text = existingCategory.name
 		categoryIconImageView.image = existingCategory.image
-		color = existingCategory.color
-
-		redSlider.value = Float(CIColor(color: color).red)
-		greenSlider.value = Float(CIColor(color: color).green)
-		blueSlider.value = Float(CIColor(color: color).blue)
+		categoryIconImageView.tintColor = existingCategory.color
 
 		self.imagePath = existingCategory.imagePath
 	}

@@ -15,8 +15,10 @@ final class CategoryDetailsModule {
 		let router = CategoryDetailsRouter()
 		let repository = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let presenter = CategoryDetailsPresenter(view: view, repository: repository, router: router)
-		let subview = IconPickerModule().build(presenter)
-		view.iconPickerView = subview
+		let iconsSubview = IconPickerModule().build(presenter)
+		let colorsSubview = ColorPickerModule().build(presenter)
+		view.colorPickerView = colorsSubview
+		view.iconPickerView = iconsSubview
 		view.presenter = presenter
 		view.scope = scope
 		router.view = view

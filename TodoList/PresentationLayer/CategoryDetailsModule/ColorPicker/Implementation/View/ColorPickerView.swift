@@ -11,8 +11,8 @@ import UIKit
 class ColorPickerView: UIView, ColorPickerViewProtocol {
 	var presenter: ColorPickerPresenterProtocol!
 	
-	let inset: CGFloat = 12.0
-	let minimumInteritemSpacing: CGFloat = 24
+	private let inset: CGFloat = 12.0
+	private let minimumInteritemSpacing: CGFloat = 24
 
 	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
@@ -23,17 +23,26 @@ class ColorPickerView: UIView, ColorPickerViewProtocol {
 	}
 }
 
-extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		9
+		return presenter.colorNames.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeue(cellType: ColorPickerCollectionViewCell.self, for: indexPath)
-		cell.backgroundColor = .red
+		cell.backgroundColor = UIColor(named: presenter.colorNames[indexPath.row])
 		return cell
 	}
 
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		presenter.didSelectColor(at: indexPath.row)
+		//TODO: Add selection animation
+	}
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension ColorPickerView: UICollectionViewDelegateFlowLayout {
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
 		 let noOfCellsInRow = 6

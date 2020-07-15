@@ -32,42 +32,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LWw-JJ-FjC">
-                                <rect key="frame" x="24" y="200" width="366" height="106"/>
-                                <subviews>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="vhh-vb-5v6">
-                                        <rect key="frame" x="-2" y="0.0" width="370" height="31"/>
-                                        <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="sliderValueDidChange:" destination="2Gs-aA-cos" eventType="valueChanged" id="HAn-60-qK9"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="McG-2f-0h3">
-                                        <rect key="frame" x="-2" y="38" width="370" height="31"/>
-                                        <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="sliderValueDidChange:" destination="2Gs-aA-cos" eventType="valueChanged" id="Nzr-ta-heu"/>
-                                        </connections>
-                                    </slider>
-                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="cVM-g6-PU1">
-                                        <rect key="frame" x="-2" y="76" width="370" height="31"/>
-                                        <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="sliderValueDidChange:" destination="2Gs-aA-cos" eventType="valueChanged" id="RlZ-nl-2Tt"/>
-                                        </connections>
-                                    </slider>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="106" id="Pwb-LI-kAa"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="LWw-JJ-FjC" firstAttribute="top" secondItem="rDd-Nr-HID" secondAttribute="bottom" constant="16" id="15q-Um-AeY"/>
-                            <constraint firstItem="Rfc-s6-pfT" firstAttribute="trailing" secondItem="LWw-JJ-FjC" secondAttribute="trailing" constant="24" id="7cj-p2-x5g"/>
                             <constraint firstItem="5Df-6G-Rro" firstAttribute="centerX" secondItem="gdj-fp-Iy3" secondAttribute="centerX" id="Cpo-Jf-GMR"/>
-                            <constraint firstItem="LWw-JJ-FjC" firstAttribute="leading" secondItem="Rfc-s6-pfT" secondAttribute="leading" constant="24" id="E51-mk-14F"/>
                             <constraint firstItem="5Df-6G-Rro" firstAttribute="top" secondItem="Rfc-s6-pfT" secondAttribute="top" constant="16" id="RbY-RX-SRn"/>
                             <constraint firstItem="rDd-Nr-HID" firstAttribute="top" secondItem="5Df-6G-Rro" secondAttribute="bottom" constant="16" id="Snx-no-OiS"/>
                             <constraint firstItem="Rfc-s6-pfT" firstAttribute="trailing" secondItem="rDd-Nr-HID" secondAttribute="trailing" constant="24" id="cpJ-uY-cN2"/>
@@ -76,10 +44,7 @@
                         <viewLayoutGuide key="safeArea" id="Rfc-s6-pfT"/>
                     </view>
                     <connections>
-                        <outlet property="blueSlider" destination="cVM-g6-PU1" id="OE4-A0-RGu"/>
                         <outlet property="categoryIconImageView" destination="5Df-6G-Rro" id="1Zg-Eh-DVq"/>
-                        <outlet property="greenSlider" destination="McG-2f-0h3" id="WLB-e9-V6E"/>
-                        <outlet property="redSlider" destination="vhh-vb-5v6" id="uWY-MY-mPR"/>
                         <outlet property="titleTextField" destination="rDd-Nr-HID" id="Pxp-vN-T0w"/>
                     </connections>
                 </viewController>

@@ -18,7 +18,7 @@ final class CategoryListModule {
 		let presenter = CategoryListPresenter(view: view, repository: repository, router: router)
 		router.view = view
 		view.presenter = presenter
-		view.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 1)
+		view.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 0)
 		return view
 	}
 }

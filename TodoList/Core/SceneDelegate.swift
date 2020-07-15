@@ -28,7 +28,6 @@ private extension SceneDelegate {
 		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 		window?.windowScene = windowScene
 
-
 		window?.rootViewController = MainModule().build()
 		window?.makeKeyAndVisible()
 	}

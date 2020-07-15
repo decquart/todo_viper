@@ -36,6 +36,24 @@
 		04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD202480317B0048336E /* TaskListViewController.swift */; };
 		04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EFFD2524805BC80048336E /* TaskListPresenter.swift */; };
 		04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F9BC33248E4B6E00DC0AE8 /* TaskCell.swift */; };
+		2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */; };
+		2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195F24BF825A0097E74D /* ColorPickerView.swift */; };
+		2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D01196024BF825A0097E74D /* ColorPickerView.xib */; };
+		2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */; };
+		2D01196624BF8FB40097E74D /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */; };
+		2D01196924BF9C660097E74D /* SettingsVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196824BF9C660097E74D /* SettingsVMProtocol.swift */; };
+		2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196D24BF9DDF0097E74D /* SettingsVM.swift */; };
+		2D01197024BFAB860097E74D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196F24BFAB860097E74D /* Box.swift */; };
+		2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */; };
+		2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01197424BFB61B0097E74D /* AccountInfo.storyboard */; };
+		2D01197724BFB6C20097E74D /* SettingsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197624BFB6C20097E74D /* SettingsRouterProtocol.swift */; };
+		2D01197924BFB8550097E74D /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197824BFB8550097E74D /* SettingsRouter.swift */; };
+		2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */; };
+		2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */; };
+		2D01198424BFBCC10097E74D /* AccountInfoRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */; };
+		2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */; };
+		2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */; };
+		2D01198C24BFBF3D0097E74D /* AccountInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */; };
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
 		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
@@ -93,9 +111,6 @@
 		2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */; };
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
-		2D82A0EC24BE28AE00A04190 /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */; };
-		2D82A0EF24BE28D600A04190 /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */; };
-		2D82A0F224BE29C400A04190 /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */; };
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
@@ -155,6 +170,24 @@
 		04EFFD202480317B0048336E /* TaskListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 		04EFFD2524805BC80048336E /* TaskListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenter.swift; sourceTree = "<group>"; };
 		04F9BC33248E4B6E00DC0AE8 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewProtocol.swift; sourceTree = "<group>"; };
+		2D01195F24BF825A0097E74D /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		2D01196024BF825A0097E74D /* ColorPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
+		2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		2D01196824BF9C660097E74D /* SettingsVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVMProtocol.swift; sourceTree = "<group>"; };
+		2D01196D24BF9DDF0097E74D /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		2D01196F24BFAB860097E74D /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		2D01197424BFB61B0097E74D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
+		2D01197624BFB6C20097E74D /* SettingsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterProtocol.swift; sourceTree = "<group>"; };
+		2D01197824BFB8550097E74D /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewProtocol.swift; sourceTree = "<group>"; };
+		2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModelProtocol.swift; sourceTree = "<group>"; };
+		2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRouterProtocol.swift; sourceTree = "<group>"; };
+		2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModule.swift; sourceTree = "<group>"; };
+		2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
+		2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRouter.swift; sourceTree = "<group>"; };
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
@@ -209,9 +242,6 @@
 		2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
-		2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
-		2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
-		2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -255,6 +285,7 @@
 				04EFFD22248031800048336E /* TaskListModule */,
 				2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */,
 				2D6452C924B7C379009978EE /* SettingsModule */,
+				2D01197124BFB5B80097E74D /* AccountInfoModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -307,6 +338,7 @@
 		049FB5212480157E000A7133 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				2D01196724BF9AD70097E74D /* Core */,
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
@@ -368,11 +400,9 @@
 		04C45B1D248E91C20073CA2B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				04BCAB6D2498134D00A38846 /* AppDelegate.swift */,
 				04BCAB6F2498134D00A38846 /* Assets.xcassets */,
 				2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */,
 				04BCAB722498134D00A38846 /* LaunchScreen.storyboard */,
-				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
 				2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */,
 				049FF59E248A960600BF0FDD /* CoreDataStack.swift */,
 				04C45B1E248E91C90073CA2B /* Views */,
@@ -458,6 +488,128 @@
 				04EFFD2524805BC80048336E /* TaskListPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D01195624BF81390097E74D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */,
+				2D01196824BF9C660097E74D /* SettingsVMProtocol.swift */,
+				2D01197624BFB6C20097E74D /* SettingsRouterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2D01195724BF81A00097E74D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2D01195824BF81C10097E74D /* View */,
+				2D01196C24BF9C8E0097E74D /* ViewModel */,
+				2D01197A24BFB8C00097E74D /* Router */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2D01195824BF81C10097E74D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
+				2DE5847824B843DD0051680C /* Settings.storyboard */,
+				2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */,
+				2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D01195E24BF825A0097E74D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D01195F24BF825A0097E74D /* ColorPickerView.swift */,
+				2D01196024BF825A0097E74D /* ColorPickerView.xib */,
+				2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D01196724BF9AD70097E74D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				04BCAB6D2498134D00A38846 /* AppDelegate.swift */,
+				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
+				2D01196F24BFAB860097E74D /* Box.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		2D01196C24BF9C8E0097E74D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D01196D24BF9DDF0097E74D /* SettingsVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D01197124BFB5B80097E74D /* AccountInfoModule */ = {
+			isa = PBXGroup;
+			children = (
+				2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */,
+				2D01197B24BFBC430097E74D /* Implementation */,
+				2D01198524BFBCCB0097E74D /* Protocols */,
+			);
+			path = AccountInfoModule;
+			sourceTree = "<group>";
+		};
+		2D01197A24BFB8C00097E74D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2D01197824BFB8550097E74D /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		2D01197B24BFBC430097E74D /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2D01197C24BFBC530097E74D /* View */,
+				2D01198A24BFBEFA0097E74D /* ViewModel */,
+				2D01198D24BFBF430097E74D /* Router */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2D01197C24BFBC530097E74D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */,
+				2D01197424BFB61B0097E74D /* AccountInfo.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2D01198524BFBCCB0097E74D /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */,
+				2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */,
+				2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2D01198A24BFBEFA0097E74D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2D01198D24BFBF430097E74D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */ = {
@@ -579,10 +731,9 @@
 		2D6452C924B7C379009978EE /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
-				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
-				2DE5847824B843DD0051680C /* Settings.storyboard */,
-				2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */,
 				2D82A0DA24BD13F300A04190 /* SettingsModule.swift */,
+				2D01195724BF81A00097E74D /* Implementation */,
+				2D01195624BF81390097E74D /* Protocols */,
 			);
 			path = SettingsModule;
 			sourceTree = "<group>";
@@ -771,20 +922,10 @@
 		2DD037A924BED7BC00FC6102 /* Implementation */ = {
 			isa = PBXGroup;
 			children = (
-				2DD037AA24BED7D200FC6102 /* View */,
+				2D01195E24BF825A0097E74D /* View */,
 				2DD037AB24BED7DB00FC6102 /* Presenter */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2DD037AA24BED7D200FC6102 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0EB24BE28AE00A04190 /* ColorPickerView.swift */,
-				2D82A0EE24BE28D600A04190 /* ColorPickerView.xib */,
-				2D82A0F024BE29C400A04190 /* ColorPickerCollectionViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2DD037AB24BED7DB00FC6102 /* Presenter */ = {
@@ -883,7 +1024,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D01196624BF8FB40097E74D /* SettingsTableViewCell.xib in Resources */,
 				047C64FB24858B5C00BB6702 /* CategoryDetails.storyboard in Resources */,
+				2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */,
 				04BCAB752498134D00A38846 /* Assets.xcassets in Resources */,
 				2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */,
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
@@ -894,7 +1037,7 @@
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
-				2D82A0EF24BE28D600A04190 /* ColorPickerView.xib in Resources */,
+				2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -914,22 +1057,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
+				2D01196924BF9C660097E74D /* SettingsVMProtocol.swift in Sources */,
 				2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */,
 				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
+				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
+				2D01198C24BFBF3D0097E74D /* AccountInfoRouter.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
+				2D01197024BFAB860097E74D /* Box.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
+				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
+				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
+				2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */,
+				2D01197924BFB8550097E74D /* SettingsRouter.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
 				2D5F22A124BCE33D00A46ED6 /* MainPresenterProtocol.swift in Sources */,
@@ -940,18 +1091,23 @@
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
+				2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */,
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
 				2D82A0D624BD108400A04190 /* TaskDetailsRouterProtocol.swift in Sources */,
+				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
+				2D01198424BFBCC10097E74D /* AccountInfoRouterProtocol.swift in Sources */,
+				2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */,
 				2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
+				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
@@ -983,8 +1139,9 @@
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
-				2D82A0F224BE29C400A04190 /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
+				2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */,
+				2D01197724BFB6C20097E74D /* SettingsRouterProtocol.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
@@ -993,7 +1150,6 @@
 				2D82A0D824BD115300A04190 /* TaskDetailsRouter.swift in Sources */,
 				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
-				2D82A0EC24BE28AE00A04190 /* ColorPickerView.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */,

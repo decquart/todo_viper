@@ -10,28 +10,43 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 	static let identifire = "settingsVC"
+
+	var viewModel: SettingsVMProtocol!
+
 	@IBOutlet weak var tableView: UITableView! {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
-			tableView.registerNib(cellType: SwitchTableViewCell.self)
-			tableView.registerNib(cellType: ColorTableViewCell.self)
+			tableView.registerNib(cellType: SettingsTableViewCell.self)
 		}
 	}
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		navigationItem.title = "Settings"
     }
 }
 
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		1
+		viewModel.numberOfRows
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeue(cellType: ColorTableViewCell.self, for: indexPath)
-		cell.descriptionLabel?.text = "Application Tint Color"
+		let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
+		let vm = viewModel.viewModelCell(at: indexPath.row)
+		cell.configure(with: vm)
 		return cell
 	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		viewModel.didSelectTableViewCell(at: indexPath.row)
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
+}
+
+// MARK: - SettingsViewProtocol
+extension SettingsViewController: SettingsViewProtocol {
+
 }

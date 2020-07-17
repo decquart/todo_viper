@@ -7,5 +7,5 @@
 //
 
 class AccountInfoRouter: AccountInfoRouterProtocol {
-	
+	weak var view: AccountInfoViewProtocol!
 }

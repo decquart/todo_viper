@@ -54,6 +54,8 @@
 		2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */; };
 		2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */; };
 		2D01198C24BFBF3D0097E74D /* AccountInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */; };
+		2D01199524C07E400097E74D /* Themes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01199424C07E400097E74D /* Themes.storyboard */; };
+		2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01199B24C0B43F0097E74D /* ThemesViewController.swift */; };
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
 		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
@@ -63,6 +65,8 @@
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
+		2D5596DD24C177F500A9F430 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DC24C177F500A9F430 /* KeyChain.swift */; };
+		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
 		2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229424BCDD4600A46ED6 /* MainModule.swift */; };
 		2D5F229724BCDDDD00A46ED6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */; };
 		2D5F229924BCDE0200A46ED6 /* MainRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229824BCDE0200A46ED6 /* MainRouterProtocol.swift */; };
@@ -188,12 +192,16 @@
 		2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModule.swift; sourceTree = "<group>"; };
 		2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRouter.swift; sourceTree = "<group>"; };
+		2D01199424C07E400097E74D /* Themes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Themes.storyboard; sourceTree = "<group>"; };
+		2D01199B24C0B43F0097E74D /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
+		2D5596DC24C177F500A9F430 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
+		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D5F229424BCDD4600A46ED6 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		2D5F229824BCDE0200A46ED6 /* MainRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterProtocol.swift; sourceTree = "<group>"; };
@@ -286,6 +294,7 @@
 				2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */,
 				2D6452C924B7C379009978EE /* SettingsModule */,
 				2D01197124BFB5B80097E74D /* AccountInfoModule */,
+				2D01199324C07E0B0097E74D /* ThemesModule */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -345,6 +354,7 @@
 				04C45B1D248E91C20073CA2B /* Shared */,
 				049FB53324801580000A7133 /* Info.plist */,
 				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
+				2D5596DE24C1786700A9F430 /* Services */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -612,6 +622,24 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		2D01199324C07E0B0097E74D /* ThemesModule */ = {
+			isa = PBXGroup;
+			children = (
+				2D5596DF24C187FD00A9F430 /* ThemesModule.swift */,
+				2D01199824C0B3B60097E74D /* View */,
+			);
+			path = ThemesModule;
+			sourceTree = "<group>";
+		};
+		2D01199824C0B3B60097E74D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2D01199424C07E400097E74D /* Themes.storyboard */,
+				2D01199B24C0B43F0097E74D /* ThemesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +704,14 @@
 				2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D5596DE24C1786700A9F430 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2D5596DC24C177F500A9F430 /* KeyChain.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2D5F229324BCDCFF00A46ED6 /* MainModule */ = {
@@ -1038,6 +1074,7 @@
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
 				2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */,
+				2D01199524C07E400097E74D /* Themes.storyboard in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1076,6 +1113,7 @@
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
+				2D5596DD24C177F500A9F430 /* KeyChain.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
@@ -1109,6 +1147,7 @@
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
+				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
@@ -1154,6 +1193,7 @@
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
+				2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,8 +9,8 @@
 import UIKit
 
 class SettingsRouter: SettingsRouterProtocol {
-	var viewModel: SettingsVMProtocol!
-	var view: SettingsViewProtocol!
+	weak var viewModel: SettingsVMProtocol!
+	weak var view: SettingsViewProtocol!
 
 	func showAccountInfoViewController() {
 		//TODO
@@ -18,12 +18,10 @@ class SettingsRouter: SettingsRouterProtocol {
 		//navCtrl.modalPresentationStyle = .formSheet
 		let vc = AccountInfoModule().build()
 		view.navigationController?.pushViewController(vc, animated: true)
-
 	}
 
 	func showThemesViewController() {
-		fatalError("need to implement")
+		let vc = ThemesModule().build()
+		view.navigationController?.pushViewController(vc, animated: true)
 	}
-
-
 }

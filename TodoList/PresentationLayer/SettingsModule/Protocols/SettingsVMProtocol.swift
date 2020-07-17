@@ -6,7 +6,7 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol SettingsVMProtocol {
+protocol SettingsVMProtocol: class {
 	var router: SettingsRouterProtocol! { get }
 	var numberOfRows: Int { get }
 	func viewModelCell(at index: Int) -> SettingsCellViewModel

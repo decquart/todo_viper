@@ -6,6 +6,10 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol AccountInfoViewModelProtocol {
+protocol AccountInfoViewModelProtocol: class {
+	var router: AccountInfoRouterProtocol! { get }
+	var keychain: KeychainProtocol! { get }
 
+	func saveName(_ name: String)
+	func saveEmail(_ email: String)
 }

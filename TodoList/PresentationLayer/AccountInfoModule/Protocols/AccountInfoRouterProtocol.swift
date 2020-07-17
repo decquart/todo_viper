@@ -6,6 +6,6 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol AccountInfoRouterProtocol {
-
+protocol AccountInfoRouterProtocol: class {
+	var view: AccountInfoViewProtocol! { get }
 }

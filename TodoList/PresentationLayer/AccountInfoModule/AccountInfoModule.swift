@@ -14,7 +14,11 @@ class AccountInfoModule {
 		let view = storyboard.instantiateViewController(withIdentifier: AccountInfoViewController.identifire) as! AccountInfoViewController
 		let viewModel = AccountInfoViewModel()
 		let router = AccountInfoRouter()
-
+		let keychainService = Keychain()
+		view.viewModel = viewModel
+		viewModel.router = router
+		viewModel.keychain = keychainService
+		router.view = view
 		return view
 	}
 }

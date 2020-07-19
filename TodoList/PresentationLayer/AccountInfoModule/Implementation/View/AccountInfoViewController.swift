@@ -8,9 +8,20 @@
 
 import UIKit
 
-class AccountInfoViewController: UIViewController {
+class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 	static let identifire = "accountInfo"
-	var viewModel: AccountInfoViewModelProtocol!
+	var viewModel: AccountInfoViewModelProtocol! {
+		didSet {
+			viewModel.username.bind { [unowned self] in
+				self.usernameLabel?.text = $0
+			}
+
+			viewModel.email.bind { [unowned self] in
+				self.emailLabel?.text = $0
+			}
+		}
+	}
+
 	@IBOutlet weak var profileImageView: UIImageView! {
 		didSet {
 			profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
@@ -18,6 +29,11 @@ class AccountInfoViewController: UIViewController {
 			profileImageView.layer.borderWidth = 2
 		}
 	}
+
+	@IBOutlet weak var nameTextField: UITextField!
+	@IBOutlet weak var emailTextField: UITextField!
+	@IBOutlet weak var usernameLabel: UILabel!
+	@IBOutlet weak var emailLabel: UILabel!
 
 	@IBOutlet weak var saveNameButton: UIButton! {
 		didSet {
@@ -33,19 +49,22 @@ class AccountInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		viewModel.viewDidLoad()
     }
 
 	@IBAction func saveNameButtonPressed(_ sender: Any) {
-		//TODO
-		viewModel.saveName("some name")
+		guard let name = nameTextField.text else {
+			return
+		}
+
+		viewModel.saveName(name)
 	}
 
 	@IBAction func saveEmailButtonPressed(_ sender: Any) {
-		//TODO
-		viewModel.saveName("some email")
+		guard let email = emailTextField.text else {
+			return
+		}
+
+		viewModel.saveEmail(email)
 	}
-}
-
-extension AccountInfoViewController: AccountInfoViewProtocol {
-
 }

@@ -65,7 +65,6 @@
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
-		2D5596DD24C177F500A9F430 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DC24C177F500A9F430 /* Keychain.swift */; };
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
 		2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229424BCDD4600A46ED6 /* MainModule.swift */; };
 		2D5F229724BCDDDD00A46ED6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */; };
@@ -129,6 +128,7 @@
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 		2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */; };
+		2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132E24C4F60B006D0EA6 /* Keychain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -202,7 +202,6 @@
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
-		2D5596DC24C177F500A9F430 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D5F229424BCDD4600A46ED6 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
 		2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -266,6 +265,7 @@
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 		2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
+		2DFD132E24C4F60B006D0EA6 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -714,8 +714,8 @@
 		2D5596DE24C1786700A9F430 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				2D5596DC24C177F500A9F430 /* Keychain.swift */,
 				2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */,
+				2DFD132E24C4F60B006D0EA6 /* Keychain.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1119,8 +1119,8 @@
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
-				2D5596DD24C177F500A9F430 /* Keychain.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
+				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,

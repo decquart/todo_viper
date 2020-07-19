@@ -86,6 +86,7 @@
 		2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EAE24AE896D0005D4CB /* UICollectionView+Wrapper.swift */; };
 		2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BE2249D652000720B5D /* CategoryViewModel.swift */; };
 		2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D777BEB24A12EAC00720B5D /* TaskViewModel.swift */; };
+		2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */; };
 		2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */; };
 		2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295824B3B099008EE2C1 /* Repository.swift */; };
 		2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C295A24B3BD68008EE2C1 /* CDCategoryRepository.swift */; };
@@ -127,6 +128,7 @@
 		2DE5847924B843DD0051680C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DE5847824B843DD0051680C /* Settings.storyboard */; };
 		2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB224A5389E00317BAD /* IconPickerView.swift */; };
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
+		2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -221,6 +223,7 @@
 		2D692EAE24AE896D0005D4CB /* UICollectionView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Wrapper.swift"; sourceTree = "<group>"; };
 		2D777BE2249D652000720B5D /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		2D777BEB24A12EAC00720B5D /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Subscript.swift"; sourceTree = "<group>"; };
 		2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+UIColor.swift"; sourceTree = "<group>"; };
 		2D7C295824B3B099008EE2C1 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		2D7C295A24B3BD68008EE2C1 /* CDCategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDCategoryRepository.swift; sourceTree = "<group>"; };
@@ -262,6 +265,7 @@
 		2DE5847824B843DD0051680C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		2DFD0CB224A5389E00317BAD /* IconPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerView.swift; sourceTree = "<group>"; };
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
+		2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +423,7 @@
 				2D692EAB24AE890A0005D4CB /* ReusableCell */,
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
 				2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */,
+				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -710,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				2D5596DC24C177F500A9F430 /* Keychain.swift */,
+				2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1116,6 +1122,7 @@
 				2D5596DD24C177F500A9F430 /* Keychain.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
+				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
 				2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */,
 				2D01197924BFB8550097E74D /* SettingsRouter.swift in Sources */,
@@ -1151,6 +1158,7 @@
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
+				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2D5F229924BCDE0200A46ED6 /* MainRouterProtocol.swift in Sources */,
 				2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */,
 				2D5F229D24BCE19F00A46ED6 /* MainView.swift in Sources */,

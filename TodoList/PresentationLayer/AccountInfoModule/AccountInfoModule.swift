@@ -15,9 +15,11 @@ class AccountInfoModule {
 		let viewModel = AccountInfoViewModel()
 		let router = AccountInfoRouter()
 		let keychainService = Keychain()
+		let settingsService = SettingsService()
 		view.viewModel = viewModel
 		viewModel.router = router
 		viewModel.keychain = keychainService
+		viewModel.settings = settingsService
 		router.view = view
 		return view
 	}

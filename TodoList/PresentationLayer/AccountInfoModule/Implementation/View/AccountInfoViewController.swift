@@ -19,6 +19,15 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 			viewModel.email.bind { [unowned self] in
 				self.emailLabel?.text = $0
 			}
+
+			viewModel.userImage.bind { [unowned self] in
+				guard let data = $0 else {
+					self.profileImageView?.image = nil
+					return
+				}
+
+				self.profileImageView?.image = UIImage(data: data)
+			}
 		}
 	}
 
@@ -47,6 +56,8 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 		}
 	}
 
+	var imagePicker = UIImagePickerController()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 		viewModel.viewDidLoad()
@@ -66,5 +77,26 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 		}
 
 		viewModel.saveEmail(email)
+	}
+
+	@IBAction func selectImageButtonPressed() {
+
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            present(imagePicker, animated: true, completion: nil)
+        }
+    }
+}
+
+// MARK: - UINavigationControllerDelegate, UIImagePickerControllerDelegate
+extension AccountInfoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+		if let image = info[.originalImage] as? UIImage {
+			self.viewModel.saveUserImage(image.pngData())
+		}
+
+		self.dismiss(animated: true)
 	}
 }

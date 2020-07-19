@@ -11,13 +11,16 @@ import Foundation
 class AccountInfoViewModel: AccountInfoViewModelProtocol {
 	var router: AccountInfoRouterProtocol!
 	var keychain: KeychainProtocol!
+	var settings: AccountSettingsServiceProtocol!
 
 	var username: Box<String> = Box("")
 	var email: Box<String> = Box("")
+	var userImage: Box<Data?> = Box(nil)
 
 	func viewDidLoad() {
 		username.value = keychain.load(for: .username) ?? ""
 		email.value = keychain.load(for: .email) ?? ""
+		userImage.value = settings.userImage
 	}
 
 	func saveName(_ name: String) {
@@ -30,5 +33,10 @@ class AccountInfoViewModel: AccountInfoViewModelProtocol {
 		if keychain.save(value, for: .email) {
 			email.value = value
 		}
+	}
+
+	func saveUserImage(_ imageData: Data?) {
+		settings.userImage = imageData
+		userImage.value = settings.userImage
 	}
 }

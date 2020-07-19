@@ -72,20 +72,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zWt-YB-MnL">
+                                <rect key="frame" x="145" y="76" width="124" height="124"/>
+                                <connections>
+                                    <action selector="selectImageButtonPressed" destination="aC9-Ft-HSH" eventType="touchUpInside" id="QFd-wy-DW3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="A3X-dV-Kri" firstAttribute="trailing" secondItem="RAG-vk-Chv" secondAttribute="trailing" constant="24" id="1Zy-RX-Pzg"/>
+                            <constraint firstItem="zWt-YB-MnL" firstAttribute="bottom" secondItem="4mN-OC-2i4" secondAttribute="bottom" id="2jc-dC-Ve8"/>
                             <constraint firstItem="jwh-gF-jhL" firstAttribute="leading" secondItem="Qx6-Vf-BtJ" secondAttribute="leading" id="6q4-Bg-oo0"/>
                             <constraint firstItem="sk7-zK-gEA" firstAttribute="top" secondItem="4mN-OC-2i4" secondAttribute="bottom" constant="8" id="B0Z-Xv-fc0"/>
                             <constraint firstItem="mhl-JC-eaf" firstAttribute="top" secondItem="sk7-zK-gEA" secondAttribute="bottom" constant="8" id="FxL-jE-M5l"/>
                             <constraint firstItem="mhl-JC-eaf" firstAttribute="centerX" secondItem="4mN-OC-2i4" secondAttribute="centerX" id="HTy-8b-xwQ"/>
                             <constraint firstItem="EhY-4T-fIH" firstAttribute="centerY" secondItem="Qx6-Vf-BtJ" secondAttribute="centerY" id="KF0-LB-2CC"/>
                             <constraint firstItem="sk7-zK-gEA" firstAttribute="centerX" secondItem="4mN-OC-2i4" secondAttribute="centerX" id="LNv-yv-x7g"/>
+                            <constraint firstItem="zWt-YB-MnL" firstAttribute="trailing" secondItem="4mN-OC-2i4" secondAttribute="trailing" id="U2E-TI-RL4"/>
                             <constraint firstItem="jwh-gF-jhL" firstAttribute="top" secondItem="Qx6-Vf-BtJ" secondAttribute="bottom" constant="32" id="Wgw-cb-4Em"/>
                             <constraint firstItem="4mN-OC-2i4" firstAttribute="centerX" secondItem="eXS-hV-uWj" secondAttribute="centerX" id="Xxd-QP-E3l"/>
                             <constraint firstItem="4mN-OC-2i4" firstAttribute="top" secondItem="A3X-dV-Kri" secondAttribute="top" constant="32" id="YPt-al-01T"/>
                             <constraint firstItem="RAG-vk-Chv" firstAttribute="leading" secondItem="jwh-gF-jhL" secondAttribute="trailing" constant="16" id="Yfd-c3-umz"/>
+                            <constraint firstItem="zWt-YB-MnL" firstAttribute="top" secondItem="4mN-OC-2i4" secondAttribute="top" id="ZAC-Ry-WAz"/>
+                            <constraint firstItem="zWt-YB-MnL" firstAttribute="leading" secondItem="4mN-OC-2i4" secondAttribute="leading" id="a7z-Tf-iL3"/>
                             <constraint firstItem="A3X-dV-Kri" firstAttribute="trailing" secondItem="EhY-4T-fIH" secondAttribute="trailing" constant="24" id="aKu-BH-BBw"/>
                             <constraint firstItem="RAG-vk-Chv" firstAttribute="centerY" secondItem="jwh-gF-jhL" secondAttribute="centerY" id="epm-oi-hbM"/>
                             <constraint firstItem="Qx6-Vf-BtJ" firstAttribute="leading" secondItem="A3X-dV-Kri" secondAttribute="leading" constant="24" id="qw4-ME-OcI"/>

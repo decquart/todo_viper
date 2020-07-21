@@ -12,6 +12,10 @@ class ThemesModule {
 	func build() -> UIViewController {
 		let storyboard = UIStoryboard(name: "Themes", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: ThemesViewController.identifire) as! ThemesViewController
+		let viewModel = ThemesViewModel()
+		let themeService = SettingsService()
+		viewModel.themeService = themeService
+		view.viewModel = viewModel
 		return view
 	}
 }

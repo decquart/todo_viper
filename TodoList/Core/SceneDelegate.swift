@@ -30,5 +30,8 @@ private extension SceneDelegate {
 
 		window?.rootViewController = MainModule().build()
 		window?.makeKeyAndVisible()
+		
+		let settings = SettingsService()
+		settings.refreshDarkMode()
 	}
 }

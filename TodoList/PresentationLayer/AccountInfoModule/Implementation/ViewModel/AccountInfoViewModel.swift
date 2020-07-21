@@ -13,9 +13,9 @@ class AccountInfoViewModel: AccountInfoViewModelProtocol {
 	var keychain: KeychainProtocol!
 	var settings: AccountSettingsServiceProtocol!
 
-	var username: Box<String> = Box("")
-	var email: Box<String> = Box("")
-	var userImage: Box<Data?> = Box(nil)
+	private(set) var username: Box<String> = Box("")
+	private(set) var email: Box<String> = Box("")
+	private(set) var userImage: Box<Data?> = Box(nil)
 
 	func viewDidLoad() {
 		username.value = keychain.load(for: .username) ?? ""

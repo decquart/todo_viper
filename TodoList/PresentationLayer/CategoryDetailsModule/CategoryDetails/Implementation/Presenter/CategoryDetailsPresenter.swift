@@ -38,7 +38,7 @@ final class CategoryDetailsPresenter: CategoryDetailsPresenterProtocol {
 		view.refreshIcon(imagePath)
 	}
 
-	func updateColor(_ colorPath: String) {
-		view.refreshColor(colorPath)
+	func updateColor(_ color: Color) {
+		view.refreshColor(color)
 	}
 }

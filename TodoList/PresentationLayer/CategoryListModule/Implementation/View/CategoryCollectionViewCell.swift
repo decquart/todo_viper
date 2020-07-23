@@ -33,7 +33,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
 
 	func configure(with viewModel: CategoryViewModel, tasksCount: Int, callback: @escaping () -> Void) {
 		taskImageView.image = viewModel.image
-		taskImageView.tintColor = viewModel.color
+		taskImageView.tintColor = viewModel.color.uiColor
 		taskNameLabel.text = viewModel.name
 		subTaskCountLabel.text = String(tasksCount)
 		editButtonPressedCallback = callback

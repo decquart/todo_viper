@@ -12,10 +12,14 @@ struct CategoryViewModel {
 	private var id: String = UUID().uuidString
 	var name: String = ""
 	var imagePath: String = ""
-	var color: UIColor = .clear
+	var colorName: String = ""
 
 	var image: UIImage? {
 		return UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
+	}
+
+	var color: Color {
+		return Color(rawValue: colorName)!
 	}
 
 	init() {}
@@ -23,8 +27,8 @@ struct CategoryViewModel {
 	init(model: Category) {
 		id = model.id
 		imagePath = model.imagePath
-		color = model.imageColor.toColor
 		name = model.name
+		colorName = model.colorName
 	}
 }
 
@@ -34,6 +38,6 @@ extension CategoryViewModel: MappingOutput {
 		return Category(id: id,
 					name: name,
 					imagePath: imagePath,
-					color: color)
+					colorName: colorName)
 	}
 }

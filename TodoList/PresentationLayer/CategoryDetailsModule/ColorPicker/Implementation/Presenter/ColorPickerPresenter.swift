@@ -10,11 +10,11 @@ class ColorPickerPresenter: ColorPickerPresenterProtocol {
 	weak var view: ColorPickerViewProtocol!
 	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
 
-	var colorNames: [String] {
-		return ["CustomBlue", "CustomGreen", "CustomIndigo", "CustomOrange", "CustomPink", "CustomPurple", "CustomRed", "CustomTeal", "CustomYellow"]
-	}
+	var colors: [Color] {
+		return [.customBlue, .customGreen, .customIndigo, .customOrange, .customPink, .customPurple, .customRed, .customTeal, .customYellow]
+		}
 
 	func didSelectColor(at index: Int) {
-		detailsPresenter?.updateColor(colorNames[index])
+		detailsPresenter?.updateColor(colors[index])
 	}
 }

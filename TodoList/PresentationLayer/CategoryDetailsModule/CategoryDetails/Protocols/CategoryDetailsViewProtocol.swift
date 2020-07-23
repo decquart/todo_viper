@@ -14,5 +14,5 @@ protocol CategoryDetailsViewProtocol: class {
 
 	var isNewCategory: Bool { get }
 	func refreshIcon(_ imagePath: String)
-	func refreshColor(_ colorPath: String)
+	func refreshColor(_ color: Color)
 }

@@ -11,5 +11,5 @@ protocol CategoryDetailsPresenterProtocol: class {
 	var router: CategoryDetailsRouterProtocol! { get }
 	func saveButtonPressed(with viewModel: CategoryViewModel)
 	func updateIcon(_ imagePath: String)
-	func updateColor(_ colorPath: String)
+	func updateColor(_ color: Color)
 }

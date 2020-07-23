@@ -9,7 +9,7 @@
 protocol ColorPickerPresenterProtocol: class {
 	var view: ColorPickerViewProtocol! { get }
 	var detailsPresenter: CategoryDetailsPresenterProtocol? { get }
-	var colorNames: [String] { get }
+	var colors: [Color] { get }
 
 	func didSelectColor(at index: Int)
 }

@@ -28,6 +28,11 @@ class CategoryDetailsViewController: UIViewController {
 
 	//todo: get rid
 	private var imagePath: String = ""
+	private var color: Color! {
+		didSet {
+			categoryIconImageView.tintColor = color?.uiColor
+		}
+	}
 
 	private lazy var saveBarButton: UIBarButtonItem = {
 		return UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
@@ -82,7 +87,8 @@ extension CategoryDetailsViewController {
 		var category = viewModel
 		category.name = name
 		category.imagePath = imagePath
-		category.color = categoryIconImageView.tintColor
+		category.colorName = color.rawValue
+
 		presenter.saveButtonPressed(with: category)
 	}
 }
@@ -102,8 +108,8 @@ extension CategoryDetailsViewController: CategoryDetailsViewProtocol {
 		categoryIconImageView.image = UIImage(named: imagePath)?.withRenderingMode(.alwaysTemplate)
 	}
 
-	func refreshColor(_ colorPath: String) {
-		categoryIconImageView.tintColor = UIColor(named: colorPath)
+	func refreshColor(_ color: Color) {
+		self.color = color
 	}
 }
 
@@ -128,8 +134,8 @@ extension CategoryDetailsViewController {
 	func setupAppearance(with existingCategory: CategoryViewModel) {
 		titleTextField.text = existingCategory.name
 		categoryIconImageView.image = existingCategory.image
-		categoryIconImageView.tintColor = existingCategory.color
 
+		self.color = existingCategory.color
 		self.imagePath = existingCategory.imagePath
 	}
 }

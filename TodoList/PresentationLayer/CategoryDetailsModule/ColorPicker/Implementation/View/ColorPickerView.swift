@@ -26,12 +26,12 @@ class ColorPickerView: UIView, ColorPickerViewProtocol {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource {
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return presenter.colorNames.count
+		return presenter.colors.count
 	}
 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeue(cellType: ColorPickerCollectionViewCell.self, for: indexPath)
-		cell.backgroundColor = UIColor(named: presenter.colorNames[indexPath.row])
+		cell.backgroundColor = presenter.colors[indexPath.row].uiColor
 		return cell
 	}
 

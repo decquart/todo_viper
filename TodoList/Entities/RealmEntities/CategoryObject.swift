@@ -15,7 +15,7 @@ class CategoryObject: Object {
 	@objc dynamic var id = ""
 	@objc dynamic var name = ""
 	@objc dynamic var imagePath = ""
-	@objc dynamic var color: Data?
+	@objc dynamic var colorName = ""
 
 	let tasks = List<TaskObject>()
 
@@ -30,7 +30,7 @@ extension CategoryObject: Mappable {
 		Category(id: id,
 			 name: name,
 			 imagePath: imagePath,
-			 color: UIColor.green,
+			 colorName: colorName,
 			 subtasksCount: tasks.count)
 	}
 
@@ -41,6 +41,6 @@ extension CategoryObject: Mappable {
 
 		name = entity.name
 		imagePath = entity.imagePath
-		color = entity.imageColor as? Data
+		colorName = entity.colorName
 	}
 }

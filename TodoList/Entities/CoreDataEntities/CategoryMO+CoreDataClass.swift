@@ -21,7 +21,7 @@ extension CategoryMO: Mappable {
 		return Category(id: id,
 					name: name,
 					imagePath: imagePath,
-					color: iconColor,
+					colorName: colorName,
 					subtasksCount: tasks.count)
 	}
 
@@ -29,6 +29,6 @@ extension CategoryMO: Mappable {
 		id = entity.id
 		name = entity.name
 		imagePath = entity.imagePath
-		iconColor = entity.imageColor
+		colorName = entity.colorName
 	}
 }

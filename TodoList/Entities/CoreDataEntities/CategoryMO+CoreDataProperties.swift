@@ -19,7 +19,7 @@ extension CategoryMO {
     @NSManaged public var id: String
     @NSManaged public var name: String
     @NSManaged public var imagePath: String
-    @NSManaged public var iconColor: NSObject
+    @NSManaged public var colorName: String
     @NSManaged public var tasks: NSSet
 
 }

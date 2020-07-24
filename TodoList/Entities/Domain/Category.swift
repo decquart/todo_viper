@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Category {
+struct Category: Decodable {
 	let id: String
 	let name: String
 	let imagePath: String

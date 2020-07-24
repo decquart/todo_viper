@@ -22,7 +22,7 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 
 			viewModel.userImage.bind { [unowned self] in
 				guard let data = $0 else {
-					self.profileImageView?.image = nil
+					self.profileImageView?.image = UIImage(named: "default_placeholder")
 					return
 				}
 

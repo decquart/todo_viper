@@ -13,4 +13,8 @@ extension UIColor {
 	class var collectionViewBackgroundColor: UIColor! {
 		return UIColor(named: "CollectionViewBackgroundColor")
 	}
+
+	class var selectedBorderColor: UIColor! {
+		return UIColor(named: "SelectedBorderColor")
+	}
 }

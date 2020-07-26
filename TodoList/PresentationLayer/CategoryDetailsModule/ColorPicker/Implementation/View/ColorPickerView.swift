@@ -37,7 +37,19 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource 
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		presenter.didSelectColor(at: indexPath.row)
-		//TODO: Add selection animation
+		guard let cell = collectionView.cellForItem(at: indexPath) else {
+			return
+		}
+
+		setSelected(true, cell: cell)
+	}
+
+	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+		guard let cell = collectionView.cellForItem(at: indexPath) else {
+			return
+		}
+
+		setSelected(false, cell: cell)
 	}
 }
 
@@ -58,5 +70,17 @@ extension ColorPickerView: UICollectionViewDelegateFlowLayout {
 
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
 		return minimumInteritemSpacing
+	}
+}
+
+private extension ColorPickerView {
+	func setSelected(_ isSelected: Bool, cell: UICollectionViewCell) {
+		let borderWidth: CGFloat = isSelected ? 2.0 : .zero
+
+		UIView.transition(with: self,
+						  duration: 0.3,
+						  options: .transitionCrossDissolve,
+						  animations: { cell.layer.borderWidth = borderWidth },
+						  completion: nil)
 	}
 }

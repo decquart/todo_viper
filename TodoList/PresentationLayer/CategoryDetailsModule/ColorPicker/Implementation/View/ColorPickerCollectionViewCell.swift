@@ -13,5 +13,6 @@ class ColorPickerCollectionViewCell: UICollectionViewCell {
 		super.layoutSubviews()
 
 		self.layer.cornerRadius = self.frame.height / 2
+		self.layer.borderColor = UIColor.selectedBorderColor.cgColor
 	}
 }

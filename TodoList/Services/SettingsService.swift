@@ -18,7 +18,15 @@ protocol ThemeSettingsServiceProtocol {
 	func refreshDarkMode()
 }
 
-final class SettingsService: AccountSettingsServiceProtocol {
+final class SettingsService {
+	var isFirstLaunch: Bool {
+		get { return UserDefaults.standard[#function] ?? true }
+		set { UserDefaults.standard[#function] = newValue }
+	}
+}
+
+// MARK: - AccountSettingsServiceProtocol
+extension SettingsService: AccountSettingsServiceProtocol {
 	var userImage: Data? {
 		get { return UserDefaults.standard[#function] }
 		set { UserDefaults.standard[#function] = newValue }

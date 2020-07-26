@@ -51,13 +51,13 @@ extension AnyRepository {
 		execute(function: delete, items: items, completion: completion)
 	}
 
-	private func execute(function: FunctionHandler, items: [Item], completion: @escaping (Bool) -> Void) {
+	private func execute(function: @escaping FunctionHandler, items: [Item], completion: @escaping (Bool) -> Void) {
 		let itemGroup = DispatchGroup()
 		var failedItems: [Item] = []
 
 		for subtask in items {
 			DispatchQueue.main.async(group: itemGroup) {
-				self.update(subtask) { success in
+				function(subtask) { success in
 					failedItems.append(subtask)
 				}
 			}

@@ -7,24 +7,36 @@
 //
 
 import UIKit
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		#warning("Move to another file")
+		seedInitialDataIfNeeded()
+		return true
+	}
+}
+
+private extension AppDelegate {
+	func seedInitialDataIfNeeded() {
+		let setting = SettingsService()
+		let repo = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+
+		guard setting.isFirstLaunch else {
+			return
+		}
+
 		if let url = Bundle.main.url(forResource: "Categories", withExtension: "json") {
 			do {
 				let data = try Data(contentsOf: url)
-				let decoder = JSONDecoder()
-				let jsonData = try decoder.decode(Array<Category>.self, from: data)
+				let categories = try JSONDecoder().decode(Array<Category>.self, from: data)
+				repo.add(categories) { success in
+					if success { setting.isFirstLaunch = false }
+				}
 			} catch {
-				print("error:\(error)")
+				print("error in \(#function): \(error)")
 			}
 		}
-
-		return true
 	}
 }

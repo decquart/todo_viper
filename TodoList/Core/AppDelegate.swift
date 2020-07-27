@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 private extension AppDelegate {
 	func seedInitialDataIfNeeded() {
-		let setting = SettingsService()
+		let setting = SettingsService.shared
 		let repo = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 
 		guard setting.isFirstLaunch else {

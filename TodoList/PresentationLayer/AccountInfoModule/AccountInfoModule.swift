@@ -15,7 +15,7 @@ class AccountInfoModule {
 		let viewModel = AccountInfoViewModel()
 		let router = AccountInfoRouter()
 		let keychainService = Keychain()
-		let settingsService = SettingsService()
+		let settingsService = SettingsService.shared
 		view.viewModel = viewModel
 		viewModel.router = router
 		viewModel.keychain = keychainService

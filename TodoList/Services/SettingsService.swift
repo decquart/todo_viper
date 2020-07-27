@@ -19,6 +19,9 @@ protocol ThemeSettingsServiceProtocol {
 }
 
 final class SettingsService {
+	static let shared = SettingsService()
+	private init() {}
+
 	var isFirstLaunch: Bool {
 		get { return UserDefaults.standard[#function] ?? true }
 		set { UserDefaults.standard[#function] = newValue }

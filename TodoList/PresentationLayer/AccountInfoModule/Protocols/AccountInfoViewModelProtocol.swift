@@ -9,9 +9,9 @@
 import Foundation
 
 protocol AccountInfoViewModelProtocol: class {
-	var router: AccountInfoRouterProtocol! { get }
-	var keychain: KeychainProtocol! { get }
-	var settings: AccountSettingsServiceProtocol! { get }
+	var router: AccountInfoRouterProtocol { get }
+	var keychain: KeychainProtocol { get }
+	var settings: AccountSettingsServiceProtocol { get }
 
 	var username: Box<String> { get }
 	var email: Box<String> { get }

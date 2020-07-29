@@ -9,19 +9,19 @@
 import UIKit
 
 class SettingsRouter: SettingsRouterProtocol {
-	weak var viewModel: SettingsVMProtocol!
-	weak var view: SettingsViewProtocol!
+	private(set) weak var view: SettingsViewProtocol?
+
+	init(view: SettingsViewProtocol) {
+		self.view = view
+	}
 
 	func showAccountInfoViewController() {
-		//TODO
-		//let navCtrl = UINavigationController(rootViewController: vc)
-		//navCtrl.modalPresentationStyle = .formSheet
 		let vc = AccountInfoModule().build()
-		view.navigationController?.pushViewController(vc, animated: true)
+		view?.navigationController?.pushViewController(vc, animated: true)
 	}
 
 	func showThemesViewController() {
 		let vc = ThemesModule().build()
-		view.navigationController?.pushViewController(vc, animated: true)
+		view?.navigationController?.pushViewController(vc, animated: true)
 	}
 }

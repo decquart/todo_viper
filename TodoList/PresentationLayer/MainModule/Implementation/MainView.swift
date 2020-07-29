@@ -10,9 +10,13 @@ import UIKit
 
 class MainView: UITabBarController, MainViewProtocol {
 
-	var presenter: MainPresenterProtocol!
+	var presenter: MainPresenterProtocol?
 
 	override func viewDidAppear(_ animated: Bool) {
-		presenter.viewDidAppear()
+		presenter?.viewDidAppear()
+	}
+
+	func setViewControllers(_ viewControllers: [UIViewController]?) {
+		self.viewControllers = viewControllers
 	}
 }

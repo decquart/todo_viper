@@ -9,9 +9,9 @@
 import Foundation
 
 class TaskListPresenter: TaskListPresenterProtocol {
-	weak var view: TaskListViewProtocol!
-	let router: TaskListRouterProtocol!
-	let repository: AnyRepository<Task>
+	private(set) weak var view: TaskListViewProtocol?
+	private(set) var router: TaskListRouterProtocol?
+	private let repository: AnyRepository<Task>
 
 	private var category: Category!
 	private var tasks: [Task] = [] {
@@ -71,10 +71,10 @@ class TaskListPresenter: TaskListPresenterProtocol {
 
 	func didSelect(at indexPath: IndexPath) {
 		let vm = TaskViewModel(model: tasks[indexPath.row])
-		router.showSubTaskDetailsViewController(category: category, scope: .edit(model: vm))
+		router?.showSubTaskDetailsViewController(category: category, scope: .edit(model: vm))
 	}
 
 	func addButtonPressed() {
-		router.showSubTaskDetailsViewController(category: category, scope: .create)
+		router?.showSubTaskDetailsViewController(category: category, scope: .create)
 	}
 }

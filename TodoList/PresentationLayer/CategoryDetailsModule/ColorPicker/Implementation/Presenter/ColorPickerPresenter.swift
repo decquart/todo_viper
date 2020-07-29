@@ -7,14 +7,25 @@
 //
 
 class ColorPickerPresenter: ColorPickerPresenterProtocol {
-	weak var view: ColorPickerViewProtocol!
+
 	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
+
+	var selectedColor: Color?
+
+	var selectedColorIndex: Int {
+		guard let color = selectedColor else {
+			return 0
+		}
+
+		return colors.firstIndex(of: color) ?? 0
+	}
 
 	var colors: [Color] {
 		return [.customBlue, .customGreen, .customIndigo, .customOrange, .customPink, .customPurple, .customRed, .customTeal, .customYellow]
-		}
+	}
 
 	func didSelectColor(at index: Int) {
+		selectedColor = colors[index]
 		detailsPresenter?.updateColor(colors[index])
 	}
 }

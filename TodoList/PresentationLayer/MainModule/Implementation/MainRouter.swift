@@ -9,7 +9,6 @@
 import UIKit
 
 class MainRouter: MainRouterProtocol {
-	weak var view: MainViewProtocol!
 
 	func viewControllers() -> [UIViewController] {
 		return [

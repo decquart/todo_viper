@@ -7,7 +7,7 @@
 //
 
 protocol SettingsVMProtocol: class {
-	var router: SettingsRouterProtocol! { get }
+	var router: SettingsRouterProtocol? { get }
 	var numberOfRows: Int { get }
 	func viewModelCell(at index: Int) -> SettingsCellViewModel
 	func didSelectTableViewCell(at index: Int)

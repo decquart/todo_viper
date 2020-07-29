@@ -7,7 +7,7 @@
 //
 
 protocol CategoryListRouterProtocol: class {
-	var view: CategoryListViewProtocol! { get }
+	var view: CategoryListViewProtocol? { get }
 	func showCategoryDetailsViewController(scope: Scope<CategoryViewModel>)
 	func showTaskListViewController(category: Category)
 }

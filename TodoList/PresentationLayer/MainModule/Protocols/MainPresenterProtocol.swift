@@ -7,8 +7,8 @@
 //
 
 protocol MainPresenterProtocol: class {
-	var router: MainRouterProtocol! { get set }
-	var view: MainViewProtocol! { get set }
+	var router: MainRouterProtocol { get }
+	var view: MainViewProtocol { get }
 
 	func viewDidAppear()
 }

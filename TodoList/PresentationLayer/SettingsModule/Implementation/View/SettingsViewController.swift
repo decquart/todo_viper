@@ -41,7 +41,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		viewModel.didSelectTableViewCell(at: indexPath.row)
+		viewModel?.didSelectTableViewCell(at: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }

@@ -9,6 +9,6 @@
 import UIKit
 
 protocol MainViewProtocol: class {
-	var presenter: MainPresenterProtocol! { get set }
-	var viewControllers: [UIViewController]? { get set }
+	var presenter: MainPresenterProtocol? { get }
+	func setViewControllers(_ viewControllers: [UIViewController]?)
 }

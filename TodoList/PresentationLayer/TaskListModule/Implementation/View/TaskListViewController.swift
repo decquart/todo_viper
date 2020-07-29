@@ -29,7 +29,7 @@ class TaskListViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
-		presenter.loadTasks()
+		presenter?.loadTasks()
 	}
 }
 
@@ -43,34 +43,36 @@ extension TaskListViewController: TaskListViewProtocol {
 // MARK: - Selectors
 extension TaskListViewController {
 	@objc func completeAll() {
-		presenter.didCompleteAll()
+		presenter?.didCompleteAll()
 	}
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRows()
+        return presenter?.numberOfRows() ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeue(cellType: TaskCell.self, for: indexPath)
-		let task = presenter.task(at: indexPath)
+		guard let task = presenter?.task(at: indexPath) else {
+			return UITableViewCell()
+		}
 
 		cell.configure(with: task) { [weak self] in
-			self?.presenter.buttonCompletePressed(at: indexPath.row)
+			self?.presenter?.buttonCompletePressed(at: indexPath.row)
 		}
 
 		return cell
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter.didSelect(at: indexPath)
+		presenter?.didSelect(at: indexPath)
 	}
 }
 
 extension TaskListViewController {
 	@IBAction func addButtonPressed(_ sender: UIButton) {
-		presenter.addButtonPressed()
+		presenter?.addButtonPressed()
 	}
 }

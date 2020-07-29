@@ -10,9 +10,9 @@ import Foundation
 
 class CategoryListPresenter: CategoryListPresenterProtocol {
 
-	weak var view: CategoryListViewProtocol!
+	weak var view: CategoryListViewProtocol?
 	let repository: AnyRepository<Category>
-	let router: CategoryListRouterProtocol!
+	let router: CategoryListRouterProtocol
 
 	private var categories: [Category] = [] {
 		didSet {
@@ -64,7 +64,7 @@ class CategoryListPresenter: CategoryListPresenterProtocol {
 	func editButtonPressed(with index: Int) {
 		let task = categories[index]
 		let vm = CategoryViewModel(model: task)
-		self.router.showCategoryDetailsViewController(scope: .edit(model: vm))
+		router.showCategoryDetailsViewController(scope: .edit(model: vm))
 	}
 
 	func addCategoryButtonPressed() {

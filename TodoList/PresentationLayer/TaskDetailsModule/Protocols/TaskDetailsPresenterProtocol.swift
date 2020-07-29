@@ -7,8 +7,8 @@
 //
 
 protocol TaskDetailsPresenterProtocol: class {
-	var view: TaskDetailsViewProtocol! { get }
-	var router: TaskDetailsRouterProtocol! { get }
+	var view: TaskDetailsViewProtocol? { get }
+	var router: TaskDetailsRouterProtocol? { get }
 
 	func sendButtonPressed(viewModel: TaskViewModel)
 }

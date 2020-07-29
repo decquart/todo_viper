@@ -10,8 +10,12 @@ import Foundation
 import UIKit
 
 class ThemesViewModel: ThemesViewModelProtocol {
-	var themeService: ThemeSettingsServiceProtocol?
+	private var themeService: ThemeSettingsServiceProtocol?
 	private(set) var isDarkMode: Box<Bool> = Box(false)
+
+	init(themeService: ThemeSettingsServiceProtocol) {
+		self.themeService = themeService
+	}
 
 	func didLoad() {
 		isDarkMode.value = themeService?.userInterfaceStyle == .dark

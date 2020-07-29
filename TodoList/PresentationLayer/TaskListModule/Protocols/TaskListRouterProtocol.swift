@@ -7,6 +7,6 @@
 //
 
 protocol TaskListRouterProtocol {
-	var view: TaskListViewProtocol! { get }
+	var view: TaskListViewProtocol? { get }
 	func showSubTaskDetailsViewController(category: Category, scope: Scope<TaskViewModel>)
 }

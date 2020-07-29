@@ -12,13 +12,11 @@ class SettingsModule {
 	func build() -> UIViewController {
 		let storyboard = UIStoryboard(name: "Settings", bundle: nil)
 		let view = storyboard.instantiateViewController(withIdentifier: SettingsViewController.identifire) as! SettingsViewController
-		let viewModel = SettingsVM()
-		let router = SettingsRouter()
+		let router = SettingsRouter(view: view)
+		let viewModel = SettingsVM(router: router)
 		view.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
 		view.viewModel = viewModel
-		viewModel.router = router
-		router.view = view
-		router.viewModel = viewModel
+		
 		return view
 	}
 }

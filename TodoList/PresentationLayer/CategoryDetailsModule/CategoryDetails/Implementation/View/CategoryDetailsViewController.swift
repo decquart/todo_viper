@@ -8,11 +8,6 @@
 
 import UIKit
 
-enum Scope<Model> {
-	case create
-	case edit(model: Model)
-}
-
 class CategoryDetailsViewController: UIViewController {
 	static let identifire = "categoryDetailsVC"
 	var presenter: CategoryDetailsPresenterProtocol!

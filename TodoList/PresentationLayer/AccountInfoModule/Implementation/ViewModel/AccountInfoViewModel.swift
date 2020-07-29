@@ -9,13 +9,19 @@
 import Foundation
 
 class AccountInfoViewModel: AccountInfoViewModelProtocol {
-	var router: AccountInfoRouterProtocol!
-	var keychain: KeychainProtocol!
-	var settings: AccountSettingsServiceProtocol!
+	private(set) var router: AccountInfoRouterProtocol
+	private(set) var keychain: KeychainProtocol
+	private(set) var settings: AccountSettingsServiceProtocol
 
 	private(set) var username: Box<String> = Box("")
 	private(set) var email: Box<String> = Box("")
 	private(set) var userImage: Box<Data?> = Box(nil)
+
+	init(router: AccountInfoRouterProtocol, keychain: KeychainProtocol, settings: AccountSettingsServiceProtocol) {
+		self.router = router
+		self.keychain = keychain
+		self.settings = settings
+	}
 
 	func viewDidLoad() {
 		username.value = keychain.load(for: .username) ?? ""

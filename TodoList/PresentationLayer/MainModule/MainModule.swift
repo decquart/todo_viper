@@ -11,12 +11,9 @@ import UIKit
 final class MainModule {
 	func build() -> UIViewController {
 		let view = MainView()
-		let presenter = MainPresenter()
 		let router = MainRouter()
+		let presenter = MainPresenter(router: router, view: view)
 		view.presenter = presenter
-		presenter.view = view
-		presenter.router = router
-		router.view = view
 		return view
 	}
 }

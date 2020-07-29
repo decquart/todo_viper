@@ -121,6 +121,7 @@
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
 		2DB74B0924C855030076CE43 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DB74B0824C855030076CE43 /* Categories.json */; };
 		2DB74B0B24CA35190076CE43 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB74B0A24CA35190076CE43 /* Color.swift */; };
+		2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC4C4224D00B0B00C38620 /* Scope.swift */; };
 		2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */; };
 		2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */; };
 		2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */; };
@@ -263,6 +264,7 @@
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		2DB74B0824C855030076CE43 /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
 		2DB74B0A24CA35190076CE43 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		2DBC4C4224D00B0B00C38620 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
 		2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenter.swift; sourceTree = "<group>"; };
 		2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -564,6 +566,7 @@
 				04BCAB6D2498134D00A38846 /* AppDelegate.swift */,
 				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
 				2D01196F24BFAB860097E74D /* Box.swift */,
+				2DBC4C4224D00B0B00C38620 /* Scope.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -1227,6 +1230,7 @@
 				2D82A0CB24BD0CB800A04190 /* TaskListRouter.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
+				2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
 				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,

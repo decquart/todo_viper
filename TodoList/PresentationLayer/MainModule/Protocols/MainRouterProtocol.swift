@@ -9,6 +9,5 @@
 import UIKit
 
 protocol MainRouterProtocol {
-	var view: MainViewProtocol! { get set }
 	func viewControllers() -> [UIViewController]
 }

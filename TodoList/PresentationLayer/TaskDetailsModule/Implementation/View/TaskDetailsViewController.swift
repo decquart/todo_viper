@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TaskDetailsViewController: UIViewController {
+final class TaskDetailsViewController: UIViewController {
 	static let identifire = "taskDetailsVC"
 	var presenter: TaskDetailsPresenterProtocol!
-	var scope: Scope<TaskViewModel>!
+	var scope: Scope<TaskViewModel> = .create
 
 	private var viewModel: TaskViewModel {
 		if case let .edit(task) = scope  {

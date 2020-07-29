@@ -8,9 +8,9 @@
 
 
 class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
-	weak var view: TaskDetailsViewProtocol!
-	let router: TaskDetailsRouterProtocol!
-	let repository: AnyRepository<Task>
+	private(set) weak var view: TaskDetailsViewProtocol?
+	let router: TaskDetailsRouterProtocol?
+	private let repository: AnyRepository<Task>
 
 	private var category: Category
 	private var subTask: Task?
@@ -24,13 +24,13 @@ class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
 
 	func sendButtonPressed(viewModel: TaskViewModel) {
 
-		if view.isNewTask {
+		if view?.isNewTask == true {
 			repository.add(viewModel.mapToModel) { [weak self] _ in
-				self?.view.invalidateView()
+				self?.view?.invalidateView()
 			}
 		} else {
 			repository.update(viewModel.mapToModel) { [weak self] _ in
-				self?.router.pop()
+				self?.router?.pop()
 			}
 		}
 	}

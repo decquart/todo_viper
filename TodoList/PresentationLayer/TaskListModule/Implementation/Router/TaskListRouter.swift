@@ -9,10 +9,14 @@
 import Foundation
 
 class TaskListRouter: TaskListRouterProtocol {
-	weak var view: TaskListViewProtocol!
+	private(set) weak var view: TaskListViewProtocol?
+
+	init(view: TaskListViewProtocol) {
+		self.view = view
+	}
 
 	func showSubTaskDetailsViewController(category: Category, scope: Scope<TaskViewModel>) {
 		let vc = TaskDetailsModule().build(with: category, and: scope)
-		view.navigationController?.pushViewController(vc, animated: true)
+		view?.navigationController?.pushViewController(vc, animated: true)
 	}
 }

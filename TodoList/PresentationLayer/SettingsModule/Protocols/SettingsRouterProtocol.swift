@@ -7,8 +7,7 @@
 //
 
 protocol SettingsRouterProtocol: class {
-	var viewModel: SettingsVMProtocol! { get }
-	var view: SettingsViewProtocol! { get }
+	var view: SettingsViewProtocol? { get }
 
 	func showAccountInfoViewController()
 	func showThemesViewController()

@@ -21,6 +21,17 @@ class ColorPickerView: UIView, ColorPickerViewProtocol {
 			collectionView.register(cellType: ColorPickerCollectionViewCell.self)
 		}
 	}
+
+	override func draw(_ rect: CGRect) {
+		super.draw(rect)
+
+		let indexPath = IndexPath(row: presenter.selectedColorIndex, section: 0)
+		guard let cell = collectionView.cellForItem(at: indexPath) else {
+			return
+		}
+
+		setSelected(true, cell: cell)
+	}
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -32,24 +43,13 @@ extension ColorPickerView: UICollectionViewDelegate, UICollectionViewDataSource 
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeue(cellType: ColorPickerCollectionViewCell.self, for: indexPath)
 		cell.backgroundColor = presenter.colors[indexPath.row].uiColor
+		setSelected(presenter.selectedColorIndex == indexPath.row, cell: cell)
 		return cell
 	}
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		presenter.didSelectColor(at: indexPath.row)
-		guard let cell = collectionView.cellForItem(at: indexPath) else {
-			return
-		}
-
-		setSelected(true, cell: cell)
-	}
-
-	func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-		guard let cell = collectionView.cellForItem(at: indexPath) else {
-			return
-		}
-
-		setSelected(false, cell: cell)
+		collectionView.reloadData()
 	}
 }
 

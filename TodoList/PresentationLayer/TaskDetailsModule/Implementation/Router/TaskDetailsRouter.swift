@@ -7,9 +7,13 @@
 //
 
 class TaskDetailsRouter: TaskDetailsRouterProtocol {
-	weak var view: TaskDetailsViewProtocol!
+	private(set) weak var view: TaskDetailsViewProtocol?
+
+	init(view: TaskDetailsViewProtocol) {
+		self.view = view
+	}
 
 	func pop() {
-		view.navigationController?.popViewController(animated: true)
+		view?.navigationController?.popViewController(animated: true)
 	}
 }

@@ -7,6 +7,6 @@
 //
 
 protocol TaskDetailsRouterProtocol {
-	var view: TaskDetailsViewProtocol! { get }
+	var view: TaskDetailsViewProtocol? { get }
 	func pop()
 }

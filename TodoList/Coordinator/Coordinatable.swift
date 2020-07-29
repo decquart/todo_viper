@@ -6,6 +6,6 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol Coordinatable {
+protocol Coordinatable: class {
 	func start()
 }

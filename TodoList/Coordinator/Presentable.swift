@@ -9,5 +9,5 @@
 import UIKit
 
 protocol Presentable {
-	var toPresent: UIViewController? { get }
+	var toPresent: UIViewController { get }
 }

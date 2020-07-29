@@ -9,6 +9,10 @@
 import UIKit
 
 final class Router: RouterType {
+	var toPresent: UIViewController {
+		return rootViewController
+	}
+
 	private let rootViewController: UINavigationController
 
 	init(navigationController: UINavigationController) {

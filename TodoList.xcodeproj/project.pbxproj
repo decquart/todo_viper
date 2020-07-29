@@ -63,6 +63,8 @@
 		2D39DC0824D2113900E27522 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0724D2113900E27522 /* Presentable.swift */; };
 		2D39DC0B24D2168E00E27522 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* Router.swift */; };
 		2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0C24D222BB00E27522 /* Coordinatable.swift */; };
+		2D39DC0F24D2241600E27522 /* UIViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */; };
+		2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1024D2283700E27522 /* BaseCoordinator.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -213,6 +215,8 @@
 		2D39DC0724D2113900E27522 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		2D39DC0A24D2168E00E27522 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2D39DC0C24D222BB00E27522 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
+		2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentable.swift"; sourceTree = "<group>"; };
+		2D39DC1024D2283700E27522 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -703,6 +707,8 @@
 				2D39DC0924D2167600E27522 /* Router */,
 				2D39DC0724D2113900E27522 /* Presentable.swift */,
 				2D39DC0C24D222BB00E27522 /* Coordinatable.swift */,
+				2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */,
+				2D39DC1024D2283700E27522 /* BaseCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1189,6 +1195,7 @@
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
+				2D39DC0F24D2241600E27522 /* UIViewController+Presentable.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
@@ -1260,6 +1267,7 @@
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
 				2D82A0CB24BD0CB800A04190 /* TaskListRouter.swift in Sources */,
+				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */,

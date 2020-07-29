@@ -10,7 +10,7 @@ import UIKit
 
 typealias Completion = () -> Void
 
-protocol RouterType {
+protocol RouterType: class, Presentable {
 	func present(_ module: Presentable?)
 	func present(_ module: Presentable?, animated: Bool)
 	func present(_ module: Presentable?, animated: Bool, completion: Completion?)

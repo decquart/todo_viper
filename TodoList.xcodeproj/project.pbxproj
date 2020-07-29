@@ -62,6 +62,7 @@
 		2D39DC0624D2107E00E27522 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0524D2107E00E27522 /* RouterType.swift */; };
 		2D39DC0824D2113900E27522 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0724D2113900E27522 /* Presentable.swift */; };
 		2D39DC0B24D2168E00E27522 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* Router.swift */; };
+		2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0C24D222BB00E27522 /* Coordinatable.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -211,6 +212,7 @@
 		2D39DC0524D2107E00E27522 /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
 		2D39DC0724D2113900E27522 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		2D39DC0A24D2168E00E27522 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2D39DC0C24D222BB00E27522 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 			children = (
 				2D39DC0924D2167600E27522 /* Router */,
 				2D39DC0724D2113900E27522 /* Presentable.swift */,
+				2D39DC0C24D222BB00E27522 /* Coordinatable.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -1236,6 +1239,7 @@
 				2D5F229D24BCE19F00A46ED6 /* MainView.swift in Sources */,
 				2D5F22A324BCE3CD00A46ED6 /* MainPresenter.swift in Sources */,
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
+				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
 				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
 				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
 				04BCAB822498136C00A38846 /* CategoryMO+CoreDataClass.swift in Sources */,

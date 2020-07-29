@@ -59,6 +59,9 @@
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
 		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
+		2D39DC0624D2107E00E27522 /* RouterType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0524D2107E00E27522 /* RouterType.swift */; };
+		2D39DC0824D2113900E27522 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0724D2113900E27522 /* Presentable.swift */; };
+		2D39DC0B24D2168E00E27522 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* Router.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -205,6 +208,9 @@
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
+		2D39DC0524D2107E00E27522 /* RouterType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterType.swift; sourceTree = "<group>"; };
+		2D39DC0724D2113900E27522 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		2D39DC0A24D2168E00E27522 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -367,6 +373,7 @@
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
+				2D39DC0424D2104900E27522 /* Coordinator */,
 				04C45B1D248E91C20073CA2B /* Shared */,
 				049FB53324801580000A7133 /* Info.plist */,
 				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
@@ -686,6 +693,24 @@
 				2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		2D39DC0424D2104900E27522 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				2D39DC0924D2167600E27522 /* Router */,
+				2D39DC0724D2113900E27522 /* Presentable.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		2D39DC0924D2167600E27522 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				2D39DC0524D2107E00E27522 /* RouterType.swift */,
+				2D39DC0A24D2168E00E27522 /* Router.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
@@ -1175,6 +1200,7 @@
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
+				2D39DC0624D2107E00E27522 /* RouterType.swift in Sources */,
 				2D5F229724BCDDDD00A46ED6 /* MainRouter.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
@@ -1194,6 +1220,7 @@
 				2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */,
 				2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
+				2D39DC0824D2113900E27522 /* Presentable.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
@@ -1222,6 +1249,7 @@
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
+				2D39DC0B24D2168E00E27522 /* Router.swift in Sources */,
 				2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */,
 				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,

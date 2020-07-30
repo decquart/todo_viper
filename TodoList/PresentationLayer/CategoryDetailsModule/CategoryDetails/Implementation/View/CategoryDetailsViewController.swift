@@ -9,7 +9,6 @@
 import UIKit
 
 class CategoryDetailsViewController: UIViewController {
-	static let identifire = "categoryDetailsVC"
 	var presenter: CategoryDetailsPresenterProtocol!
 	var scope: Scope<CategoryViewModel>!
 

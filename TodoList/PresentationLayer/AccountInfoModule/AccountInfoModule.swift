@@ -10,8 +10,7 @@ import UIKit
 
 class AccountInfoModule {
 	func build() -> UIViewController {
-		let storyboard = UIStoryboard(name: "AccountInfo", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: AccountInfoViewController.identifire) as! AccountInfoViewController
+		let view = AccountInfoViewController.instantiate(storyboard: .accountInfo)
 		let router = AccountInfoRouter()
 		let viewModel = AccountInfoViewModel(router: router,
 											 keychain: Keychain(),

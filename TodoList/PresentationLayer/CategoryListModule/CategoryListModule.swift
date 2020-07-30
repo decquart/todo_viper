@@ -10,8 +10,7 @@ import UIKit
 
 final class CategoryListModule {
 	func build() -> UIViewController {
-		let storyboard = UIStoryboard(name: "Main", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: CategoryListViewController.identifire) as! CategoryListViewController
+		let view = CategoryListViewController.instantiate(storyboard: .main)
 		let router = CategoryListRouter()
 		let coreDataStack = CoreDataStackHolder.shared.coreDataStack
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)

@@ -9,7 +9,6 @@
 import UIKit
 
 final class TaskDetailsViewController: UIViewController {
-	static let identifire = "taskDetailsVC"
 	var presenter: TaskDetailsPresenterProtocol!
 	var scope: Scope<TaskViewModel> = .create
 

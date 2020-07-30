@@ -10,8 +10,7 @@ import UIKit
 
 final class TaskListModule {
 	func build(category: Category) -> UIViewController {
-		let storyboard = UIStoryboard(name: "Task", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: TaskListViewController.identifire) as! TaskListViewController
+		let view = TaskListViewController.instantiate(storyboard: .task)
 		let router = TaskListRouter(view: view)
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let presenter = TaskListPresenter(view: view, router: router, repository: repository, task: category)

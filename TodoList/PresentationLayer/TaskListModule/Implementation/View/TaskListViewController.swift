@@ -9,8 +9,6 @@
 import UIKit
 
 class TaskListViewController: UIViewController {
-
-	static let identifire = "taskVC"
 	var presenter: TaskListPresenterProtocol!
 
 	@IBOutlet weak private var tableView: UITableView! {

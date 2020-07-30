@@ -10,8 +10,7 @@ import UIKit
 
 final class CategoryDetailsModule {
 	func build(scope: Scope<CategoryViewModel>) -> UIViewController {
-		let storyboard = UIStoryboard(name: "CategoryDetails", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: CategoryDetailsViewController.identifire) as! CategoryDetailsViewController
+		let view = CategoryDetailsViewController.instantiate(storyboard: .categoryDetails)
 		let router = CategoryDetailsRouter()
 		let repository = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let presenter = CategoryDetailsPresenter(view: view, repository: repository, router: router)

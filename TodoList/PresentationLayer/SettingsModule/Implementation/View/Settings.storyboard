@@ -10,7 +10,7 @@
         <!--Settings View Controller-->
         <scene sceneID="pY1-7w-B0d">
             <objects>
-                <viewController storyboardIdentifier="settingsVC" id="rqD-S2-60G" customClass="SettingsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="rqD-S2-60G" customClass="SettingsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cfm-kS-HfY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

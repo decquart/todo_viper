@@ -9,8 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-	static let identifire = "settingsVC"
-
 	var viewModel: SettingsVMProtocol!
 
 	@IBOutlet weak var tableView: UITableView! {

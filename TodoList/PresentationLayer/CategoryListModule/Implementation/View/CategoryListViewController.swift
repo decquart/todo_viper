@@ -9,7 +9,6 @@
 import UIKit
 
 class CategoryListViewController: UIViewController {
-	static let identifire = "categoryListVC"
 	@IBOutlet weak var collectionView: UICollectionView! {
 		didSet {
 			collectionView.delegate = self

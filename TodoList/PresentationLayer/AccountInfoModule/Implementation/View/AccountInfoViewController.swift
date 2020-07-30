@@ -9,7 +9,6 @@
 import UIKit
 
 class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
-	static let identifire = "accountInfo"
 	var viewModel: AccountInfoViewModelProtocol! {
 		didSet {
 			viewModel.username.bind { [unowned self] in

@@ -10,8 +10,7 @@ import UIKit
 
 final class TaskDetailsModule {
 	func build(with category: Category, and scope: Scope<TaskViewModel>) -> UIViewController {
-		let storyboard = UIStoryboard(name: "TaskDetails", bundle: nil)
-		let view = storyboard.instantiateViewController(withIdentifier: TaskDetailsViewController.identifire) as! TaskDetailsViewController
+		let view = TaskDetailsViewController.instantiate(storyboard: .taskDetails)
 		let router = TaskDetailsRouter(view: view)
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let presenter = TaskDetailsPresenter(view: view, router: router, repository: repository, category: category)
@@ -19,6 +18,5 @@ final class TaskDetailsModule {
 		view.presenter = presenter
 		view.scope = scope
 		return view
-
 	}
 }

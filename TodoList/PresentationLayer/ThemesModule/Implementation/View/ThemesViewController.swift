@@ -9,7 +9,6 @@
 import UIKit
 
 class ThemesViewController: UIViewController, ThemesViewProtocol {
-	static let identifire = "themesVC"
 	@IBOutlet weak var darkModeSwitch: UISwitch!
 	@IBOutlet weak var darkModeStatusLabel: UILabel!
 

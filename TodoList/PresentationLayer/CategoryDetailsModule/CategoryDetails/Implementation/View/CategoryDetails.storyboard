@@ -10,7 +10,7 @@
         <!--Category Details View Controller-->
         <scene sceneID="2Ih-qr-1Bl">
             <objects>
-                <viewController storyboardIdentifier="categoryDetailsVC" id="2Gs-aA-cos" customClass="CategoryDetailsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CategoryDetailsViewController" id="2Gs-aA-cos" customClass="CategoryDetailsViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gdj-fp-Iy3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

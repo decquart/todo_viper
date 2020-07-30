@@ -8,8 +8,10 @@
 
 import Foundation
 
-class BaseCoordinator {
+class BaseCoordinator: Coordinatable {
 	var childCoordinators: [Coordinatable] = []
+
+	func start() {}
 
 	func addDependency(_ coordinator: Coordinatable) {
 		for element in childCoordinators {

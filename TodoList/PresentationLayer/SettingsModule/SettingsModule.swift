@@ -9,13 +9,14 @@
 import UIKit
 
 class SettingsModule {
-	func build() -> UIViewController {
+	//TODO: Reconsider, mb need to create factory
+	func build() -> SettingsViewController {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
 		let router = SettingsRouter(view: view)
 		let viewModel = SettingsVM(router: router)
 		view.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
 		view.viewModel = viewModel
-		
+
 		return view
 	}
 }

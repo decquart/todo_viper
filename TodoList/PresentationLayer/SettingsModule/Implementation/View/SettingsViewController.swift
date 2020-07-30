@@ -8,8 +8,11 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, SettingsViewCoordinatorProtocol, SettingsViewProtocol {
 	var viewModel: SettingsVMProtocol!
+
+	var onAccount: (() -> Void)?
+	var onTheme: (() -> Void)?
 
 	@IBOutlet weak var tableView: UITableView! {
 		didSet {
@@ -42,9 +45,4 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 		viewModel?.didSelectTableViewCell(at: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
-}
-
-// MARK: - SettingsViewProtocol
-extension SettingsViewController: SettingsViewProtocol {
-
 }

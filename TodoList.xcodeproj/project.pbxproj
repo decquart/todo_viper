@@ -70,6 +70,7 @@
 		2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */; };
 		2D39DC1D24D3769F00E27522 /* SettingsCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */; };
 		2D39DC1F24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1E24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift */; };
+		2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3524D71A8800E27522 /* AppCoordinator.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -77,13 +78,6 @@
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
-		2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229424BCDD4600A46ED6 /* MainModule.swift */; };
-		2D5F229724BCDDDD00A46ED6 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */; };
-		2D5F229924BCDE0200A46ED6 /* MainRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229824BCDE0200A46ED6 /* MainRouterProtocol.swift */; };
-		2D5F229D24BCE19F00A46ED6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229C24BCE19F00A46ED6 /* MainView.swift */; };
-		2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F229E24BCE2DF00A46ED6 /* MainViewProtocol.swift */; };
-		2D5F22A124BCE33D00A46ED6 /* MainPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A024BCE33D00A46ED6 /* MainPresenterProtocol.swift */; };
-		2D5F22A324BCE3CD00A46ED6 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A224BCE3CD00A46ED6 /* MainPresenter.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
@@ -227,17 +221,11 @@
 		2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		2D39DC1E24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		2D39DC3524D71A8800E27522 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
-		2D5F229424BCDD4600A46ED6 /* MainModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModule.swift; sourceTree = "<group>"; };
-		2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
-		2D5F229824BCDE0200A46ED6 /* MainRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouterProtocol.swift; sourceTree = "<group>"; };
-		2D5F229C24BCE19F00A46ED6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		2D5F229E24BCE2DF00A46ED6 /* MainViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewProtocol.swift; sourceTree = "<group>"; };
-		2D5F22A024BCE33D00A46ED6 /* MainPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D5F22A224BCE3CD00A46ED6 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -325,7 +313,6 @@
 		0449BD8C24876A0200A76223 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				2D5F229324BCDCFF00A46ED6 /* MainModule */,
 				04EFFD1524801A720048336E /* CategoryListModule */,
 				047C64F824858AAF00BB6702 /* CategoryDetailsModule */,
 				04EFFD22248031800048336E /* TaskListModule */,
@@ -724,6 +711,7 @@
 				2D39DC1024D2283700E27522 /* BaseCoordinator.swift */,
 				2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */,
 				2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */,
+				2D39DC3524D71A8800E27522 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -783,36 +771,6 @@
 				2DFD132E24C4F60B006D0EA6 /* Keychain.swift */,
 			);
 			path = Services;
-			sourceTree = "<group>";
-		};
-		2D5F229324BCDCFF00A46ED6 /* MainModule */ = {
-			isa = PBXGroup;
-			children = (
-				2D5F229424BCDD4600A46ED6 /* MainModule.swift */,
-				2D5F229B24BCDE2C00A46ED6 /* Implementation */,
-				2D5F229A24BCDE2300A46ED6 /* Protocols */,
-			);
-			path = MainModule;
-			sourceTree = "<group>";
-		};
-		2D5F229A24BCDE2300A46ED6 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D5F229824BCDE0200A46ED6 /* MainRouterProtocol.swift */,
-				2D5F229E24BCE2DF00A46ED6 /* MainViewProtocol.swift */,
-				2D5F22A024BCE33D00A46ED6 /* MainPresenterProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2D5F229B24BCDE2C00A46ED6 /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				2D5F229624BCDDDD00A46ED6 /* MainRouter.swift */,
-				2D5F229C24BCE19F00A46ED6 /* MainView.swift */,
-				2D5F22A224BCE3CD00A46ED6 /* MainPresenter.swift */,
-			);
-			path = Implementation;
 			sourceTree = "<group>";
 		};
 		2D5F22AA24BCEDA600A46ED6 /* Protocols */ = {
@@ -1193,7 +1151,6 @@
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2D01196924BF9C660097E74D /* SettingsVMProtocol.swift in Sources */,
-				2D5F229F24BCE2DF00A46ED6 /* MainViewProtocol.swift in Sources */,
 				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
@@ -1221,12 +1178,10 @@
 				2D01197924BFB8550097E74D /* SettingsRouter.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
-				2D5F22A124BCE33D00A46ED6 /* MainPresenterProtocol.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* RouterType.swift in Sources */,
-				2D5F229724BCDDDD00A46ED6 /* MainRouter.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
@@ -1244,7 +1199,6 @@
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				2D01198424BFBCC10097E74D /* AccountInfoRouterProtocol.swift in Sources */,
 				2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */,
-				2D5F229524BCDD4600A46ED6 /* MainModule.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D39DC0824D2113900E27522 /* Presentable.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
@@ -1257,13 +1211,10 @@
 				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
-				2D5F229924BCDE0200A46ED6 /* MainRouterProtocol.swift in Sources */,
 				2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */,
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,
 				2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */,
-				2D5F229D24BCE19F00A46ED6 /* MainView.swift in Sources */,
-				2D5F22A324BCE3CD00A46ED6 /* MainPresenter.swift in Sources */,
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
 				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
@@ -1286,6 +1237,7 @@
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
+				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
 				2D82A0CB24BD0CB800A04190 /* TaskListRouter.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,

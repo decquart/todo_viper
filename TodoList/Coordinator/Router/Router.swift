@@ -13,7 +13,7 @@ final class Router: RouterType {
 		return rootViewController
 	}
 
-	private let rootViewController: UINavigationController
+	let rootViewController: UINavigationController
 
 	init(navigationController: UINavigationController) {
 		self.rootViewController = navigationController

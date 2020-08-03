@@ -18,11 +18,8 @@ struct SettingsCellViewModel {
 }
 
 class SettingsVM: SettingsVMProtocol {
-	let router: SettingsRouterProtocol?
-
-	init(router: SettingsRouterProtocol) {
-		self.router = router
-	}
+	var onAccount: (() -> Void)?
+	var onTheme: (() -> Void)?
 
 	private lazy var cells: [SettingsCellViewModel] = {
 		return [
@@ -44,9 +41,9 @@ class SettingsVM: SettingsVMProtocol {
 
 		switch type {
 		case .account:
-			router?.showAccountInfoViewController()
+			onAccount?()
 		case .theme:
-			router?.showThemesViewController()
+			onTheme?()
 		}
 	}
 }

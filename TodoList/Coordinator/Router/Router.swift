@@ -88,4 +88,15 @@ final class Router: RouterType {
 	func popToRoot(animated: Bool) {
 		self.rootViewController.popViewController(animated: animated)
 	}
+
+	func appendToTabBar(_ vc: UIViewController) {
+		guard let tabBarController = rootViewController.viewControllers.first(where: { $0 is UITabBarController }) as? UITabBarController else {
+			return
+		}
+
+		var viewControllers = tabBarController.viewControllers ?? []
+		viewControllers.append(vc)
+
+		tabBarController.viewControllers = viewControllers
+	}
 }

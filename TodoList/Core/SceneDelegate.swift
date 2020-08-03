@@ -28,7 +28,7 @@ private extension SceneDelegate {
 		let appCoordinator = AppCoordinator(router: router)
 		appCoordinator.start()
 
-		window?.rootViewController = appCoordinator.navController()
+		window?.rootViewController = navController
 		window?.makeKeyAndVisible()
 
 		SettingsService.shared.refreshDarkMode()

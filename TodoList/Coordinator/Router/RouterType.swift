@@ -29,4 +29,6 @@ protocol RouterType: class, Presentable {
 	func setRootModule(_ module: Presentable?, hideBar: Bool, animated: Bool)
 
 	func popToRoot(animated: Bool)
+
+	func appendToTabBar(_ vc: UIViewController)
 }

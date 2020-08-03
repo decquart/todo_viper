@@ -6,15 +6,17 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 	var finishFlow: (() -> Void)?
 
 	private let router: RouterType
+	let tabBarController: UITabBarController
 
-	init(router: RouterType) {
+	init(router: RouterType, tabBarController: UITabBarController) {
 		self.router = router
+		self.tabBarController = tabBarController
 	}
 
 	override func start() {
@@ -22,24 +24,22 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 	}
 
 	private func showSettingsViewController() {
-		let settingsViewController = SettingsModule().build()
-
-		settingsViewController.onAccount = { [unowned self] in
+		let settingsViewController = SettingsModule().build(onAccount: {
 			self.showAccountViewController()
-		}
-
-		settingsViewController.onTheme = { [unowned self] in
+		}, onTheme: {
 			self.showThemeViewController()
-		}
+		})
 
-		self.router.setRootModule(settingsViewController, animated: false)
+		self.router.appendToTabBar(settingsViewController)
 	}
 
 	func showAccountViewController() {
 		//todo
+		print("acc")
 	}
 
 	func showThemeViewController() {
 		//todo
+		print("theme")
 	}
 }

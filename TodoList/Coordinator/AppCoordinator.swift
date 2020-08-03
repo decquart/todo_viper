@@ -22,14 +22,13 @@ final class AppCoordinator: BaseCoordinator {
 
 	override func start() {
 		let tabBarController = UITabBarController()
-		let navControllers = [
-			CategoryListModule().build(),
-			SettingsModule().build()
-		]
 
-		tabBarController.viewControllers = navControllers
-
+		let settingsCoordinator = SettingsCoordinator(router: router, tabBarController: tabBarController)
+		let categoryCoordinator = CategoryListCoordinator(router: router)
 
 		self.router.setRootModule(tabBarController, animated: false)
+		
+		categoryCoordinator.start()
+		settingsCoordinator.start()
 	}
 }

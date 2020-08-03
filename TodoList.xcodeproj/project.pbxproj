@@ -48,10 +48,8 @@
 		2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01197424BFB61B0097E74D /* AccountInfo.storyboard */; };
 		2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */; };
 		2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */; };
-		2D01198424BFBCC10097E74D /* AccountInfoRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */; };
 		2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */; };
 		2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */; };
-		2D01198C24BFBF3D0097E74D /* AccountInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */; };
 		2D01199524C07E400097E74D /* Themes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01199424C07E400097E74D /* Themes.storyboard */; };
 		2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01199B24C0B43F0097E74D /* ThemesViewController.swift */; };
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
@@ -66,10 +64,8 @@
 		2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1624D3665900E27522 /* Storyboarded.swift */; };
 		2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */; };
 		2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */; };
-		2D39DC1D24D3769F00E27522 /* SettingsCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */; };
-		2D39DC1F24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1E24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift */; };
 		2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3524D71A8800E27522 /* AppCoordinator.swift */; };
-		2D39DC3A24D80DF800E27522 /* CategoryListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3924D80DF800E27522 /* CategoryListCoordinator.swift */; };
+		2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -98,18 +94,12 @@
 		2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */; };
 		2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */; };
 		2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */; };
-		2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */; };
-		2D82A0BE24BCFE2B00A04190 /* CategoryDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */; };
 		2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */; };
 		2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */; };
-		2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C624BD0B1200A04190 /* TaskListRouterProtocol.swift */; };
 		2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0C824BD0BE300A04190 /* TaskListModule.swift */; };
-		2D82A0CB24BD0CB800A04190 /* TaskListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CA24BD0CB800A04190 /* TaskListRouter.swift */; };
 		2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */; };
 		2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */; };
 		2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */; };
-		2D82A0D624BD108400A04190 /* TaskDetailsRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0D524BD108400A04190 /* TaskDetailsRouterProtocol.swift */; };
-		2D82A0D824BD115300A04190 /* TaskDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0D724BD115300A04190 /* TaskDetailsRouter.swift */; };
 		2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DA24BD13F300A04190 /* SettingsModule.swift */; };
 		2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */; };
 		2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */; };
@@ -196,10 +186,8 @@
 		2D01197424BFB61B0097E74D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
 		2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewProtocol.swift; sourceTree = "<group>"; };
 		2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModelProtocol.swift; sourceTree = "<group>"; };
-		2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRouterProtocol.swift; sourceTree = "<group>"; };
 		2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModule.swift; sourceTree = "<group>"; };
 		2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
-		2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoRouter.swift; sourceTree = "<group>"; };
 		2D01199424C07E400097E74D /* Themes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Themes.storyboard; sourceTree = "<group>"; };
 		2D01199B24C0B43F0097E74D /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
@@ -214,10 +202,8 @@
 		2D39DC1624D3665900E27522 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassDefinition.swift"; sourceTree = "<group>"; };
 		2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
-		2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorProtocol.swift; sourceTree = "<group>"; };
-		2D39DC1E24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCoordinatorProtocol.swift; sourceTree = "<group>"; };
 		2D39DC3524D71A8800E27522 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		2D39DC3924D80DF800E27522 /* CategoryListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListCoordinator.swift; sourceTree = "<group>"; };
+		2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoiesCoordinator.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -243,18 +229,12 @@
 		2D82A0B324BCF94600A04190 /* CategoryDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsModule.swift; sourceTree = "<group>"; };
 		2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsRouterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsRouter.swift; sourceTree = "<group>"; };
 		2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListPresenterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListViewProtocol.swift; sourceTree = "<group>"; };
-		2D82A0C624BD0B1200A04190 /* TaskListRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRouterProtocol.swift; sourceTree = "<group>"; };
 		2D82A0C824BD0BE300A04190 /* TaskListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListModule.swift; sourceTree = "<group>"; };
-		2D82A0CA24BD0CB800A04190 /* TaskListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListRouter.swift; sourceTree = "<group>"; };
 		2D82A0CD24BD0F3200A04190 /* TaskDetailsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsModule.swift; sourceTree = "<group>"; };
 		2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0D524BD108400A04190 /* TaskDetailsRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsRouterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0D724BD115300A04190 /* TaskDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsRouter.swift; sourceTree = "<group>"; };
 		2D82A0DA24BD13F300A04190 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -307,8 +287,9 @@
 		0449BD8C24876A0200A76223 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
-				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
+				2D39DC0924D2167600E27522 /* Router */,
+				2D39DC0424D2104900E27522 /* Coordinator */,
+				2D55BA2124D8C75E0041637B /* Flows */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -366,7 +347,6 @@
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
-				2D39DC0424D2104900E27522 /* Coordinator */,
 				04C45B1D248E91C20073CA2B /* Shared */,
 				2D5596DE24C1786700A9F430 /* Services */,
 				049FB53324801580000A7133 /* Info.plist */,
@@ -519,7 +499,6 @@
 			children = (
 				2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */,
 				2D01196824BF9C660097E74D /* SettingsVMProtocol.swift */,
-				2D39DC1E24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -588,7 +567,6 @@
 			children = (
 				2D01197C24BFBC530097E74D /* View */,
 				2D01198A24BFBEFA0097E74D /* ViewModel */,
-				2D01198D24BFBF430097E74D /* Router */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -607,7 +585,6 @@
 			children = (
 				2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */,
 				2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */,
-				2D01198324BFBCC10097E74D /* AccountInfoRouterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -618,14 +595,6 @@
 				2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		2D01198D24BFBF430097E74D /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2D01198B24BFBF3D0097E74D /* AccountInfoRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		2D01199324C07E0B0097E74D /* ThemesModule */ = {
@@ -677,14 +646,9 @@
 		2D39DC0424D2104900E27522 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				2D39DC0924D2167600E27522 /* Router */,
-				2D39DC0724D2113900E27522 /* Presentable.swift */,
 				2D39DC0C24D222BB00E27522 /* Coordinatable.swift */,
 				2D39DC1024D2283700E27522 /* BaseCoordinator.swift */,
-				2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */,
-				2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */,
 				2D39DC3524D71A8800E27522 /* AppCoordinator.swift */,
-				2D39DC3924D80DF800E27522 /* CategoryListCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -692,6 +656,7 @@
 		2D39DC0924D2167600E27522 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				2D39DC0724D2113900E27522 /* Presentable.swift */,
 				2D39DC0524D2107E00E27522 /* RouterType.swift */,
 				2D39DC0A24D2168E00E27522 /* Router.swift */,
 			);
@@ -701,6 +666,7 @@
 		2D39DC3C24D8294E00E27522 /* SettingsFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */,
 				2D6452C924B7C379009978EE /* SettingsModule */,
 				2D01197124BFB5B80097E74D /* AccountInfoModule */,
 				2D01199324C07E0B0097E74D /* ThemesModule */,
@@ -711,6 +677,7 @@
 		2D39DC3D24D8304C00E27522 /* CategoriesFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */,
 				04EFFD1524801A720048336E /* CategoryListModule */,
 				047C64F824858AAF00BB6702 /* CategoryDetailsModule */,
 				04EFFD22248031800048336E /* TaskListModule */,
@@ -790,6 +757,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		2D55BA2124D8C75E0041637B /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
+				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
 		2D5F22AA24BCEDA600A46ED6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,7 +840,6 @@
 			children = (
 				2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */,
 				2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */,
-				2D82A0BB24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -874,17 +849,8 @@
 			children = (
 				047C64F924858ACE00BB6702 /* View */,
 				04606D132486164F00AE5633 /* Presenter */,
-				2D82A0BF24BCFE9700A04190 /* Router */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2D82A0BF24BCFE9700A04190 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0BD24BCFE2B00A04190 /* CategoryDetailsRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		2D82A0C024BD0A8500A04190 /* Protocols */ = {
@@ -892,7 +858,6 @@
 			children = (
 				2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */,
 				2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */,
-				2D82A0C624BD0B1200A04190 /* TaskListRouterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -902,17 +867,8 @@
 			children = (
 				04EFFD23248031940048336E /* View */,
 				04EFFD2724805BCC0048336E /* Presenter */,
-				2D82A0CC24BD0DA700A04190 /* Router */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2D82A0CC24BD0DA700A04190 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0CA24BD0CB800A04190 /* TaskListRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		2D82A0D324BD104A00A04190 /* Protocols */ = {
@@ -920,7 +876,6 @@
 			children = (
 				2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */,
 				2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */,
-				2D82A0D524BD108400A04190 /* TaskDetailsRouterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -930,17 +885,8 @@
 			children = (
 				2D0CBC7424A956B900AC23F6 /* View */,
 				2D0CBC7724A957C300AC23F6 /* Presenter */,
-				2D82A0D924BD11F700A04190 /* Router */,
 			);
 			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2D82A0D924BD11F700A04190 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0D724BD115300A04190 /* TaskDetailsRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		2D82A0DC24BD153B00A04190 /* Implementation */ = {
@@ -1161,7 +1107,6 @@
 				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
-				2D01198C24BFBF3D0097E74D /* AccountInfoRouter.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
@@ -1197,12 +1142,10 @@
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
-				2D82A0D624BD108400A04190 /* TaskDetailsRouterProtocol.swift in Sources */,
 				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
-				2D01198424BFBCC10097E74D /* AccountInfoRouterProtocol.swift in Sources */,
 				2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D39DC0824D2113900E27522 /* Presentable.swift in Sources */,
@@ -1210,10 +1153,8 @@
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,
-				2D39DC1F24D37D2100E27522 /* SettingsViewCoordinatorProtocol.swift in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2DB74B0B24CA35190076CE43 /* Color.swift in Sources */,
-				2D82A0C724BD0B1200A04190 /* TaskListRouterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */,
@@ -1228,8 +1169,6 @@
 				047C64F724858AA400BB6702 /* CategoryDetailsViewController.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
-				2D82A0BE24BCFE2B00A04190 /* CategoryDetailsRouter.swift in Sources */,
-				2D39DC1D24D3769F00E27522 /* SettingsCoordinatorProtocol.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
 				2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
@@ -1242,7 +1181,6 @@
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
 				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
-				2D82A0CB24BD0CB800A04190 /* TaskListRouter.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
@@ -1256,14 +1194,12 @@
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
 				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
-				2D39DC3A24D80DF800E27522 /* CategoryListCoordinator.swift in Sources */,
+				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
-				2D82A0D824BD115300A04190 /* TaskDetailsRouter.swift in Sources */,
 				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
 				2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */,
-				2D82A0BC24BCFAF000A04190 /* CategoryDetailsRouterProtocol.swift in Sources */,
 				2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */,
 				2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */,
 			);

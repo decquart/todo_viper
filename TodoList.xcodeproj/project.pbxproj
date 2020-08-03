@@ -80,8 +80,6 @@
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
-		2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */; };
-		2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */; };
 		2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6452C724B7C348009978EE /* SettingsViewController.swift */; };
 		2D692EA824AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */; };
 		2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */; };
@@ -227,8 +225,6 @@
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRouterProtocol.swift; sourceTree = "<group>"; };
-		2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListRouter.swift; sourceTree = "<group>"; };
 		2D6452C724B7C348009978EE /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2D692EA724AE75540005D4CB /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		2D692EA924AE82430005D4CB /* UITableView+Wrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Wrapper.swift"; sourceTree = "<group>"; };
@@ -311,13 +307,8 @@
 		0449BD8C24876A0200A76223 /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
-				04EFFD1524801A720048336E /* CategoryListModule */,
-				047C64F824858AAF00BB6702 /* CategoryDetailsModule */,
-				04EFFD22248031800048336E /* TaskListModule */,
-				2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */,
-				2D6452C924B7C379009978EE /* SettingsModule */,
-				2D01197124BFB5B80097E74D /* AccountInfoModule */,
-				2D01199324C07E0B0097E74D /* ThemesModule */,
+				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
+				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -370,15 +361,16 @@
 		049FB5212480157E000A7133 /* TodoList */ = {
 			isa = PBXGroup;
 			children = (
+				2D39DC3F24D830E700E27522 /* Resources */,
 				2D01196724BF9AD70097E74D /* Core */,
 				04CF0787248F5EB100440A43 /* Entities */,
 				049FF58D248A959F00BF0FDD /* Repository */,
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
 				2D39DC0424D2104900E27522 /* Coordinator */,
 				04C45B1D248E91C20073CA2B /* Shared */,
+				2D5596DE24C1786700A9F430 /* Services */,
 				049FB53324801580000A7133 /* Info.plist */,
 				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
-				2D5596DE24C1786700A9F430 /* Services */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -434,20 +426,13 @@
 		04C45B1D248E91C20073CA2B /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				04BCAB6F2498134D00A38846 /* Assets.xcassets */,
-				2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */,
-				04BCAB722498134D00A38846 /* LaunchScreen.storyboard */,
-				2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */,
+				2D39DC3E24D8309000E27522 /* Extensions */,
 				049FF59E248A960600BF0FDD /* CoreDataStack.swift */,
 				04C45B1E248E91C90073CA2B /* Views */,
 				2D692EAB24AE890A0005D4CB /* ReusableCell */,
-				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
 				2D82A0B124BCF5E900A04190 /* CoreDataStackHolder.swift */,
-				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
-				2DB74B0824C855030076CE43 /* Categories.json */,
 				2DB74B0A24CA35190076CE43 /* Color.swift */,
 				2D39DC1624D3665900E27522 /* Storyboarded.swift */,
-				2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -695,7 +680,6 @@
 				2D39DC0924D2167600E27522 /* Router */,
 				2D39DC0724D2113900E27522 /* Presentable.swift */,
 				2D39DC0C24D222BB00E27522 /* Coordinatable.swift */,
-				2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */,
 				2D39DC1024D2283700E27522 /* BaseCoordinator.swift */,
 				2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */,
 				2D39DC1C24D3769F00E27522 /* SettingsCoordinatorProtocol.swift */,
@@ -712,6 +696,50 @@
 				2D39DC0A24D2168E00E27522 /* Router.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		2D39DC3C24D8294E00E27522 /* SettingsFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2D6452C924B7C379009978EE /* SettingsModule */,
+				2D01197124BFB5B80097E74D /* AccountInfoModule */,
+				2D01199324C07E0B0097E74D /* ThemesModule */,
+			);
+			path = SettingsFlow;
+			sourceTree = "<group>";
+		};
+		2D39DC3D24D8304C00E27522 /* CategoriesFlow */ = {
+			isa = PBXGroup;
+			children = (
+				04EFFD1524801A720048336E /* CategoryListModule */,
+				047C64F824858AAF00BB6702 /* CategoryDetailsModule */,
+				04EFFD22248031800048336E /* TaskListModule */,
+				2D0CBC6F24A955FB00AC23F6 /* TaskDetailsModule */,
+			);
+			path = CategoriesFlow;
+			sourceTree = "<group>";
+		};
+		2D39DC3E24D8309000E27522 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */,
+				2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */,
+				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
+				2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */,
+				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2D39DC3F24D830E700E27522 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04BCAB6F2498134D00A38846 /* Assets.xcassets */,
+				2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */,
+				04BCAB722498134D00A38846 /* LaunchScreen.storyboard */,
+				2DB74B0824C855030076CE43 /* Categories.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
@@ -767,7 +795,6 @@
 			children = (
 				2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */,
 				2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */,
-				2D5F22AC24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -777,7 +804,6 @@
 			children = (
 				04EFFD1D24801B6D0048336E /* Presenter */,
 				04EFFD1424801A660048336E /* View */,
-				2D82A0AE24BCF13400A04190 /* Router */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -831,14 +857,6 @@
 				04CF078B248F614400440A43 /* RealmTaskRepository.swift */,
 			);
 			path = RealmRepository;
-			sourceTree = "<group>";
-		};
-		2D82A0AE24BCF13400A04190 /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				2D5F22AE24BCEF6100A46ED6 /* CategoryListRouter.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		2D82A0B524BCF9B000A04190 /* Protocols */ = {
@@ -1178,7 +1196,6 @@
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
-				2D5F22AF24BCEF6100A46ED6 /* CategoryListRouter.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
 				2D82A0D624BD108400A04190 /* TaskDetailsRouterProtocol.swift in Sources */,
 				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
@@ -1220,7 +1237,6 @@
 				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D39DC0B24D2168E00E27522 /* Router.swift in Sources */,
-				2D5F22AD24BCEEAF00A46ED6 /* CategoryListRouterProtocol.swift in Sources */,
 				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,

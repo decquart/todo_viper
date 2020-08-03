@@ -11,6 +11,5 @@ import UIKit
 protocol CategoryListViewProtocol: class {
 	var presenter: CategoryListPresenterProtocol! { get }
 
-	var navigationController: UINavigationController? { get }
 	func reloadCategoriesList()
 }

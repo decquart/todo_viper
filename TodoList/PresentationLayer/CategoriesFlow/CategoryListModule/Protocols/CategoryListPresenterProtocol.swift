@@ -11,7 +11,8 @@ import Foundation
 protocol CategoryListPresenterProtocol: class {
 	var view: CategoryListViewProtocol? { get }
 	var repository: AnyRepository<Category> { get }
-	var router: CategoryListRouterProtocol { get }
+
+	//var on
 
 	var categoriesCount: Int { get }
 

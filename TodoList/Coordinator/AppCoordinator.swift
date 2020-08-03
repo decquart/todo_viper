@@ -10,24 +10,30 @@ import UIKit
 
 final class AppCoordinator: BaseCoordinator {
 
-	private let router: Router
+	private let router: RouterType
+	private let window: UIWindow
 
-	init(router: Router) {
-		self.router = router
-	}
+	init(window: UIWindow) {
+		let navController = UINavigationController()
+		self.router = Router(navigationController: navController)
+		self.window = window
 
-	func navController() -> UIViewController {
-		return router.rootViewController
+		window.rootViewController = navController
+		window.makeKeyAndVisible()
 	}
 
 	override func start() {
+		runMainFlow()
+	}
+
+	private func runMainFlow() {
 		let tabBarController = UITabBarController()
 
 		let settingsCoordinator = SettingsCoordinator(router: router, tabBarController: tabBarController)
 		let categoryCoordinator = CategoryListCoordinator(router: router)
 
 		self.router.setRootModule(tabBarController, animated: false)
-		
+
 		categoryCoordinator.start()
 		settingsCoordinator.start()
 	}

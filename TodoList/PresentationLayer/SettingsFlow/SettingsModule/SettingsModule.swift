@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsModule {
-	func build(onAccount: @escaping () -> Void, onTheme: @escaping () -> Void) -> UIViewController {
+	func build(onAccount: Completion?, onTheme: Completion?) -> UIViewController {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
 
 		let viewModel = SettingsVM()

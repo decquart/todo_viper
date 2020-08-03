@@ -23,14 +23,7 @@ private extension SceneDelegate {
 		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
 		window?.windowScene = windowScene
 
-		let navController = UINavigationController()
-		let router = Router(navigationController: navController)
-		let appCoordinator = AppCoordinator(router: router)
-		appCoordinator.start()
-
-		window?.rootViewController = navController
-		window?.makeKeyAndVisible()
-
+		AppCoordinator(window: window!).start()
 		SettingsService.shared.refreshDarkMode()
 	}
 }

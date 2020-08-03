@@ -33,13 +33,13 @@ final class SettingsCoordinator: BaseCoordinator, SettingsCoordinatorProtocol {
 		self.router.appendToTabBar(settingsViewController)
 	}
 
-	func showAccountViewController() {
-		//todo
-		print("acc")
+	private func showAccountViewController() {
+		let vc = AccountInfoModule().build()
+		router.push(vc, animated: true)
 	}
 
-	func showThemeViewController() {
-		//todo
-		print("theme")
+	private func showThemeViewController() {
+		let vc = ThemesModule().build()
+		router.push(vc, animated: true)
 	}
 }

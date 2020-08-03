@@ -8,11 +8,13 @@
 
 import Foundation
 
+typealias ScopeCategoryHandler = (Scope<CategoryViewModel>) -> Void
+typealias TaskHandler = (Category) -> Void
+
 class CategoryListPresenter: CategoryListPresenterProtocol {
 
 	weak var view: CategoryListViewProtocol?
 	let repository: AnyRepository<Category>
-	let router: CategoryListRouterProtocol
 
 	private var categories: [Category] = [] {
 		didSet {
@@ -24,10 +26,13 @@ class CategoryListPresenter: CategoryListPresenterProtocol {
 		return categories.count
 	}
 
-	required init(view: CategoryListViewProtocol, repository: AnyRepository<Category>, router: CategoryListRouterProtocol) {
+	var onEdit: ScopeCategoryHandler?
+	var onCreate: ScopeCategoryHandler?
+	var onPresentTasks: TaskHandler?
+
+	required init(view: CategoryListViewProtocol, repository: AnyRepository<Category>) {
 		self.view = view
 		self.repository = repository
-		self.router = router
 	}
 
 	func category(at index: Int) -> CategoryViewModel {
@@ -48,7 +53,8 @@ class CategoryListPresenter: CategoryListPresenterProtocol {
 
 	func didSelectCategory(with index: Int) {
 		let category = categories[index]
-		router.showTaskListViewController(category: category)
+
+		onPresentTasks?(category)
 	}
 
 	func deleteButtonPressed(with index: Int) {
@@ -64,10 +70,11 @@ class CategoryListPresenter: CategoryListPresenterProtocol {
 	func editButtonPressed(with index: Int) {
 		let task = categories[index]
 		let vm = CategoryViewModel(model: task)
-		router.showCategoryDetailsViewController(scope: .edit(model: vm))
+
+		onEdit?(.edit(model: vm))
 	}
 
 	func addCategoryButtonPressed() {
-		router.showCategoryDetailsViewController(scope: .create)
+		onCreate?(.create)
 	}
 }

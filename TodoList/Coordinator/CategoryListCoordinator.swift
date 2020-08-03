@@ -17,7 +17,24 @@ final class CategoryListCoordinator: BaseCoordinator {
 	}
 
 	override func start() {
-		let module = CategoryListModule().build()
+		let module = CategoryListModule().build(onEdit: {
+			self.showCategoryDetails(scope: $0)
+		}, onCreate: {
+			self.showCategoryDetails(scope: $0)
+		}, onPresent: {
+			self.showTasks(category: $0)
+		})
+
 		router.appendToTabBar(module)
+	}
+
+	private func showCategoryDetails(scope: Scope<CategoryViewModel>) {
+		let module = CategoryDetailsModule().build(scope: scope)
+		self.router.push(module)
+	}
+
+	private func showTasks(category: Category) {
+		let module = TaskListModule().build(category: category)
+		self.router.push(module)
 	}
 }

@@ -22,10 +22,10 @@ class SettingsViewController: UIViewController, SettingsViewCoordinatorProtocol,
 		}
 	}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-		navigationItem.title = "Settings"
-    }
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.navigationController?.navigationBar.topItem?.title = "Settings"
+	}
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource

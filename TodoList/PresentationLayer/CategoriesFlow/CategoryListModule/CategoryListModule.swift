@@ -9,14 +9,17 @@
 import UIKit
 
 final class CategoryListModule {
-	func build() -> UIViewController {
+	func build(onEdit: ScopeCategoryHandler?, onCreate: ScopeCategoryHandler?, onPresent: TaskHandler?) -> UIViewController {
 		let view = CategoryListViewController.instantiate(storyboard: .main)
-		let router = CategoryListRouter()
 		let coreDataStack = CoreDataStackHolder.shared.coreDataStack
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let presenter = CategoryListPresenter(view: view, repository: repository, router: router)
-		router.view = view
+		let presenter = CategoryListPresenter(view: view, repository: repository)
+
+		presenter.onEdit = onEdit
+		presenter.onCreate = onCreate
+		presenter.onPresentTasks = onPresent
 		view.presenter = presenter
+
 		view.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 0)
 		return view
 	}

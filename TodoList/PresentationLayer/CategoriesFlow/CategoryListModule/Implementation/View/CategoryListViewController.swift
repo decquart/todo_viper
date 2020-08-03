@@ -26,6 +26,9 @@ class CategoryListViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
+		self.navigationController?.navigationBar.topItem?.title = "Categories"
+		let item = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(buttonAddPressed))
+		self.navigationController?.navigationBar.topItem?.rightBarButtonItem = item
 		presenter.loadCategories()
 	}
 }
@@ -72,14 +75,14 @@ extension CategoryListViewController: UICollectionViewDelegateFlowLayout {
 	}
 }
 
-// MARK: - Actions
+// MARK: - Selectors
 extension CategoryListViewController {
-	@IBAction func buttonAddPressed(_ sender: Any) {
+	@objc func buttonAddPressed() {
 		presenter.addCategoryButtonPressed()
 	}
 }
 
-// MARK: - Actions
+// MARK: - Alert
 extension CategoryListViewController {
 	func showEditCategoryAlertViewController(with index: Int) {
 		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)

@@ -34,22 +34,19 @@ class CategoryDetailsViewController: UIViewController {
 
 	@IBOutlet weak private var categoryIconImageView: UIImageView!
 	@IBOutlet weak private var titleTextField: UITextField!
+	@IBOutlet weak private var colorsContainerView: UIView!
 
 	var colorPickerView: UIView! {
 		didSet {
-			self.view.addSubview(colorPickerView)
-
-			colorPickerView.translatesAutoresizingMaskIntoConstraints = false
-			colorPickerView.topAnchor.constraint(equalTo: titleTextField.bottomAnchor, constant: 20).isActive = true
-			colorPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-			colorPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-			//TODO
-			colorPickerView.heightAnchor.constraint(lessThanOrEqualToConstant: 120).isActive = true
+			//todo
+			self.view.layoutIfNeeded()
+			colorsContainerView.add(colorPickerView, top: 0, left: 8, right: -8, bottom: 0)
 		}
 	}
 
 	var iconPickerView: UIView! {
 		didSet {
+			//todo
 			self.view.addSubview(iconPickerView)
 
 			iconPickerView.translatesAutoresizingMaskIntoConstraints = false

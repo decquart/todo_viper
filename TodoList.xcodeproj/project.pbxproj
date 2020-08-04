@@ -73,6 +73,7 @@
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
+		2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55BA2224D971DE0041637B /* UIView+Constraints.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
@@ -208,6 +209,7 @@
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
+		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -349,8 +351,6 @@
 				0449BD8C24876A0200A76223 /* PresentationLayer */,
 				04C45B1D248E91C20073CA2B /* Shared */,
 				2D5596DE24C1786700A9F430 /* Services */,
-				049FB53324801580000A7133 /* Info.plist */,
-				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
 			);
 			path = TodoList;
 			sourceTree = "<group>";
@@ -694,6 +694,7 @@
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
 				2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */,
 				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
+				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -705,6 +706,8 @@
 				2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */,
 				04BCAB722498134D00A38846 /* LaunchScreen.storyboard */,
 				2DB74B0824C855030076CE43 /* Categories.json */,
+				049FB52B2480157E000A7133 /* TodoList.xcdatamodeld */,
+				049FB53324801580000A7133 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1196,6 +1199,7 @@
 				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
+				2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */,
 				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,
@@ -1355,7 +1359,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2TQR994GB;
-				INFOPLIST_FILE = TodoList/Info.plist;
+				INFOPLIST_FILE = TodoList/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1373,7 +1377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N2TQR994GB;
-				INFOPLIST_FILE = TodoList/Info.plist;
+				INFOPLIST_FILE = TodoList/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,7 +10,7 @@ import UIKit
 
 typealias Completion = () -> Void
 
-protocol Routable: class, Presentable {
+protocol Routable: class {
 	func present(_ module: Presentable?, animated: Bool, completion: Completion?)
 	func push(_ module: Presentable?, animated: Bool, completion: Completion?)
 	func pop(animated: Bool)

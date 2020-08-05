@@ -12,11 +12,9 @@ final class SettingsCoordinator: BaseCoordinator {
 	var finishFlow: (() -> Void)?
 
 	private let router: Routable
-	let tabBarController: UITabBarController
 
-	init(router: Routable, tabBarController: UITabBarController) {
+	init(router: Routable) {
 		self.router = router
-		self.tabBarController = tabBarController
 	}
 
 	override func start() {

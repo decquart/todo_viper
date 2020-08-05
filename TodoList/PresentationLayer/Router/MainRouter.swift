@@ -9,14 +9,20 @@
 import UIKit
 
 final class MainRouter: Routable {
-	var toPresent: UIViewController {
-		return rootViewController
+
+	private let navigationController: UINavigationController
+
+	var rootViewController: UINavigationController {
+		guard let tabBarController = navigationController.viewControllers.first as? UITabBarController,
+			let navController = tabBarController.selectedViewController as? UINavigationController else {
+			return navigationController
+		}
+
+		return navController
 	}
 
-	let rootViewController: UINavigationController
-
 	init(navigationController: UINavigationController) {
-		self.rootViewController = navigationController
+		self.navigationController = navigationController
 	}
 
 	func present(_ module: Presentable?, animated: Bool, completion: Completion?) {
@@ -58,12 +64,12 @@ final class MainRouter: Routable {
 	}
 
 	func appendToTabBar(_ vc: UIViewController) {
-		guard let tabBarController = rootViewController.viewControllers.first(where: { $0 is UITabBarController }) as? UITabBarController else {
+		guard let tabBarController = navigationController.viewControllers.first(where: { $0 is UITabBarController }) as? UITabBarController else {
 			return
 		}
 
 		var viewControllers = tabBarController.viewControllers ?? []
-		viewControllers.append(vc)
+		viewControllers.append(UINavigationController(rootViewController: vc))
 
 		tabBarController.viewControllers = viewControllers
 	}

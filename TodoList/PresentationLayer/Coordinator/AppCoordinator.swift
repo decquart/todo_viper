@@ -29,10 +29,10 @@ final class AppCoordinator: BaseCoordinator {
 	private func runMainFlow() {
 		let tabBarController = UITabBarController()
 
-		let settingsCoordinator = SettingsCoordinator(router: router, tabBarController: tabBarController)
+		let settingsCoordinator = SettingsCoordinator(router: router)
 		let categoryCoordinator = CategoiesCoordinator(router: router)
 
-		self.router.setRootModule(tabBarController, animated: false)
+		self.router.setRootModule(tabBarController, hideBar: true, animated: false)
 
 		categoryCoordinator.start()
 		settingsCoordinator.start()

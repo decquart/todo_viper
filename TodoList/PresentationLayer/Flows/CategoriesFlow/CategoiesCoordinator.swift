@@ -10,9 +10,9 @@ import Foundation
 
 final class CategoiesCoordinator: BaseCoordinator {
 
-	let router: RouterType
+	let router: Routable
 
-	init(router: RouterType) {
+	init(router: Routable) {
 		self.router = router
 	}
 

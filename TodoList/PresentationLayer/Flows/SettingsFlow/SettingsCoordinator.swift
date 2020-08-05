@@ -11,10 +11,10 @@ import UIKit
 final class SettingsCoordinator: BaseCoordinator {
 	var finishFlow: (() -> Void)?
 
-	private let router: RouterType
+	private let router: Routable
 	let tabBarController: UITabBarController
 
-	init(router: RouterType, tabBarController: UITabBarController) {
+	init(router: Routable, tabBarController: UITabBarController) {
 		self.router = router
 		self.tabBarController = tabBarController
 	}

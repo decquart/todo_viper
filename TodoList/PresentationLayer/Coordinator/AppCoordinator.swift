@@ -10,12 +10,12 @@ import UIKit
 
 final class AppCoordinator: BaseCoordinator {
 
-	private let router: RouterType
+	private let router: Routable
 	private let window: UIWindow
 
 	init(window: UIWindow) {
 		let navController = UINavigationController()
-		self.router = Router(navigationController: navController)
+		self.router = MainRouter(navigationController: navController)
 		self.window = window
 
 		window.rootViewController = navController

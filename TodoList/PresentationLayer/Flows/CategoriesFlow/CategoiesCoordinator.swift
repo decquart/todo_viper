@@ -9,13 +9,6 @@
 import Foundation
 
 final class CategoiesCoordinator: BaseCoordinator {
-
-	let router: Routable
-
-	init(router: Routable) {
-		self.router = router
-	}
-
 	override func start() {
 		showCategoryListModule()
 	}
@@ -24,38 +17,23 @@ final class CategoiesCoordinator: BaseCoordinator {
 // MARK: - Flows
 private extension CategoiesCoordinator {
 	func showCategoryListModule() {
-		let module = CategoryListModule().build(onShowCategoryDetails: { [unowned self] in
-			self.showCategoryDetails(scope: $0)
-		}, onPresent: {
-			self.showTasks(category: $0)
-		})
-
-		router.appendToTabBar(module)
+		let module = CategoryListModule().build(onShowCategoryDetails: showCategoryDetails(scope:), onPresent: showTasks(category:))
+		router.setRootModule(module, animated: false)
 	}
 
 	func showCategoryDetails(scope: Scope<CategoryViewModel>) {
-		let module = CategoryDetailsModule().build(scope: scope) { [unowned self] in
-			self.router.pop()
-		}
-
+		let module = CategoryDetailsModule().build(scope: scope, onDismiss: router.pop)
 		self.router.push(module)
 	}
 
 	func showTasks(category: Category) {
-		let module = TaskListModule().build(category: category) { [unowned self] in
-			self.showTaskDetails(category: $0, scope: $1)
-		}
-
+		let module = TaskListModule().build(category: category, onPresent: showTaskDetails)
 		self.router.push(module)
 	}
 
 	func showTaskDetails(category: Category, scope: Scope<TaskViewModel>) {
-		let module = TaskDetailsModule().build(with: category, and: scope) { [unowned self] in
-
-			//todo: Refresh tasks after dismiss
-			self.router.dismiss()
-		}
-
+		//todo: Refresh tasks after dismiss
+		let module = TaskDetailsModule().build(with: category, and: scope, onDismiss: router.dismiss)
 		self.router.present(module)
 	}
 }

@@ -56,10 +56,8 @@
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
 		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
 		2D39DC0624D2107E00E27522 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0524D2107E00E27522 /* Routable.swift */; };
-		2D39DC0824D2113900E27522 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0724D2113900E27522 /* Presentable.swift */; };
 		2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* MainRouter.swift */; };
 		2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0C24D222BB00E27522 /* Coordinatable.swift */; };
-		2D39DC0F24D2241600E27522 /* UIViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */; };
 		2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1024D2283700E27522 /* BaseCoordinator.swift */; };
 		2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1624D3665900E27522 /* Storyboarded.swift */; };
 		2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */; };
@@ -74,6 +72,7 @@
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
 		2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55BA2224D971DE0041637B /* UIView+Constraints.swift */; };
+		2D56825A24DB723700F693EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825924DB723700F693EC /* TabBarController.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
@@ -195,10 +194,8 @@
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
 		2D39DC0524D2107E00E27522 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
-		2D39DC0724D2113900E27522 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
 		2D39DC0A24D2168E00E27522 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		2D39DC0C24D222BB00E27522 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
-		2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentable.swift"; sourceTree = "<group>"; };
 		2D39DC1024D2283700E27522 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC1624D3665900E27522 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassDefinition.swift"; sourceTree = "<group>"; };
@@ -210,6 +207,7 @@
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		2D56825924DB723700F693EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -422,6 +420,7 @@
 			children = (
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
+				2D56825924DB723700F693EC /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -656,7 +655,6 @@
 		2D39DC0924D2167600E27522 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				2D39DC0724D2113900E27522 /* Presentable.swift */,
 				2D39DC0524D2107E00E27522 /* Routable.swift */,
 				2D39DC0A24D2168E00E27522 /* MainRouter.swift */,
 			);
@@ -692,7 +690,6 @@
 				2D39DC1824D36B4F00E27522 /* NSObject+ClassDefinition.swift */,
 				2D7C295624B3A93F008EE2C1 /* NSObject+UIColor.swift */,
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
-				2D39DC0E24D2241600E27522 /* UIViewController+Presentable.swift */,
 				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
 				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
 			);
@@ -1122,7 +1119,6 @@
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
-				2D39DC0F24D2241600E27522 /* UIViewController+Presentable.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
@@ -1151,7 +1147,6 @@
 				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				2D01196E24BF9DDF0097E74D /* SettingsVM.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
-				2D39DC0824D2113900E27522 /* Presentable.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
@@ -1200,6 +1195,7 @@
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,
 				2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */,
+				2D56825A24DB723700F693EC /* TabBarController.swift in Sources */,
 				2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */,
 				2D7C295F24B3BDDD008EE2C1 /* CDTaskRepository.swift in Sources */,
 				042176D3248D1DF100FDDAE3 /* Mappable.swift in Sources */,

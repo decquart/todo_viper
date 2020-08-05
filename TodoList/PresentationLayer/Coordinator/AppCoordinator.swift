@@ -10,16 +10,10 @@ import UIKit
 
 final class AppCoordinator: BaseCoordinator {
 
-	private let router: Routable
 	private let window: UIWindow
 
 	init(window: UIWindow) {
-		let navController = UINavigationController()
-		self.router = MainRouter(navigationController: navController)
 		self.window = window
-
-		window.rootViewController = navController
-		window.makeKeyAndVisible()
 	}
 
 	override func start() {
@@ -27,14 +21,14 @@ final class AppCoordinator: BaseCoordinator {
 	}
 
 	private func runMainFlow() {
-		let tabBarController = UITabBarController()
+		let tabBarController = TabBarController.setup()
+		configureWindow(with: tabBarController)
+	}
+}
 
-		let settingsCoordinator = SettingsCoordinator(router: router)
-		let categoryCoordinator = CategoiesCoordinator(router: router)
-
-		self.router.setRootModule(tabBarController, hideBar: true, animated: false)
-
-		categoryCoordinator.start()
-		settingsCoordinator.start()
+private extension AppCoordinator {
+	func configureWindow(with rootViewController: UIViewController) {
+		window.rootViewController = rootViewController
+		window.makeKeyAndVisible()
 	}
 }

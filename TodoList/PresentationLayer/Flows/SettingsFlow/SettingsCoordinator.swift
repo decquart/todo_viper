@@ -9,14 +9,6 @@
 import UIKit
 
 final class SettingsCoordinator: BaseCoordinator {
-	var finishFlow: (() -> Void)?
-
-	private let router: Routable
-
-	init(router: Routable) {
-		self.router = router
-	}
-
 	override func start() {
 		showSettingsViewController()
 	}
@@ -25,13 +17,8 @@ final class SettingsCoordinator: BaseCoordinator {
 // MARK: - Flows
 private extension SettingsCoordinator {
 	func showSettingsViewController() {
-		let settingsViewController = SettingsModule().build(onAccount: {
-			self.showAccountViewController()
-		}, onTheme: {
-			self.showThemeViewController()
-		})
-
-		self.router.appendToTabBar(settingsViewController)
+		let module = SettingsModule().build(onAccount: showAccountViewController, onTheme: showThemeViewController)
+		self.router.setRootModule(module, animated: true)
 	}
 
 	func showAccountViewController() {

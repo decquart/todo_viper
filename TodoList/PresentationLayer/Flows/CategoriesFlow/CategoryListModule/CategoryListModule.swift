@@ -15,11 +15,8 @@ final class CategoryListModule {
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
 		let presenter = CategoryListPresenter(view: view, repository: repository)
 		presenter.onShowCategoryDetails = onShowCategoryDetails
-		
 		presenter.onPresentTasks = onPresent
 		view.presenter = presenter
-
-		view.tabBarItem = UITabBarItem(title: "Categories", image: UIImage(systemName: "pencil.circle.fill"), tag: 0)
 		return view
 	}
 }

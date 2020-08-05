@@ -10,6 +10,7 @@ import Foundation
 
 //Use with child-parent coordinators
 class BaseCoordinator: Coordinatable {
+	let router: Routable = MainRouter()
 	var childCoordinators: [Coordinatable] = []
 
 	func start() {}

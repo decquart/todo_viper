@@ -21,7 +21,22 @@ final class AppCoordinator: BaseCoordinator {
 	}
 
 	private func runMainFlow() {
-		let tabBarController = TabBarController.setup()
+		let tabBarController = UITabBarController()
+
+		let settingsCoordinator = SettingsCoordinator()
+		let categoryCoordinator = CategoiesCoordinator()
+
+		categoryCoordinator.start()
+		settingsCoordinator.start()
+
+		let categoryVC = categoryCoordinator.router.rootViewController
+		let settingsVC = settingsCoordinator.router.rootViewController
+
+		categoryVC.tabBarItem = tabBarController.items[.categories]
+		settingsVC.tabBarItem = tabBarController.items[.settings]
+
+		tabBarController.viewControllers = [categoryVC, settingsVC]
+
 		configureWindow(with: tabBarController)
 	}
 }

@@ -27,6 +27,7 @@ class TaskListViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
+		self.navigationItem.title = "Tasks"
 		presenter?.loadTasks()
 	}
 }
@@ -57,8 +58,13 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 			return UITableViewCell()
 		}
 
-		cell.configure(with: task) { [weak self] in
-			self?.presenter?.buttonCompletePressed(at: indexPath.row)
+		cell.configure(with: task)
+		cell.checkButtonPressedCallback = { [weak self] in
+			self?.presenter.buttonCompletePressed(at: indexPath.row)
+		}
+
+		cell.importantButtonPressedCallback = { [weak self] in
+			self?.presenter.buttonImportantPressed(at: indexPath.row)
 		}
 
 		return cell

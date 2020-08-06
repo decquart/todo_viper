@@ -19,9 +19,10 @@ public class TaskMO: NSManagedObject {
 extension TaskMO: Mappable {
 	var mapToModel: Task {
 		return Task(uuid: id,
-					   description: description_p,
-					   completed: completed,
-					   date: date)
+					description: description_p,
+					completed: completed,
+					date: date,
+					isImportant: important)
 	}
 
 	func map(_ model: Task) {
@@ -29,5 +30,6 @@ extension TaskMO: Mappable {
 		self.description_p = model.description
 		self.completed = model.completed
 		self.date = model.date
+		self.important = model.isImportant
 	}
 }

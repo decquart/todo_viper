@@ -13,11 +13,13 @@ struct Task {
 	var description: String
 	var completed: Bool
 	var date: Date
+	var isImportant: Bool
 
-	init(uuid: String = UUID().uuidString, description: String, completed: Bool, date: Date) {
+	init(uuid: String = UUID().uuidString, description: String, completed: Bool, date: Date, isImportant: Bool) {
 		self.uuid = uuid
 		self.description = description
 		self.completed = completed
 		self.date = date
+		self.isImportant = isImportant
 	}
 }

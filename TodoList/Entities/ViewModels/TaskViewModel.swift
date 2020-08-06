@@ -13,11 +13,18 @@ struct TaskViewModel {
 	private var isCompleted: Bool = false
 	var description: String = ""
 	var date: Date = Date()
+	var isImportant: Bool = false
 
 	var checkmarkIcon: UIImage {
 		isCompleted
 			? UIImage(systemName: "checkmark.circle.fill")!
 			: UIImage(systemName: "circle")!
+	}
+
+	var importantIcon: UIImage {
+		isImportant
+			? UIImage(systemName: "star.fill")!
+			: UIImage(systemName: "star")!
 	}
 
 	var dateText: String {
@@ -41,12 +48,13 @@ struct TaskViewModel {
 		isCompleted = model.completed
 		description = model.description
 		date = model.date
+		isImportant = model.isImportant
 	}
 }
 
 // MARK: - MappingOutput
 extension TaskViewModel: MappingOutput {
 	var mapToModel: Task {
-		Task(uuid: id, description: description, completed: isCompleted, date: date)
+		Task(uuid: id, description: description, completed: isCompleted, date: date, isImportant: isImportant)
 	}
 }

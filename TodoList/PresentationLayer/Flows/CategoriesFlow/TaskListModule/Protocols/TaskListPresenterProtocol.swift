@@ -15,6 +15,7 @@ protocol TaskListPresenterProtocol: class {
 	func numberOfRows() -> Int
 	func task(at indexPath: IndexPath) -> TaskViewModel
 	func buttonCompletePressed(at index: Int)
+	func buttonImportantPressed(at index: Int)
 	func didCompleteAll()
 	func didSelect(at indexPath: IndexPath)
 	func addButtonPressed()

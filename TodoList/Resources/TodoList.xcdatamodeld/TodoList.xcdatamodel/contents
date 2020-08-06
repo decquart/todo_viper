@@ -12,10 +12,11 @@
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="description_p" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryMO" inverseName="tasks" inverseEntity="CategoryMO"/>
     </entity>
     <elements>
         <element name="CategoryMO" positionX="160" positionY="192" width="128" height="118"/>
-        <element name="TaskMO" positionX="0" positionY="63" width="128" height="118"/>
+        <element name="TaskMO" positionX="0" positionY="63" width="128" height="133"/>
     </elements>
 </model>

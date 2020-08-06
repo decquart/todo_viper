@@ -9,20 +9,26 @@
 import UIKit
 
 class TaskCell: UITableViewCell {
+	var checkButtonPressedCallback: (() -> Void)?
+	var importantButtonPressedCallback: (() -> Void)?
 
-	private var buttonPressedClosure: (() -> Void)?
 	@IBOutlet weak private var descriptionLabel: UILabel!
 	@IBOutlet weak private var checkButton: UIButton!
+	@IBOutlet weak var importantButton: UIButton!
 	@IBOutlet weak var dateLabel: UILabel!
 
 	@IBAction private func checkButtonPressed(_ sender: UIButton) {
-		buttonPressedClosure?()
+		checkButtonPressedCallback?()
 	}
 
-	func configure(with viewModel: TaskViewModel, callback: @escaping (() -> Void)) {
+	@IBAction func importantButtonPressed(_ sender: Any) {
+		importantButtonPressedCallback?()
+	}
+
+	func configure(with viewModel: TaskViewModel) {
 		self.descriptionLabel.text = viewModel.description
 		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
 		self.dateLabel.text = viewModel.dateText
-		self.buttonPressedClosure = callback
+		self.importantButton.setImage(viewModel.importantIcon, for: .normal)
 	}
 }

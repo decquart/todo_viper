@@ -49,11 +49,14 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 		var task = tasks[index]
 		task.completed.toggle()
 
-		repository.update(task) { [weak self] success in
-			if success {
-				self?.loadTasks()
-			}
-		}
+		update(task)
+	}
+
+	func buttonImportantPressed(at index: Int) {
+		var task = tasks[index]
+		task.isImportant.toggle()
+
+		update(task)
 	}
 
 	func didCompleteAll() {
@@ -78,5 +81,15 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 
 	func addButtonPressed() {
 		onPresentDetails?(category, .create)
+	}
+}
+
+private extension TaskListPresenter {
+	func update(_ task: Task) {
+		repository.update(task) { [weak self] success in
+			if success {
+				self?.loadTasks()
+			}
+		}
 	}
 }

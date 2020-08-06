@@ -21,5 +21,6 @@ extension TaskMO {
     @NSManaged public var completed: Bool
     @NSManaged public var description_p: String
 	@NSManaged public var date: Date
+	@NSManaged public var important: Bool
     @NSManaged public var owner: CategoryMO
 }

@@ -39,7 +39,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tomorrow" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lz7-22-wWo">
-                                                    <rect key="frame" x="325" y="21" width="81" height="21"/>
+                                                    <rect key="frame" x="277" y="21" width="81" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="81" id="Fq0-9w-uml"/>
                                                     </constraints>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Pb-cT-rKS">
-                                                    <rect key="frame" x="48" y="15" width="269" height="32.5"/>
+                                                    <rect key="frame" x="48" y="15" width="221" height="32.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="Ccu-fZ-GAL"/>
                                                     </constraints>
@@ -56,15 +56,29 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cke-rm-E17">
+                                                    <rect key="frame" x="366" y="11.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="QQu-yd-ggq"/>
+                                                        <constraint firstAttribute="height" constant="40" id="wxh-6E-1lb"/>
+                                                    </constraints>
+                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="star" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="importantButtonPressed:" destination="BF8-HR-pxQ" eventType="touchUpInside" id="V8r-Tx-vJc"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="WRt-bc-G5b" firstAttribute="centerY" secondItem="aJ5-PB-gsG" secondAttribute="centerY" id="471-RX-i3z"/>
+                                                <constraint firstItem="cke-rm-E17" firstAttribute="leading" secondItem="lz7-22-wWo" secondAttribute="trailing" constant="8" id="GKZ-yp-drQ"/>
                                                 <constraint firstItem="lz7-22-wWo" firstAttribute="centerY" secondItem="1Pb-cT-rKS" secondAttribute="centerY" id="GSU-Bd-gfX"/>
                                                 <constraint firstItem="1Pb-cT-rKS" firstAttribute="top" secondItem="aJ5-PB-gsG" secondAttribute="topMargin" constant="4" id="JbD-fu-6O4"/>
-                                                <constraint firstAttribute="trailing" secondItem="lz7-22-wWo" secondAttribute="trailing" constant="8" id="JoS-yj-Bu5"/>
                                                 <constraint firstItem="1Pb-cT-rKS" firstAttribute="leading" secondItem="WRt-bc-G5b" secondAttribute="trailing" constant="8" id="SCA-bH-6hN"/>
+                                                <constraint firstItem="cke-rm-E17" firstAttribute="centerY" secondItem="aJ5-PB-gsG" secondAttribute="centerY" id="Wma-l2-ATe"/>
                                                 <constraint firstItem="WRt-bc-G5b" firstAttribute="leading" secondItem="aJ5-PB-gsG" secondAttribute="leading" id="bJo-4y-6ff"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="1Pb-cT-rKS" secondAttribute="bottom" constant="4" id="jGt-WY-db3"/>
+                                                <constraint firstAttribute="trailing" secondItem="cke-rm-E17" secondAttribute="trailing" constant="8" id="onF-S2-PCt"/>
                                                 <constraint firstItem="lz7-22-wWo" firstAttribute="leading" secondItem="1Pb-cT-rKS" secondAttribute="trailing" constant="8" id="soo-Ae-hwr"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -72,6 +86,7 @@
                                             <outlet property="checkButton" destination="WRt-bc-G5b" id="3C0-jT-Vmh"/>
                                             <outlet property="dateLabel" destination="lz7-22-wWo" id="7l5-9K-lUM"/>
                                             <outlet property="descriptionLabel" destination="1Pb-cT-rKS" id="aIm-Ls-ozx"/>
+                                            <outlet property="importantButton" destination="cke-rm-E17" id="k6e-p7-FcV"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -113,5 +128,6 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

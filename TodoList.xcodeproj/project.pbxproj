@@ -73,7 +73,7 @@
 		2D5596E024C187FD00A9F430 /* ThemesModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5596DF24C187FD00A9F430 /* ThemesModule.swift */; };
 		2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55BA2224D971DE0041637B /* UIView+Constraints.swift */; };
 		2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825B24DC1D5900F693EC /* DeepLink.swift */; };
-		2D56825E24DC36FA00F693EC /* UITabBarController+Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825D24DC36FA00F693EC /* UITabBarController+Items.swift */; };
+		2D56826024DC63E700F693EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825F24DC63E700F693EC /* TabBarController.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
@@ -209,7 +209,7 @@
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2D56825B24DC1D5900F693EC /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
-		2D56825D24DC36FA00F693EC /* UITabBarController+Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITabBarController+Items.swift"; sourceTree = "<group>"; };
+		2D56825F24DC63E700F693EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -422,6 +422,7 @@
 			children = (
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
+				2D56825F24DC63E700F693EC /* TabBarController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -694,7 +695,6 @@
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
 				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
 				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
-				2D56825D24DC36FA00F693EC /* UITabBarController+Items.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1162,6 +1162,7 @@
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,
 				2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */,
+				2D56826024DC63E700F693EC /* TabBarController.swift in Sources */,
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
 				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
@@ -1182,7 +1183,6 @@
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,
 				2D82A0BA24BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift in Sources */,
-				2D56825E24DC36FA00F693EC /* UITabBarController+Items.swift in Sources */,
 				2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */,
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,

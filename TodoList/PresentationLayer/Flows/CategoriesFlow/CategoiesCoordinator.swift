@@ -12,6 +12,13 @@ final class CategoiesCoordinator: BaseCoordinator {
 	override func start() {
 		showCategoryListModule()
 	}
+
+	override func start(with option: DeepLink) {
+		switch option {
+		case .createCategory:
+			showCategoryDetails(scope: .create)
+		}
+	}
 }
 
 // MARK: - Flows

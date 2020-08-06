@@ -1,5 +1,5 @@
 //
-//  UITabBarController+Items.swift
+//  TabBarController.swift
 //  TodoList
 //
 //  Created by Volodymyr Myhailyuk on 06.08.2020.
@@ -13,7 +13,7 @@ enum TabItem: Int {
 	case settings
 }
 
-extension UITabBarController {
+final class TabBarController: UITabBarController {
 	var items: [TabItem: UITabBarItem] {
 		return [
 			.categories: UITabBarItem(title: "Categories",
@@ -23,5 +23,9 @@ extension UITabBarController {
 									image: UIImage(systemName: "gear"),
 									tag: TabItem.settings.rawValue)
 		]
+	}
+
+	func makeCurrent(_ tab: TabItem) {
+		self.selectedIndex = tab.rawValue
 	}
 }

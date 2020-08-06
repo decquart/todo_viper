@@ -13,7 +13,13 @@ class BaseCoordinator: Coordinatable {
 	let router: Routable = MainRouter()
 	var childCoordinators: [Coordinatable] = []
 
-	func start() {}
+	func start() {
+		preconditionFailure("should be overridden")
+	}
+
+	func start(with option: DeepLink) {
+		preconditionFailure("should be overridden")
+	}
 
 	func addDependency(_ coordinator: Coordinatable) {
 		for element in childCoordinators {
@@ -36,5 +42,3 @@ class BaseCoordinator: Coordinatable {
 		}
 	}
 }
-
-

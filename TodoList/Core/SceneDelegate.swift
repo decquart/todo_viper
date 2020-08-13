@@ -23,14 +23,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			return
 		}
 
-		appCoordinator?.start(with: deepLink)
+		appCoordinator?.handle(deepLink)
 	}
 }
 
 private extension SceneDelegate {
 	func configureMainView(with windowScene: UIWindowScene) {
 		window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-		window?.windowScene = windowScene
+		window!.windowScene = windowScene
 
 		appCoordinator = AppCoordinator(window: window!)
 		appCoordinator?.start()

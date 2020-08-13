@@ -13,8 +13,8 @@ final class CategoiesCoordinator: BaseCoordinator {
 		showCategoryListModule()
 	}
 
-	override func start(with option: DeepLink) {
-		switch option {
+	func handle(_ link: DeepLink) {
+		switch link {
 		case .createCategory:
 			showCategoryDetails(scope: .create)
 		}

@@ -8,16 +8,11 @@
 
 import Foundation
 
-//Use with child-parent coordinators
 class BaseCoordinator: Coordinatable {
 	let router: Routable = MainRouter()
 	var childCoordinators: [Coordinatable] = []
 
 	func start() {
-		preconditionFailure("should be overridden")
-	}
-
-	func start(with option: DeepLink) {
 		preconditionFailure("should be overridden")
 	}
 

@@ -25,7 +25,7 @@ final class TabBarController: UITabBarController {
 		]
 	}
 
-	func makeCurrent(_ tab: TabItem) {
+	func selectTab(_ tab: TabItem) {
 		self.selectedIndex = tab.rawValue
 	}
 }

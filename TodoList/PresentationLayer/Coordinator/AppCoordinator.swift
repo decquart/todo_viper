@@ -13,29 +13,16 @@ final class AppCoordinator: BaseCoordinator {
 	private let window: UIWindow
 	private var tabBarController: TabBarController?
 
+	let settingsCoordinator: SettingsCoordinator
+	let categoryCoordinator: CategoiesCoordinator
+
 	init(window: UIWindow) {
 		self.window = window
-	}
+		self.settingsCoordinator = SettingsCoordinator()
+		self.categoryCoordinator = CategoiesCoordinator()
+		super.init()
 
-	override func start() {
-		runMainFlow()
-	}
-
-	override func start(with option: DeepLink) {
-		switch option {
-		case .createCategory:
-			showCategories()
-		}
-	}
-
-	private func runMainFlow() {
 		let tabBarController = TabBarController()
-
-		let settingsCoordinator = SettingsCoordinator()
-		let categoryCoordinator = CategoiesCoordinator()
-
-		categoryCoordinator.start()
-		settingsCoordinator.start()
 
 		addDependency(categoryCoordinator)
 		addDependency(settingsCoordinator)
@@ -51,18 +38,28 @@ final class AppCoordinator: BaseCoordinator {
 
 		configureWindow(with: tabBarController)
 	}
+
+	override func start() {
+		runMainFlow()
+	}
+
+	func handle(_ link: DeepLink) {
+		switch link {
+		case .createCategory:
+			showCategories()
+		}
+	}
+
+	private func runMainFlow() {
+		categoryCoordinator.start()
+		settingsCoordinator.start()
+	}
 }
 
 private extension AppCoordinator {
 	func showCategories() {
-
-		#warning("Reconsider this ugly solution")
-		guard let coordinator = childCoordinators.first(where: { $0 is CategoiesCoordinator }) as? CategoiesCoordinator else {
-			return
-		}
-
-		self.tabBarController?.makeCurrent(.categories)
-		coordinator.start(with: .createCategory)
+		self.tabBarController?.selectTab(.categories)
+		categoryCoordinator.handle(.createCategory)
 	}
 
 	func configureWindow(with rootViewController: UIViewController) {

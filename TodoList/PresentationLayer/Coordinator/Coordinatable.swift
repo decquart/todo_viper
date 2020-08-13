@@ -8,5 +8,4 @@
 
 protocol Coordinatable: class {
 	func start()
-	func start(with option: DeepLink)
 }

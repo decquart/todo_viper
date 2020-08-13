@@ -12,8 +12,6 @@ protocol CategoryListPresenterProtocol: class {
 	var view: CategoryListViewProtocol? { get }
 	var repository: AnyRepository<Category> { get }
 
-	//var on
-
 	var categoriesCount: Int { get }
 
 	func category(at index: Int) -> CategoryViewModel

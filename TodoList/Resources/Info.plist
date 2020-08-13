@@ -10,7 +10,7 @@
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Create new category</string>
 			<key>UIApplicationShortcutItemType</key>
-			<string>todo.create_ategory</string>
+			<string>todo.create_category</string>
 		</dict>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>

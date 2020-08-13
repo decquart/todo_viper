@@ -7,5 +7,5 @@
 //
 
 enum DeepLink: String {
-	case createCategory = "todo.create_ategory"
+	case createCategory = "todo.create_category"
 }

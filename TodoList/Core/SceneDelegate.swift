@@ -15,7 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 
-		configureMainView(with: windowScene)
+		seedInitialDataIfNeeded {
+			self.configureMainView(with: windowScene)
+		}
 	}
 
 	func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
@@ -35,5 +37,34 @@ private extension SceneDelegate {
 		appCoordinator = AppCoordinator(window: window!)
 		appCoordinator?.start()
 		SettingsService.shared.refreshDarkMode()
+	}
+}
+
+private extension SceneDelegate {
+	func seedInitialDataIfNeeded(completion: @escaping () -> Void) {
+		let setting = SettingsService.shared
+		let repo = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+
+		guard setting.isFirstLaunch else {
+			completion()
+			return
+		}
+
+		guard let url = Bundle.main.url(forResource: "Categories", withExtension: "json") else {
+			completion()
+			return
+		}
+
+		do {
+			let data = try Data(contentsOf: url)
+			let categories = try JSONDecoder().decode(Array<Category>.self, from: data)
+			repo.add(categories) { success in
+				if success { setting.isFirstLaunch = false }
+				completion()
+			}
+		} catch {
+			completion()
+			print("error in \(#function): \(error)")
+		}
 	}
 }

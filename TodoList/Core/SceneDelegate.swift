@@ -17,15 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 		seedInitialDataIfNeeded {
 			self.configureMainView(with: windowScene)
+			self.handleDeepLink(with: connectionOptions.shortcutItem)
 		}
 	}
 
 	func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-		guard let deepLink = DeepLink(rawValue: shortcutItem.type) else {
-			return
-		}
-
-		appCoordinator?.handle(deepLink)
+		handleDeepLink(with: shortcutItem)
 	}
 }
 
@@ -37,6 +34,14 @@ private extension SceneDelegate {
 		appCoordinator = AppCoordinator(window: window!)
 		appCoordinator?.start()
 		SettingsService.shared.refreshDarkMode()
+	}
+
+	func handleDeepLink(with shortcutItem: UIApplicationShortcutItem?) {
+		guard let item = shortcutItem, let deepLink = DeepLink(rawValue: item.type) else {
+			return
+		}
+
+		appCoordinator?.handle(deepLink)
 	}
 }
 

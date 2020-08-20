@@ -16,6 +16,7 @@ enum Storyboard: String {
 	case settings = "Settings"
 	case accountInfo = "AccountInfo"
 	case themes = "Themes"
+	case login = "Login"
 }
 
 extension UIViewController {

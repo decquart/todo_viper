@@ -110,6 +110,12 @@
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
+		2DA5062924EF1DD6003A4180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062824EF1DD6003A4180 /* LoginViewController.swift */; };
+		2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */; };
+		2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA5063024EF1EA9003A4180 /* Login.storyboard */; };
+		2DA5063424EF1FBF003A4180 /* LoginModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5063324EF1FBF003A4180 /* LoginModule.swift */; };
+		2DA5063624EF2041003A4180 /* LoginPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5063524EF2041003A4180 /* LoginPresenterProtocol.swift */; };
+		2DA5063824EF208C003A4180 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5063724EF208C003A4180 /* LoginPresenter.swift */; };
 		2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B324BB6429006C6C69 /* Task.storyboard */; };
 		2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */; };
 		2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */; };
@@ -247,6 +253,12 @@
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
+		2DA5062824EF1DD6003A4180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
+		2DA5063024EF1EA9003A4180 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		2DA5063324EF1FBF003A4180 /* LoginModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModule.swift; sourceTree = "<group>"; };
+		2DA5063524EF2041003A4180 /* LoginPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterProtocol.swift; sourceTree = "<group>"; };
+		2DA5063724EF208C003A4180 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		2DB0C8B324BB6429006C6C69 /* Task.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Task.storyboard; sourceTree = "<group>"; };
 		2DB0C8B524BB9FA0006C6C69 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
@@ -766,6 +778,7 @@
 		2D55BA2124D8C75E0041637B /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				2DA5062A24EF1DDC003A4180 /* AuthFlow */,
 				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
 				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
 			);
@@ -934,6 +947,59 @@
 			path = ColorPicker;
 			sourceTree = "<group>";
 		};
+		2DA5062A24EF1DDC003A4180 /* AuthFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5062B24EF1E21003A4180 /* LoginModule */,
+			);
+			path = AuthFlow;
+			sourceTree = "<group>";
+		};
+		2DA5062B24EF1E21003A4180 /* LoginModule */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5063324EF1FBF003A4180 /* LoginModule.swift */,
+				2DA5062C24EF1E37003A4180 /* Implementation */,
+				2DA5062F24EF1E6C003A4180 /* Protocols */,
+			);
+			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		2DA5062C24EF1E37003A4180 /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5063224EF1F89003A4180 /* View */,
+				2DA5063924EF20B1003A4180 /* Presenter */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
+		2DA5062F24EF1E6C003A4180 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */,
+				2DA5063524EF2041003A4180 /* LoginPresenterProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		2DA5063224EF1F89003A4180 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5062824EF1DD6003A4180 /* LoginViewController.swift */,
+				2DA5063024EF1EA9003A4180 /* Login.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2DA5063924EF20B1003A4180 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2DA5063724EF208C003A4180 /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		2DB74B0724C79F600076CE43 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -1082,6 +1148,7 @@
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
 				2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */,
 				2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */,
+				2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */,
 				2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */,
 				2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
@@ -1132,6 +1199,7 @@
 				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
 				2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */,
+				2DA5063624EF2041003A4180 /* LoginPresenterProtocol.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
@@ -1144,9 +1212,13 @@
 				2D56826224E53FA100F693EC /* NSSortDescriptor+Realm.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
 				2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */,
+				2DA5063824EF208C003A4180 /* LoginPresenter.swift in Sources */,
+				2DA5062924EF1DD6003A4180 /* LoginViewController.swift in Sources */,
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
+				2DA5063424EF1FBF003A4180 /* LoginModule.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
+				2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
 				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,

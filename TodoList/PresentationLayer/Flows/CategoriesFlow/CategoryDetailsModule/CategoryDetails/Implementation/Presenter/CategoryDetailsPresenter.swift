@@ -10,27 +10,22 @@ import Foundation
 
 final class CategoryDetailsPresenter: CategoryDetailsPresenterProtocol {
 	weak var view: CategoryDetailsViewProtocol!
-	private let repository: AnyRepository<Category>
+	var interactor: CategoryDetailsInteractorInput
 
 	var onDismiss: (() -> Void)?
 
-	init(view: CategoryDetailsViewProtocol, repository: AnyRepository<Category>) {
+	init(view: CategoryDetailsViewProtocol, interactor: CategoryDetailsInteractorInput) {
 		self.view = view
-		self.repository = repository
+		self.interactor = interactor
 	}
 
 	func saveButtonPressed(with viewModel: CategoryViewModel) {
 		guard view.isNewCategory else {
-			repository.update(viewModel.mapToModel) { [weak self] _ in
-				self?.onDismiss?()
-			}
-
+			interactor.update(viewModel.mapToModel)
 			return
 		}
 
-		repository.add(viewModel.mapToModel) { [weak self] _ in
-			self?.onDismiss?()
-		}
+		interactor.create(viewModel.mapToModel)
 	}
 
 	func updateIcon(_ imagePath: String) {
@@ -39,5 +34,12 @@ final class CategoryDetailsPresenter: CategoryDetailsPresenterProtocol {
 
 	func updateColor(_ color: Color) {
 		view.refreshColor(color)
+	}
+}
+
+//MARK: - CategoryDetailsInteractorOutput
+extension CategoryDetailsPresenter: CategoryDetailsInteractorOutput {
+	func didCategoryPersist() {
+		self.onDismiss?()
 	}
 }

@@ -15,5 +15,5 @@ protocol CategoryListInteractorInput {
 }
 
 protocol CategoryListInteractorOutput: class {
-	func didFetchCategories()
+	func didUpdateCategories()
 }

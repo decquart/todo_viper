@@ -112,6 +112,8 @@
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
 		2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */; };
 		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
+		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
+		2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */; };
 		2DA5062924EF1DD6003A4180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062824EF1DD6003A4180 /* LoginViewController.swift */; };
 		2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */; };
 		2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA5063024EF1EA9003A4180 /* Login.storyboard */; };
@@ -257,6 +259,8 @@
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
 		2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListUseCase.swift; sourceTree = "<group>"; };
 		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
+		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
+		2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsInteractor.swift; sourceTree = "<group>"; };
 		2DA5062824EF1DD6003A4180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
 		2DA5063024EF1EA9003A4180 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -865,6 +869,7 @@
 			children = (
 				2D82A0B724BCFA3600A04190 /* CategoryDetailsViewProtocol.swift */,
 				2D82A0B924BCFA6E00A04190 /* CategoryDetailsPresenterProtocol.swift */,
+				2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -873,6 +878,7 @@
 			isa = PBXGroup;
 			children = (
 				047C64F924858ACE00BB6702 /* View */,
+				2D91D1D524F4545300D6303A /* Interactor */,
 				04606D132486164F00AE5633 /* Presenter */,
 			);
 			path = Implementation;
@@ -957,6 +963,14 @@
 			isa = PBXGroup;
 			children = (
 				2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2D91D1D524F4545300D6303A /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1199,6 +1213,7 @@
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
 				2D01197024BFAB860097E74D /* Box.swift in Sources */,
+				2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
 				2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */,
 				04606D122486164A00AE5633 /* CategoryDetailsPresenter.swift in Sources */,
@@ -1261,6 +1276,7 @@
 				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
 				04BCAB822498136C00A38846 /* CategoryMO+CoreDataClass.swift in Sources */,
 				047C64F724858AA400BB6702 /* CategoryDetailsViewController.swift in Sources */,
+				2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,

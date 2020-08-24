@@ -63,7 +63,7 @@ final class CategoryListPresenter: CategoryListPresenterProtocol {
 }
 
 extension CategoryListPresenter: CategoryListInteractorOutput {
-	func didFetchCategories() {
+	func didUpdateCategories() {
 		view?.reload()
 	}
 }

@@ -9,7 +9,11 @@
 final class CategoryListInteractor {
 	weak var output: CategoryListInteractorOutput!
 	private var repository: AnyRepository<Category>
-	private var categories: [Category] = []
+	private var categories: [Category] = [] {
+		didSet {
+			self.output.didUpdateCategories()
+		}
+	}
 
 	init(repository: AnyRepository<Category>) {
 		self.repository = repository
@@ -40,9 +44,8 @@ extension CategoryListInteractor: CategoryListInteractorInput {
 			switch result {
 			case .success(let categories):
 				self.categories = categories
-				self.output.didFetchCategories()
 			case .failure(_):
-				self.output.didFetchCategories()
+				break
 			}
 		}
 	}

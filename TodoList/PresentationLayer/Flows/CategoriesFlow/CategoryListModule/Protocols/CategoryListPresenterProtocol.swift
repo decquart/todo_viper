@@ -10,7 +10,6 @@ import Foundation
 
 protocol CategoryListPresenterProtocol: class {
 	var view: CategoryListViewProtocol? { get }
-	var repository: AnyRepository<Category> { get }
 
 	var categoriesCount: Int { get }
 

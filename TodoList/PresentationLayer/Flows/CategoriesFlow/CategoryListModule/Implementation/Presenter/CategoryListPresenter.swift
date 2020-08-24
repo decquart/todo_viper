@@ -11,69 +11,59 @@ import Foundation
 typealias ScopeCategoryHandler = (Scope<CategoryViewModel>) -> Void
 typealias TaskHandler = (Category) -> Void
 
-class CategoryListPresenter: CategoryListPresenterProtocol {
+final class CategoryListPresenter: CategoryListPresenterProtocol {
 
 	weak var view: CategoryListViewProtocol?
-	let repository: AnyRepository<Category>
-
-	private var categories: [Category] = [] {
-		didSet {
-			view?.reloadCategoriesList()
-		}
-	}
+	let interactor: CategoryListInteractorInput
 
 	var categoriesCount: Int {
-		return categories.count
+		return interactor.categoriesCount
 	}
 
 	var onShowCategoryDetails: ScopeCategoryHandler?
 	var onPresentTasks: TaskHandler?
 
-	required init(view: CategoryListViewProtocol, repository: AnyRepository<Category>) {
+	required init(view: CategoryListViewProtocol, interactor: CategoryListInteractorInput) {
 		self.view = view
-		self.repository = repository
+		self.interactor = interactor
 	}
 
 	func category(at index: Int) -> CategoryViewModel {
-		return CategoryViewModel(model: categories[index])
+		let category = interactor.category(by: index)
+		return CategoryViewModel(model: category)
 	}
 
 	func tasksCount(at index: Int) -> Int {
-		return categories[index].tasksCount
+		return interactor.taskCount(by: index)
 	}
 
 	func loadCategories() {
-		repository.fetch { result in
-			if case let .success(items) = result {
-				self.categories = items
-			}
-		}
+		interactor.fetchCategories()
 	}
 
 	func didSelectCategory(with index: Int) {
-		let category = categories[index]
-
+		let category = interactor.category(by: index)
 		onPresentTasks?(category)
 	}
 
 	func deleteButtonPressed(with index: Int) {
-		let task = categories[index]
-
-		self.repository.delete(task) { success in
-			if success {
-				self.categories = self.categories.filter { task.id != $0.id }
-			}
-		}
+		interactor.delete(by: index)
 	}
 
 	func editButtonPressed(with index: Int) {
-		let task = categories[index]
-		let vm = CategoryViewModel(model: task)
+		let category = interactor.category(by: index)
+		let vm = CategoryViewModel(model: category)
 
 		onShowCategoryDetails?(.edit(model: vm))
 	}
 
 	func addCategoryButtonPressed() {
 		onShowCategoryDetails?(.create)
+	}
+}
+
+extension CategoryListPresenter: CategoryListInteractorOutput {
+	func didFetchCategories() {
+		view?.reload()
 	}
 }

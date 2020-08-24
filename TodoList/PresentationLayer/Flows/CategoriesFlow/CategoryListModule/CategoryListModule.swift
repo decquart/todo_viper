@@ -13,9 +13,11 @@ final class CategoryListModule {
 		let view = CategoryListViewController.instantiate(storyboard: .main)
 		let coreDataStack = CoreDataStackHolder.shared.coreDataStack
 		let repository = CDCategoryRepository(coreDataStack: coreDataStack)
-		let presenter = CategoryListPresenter(view: view, repository: repository)
+		let interactor = CategoryListInteractor(repository: repository)
+		let presenter = CategoryListPresenter(view: view, interactor: interactor)
 		presenter.onShowCategoryDetails = onShowCategoryDetails
 		presenter.onPresentTasks = onPresent
+		interactor.output = presenter
 		view.presenter = presenter
 		return view
 	}

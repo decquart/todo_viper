@@ -33,9 +33,9 @@ class CategoryListViewController: UIViewController {
 	}
 }
 
-// MARK: - CategoryListViewInput
+// MARK: - CategoryListViewProtocol
 extension CategoryListViewController: CategoryListViewProtocol {
-	func reloadCategoriesList() {
+	func reload() {
 		self.collectionView.reloadData()
 	}
 }

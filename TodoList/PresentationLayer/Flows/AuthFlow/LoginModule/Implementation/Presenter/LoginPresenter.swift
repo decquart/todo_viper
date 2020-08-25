@@ -8,10 +8,21 @@
 
 import Foundation
 
-class LoginPresenter: LoginPresenterProtocol {
+class LoginPresenter {
 	weak var view: LoginViewProtocol!
 
 	init(view: LoginViewProtocol) {
 		self.view = view
+	}
+}
+
+//MARK: - LoginPresenterProtocol
+extension LoginPresenter: LoginPresenterProtocol {
+	func loginButtonPressed(with username: String?, and password: String?) {
+		
+	}
+
+	func skipButtonPressed() {
+
 	}
 }

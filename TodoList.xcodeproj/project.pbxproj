@@ -67,6 +67,8 @@
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
+		2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */; };
+		2D49B26724F5D5CB00D6AFC6 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */; };
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
@@ -217,6 +219,8 @@
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
+		2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2D56825B24DC1D5900F693EC /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
@@ -445,6 +449,7 @@
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
 				2D56825F24DC63E700F693EC /* TabBarController.swift */,
+				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1007,6 +1012,7 @@
 			children = (
 				2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */,
 				2DA5063524EF2041003A4180 /* LoginPresenterProtocol.swift */,
+				2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1208,6 +1214,7 @@
 				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
+				2D49B26724F5D5CB00D6AFC6 /* LoginUseCase.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
@@ -1301,6 +1308,7 @@
 				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
 				2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,
+				2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */,
 				2DFD133924C4FE37006D0EA6 /* ThemesViewModel.swift in Sources */,
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,

@@ -11,6 +11,8 @@ import Foundation
 class LoginPresenter {
 	weak var view: LoginViewProtocol!
 
+	var onFinish: (() -> Void)?
+
 	init(view: LoginViewProtocol) {
 		self.view = view
 	}
@@ -23,6 +25,6 @@ extension LoginPresenter: LoginPresenterProtocol {
 	}
 
 	func skipButtonPressed() {
-
+		onFinish?()
 	}
 }

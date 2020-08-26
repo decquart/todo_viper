@@ -9,10 +9,11 @@
 import UIKit
 
 class LoginModule {
-	func build() -> UIViewController {
+	func build(onFinish: (() -> Void)?) -> UIViewController {
 		let view = LoginViewController.instantiate(storyboard: .login)
 		let presenter = LoginPresenter(view: view)
 		view.presenter = presenter
+		presenter.onFinish = onFinish
 		
 		return view
 	}

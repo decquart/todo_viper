@@ -13,34 +13,18 @@ final class AppCoordinator: BaseCoordinator {
 	private let window: UIWindow
 	private var tabBarController: TabBarController?
 
-	let settingsCoordinator: SettingsCoordinator
-	let categoryCoordinator: CategoiesCoordinator
+	private var settingsCoordinator: SettingsCoordinator?
+	private var categoryCoordinator: CategoiesCoordinator?
 
 	init(window: UIWindow) {
 		self.window = window
-		self.settingsCoordinator = SettingsCoordinator()
-		self.categoryCoordinator = CategoiesCoordinator()
+
 		super.init()
-
-		let tabBarController = TabBarController()
-
-		addDependency(categoryCoordinator)
-		addDependency(settingsCoordinator)
-
-		let categoryVC = categoryCoordinator.router.rootViewController
-		let settingsVC = settingsCoordinator.router.rootViewController
-
-		categoryVC.tabBarItem = tabBarController.items[.categories]
-		settingsVC.tabBarItem = tabBarController.items[.settings]
-
-		tabBarController.viewControllers = [categoryVC, settingsVC]
-		self.tabBarController = tabBarController
-
-		configureWindow(with: tabBarController)
 	}
 
 	override func start() {
-		runMainFlow()
+		//runMainFlow()
+		runAuthFlow()
 	}
 
 	func handle(_ link: DeepLink) {
@@ -51,15 +35,47 @@ final class AppCoordinator: BaseCoordinator {
 	}
 
 	private func runMainFlow() {
-		categoryCoordinator.start()
-		settingsCoordinator.start()
+		self.settingsCoordinator = SettingsCoordinator()
+		self.categoryCoordinator = CategoiesCoordinator()
+
+		let tabBarController = TabBarController()
+
+		addDependency(categoryCoordinator!)
+		addDependency(settingsCoordinator!)
+
+		let categoryVC = categoryCoordinator!.router.rootViewController
+		let settingsVC = settingsCoordinator!.router.rootViewController
+
+		categoryVC.tabBarItem = tabBarController.items[.categories]
+		settingsVC.tabBarItem = tabBarController.items[.settings]
+
+		tabBarController.viewControllers = [categoryVC, settingsVC]
+		self.tabBarController = tabBarController
+
+		categoryCoordinator?.start()
+		settingsCoordinator?.start()
+
+		configureWindow(with: tabBarController)
+	}
+
+	private func runAuthFlow() {
+		let authCoordinator = AuthCoordinator()
+		authCoordinator.onFinish = { [weak self] in
+			self?.removeDependency(authCoordinator)
+			self?.runMainFlow()
+		}
+		addDependency(authCoordinator)
+		authCoordinator.start()
+		//todo
+		authCoordinator.router.rootViewController.navigationBar.isHidden = true
+		configureWindow(with: authCoordinator.router.rootViewController)
 	}
 }
 
 private extension AppCoordinator {
 	func showCategories() {
 		self.tabBarController?.selectTab(.categories)
-		categoryCoordinator.handle(.createCategory)
+		categoryCoordinator?.handle(.createCategory)
 	}
 
 	func configureWindow(with rootViewController: UIViewController) {

@@ -69,6 +69,8 @@
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
 		2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */; };
 		2D49B26724F5D5CB00D6AFC6 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */; };
+		2D49B26924F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26824F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift */; };
+		2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */; };
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
@@ -221,6 +223,8 @@
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
 		2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
+		2D49B26824F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+PlaceholderColor.swift"; sourceTree = "<group>"; };
+		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2D5596DF24C187FD00A9F430 /* ThemesModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModule.swift; sourceTree = "<group>"; };
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2D56825B24DC1D5900F693EC /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
@@ -449,7 +453,6 @@
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
 				2D56825F24DC63E700F693EC /* TabBarController.swift */,
-				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -723,6 +726,8 @@
 				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
 				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
 				2D56826124E53FA100F693EC /* NSSortDescriptor+Realm.swift */,
+				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
+				2D49B26824F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -983,6 +988,7 @@
 		2DA5062A24EF1DDC003A4180 /* AuthFlow */ = {
 			isa = PBXGroup;
 			children = (
+				2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */,
 				2DA5062B24EF1E21003A4180 /* LoginModule */,
 			);
 			path = AuthFlow;
@@ -1219,6 +1225,7 @@
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
+				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D01197024BFAB860097E74D /* Box.swift in Sources */,
 				2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
@@ -1228,6 +1235,7 @@
 				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
+				2D49B26924F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,

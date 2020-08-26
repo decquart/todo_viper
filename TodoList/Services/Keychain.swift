@@ -15,17 +15,34 @@ enum KeychainType: String {
 }
 
 protocol KeychainProtocol {
-	func save(_ value: String, for key: KeychainType) -> Bool
-	func load(for key: KeychainType) -> String?
+//	func save(_ value: String, for key: KeychainType) -> Bool
+//	func load(for key: KeychainType) -> String?
 }
 
 final class Keychain: KeychainProtocol {
-	func save(_ value: String, for key: KeychainType) -> Bool {
+
+	func save(_ password: String, for username: String) {
+		_ = save(password, for: username, and: KeychainType.password.rawValue)
+	}
+
+	func loadPassword(for username: String) -> String? {
+		return load(for: username, and: KeychainType.password.rawValue)
+	}
+
+	func deletePassword(for username: String) -> Bool {
+		return delete(for: username, and: KeychainType.password.rawValue)
+	}
+}
+
+
+private extension Keychain {
+	func save(_ value: String, for key: String, and service: String) -> Bool {
 		let data = Data(value.utf8)
 
 		let query = [
 			String(kSecClass)		: String(kSecClassGenericPassword),
-			String(kSecAttrAccount) : key.rawValue,
+			String(kSecAttrAccount) : key,
+			String(kSecAttrService) : service,
 			String(kSecValueData)	: data ] as [String : Any]
 
 		SecItemDelete(query as CFDictionary)
@@ -35,10 +52,11 @@ final class Keychain: KeychainProtocol {
 		return result == noErr
 	}
 
-	func load(for key: KeychainType) -> String? {
+	func load(for key: String, and service: String) -> String? {
         let query = [
             String(kSecClass)		  : kSecClassGenericPassword,
-			String(kSecAttrAccount)   : key.rawValue,
+			String(kSecAttrAccount)   : key,
+			String(kSecAttrService)   : service,
             String(kSecReturnData)	  : kCFBooleanTrue!,
             String(kSecMatchLimit)	  : kSecMatchLimitOne ] as [String : Any]
 
@@ -52,4 +70,15 @@ final class Keychain: KeychainProtocol {
 
 		return String(decoding: data, as: UTF8.self)
     }
+
+	func delete(for key: String, and service: String) -> Bool {
+		let query = [
+			String(kSecClass)		: String(kSecClassGenericPassword),
+			String(kSecAttrAccount) : key,
+			String(kSecAttrService) : service] as [String : Any]
+
+		let result = SecItemDelete(query as CFDictionary)
+
+		return result == noErr
+	}
 }

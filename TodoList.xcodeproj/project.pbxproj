@@ -114,6 +114,7 @@
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
+		2D88E65124F6E9E80093C9C6 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E65024F6E9E80093C9C6 /* LoginInteractor.swift */; };
 		2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */; };
 		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
 		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
@@ -265,6 +266,7 @@
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
+		2D88E65024F6E9E80093C9C6 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListUseCase.swift; sourceTree = "<group>"; };
 		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
 		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
@@ -969,6 +971,14 @@
 			path = ColorPicker;
 			sourceTree = "<group>";
 		};
+		2D88E65224F6E9EF0093C9C6 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D88E65024F6E9E80093C9C6 /* LoginInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2D91D1D024F3E78D00D6303A /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1009,6 +1019,7 @@
 			children = (
 				2DA5063224EF1F89003A4180 /* View */,
 				2DA5063924EF20B1003A4180 /* Presenter */,
+				2D88E65224F6E9EF0093C9C6 /* Interactor */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1247,6 +1258,7 @@
 				2DA5063624EF2041003A4180 /* LoginPresenterProtocol.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
+				2D88E65124F6E9E80093C9C6 /* LoginInteractor.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,

@@ -7,5 +7,6 @@
 //
 
 protocol LoginViewProtocol: class {
-	
+	func refreshUserNameTextField(with errorMessage: String)
+	func refreshPasswordTextField(with errorMessage: String)
 }

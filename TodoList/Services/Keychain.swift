@@ -17,12 +17,16 @@ enum KeychainType: String {
 protocol KeychainProtocol {
 //	func save(_ value: String, for key: KeychainType) -> Bool
 //	func load(for key: KeychainType) -> String?
+
+	func save(_ password: String, for username: String) -> Bool
+	func loadPassword(for username: String) -> String?
+	func deletePassword(for username: String) -> Bool
 }
 
 final class Keychain: KeychainProtocol {
 
-	func save(_ password: String, for username: String) {
-		_ = save(password, for: username, and: KeychainType.password.rawValue)
+	func save(_ password: String, for username: String) -> Bool {
+		return save(password, for: username, and: KeychainType.password.rawValue)
 	}
 
 	func loadPassword(for username: String) -> String? {

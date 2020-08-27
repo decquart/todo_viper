@@ -117,6 +117,9 @@
 		2D88E65124F6E9E80093C9C6 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E65024F6E9E80093C9C6 /* LoginInteractor.swift */; };
 		2D88E65424F718090093C9C6 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E65324F718090093C9C6 /* UserManager.swift */; };
 		2D88E65A24F82C240093C9C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E65924F82C240093C9C6 /* User.swift */; };
+		2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66724F830760093C9C6 /* CDUserRepository.swift */; };
+		2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */; };
+		2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */; };
 		2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */; };
 		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
 		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
@@ -271,8 +274,9 @@
 		2D88E65024F6E9E80093C9C6 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		2D88E65324F718090093C9C6 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2D88E65924F82C240093C9C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		2D88E65F24F82D160093C9C6 /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
-		2D88E66024F82D160093C9C6 /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D88E66724F830760093C9C6 /* CDUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDUserRepository.swift; sourceTree = "<group>"; };
+		2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListUseCase.swift; sourceTree = "<group>"; };
 		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
 		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
@@ -428,8 +432,8 @@
 				04BCAB7A2498136C00A38846 /* Task+CoreDataProperties.swift */,
 				04BCAB7B2498136C00A38846 /* CategoryMO+CoreDataClass.swift */,
 				04BCAB782498136C00A38846 /* CategoryMO+CoreDataProperties.swift */,
-				2D88E65F24F82D160093C9C6 /* UserMO+CoreDataClass.swift */,
-				2D88E66024F82D160093C9C6 /* UserMO+CoreDataProperties.swift */,
+				2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */,
+				2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */,
 			);
 			path = CoreDataEntities;
 			sourceTree = "<group>";
@@ -872,6 +876,7 @@
 				2D7C295C24B3BD9D008EE2C1 /* CDRepository.swift */,
 				2D7C295A24B3BD68008EE2C1 /* CDCategoryRepository.swift */,
 				2D7C295E24B3BDDD008EE2C1 /* CDTaskRepository.swift */,
+				2D88E66724F830760093C9C6 /* CDUserRepository.swift */,
 			);
 			path = CDRepository;
 			sourceTree = "<group>";
@@ -1256,6 +1261,7 @@
 				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
+				2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */,
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
@@ -1303,6 +1309,7 @@
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2D88E65A24F82C240093C9C6 /* User.swift in Sources */,
+				2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */,
 				2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */,
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,
@@ -1337,6 +1344,7 @@
 				2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
 				04BCAB7F2498136C00A38846 /* CategoryMO+CoreDataProperties.swift in Sources */,
+				2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */,
 				2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */,
 				2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,

@@ -14,15 +14,3 @@ import CoreData
 public class UserMO: NSManagedObject {
 
 }
-
-// MARK: - Mappable
-extension UserMO: Mappable {
-	var mapToModel: User {
-		return User(name: name, email: email)
-	}
-
-	func map(_ entity: User) {
-		self.name = name
-		self.email = email
-	}
-}

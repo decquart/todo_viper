@@ -21,3 +21,15 @@ extension UserMO {
     @NSManaged public var name: String
 
 }
+
+// MARK: - Mappable
+extension UserMO: Mappable {
+	var mapToModel: User {
+		return User(name: name, email: email)
+	}
+
+	func map(_ entity: User) {
+		self.name = entity.name
+		self.email = entity.email
+	}
+}

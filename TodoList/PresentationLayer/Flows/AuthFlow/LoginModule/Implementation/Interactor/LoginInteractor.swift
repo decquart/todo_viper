@@ -11,14 +11,16 @@ import Foundation
 enum LoginError {
 	case emptyUserName(message: String)
 	case emptyPassword(message: String)
+	case invalidUserName(message: String)
+	case invalidPassword(message: String)
 }
 
 class LoginInteractor {
-	private let keychain: KeychainProtocol
+	private let userManager: UserManager
 	var output: LoginInteractorOutput?
 
-	init(keychain: KeychainProtocol) {
-		self.keychain = keychain
+	init(userManager: UserManager) {
+		self.userManager = userManager
 	}
 }
 
@@ -34,5 +36,7 @@ extension LoginInteractor: LoginInteractorInput {
 			output?.loginFailure(error: .emptyPassword(message: "Empty Password!"))
 			return
 		}
+
+		output?.loginSuccess()
 	}
 }

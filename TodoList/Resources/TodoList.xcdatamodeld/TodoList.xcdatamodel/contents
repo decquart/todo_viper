@@ -15,9 +15,9 @@
         <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryMO" inverseName="tasks" inverseEntity="CategoryMO"/>
     </entity>
-    <entity name="UserMO" representedClassName="UserMO" syncable="YES" codeGenerationType="class">
-        <attribute name="email" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+    <entity name="UserMO" representedClassName="UserMO" syncable="YES">
+        <attribute name="email" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
     </entity>
     <elements>
         <element name="CategoryMO" positionX="160" positionY="192" width="128" height="118"/>

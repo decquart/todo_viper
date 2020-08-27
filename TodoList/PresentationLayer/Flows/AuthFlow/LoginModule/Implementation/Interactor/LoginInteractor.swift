@@ -16,11 +16,12 @@ enum LoginError {
 }
 
 class LoginInteractor {
-	private let userManager: UserManager
+	private let keychain: KeychainProtocol
 	var output: LoginInteractorOutput?
 
-	init(userManager: UserManager) {
-		self.userManager = userManager
+
+	init(keychain: KeychainProtocol) {
+		self.keychain = keychain
 	}
 }
 
@@ -37,6 +38,33 @@ extension LoginInteractor: LoginInteractorInput {
 			return
 		}
 
-		output?.loginSuccess()
+		validateCredentials(Credentials(name: userName, password: password))
+	}
+}
+
+
+private extension LoginInteractor {
+
+	func validateCredentials(_ credentials: Credentials) {
+
+		//todo
+		let repository: AnyRepository<User> = CDUserRepository(userName: credentials.name, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+
+		repository.fetch { [weak self] result in
+			guard let self = self else { return }
+
+			if case let .success(users) = result, let user = users.first, user.name == credentials.name {
+				let password = self.keychain.loadPassword(for: credentials.name)
+				let isValidPassword = password == credentials.password
+
+				isValidPassword
+					? self.output?.loginSuccess()
+					: self.output?.loginFailure(error: .invalidPassword(message: "Invalid Password!"))
+
+				return
+			}
+
+			self.output?.loginFailure(error: .invalidUserName(message: "Invalid Username!"))
+		}
 	}
 }

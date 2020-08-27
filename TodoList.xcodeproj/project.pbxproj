@@ -120,6 +120,7 @@
 		2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66724F830760093C9C6 /* CDUserRepository.swift */; };
 		2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */; };
 		2D88E67024F83C240093C9C6 /* UserMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */; };
+		2D88E67224F85AFA0093C9C6 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D88E67124F85AF90093C9C6 /* Credentials.swift */; };
 		2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */; };
 		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
 		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
@@ -277,6 +278,7 @@
 		2D88E66724F830760093C9C6 /* CDUserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDUserRepository.swift; sourceTree = "<group>"; };
 		2D88E66D24F83C240093C9C6 /* UserMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2D88E66E24F83C240093C9C6 /* UserMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2D88E67124F85AF90093C9C6 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		2D91D1CC24F3E74E00D6303A /* CategoryListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListUseCase.swift; sourceTree = "<group>"; };
 		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
 		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
@@ -444,6 +446,7 @@
 				04BCAB7D2498136C00A38846 /* Task.swift */,
 				04BCAB7E2498136C00A38846 /* Category.swift */,
 				2D88E65924F82C240093C9C6 /* User.swift */,
+				2D88E67124F85AF90093C9C6 /* Credentials.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1291,6 +1294,7 @@
 				2D692EAD24AE892F0005D4CB /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				2DA5063424EF1FBF003A4180 /* LoginModule.swift in Sources */,
 				04C45B1C248E91B90073CA2B /* AddButton.swift in Sources */,
+				2D88E67224F85AFA0093C9C6 /* Credentials.swift in Sources */,
 				04B692D7248ECA0E00428ECC /* RealmCategoryRepository.swift in Sources */,
 				2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,

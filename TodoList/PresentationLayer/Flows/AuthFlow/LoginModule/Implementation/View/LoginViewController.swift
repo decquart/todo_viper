@@ -66,11 +66,13 @@ class LoginViewController: UIViewController {
 //MARK: - LoginViewProtocol
 extension LoginViewController: LoginViewProtocol {
 	func refreshUserNameTextField(with errorMessage: String) {
+		usernameTextField.text = ""
 		usernameTextField.placeholder = errorMessage
 		usernameTextField.placeholderColor = .red
 	}
 
 	func refreshPasswordTextField(with errorMessage: String) {
+		passwordTexrField.text = ""
 		passwordTexrField.placeholder = errorMessage
 		passwordTexrField.placeholderColor = .red
 	}

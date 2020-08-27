@@ -34,7 +34,7 @@ extension LoginPresenter: LoginPresenterProtocol {
 //MARK: - LoginInteractorOutput
 extension LoginPresenter: LoginInteractorOutput {
 	func loginSuccess() {
-
+		onFinish?()
 	}
 
 	func loginFailure(error: LoginError) {
@@ -43,6 +43,8 @@ extension LoginPresenter: LoginInteractorOutput {
 			view.refreshUserNameTextField(with: message)
 		case .emptyPassword(let message):
 			view.refreshPasswordTextField(with: message)
+		default:
+			break
 		}
 	}
 }

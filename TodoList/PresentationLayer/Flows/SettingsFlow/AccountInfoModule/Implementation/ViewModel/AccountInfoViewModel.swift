@@ -22,21 +22,21 @@ class AccountInfoViewModel: AccountInfoViewModelProtocol {
 	}
 
 	func viewDidLoad() {
-		username.value = keychain.load(for: .username) ?? ""
-		email.value = keychain.load(for: .email) ?? ""
+//		username.value = keychain.load(for: .username) ?? ""
+//		email.value = keychain.load(for: .email) ?? ""
 		userImage.value = settings.userImage
 	}
 
 	func saveName(_ name: String) {
-		if keychain.save(name, for: .username) {
-			username.value = name
-		}
+//		if keychain.save(name, for: .username) {
+//			username.value = name
+//		}
 	}
 
 	func saveEmail(_ value: String) {
-		if keychain.save(value, for: .email) {
-			email.value = value
-		}
+//		if keychain.save(value, for: .email) {
+//			email.value = value
+//		}
 	}
 
 	func saveUserImage(_ imageData: Data?) {

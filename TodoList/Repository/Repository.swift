@@ -55,10 +55,10 @@ extension AnyRepository {
 		let itemGroup = DispatchGroup()
 		var failedItems: [Item] = []
 
-		for subtask in items {
+		for item in items {
 			DispatchQueue.main.async(group: itemGroup) {
-				function(subtask) { success in
-					failedItems.append(subtask)
+				function(item) { success in
+					failedItems.append(item)
 				}
 			}
 		}

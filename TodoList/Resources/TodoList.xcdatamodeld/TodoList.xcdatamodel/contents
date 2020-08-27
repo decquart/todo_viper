@@ -15,8 +15,13 @@
         <attribute name="important" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <relationship name="owner" maxCount="1" deletionRule="Nullify" destinationEntity="CategoryMO" inverseName="tasks" inverseEntity="CategoryMO"/>
     </entity>
+    <entity name="UserMO" representedClassName="UserMO" syncable="YES" codeGenerationType="class">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="CategoryMO" positionX="160" positionY="192" width="128" height="118"/>
         <element name="TaskMO" positionX="0" positionY="63" width="128" height="133"/>
+        <element name="UserMO" positionX="81" positionY="171" width="128" height="73"/>
     </elements>
 </model>

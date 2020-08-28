@@ -40,7 +40,7 @@ extension CategoryListInteractor: CategoryListInteractorInput {
 	}
 
 	func fetchCategories() {
-		repository.fetch { result in
+		repository.fetch(where: nil) { result in
 			switch result {
 			case .success(let categories):
 				self.categories = categories

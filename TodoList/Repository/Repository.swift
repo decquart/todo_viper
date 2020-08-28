@@ -11,14 +11,14 @@ import Foundation
 protocol Repository {
 	associatedtype Item
 
-	func fetch(completion: @escaping (Result<[Item], Error>) -> Void)
+	func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Item], Error>) -> Void)
 	func add(_ item: Item, completion: @escaping (Bool) -> Void)
 	func update(_ item: Item, completion: @escaping (Bool) -> Void)
 	func delete(_ item: Item, completion: @escaping (Bool) -> Void)
 }
 
 class AnyRepository<Item>: Repository {
-	func fetch(completion: @escaping (Result<[Item], Error>) -> Void) {
+	func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Item], Error>) -> Void) {
 		fatalError("")
 	}
 

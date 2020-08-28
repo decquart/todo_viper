@@ -10,12 +10,15 @@ import Foundation
 import RealmSwift
 
 final class RealmCategoryRepository: RealmRepository<CategoryObject, Category> {
-	override func fetch(completion: @escaping (Result<[Category], Error>) -> Void) {
-		let entities = realm.objects(CategoryObject.self)
-			.sorted(byKeyPath: "name", ascending: true)
-			.compactMap { $0.mapToModel }
+	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Category], Error>) -> Void) {
+		var objects = realm.objects(CategoryObject.self)
 
-		completion(.success(Array(entities)))
+		if let predicate = predicate {
+			objects = objects.filter(predicate)
+		}
+
+		let entities = Array(objects.compactMap { $0.mapToModel })
+		completion(.success(entities))
 	}
 
 	override func add(_ item: Category, completion: @escaping (Bool) -> Void) {

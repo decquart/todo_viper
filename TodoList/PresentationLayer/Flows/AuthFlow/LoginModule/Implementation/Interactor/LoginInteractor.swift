@@ -9,18 +9,19 @@
 import Foundation
 
 enum LoginError {
-	case emptyUserName(message: String)
-	case emptyPassword(message: String)
-	case invalidUserName(message: String)
-	case invalidPassword(message: String)
+	case emptyUserName
+	case emptyPassword
+	case invalidUserName
+	case invalidPassword
 }
 
 class LoginInteractor {
+	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
 	var output: LoginInteractorOutput?
 
-
-	init(keychain: KeychainProtocol) {
+	init(repository: AnyRepository<User>, keychain: KeychainProtocol) {
+		self.repository = repository
 		self.keychain = keychain
 	}
 }
@@ -29,12 +30,12 @@ class LoginInteractor {
 extension LoginInteractor: LoginInteractorInput {
 	func login(with userName: String?, and password: String?) {
 		guard let userName = userName, !userName.isEmpty else {
-			output?.loginFailure(error: .emptyUserName(message: "Empty Login!"))
+			output?.loginFailure(error: .emptyUserName)
 			return
 		}
 
 		guard let password = password, !password.isEmpty else {
-			output?.loginFailure(error: .emptyPassword(message: "Empty Password!"))
+			output?.loginFailure(error: .emptyPassword)
 			return
 		}
 
@@ -46,11 +47,9 @@ extension LoginInteractor: LoginInteractorInput {
 private extension LoginInteractor {
 
 	func validateCredentials(_ credentials: Credentials) {
+		let predicate = NSPredicate(format: "name = %@", credentials.name)
 
-		//todo
-		let repository: AnyRepository<User> = CDUserRepository(userName: credentials.name, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-
-		repository.fetch { [weak self] result in
+		repository.fetch(where: predicate) { [weak self] result in
 			guard let self = self else { return }
 
 			if case let .success(users) = result, let user = users.first, user.name == credentials.name {
@@ -59,12 +58,12 @@ private extension LoginInteractor {
 
 				isValidPassword
 					? self.output?.loginSuccess()
-					: self.output?.loginFailure(error: .invalidPassword(message: "Invalid Password!"))
+					: self.output?.loginFailure(error: .invalidPassword)
 
 				return
 			}
 
-			self.output?.loginFailure(error: .invalidUserName(message: "Invalid Username!"))
+			self.output?.loginFailure(error: .invalidUserName)
 		}
 	}
 }

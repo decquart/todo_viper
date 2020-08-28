@@ -17,14 +17,17 @@ final class RealmTaskRepository: RealmRepository<TaskObject, Task> {
 		super.init()
 	}
 
-	override func fetch(completion: @escaping (Result<[Task], Error>) -> Void) {
-		let objects = realm.objects(TaskObject.self)
-			.filter(NSPredicate(format: "ANY owner.id == %@", categoryId))
+	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Task], Error>) -> Void) {
+		var objects = realm.objects(TaskObject.self)
 			.sorted(by: [
 				SortDescriptor(keyPath: "isCompleted", ascending: true),
 				SortDescriptor(keyPath: "date", ascending: true),
 				SortDescriptor(keyPath: "description_p", ascending: true)
 			])
+
+		if let predicate = predicate {
+			objects = objects.filter(predicate)
+		}
 
 		let entities = Array(objects.map { $0.mapToModel })
 		completion(.success(entities))

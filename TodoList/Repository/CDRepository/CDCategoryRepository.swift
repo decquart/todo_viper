@@ -9,8 +9,10 @@
 import CoreData
 
 final class CDCategoryRepository: CDRepository<CategoryMO, Category> {
-	override func fetch(completion: @escaping (Result<[Category], Error>) -> Void) {
+	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Category], Error>) -> Void) {
 		let fetchRequest: NSFetchRequest<CategoryMO> = CategoryMO.fetchRequest()
+		fetchRequest.predicate = predicate
+
 		let asyncFetchRequest = NSAsynchronousFetchRequest(fetchRequest: fetchRequest) { result in
 			let data = result.finalResult?.map { $0.mapToModel } ?? []
 			completion(.success(data))

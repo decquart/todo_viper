@@ -30,7 +30,9 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 	}
 
 	func loadTasks() {
-		repository.fetch { [weak self] result in
+		let predicate = NSPredicate(format: "ANY owner.id == %@", category.id)
+
+		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(items) = result {
 				self?.tasks = items
 			}

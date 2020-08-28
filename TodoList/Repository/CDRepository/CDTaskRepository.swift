@@ -16,9 +16,9 @@ final class CDTaskRepository: CDRepository<TaskMO, Task> {
 		super.init(coreDataStack: coreDataStack)
 	}
 
-	override func fetch(completion: @escaping (Result<[Task], Error>) -> Void) {
+	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[Task], Error>) -> Void) {
 		let fetchRequest: NSFetchRequest<TaskMO> = TaskMO.fetchRequest()
-		fetchRequest.predicate = NSPredicate(format: "owner.id = %@", categoryId)
+		fetchRequest.predicate = predicate
 		fetchRequest.sortDescriptors = [
 			NSSortDescriptor(key: "completed", ascending: true),
 			NSSortDescriptor(key: "date", ascending: true),

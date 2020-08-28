@@ -78,7 +78,6 @@
 		2D55BA2324D971DE0041637B /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D55BA2224D971DE0041637B /* UIView+Constraints.swift */; };
 		2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825B24DC1D5900F693EC /* DeepLink.swift */; };
 		2D56826024DC63E700F693EC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56825F24DC63E700F693EC /* TabBarController.swift */; };
-		2D56826224E53FA100F693EC /* NSSortDescriptor+Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D56826124E53FA100F693EC /* NSSortDescriptor+Realm.swift */; };
 		2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */; };
 		2D5F22A724BCED6A00A46ED6 /* CategoryListViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */; };
 		2D5F22A924BCED8600A46ED6 /* CategoryListPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */; };
@@ -236,7 +235,6 @@
 		2D55BA2224D971DE0041637B /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		2D56825B24DC1D5900F693EC /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		2D56825F24DC63E700F693EC /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		2D56826124E53FA100F693EC /* NSSortDescriptor+Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSortDescriptor+Realm.swift"; sourceTree = "<group>"; };
 		2D5F22A424BCEC5E00A46ED6 /* CategoryListModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListModule.swift; sourceTree = "<group>"; };
 		2D5F22A624BCED6A00A46ED6 /* CategoryListViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListViewProtocol.swift; sourceTree = "<group>"; };
 		2D5F22A824BCED8600A46ED6 /* CategoryListPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -743,7 +741,6 @@
 				2DB0C8B724BBA242006C6C69 /* UIColor+Custom.swift */,
 				2D7B0E8224C4EB8000572931 /* UserDefaults+Subscript.swift */,
 				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
-				2D56826124E53FA100F693EC /* NSSortDescriptor+Realm.swift */,
 				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
 				2D49B26824F5D7BE00D6AFC6 /* UITextField+PlaceholderColor.swift */,
 			);
@@ -1286,7 +1283,6 @@
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
-				2D56826224E53FA100F693EC /* NSSortDescriptor+Realm.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
 				2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */,
 				2DA5063824EF208C003A4180 /* LoginPresenter.swift in Sources */,

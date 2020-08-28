@@ -10,16 +10,9 @@ import CoreData
 
 final class CDUserRepository: CDRepository<UserMO, User> {
 
-	private let userName: String
-
-	init(userName: String, coreDataStack: CoreDataStackType) {
-		self.userName = userName
-		super.init(coreDataStack: coreDataStack)
-	}
-
-	override func fetch(completion: @escaping (Result<[User], Error>) -> Void) {
+	override func fetch(where predicate: NSPredicate?, completion: @escaping (Result<[User], Error>) -> Void) {
 		let fetchRequest: NSFetchRequest<UserMO> = UserMO.fetchRequest()
-		fetchRequest.predicate = NSPredicate(format: "name = %@", userName)
+		fetchRequest.predicate = predicate
 
 		do {
 			let users = try coreDataStack.mainContext.fetch(fetchRequest)

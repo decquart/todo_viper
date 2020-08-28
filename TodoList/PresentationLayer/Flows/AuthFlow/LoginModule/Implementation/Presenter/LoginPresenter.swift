@@ -39,10 +39,14 @@ extension LoginPresenter: LoginInteractorOutput {
 
 	func loginFailure(error: LoginError) {
 		switch error {
-		case .emptyUserName(let message), .invalidUserName(let message):
-			view.refreshUserNameTextField(with: message)
-		case .emptyPassword(let message), .invalidPassword(let message):
-			view.refreshPasswordTextField(with: message)
+		case .emptyUserName:
+			view.refreshUserNameTextField(with: "Empty User Name!")
+		case .invalidUserName:
+			view.refreshUserNameTextField(with: "Invalid User Name!")
+		case .emptyPassword:
+			view.refreshPasswordTextField(with: "Empty Password!")
+		case .invalidPassword:
+			view.refreshPasswordTextField(with: "Invalid Password!")
 		}
 	}
 }

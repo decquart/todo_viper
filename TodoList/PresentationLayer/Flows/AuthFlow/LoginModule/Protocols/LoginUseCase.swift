@@ -10,7 +10,7 @@ protocol LoginInteractorInput {
 	func login(with userName: String?, and password: String?)
 }
 
-protocol LoginInteractorOutput {
+protocol LoginInteractorOutput: class {
 	func loginSuccess()
 	func loginFailure(error: LoginError)
 }

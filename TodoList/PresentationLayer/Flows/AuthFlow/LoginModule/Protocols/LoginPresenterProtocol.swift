@@ -7,6 +7,7 @@
 //
 
 protocol LoginPresenterProtocol {
-	func loginButtonPressed(with username: String?, and password: String?)
-	func skipButtonPressed()
+	func login(with username: String?, and password: String?)
+	func skipLogin()
+	func register()
 }

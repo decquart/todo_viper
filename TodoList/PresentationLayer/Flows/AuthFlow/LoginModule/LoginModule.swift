@@ -9,13 +9,14 @@
 import UIKit
 
 class LoginModule {
-	func build(onFinish: (() -> Void)?) -> UIViewController {
+	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
 		let view = LoginViewController.instantiate(storyboard: .login)
 		let repository =  CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let interactor = LoginInteractor(repository: repository, keychain: Keychain())
 		let presenter = LoginPresenter(view: view, interactor: interactor)
 		view.presenter = presenter
 		presenter.onFinish = onFinish
+		presenter.onRegister = onRegister
 		interactor.output = presenter
 
 		return view

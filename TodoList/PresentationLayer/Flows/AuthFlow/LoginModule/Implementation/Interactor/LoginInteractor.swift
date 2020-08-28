@@ -18,7 +18,7 @@ enum LoginError {
 class LoginInteractor {
 	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
-	var output: LoginInteractorOutput?
+	weak var output: LoginInteractorOutput?
 
 	init(repository: AnyRepository<User>, keychain: KeychainProtocol) {
 		self.repository = repository

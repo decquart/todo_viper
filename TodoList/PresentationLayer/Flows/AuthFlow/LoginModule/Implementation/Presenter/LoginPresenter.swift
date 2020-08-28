@@ -13,6 +13,7 @@ class LoginPresenter {
 	private var interactor: LoginInteractorInput
 
 	var onFinish: (() -> Void)?
+	var onRegister: (() -> Void)?
 
 	init(view: LoginViewProtocol, interactor: LoginInteractorInput) {
 		self.view = view
@@ -22,12 +23,16 @@ class LoginPresenter {
 
 //MARK: - LoginPresenterProtocol
 extension LoginPresenter: LoginPresenterProtocol {
-	func loginButtonPressed(with username: String?, and password: String?) {
+	func login(with username: String?, and password: String?) {
 		interactor.login(with: username, and: password)
 	}
 
-	func skipButtonPressed() {
+	func skipLogin() {
 		onFinish?()
+	}
+
+	func register() {
+		onRegister?()
 	}
 }
 

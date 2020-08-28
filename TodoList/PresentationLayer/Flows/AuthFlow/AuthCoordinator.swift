@@ -19,7 +19,13 @@ final class AuthCoordinator: BaseCoordinator {
 
 private extension AuthCoordinator {
 	func showLoginScreen() {
-		let module = LoginModule().build(onFinish: onFinish)
+		let module = LoginModule().build(onFinish: onFinish,
+										 onRegister: showRegistrationScreen)
 		self.router.setRootModule(module, animated: false)
+	}
+
+	func showRegistrationScreen() {
+		let module = RegistrationModule().build()
+		self.router.push(module)
 	}
 }

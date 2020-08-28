@@ -19,13 +19,25 @@ class LoginViewController: UIViewController {
 
 	@IBOutlet private weak var loginButton: UIButton! {
 		didSet {
+			loginButton.clipsToBounds = true
 			loginButton.layer.cornerRadius = loginButton.frame.height / 2
+			loginButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
 		}
 	}
 
 	@IBOutlet private weak var skipButton: UIButton! {
 		didSet {
+			skipButton.clipsToBounds = true
 			skipButton.layer.cornerRadius = skipButton.frame.height / 2
+			skipButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
+		}
+	}
+
+	@IBOutlet weak var registerButton: UIButton! {
+		didSet {
+			registerButton.clipsToBounds = true
+			registerButton.layer.cornerRadius = registerButton.frame.height / 2
+			registerButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
 		}
 	}
 
@@ -51,11 +63,15 @@ class LoginViewController: UIViewController {
     }
 
 	@IBAction func loginButtonPressed(_ sender: Any) {
-		presenter.loginButtonPressed(with: usernameTextField.text, and: passwordTexrField.text)
+		presenter.login(with: usernameTextField.text, and: passwordTexrField.text)
 	}
 
 	@IBAction func skipButtonPressed(_ sender: Any) {
-		presenter.skipButtonPressed()
+		presenter.skipLogin()
+	}
+
+	@IBAction func registerButtonPressed(_ sender: Any) {
+		presenter.register()
 	}
 
 	@objc func removePlaceholderMessage(_ textField: UITextField) {

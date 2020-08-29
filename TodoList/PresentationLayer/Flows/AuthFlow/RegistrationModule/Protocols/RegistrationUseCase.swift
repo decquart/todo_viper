@@ -8,8 +8,11 @@
 
 protocol RegistrationInteractorInput {
 	var output: RegistrationInteractorOutput! { get }
+
+	func saveUser(_ name: String, password: String, email: String)
 }
 
 protocol RegistrationInteractorOutput: class {
-
+	func signUpFailure(with error: RegistrationError)
+	func signUpSuccess()
 }

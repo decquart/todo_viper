@@ -25,7 +25,7 @@ private extension AuthCoordinator {
 	}
 
 	func showRegistrationScreen() {
-		let module = RegistrationModule().build()
+		let module = RegistrationModule().build(onBack: router.pop)
 		self.router.push(module)
 	}
 }

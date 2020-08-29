@@ -33,11 +33,11 @@ class LoginViewController: UIViewController {
 		}
 	}
 
-	@IBOutlet weak var registerButton: UIButton! {
+	@IBOutlet weak var signUpButton: UIButton! {
 		didSet {
-			registerButton.clipsToBounds = true
-			registerButton.layer.cornerRadius = registerButton.frame.height / 2
-			registerButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
+			signUpButton.layer.cornerRadius = signUpButton.frame.height / 2
+			signUpButton.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+			signUpButton.setTitleColor(UIColor(red: 25/255, green: 104/255, blue: 231/255, alpha: 1), for: .normal)
 		}
 	}
 
@@ -70,27 +70,27 @@ class LoginViewController: UIViewController {
 		presenter.skipLogin()
 	}
 
-	@IBAction func registerButtonPressed(_ sender: Any) {
+	@IBAction func signUpButtonPressed(_ sender: Any) {
 		presenter.register()
 	}
 
 	@objc func removePlaceholderMessage(_ textField: UITextField) {
 		textField.placeholder = nil
 	}
+
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		view.endEditing(true)
+	}
 }
 
 //MARK: - LoginViewProtocol
 extension LoginViewController: LoginViewProtocol {
 	func refreshUserNameTextField(with errorMessage: String) {
-		usernameTextField.text = ""
-		usernameTextField.placeholder = errorMessage
-		usernameTextField.placeholderColor = .red
+		usernameTextField.setErrorMessage(errorMessage)
 	}
 
 	func refreshPasswordTextField(with errorMessage: String) {
-		passwordTexrField.text = ""
-		passwordTexrField.placeholder = errorMessage
-		passwordTexrField.placeholderColor = .red
+		passwordTexrField.setErrorMessage(errorMessage)
 	}
 }
 

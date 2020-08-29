@@ -9,12 +9,14 @@
 import UIKit
 
 class RegistrationModule {
-	func build() -> UIViewController {
+	func build(onBack: (() -> Void)?) -> UIViewController {
 		let view = RegistrationViewController.instantiate(storyboard: .registration)
-		let interactor = RegistrationInteractor()
+		let repo = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		let interactor = RegistrationInteractor(repository: repo, keychain: Keychain())
 		let presenter = RegistrationPresenter(view: view, interactor: interactor)
 		view.presenter = presenter
 		interactor.output = presenter
+		presenter.onBack = onBack
 		return view
 	}
 }

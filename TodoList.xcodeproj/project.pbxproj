@@ -74,6 +74,7 @@
 		2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BCAB722498134D00A38846 /* LaunchScreen.storyboard */; };
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
+		2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
 		2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */; };
 		2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */; };
@@ -239,6 +240,7 @@
 		2D49B26624F5D5CB00D6AFC6 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
 		2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewProtocol.swift; sourceTree = "<group>"; };
 		2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -875,6 +877,7 @@
 			children = (
 				2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */,
 				2DFD132E24C4F60B006D0EA6 /* Keychain.swift */,
+				2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1388,6 +1391,7 @@
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2D88E65A24F82C240093C9C6 /* User.swift in Sources */,
 				2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */,
+				2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */,
 				2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */,
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,

@@ -19,10 +19,12 @@ class LoginInteractor {
 	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
 	weak var output: LoginInteractorOutput?
+	private let userSession: UserSessionProtocol
 
-	init(repository: AnyRepository<User>, keychain: KeychainProtocol) {
+	init(repository: AnyRepository<User>, keychain: KeychainProtocol, userSession: UserSessionProtocol) {
 		self.repository = repository
 		self.keychain = keychain
+		self.userSession = userSession
 	}
 }
 
@@ -56,9 +58,12 @@ private extension LoginInteractor {
 				let password = self.keychain.loadPassword(for: credentials.name)
 				let isValidPassword = password == credentials.password
 
-				isValidPassword
-					? self.output?.loginSuccess()
-					: self.output?.loginFailure(error: .invalidPassword)
+				if isValidPassword {
+					self.userSession.logIn(credentials.name)
+					self.output?.loginSuccess()
+				} else {
+					self.output?.loginFailure(error: .invalidPassword)
+				}
 
 				return
 			}

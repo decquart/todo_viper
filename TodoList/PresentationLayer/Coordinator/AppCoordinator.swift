@@ -16,6 +16,8 @@ final class AppCoordinator: BaseCoordinator {
 	private var settingsCoordinator: SettingsCoordinator?
 	private var categoryCoordinator: CategoiesCoordinator?
 
+	private let userSession = UserSession.default
+
 	init(window: UIWindow) {
 		self.window = window
 
@@ -23,8 +25,11 @@ final class AppCoordinator: BaseCoordinator {
 	}
 
 	override func start() {
-		//runMainFlow()
-		runAuthFlow()
+		if userSession.isAuthorized {
+			runMainFlow()
+		} else {
+			runAuthFlow()
+		}
 	}
 
 	func handle(_ link: DeepLink) {
@@ -62,12 +67,11 @@ final class AppCoordinator: BaseCoordinator {
 		let authCoordinator = AuthCoordinator()
 		authCoordinator.onFinish = { [weak self] in
 			self?.removeDependency(authCoordinator)
-			self?.runMainFlow()
+			self?.start()
 		}
+
 		addDependency(authCoordinator)
 		authCoordinator.start()
-		//todo
-		authCoordinator.router.rootViewController.navigationBar.isHidden = true
 		configureWindow(with: authCoordinator.router.rootViewController)
 	}
 }

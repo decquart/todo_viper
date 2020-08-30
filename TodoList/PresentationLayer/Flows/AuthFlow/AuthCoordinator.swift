@@ -21,6 +21,8 @@ private extension AuthCoordinator {
 	func showLoginScreen() {
 		let module = LoginModule().build(onFinish: onFinish,
 										 onRegister: showRegistrationScreen)
+
+		self.router.rootViewController.navigationBar.isHidden = true
 		self.router.setRootModule(module, animated: false)
 	}
 

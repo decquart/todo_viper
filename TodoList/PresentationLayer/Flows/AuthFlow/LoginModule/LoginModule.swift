@@ -11,7 +11,7 @@ import UIKit
 class LoginModule {
 	func build(onFinish: (() -> Void)?, onRegister: (() -> Void)?) -> UIViewController {
 		let view = LoginViewController.instantiate(storyboard: .login)
-		let repository =  CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let interactor = LoginInteractor(repository: repository,
 										 keychain: Keychain(),
 										 userSession: UserSession.default)

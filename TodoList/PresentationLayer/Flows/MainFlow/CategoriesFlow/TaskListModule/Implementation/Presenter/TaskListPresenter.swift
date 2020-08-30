@@ -12,7 +12,7 @@ typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>) -> Void)
 
 final class TaskListPresenter: TaskListPresenterProtocol {
 	private(set) weak var view: TaskListViewProtocol?
-	private let repository: AnyRepository<Task>
+	private let interactor: TaskListInteractorInput
 
 	private var category: Category!
 	private var tasks: [Task] = [] {
@@ -23,20 +23,14 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 
 	var onPresentDetails: TaskDetailsHandler?
 
-	required init(view: TaskListViewProtocol, repository: AnyRepository<Task>, task: Category) {
+	required init(view: TaskListViewProtocol, interactor: TaskListInteractorInput, category: Category) {
 		self.view = view
-		self.repository = repository
-		self.category = task
+		self.interactor = interactor
+		self.category = category
 	}
 
 	func loadTasks() {
-		let predicate = NSPredicate(format: "ANY owner.id == %@", category.id)
-
-		repository.fetch(where: predicate) { [weak self] result in
-			if case let .success(items) = result {
-				self?.tasks = items
-			}
-		}
+		interactor.fetchTasks()
 	}
 
 	func numberOfRows() -> Int {
@@ -48,32 +42,15 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 	}
 
 	func buttonCompletePressed(at index: Int) {
-		var task = tasks[index]
-		task.completed.toggle()
-
-		update(task)
+		interactor.setCompleted(tasks[index])
 	}
 
 	func buttonImportantPressed(at index: Int) {
-		var task = tasks[index]
-		task.isImportant.toggle()
-
-		update(task)
+		interactor.setAsImportant(tasks[index])
 	}
 
 	func didCompleteAll() {
-		let unfinished = tasks.filter { !$0.completed }
-		if unfinished.isEmpty { return }
-
-		let modified = unfinished.map { task -> Task in
-			var item = task
-			item.completed.toggle()
-			return item
-		}
-
-		repository.update(modified) { [weak self] _ in
-			self?.loadTasks()
-		}
+		interactor.completeAllUnfinished(tasks)
 	}
 
 	func didSelect(at indexPath: IndexPath) {
@@ -86,12 +63,9 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 	}
 }
 
-private extension TaskListPresenter {
-	func update(_ task: Task) {
-		repository.update(task) { [weak self] success in
-			if success {
-				self?.loadTasks()
-			}
-		}
+//MARK: - TaskListInteractorOutput
+extension TaskListPresenter: TaskListInteractorOutput {
+	func didLoadTasks(_ tasks: [Task]) {
+		self.tasks = tasks
 	}
 }

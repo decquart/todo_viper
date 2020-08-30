@@ -7,6 +7,7 @@
 //
 
 protocol CategoryDetailsInteractorInput {
+	var output: CategoryDetailsInteractorOutput? { get }
 	func create(_ category: Category)
 	func update(_ category: Category)
 }

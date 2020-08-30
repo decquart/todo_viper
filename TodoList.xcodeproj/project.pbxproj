@@ -76,6 +76,8 @@
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */; };
 		2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */; };
+		2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */; };
+		2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
 		2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */; };
 		2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */; };
@@ -243,6 +245,8 @@
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListUseCase.swift; sourceTree = "<group>"; };
+		2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
 		2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewProtocol.swift; sourceTree = "<group>"; };
 		2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -829,6 +833,14 @@
 			path = MainFlow;
 			sourceTree = "<group>";
 		};
+		2D51EBD524FC613400FA92A0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2D5218FB24F9BB75008B7E6F /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1001,6 +1013,7 @@
 			children = (
 				2D82A0C424BD0AB600A04190 /* TaskListViewProtocol.swift */,
 				2D82A0C224BD0A9E00A04190 /* TaskListPresenterProtocol.swift */,
+				2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1010,6 +1023,7 @@
 			children = (
 				04EFFD23248031940048336E /* View */,
 				04EFFD2724805BCC0048336E /* Presenter */,
+				2D51EBD524FC613400FA92A0 /* Interactor */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1367,11 +1381,13 @@
 				2D88E65124F6E9E80093C9C6 /* LoginInteractor.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
+				2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */,
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
 				2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
+				2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
 				2D01195324BF811D0097E74D /* SettingsViewProtocol.swift in Sources */,

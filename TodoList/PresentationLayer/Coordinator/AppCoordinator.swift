@@ -57,9 +57,9 @@ final class AppCoordinator: BaseCoordinator {
 
 	private func runAuthFlow() {
 		let authCoordinator = AuthCoordinator()
-		authCoordinator.onFinish = { [weak self] in
-			self?.removeDependency(authCoordinator)
-			self?.start()
+		authCoordinator.onFinish = { [unowned self, unowned authCoordinator] in
+			self.removeDependency(authCoordinator)
+			self.start()
 		}
 
 		addDependency(authCoordinator)

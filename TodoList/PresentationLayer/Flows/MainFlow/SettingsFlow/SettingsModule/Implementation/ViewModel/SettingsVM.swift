@@ -9,6 +9,7 @@
 enum SettingCellType {
 	case account
 	case theme
+	case logOut
 }
 
 struct SettingsCellViewModel {
@@ -20,11 +21,19 @@ struct SettingsCellViewModel {
 class SettingsVM: SettingsVMProtocol {
 	var onAccount: (() -> Void)?
 	var onTheme: (() -> Void)?
+	var onLogOut: (() -> Void)?
+
+	private let session: UserSessionProtocol
+
+	init(session: UserSessionProtocol) {
+		self.session = session
+	}
 
 	private lazy var cells: [SettingsCellViewModel] = {
 		return [
 			SettingsCellViewModel(title: "Account", imageUrl: "person", cellType: .account),
-			SettingsCellViewModel(title: "Theme", imageUrl: "paintbrush", cellType: .theme)
+			SettingsCellViewModel(title: "Theme", imageUrl: "paintbrush", cellType: .theme),
+			SettingsCellViewModel(title: "Log Out", imageUrl: "lock", cellType: .logOut)
 		]
 	}()
 
@@ -44,6 +53,9 @@ class SettingsVM: SettingsVMProtocol {
 			onAccount?()
 		case .theme:
 			onTheme?()
+		case .logOut:
+			session.logOut()
+			onLogOut?()
 		}
 	}
 }

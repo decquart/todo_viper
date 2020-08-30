@@ -9,6 +9,9 @@
 import UIKit
 
 final class SettingsCoordinator: BaseCoordinator {
+
+	var onLogOut: (() -> Void)?
+
 	override func start() {
 		showSettingsViewController()
 	}
@@ -17,7 +20,9 @@ final class SettingsCoordinator: BaseCoordinator {
 // MARK: - Flows
 private extension SettingsCoordinator {
 	func showSettingsViewController() {
-		let module = SettingsModule().build(onAccount: showAccountViewController, onTheme: showThemeViewController)
+		let module = SettingsModule().build(onAccount: showAccountViewController,
+											onTheme: showThemeViewController,
+											onLogOut: onLogOut)
 		self.router.setRootModule(module, animated: true)
 	}
 

@@ -48,6 +48,10 @@ final class MainCoordinator: BaseCoordinator {
 		let vc = settingsCoordinator.router.rootViewController
 		tabBarController.set(vc, at: .settings)
 
+		settingsCoordinator.onLogOut = { [unowned self] in
+			self.onFinish?()
+		}
+
 		addDependency(settingsCoordinator)
 		settingsCoordinator.start()
 

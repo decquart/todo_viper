@@ -10,30 +10,30 @@
 class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
 	private(set) weak var view: TaskDetailsViewProtocol?
 
-	private let repository: AnyRepository<Task>
-
-	private var category: Category
 	private var subTask: Task?
+	private let interactor: TaskDetailsInteractorInput
 
 	var onDismiss: (() -> Void)?
 
-	init(view: TaskDetailsViewProtocol, repository: AnyRepository<Task>, category: Category) {
+	init(view: TaskDetailsViewProtocol, interactor: TaskDetailsInteractorInput) {
 		self.view = view
-
-		self.repository = repository
-		self.category = category
+		self.interactor = interactor
 	}
 
 	func sendButtonPressed(viewModel: TaskViewModel) {
+		view?.isNewTask == true
+			? interactor.create(task: viewModel.mapToModel)
+			: interactor.update(task: viewModel.mapToModel)
+	}
+}
 
-		if view?.isNewTask == true {
-			repository.add(viewModel.mapToModel) { [weak self] _ in
-				self?.view?.invalidateView()
-			}
-		} else {
-			repository.update(viewModel.mapToModel) { [weak self] _ in
-				self?.onDismiss?()
-			}
-		}
+//MARK: - TaskDetailsInteractorOutput
+extension TaskDetailsPresenter: TaskDetailsInteractorOutput {
+	func didTaskCreate() {
+		self.view?.invalidateView()
+	}
+
+	func didTaskUpdate() {
+		self.onDismiss?()
 	}
 }

@@ -78,6 +78,8 @@
 		2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */; };
 		2D51EBD224FC608700FA92A0 /* TaskListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */; };
 		2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */; };
+		2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */; };
+		2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
 		2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */; };
 		2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */; };
@@ -247,6 +249,8 @@
 		2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		2D51EBD124FC608700FA92A0 /* TaskListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListUseCase.swift; sourceTree = "<group>"; };
 		2D51EBD324FC612E00FA92A0 /* TaskListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListInteractor.swift; sourceTree = "<group>"; };
+		2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsUseCase.swift; sourceTree = "<group>"; };
+		2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsInteractor.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
 		2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewProtocol.swift; sourceTree = "<group>"; };
 		2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -841,6 +845,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
+		2D51EBDA24FC6D6900FA92A0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D51EBD824FC6D4200FA92A0 /* TaskDetailsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
 		2D5218FB24F9BB75008B7E6F /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -1033,6 +1045,7 @@
 			children = (
 				2D82A0CF24BD0FCB00A04190 /* TaskDetailsViewProtocol.swift */,
 				2D82A0D124BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift */,
+				2D51EBD624FC6D1000FA92A0 /* TaskDetailsUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1041,6 +1054,7 @@
 			isa = PBXGroup;
 			children = (
 				2D0CBC7424A956B900AC23F6 /* View */,
+				2D51EBDA24FC6D6900FA92A0 /* Interactor */,
 				2D0CBC7724A957C300AC23F6 /* Presenter */,
 			);
 			path = Implementation;
@@ -1410,12 +1424,14 @@
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
+				2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,
 				04F9BC34248E4B6E00DC0AE8 /* TaskCell.swift in Sources */,
 				2DB74B0B24CA35190076CE43 /* Color.swift in Sources */,
 				2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */,
 				2D82A0D224BD0FF200A04190 /* TaskDetailsPresenterProtocol.swift in Sources */,
+				2D51EBD724FC6D1000FA92A0 /* TaskDetailsUseCase.swift in Sources */,
 				2D7B0E8324C4EB8000572931 /* UserDefaults+Subscript.swift in Sources */,
 				2D88E65A24F82C240093C9C6 /* User.swift in Sources */,
 				2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */,

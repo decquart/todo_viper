@@ -14,6 +14,11 @@ enum TabItem: Int {
 }
 
 final class TabBarController: UITabBarController {
+	convenience init(delegate: UITabBarControllerDelegate) {
+		self.init()
+		self.delegate = delegate
+	}
+
 	var items: [TabItem: UITabBarItem] {
 		return [
 			.categories: UITabBarItem(title: "Categories",
@@ -27,5 +32,14 @@ final class TabBarController: UITabBarController {
 
 	func selectTab(_ tab: TabItem) {
 		self.selectedIndex = tab.rawValue
+	}
+
+	func set(_ vc: UIViewController, at index: TabItem) {
+		guard let viewControllers = self.viewControllers, viewControllers.count > index.rawValue else {
+			preconditionFailure("Failure: 'TabBarController.viewControllers' property should be initialized!")
+		}
+
+		vc.tabBarItem = items[index]
+		self.viewControllers?[index.rawValue] = vc
 	}
 }

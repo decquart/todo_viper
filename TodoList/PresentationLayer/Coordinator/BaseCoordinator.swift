@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BaseCoordinator: Coordinatable {
+class BaseCoordinator: NSObject, Coordinatable {
 	let router: Routable = MainRouter()
 	var childCoordinators: [Coordinatable] = []
 

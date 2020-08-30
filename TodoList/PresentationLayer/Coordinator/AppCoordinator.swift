@@ -11,10 +11,6 @@ import UIKit
 final class AppCoordinator: BaseCoordinator {
 
 	private let window: UIWindow
-	private var tabBarController: TabBarController?
-
-	private var settingsCoordinator: SettingsCoordinator?
-	private var categoryCoordinator: CategoiesCoordinator?
 
 	private let userSession = UserSession.default
 
@@ -33,34 +29,30 @@ final class AppCoordinator: BaseCoordinator {
 	}
 
 	func handle(_ link: DeepLink) {
+		guard userSession.isAuthorized else {
+			runAuthFlow()
+			return
+		}
+
 		switch link {
 		case .createCategory:
-			showCategories()
+			let coordinator = runMainFlow()
+			coordinator.handle(link)
 		}
 	}
 
-	private func runMainFlow() {
-		self.settingsCoordinator = SettingsCoordinator()
-		self.categoryCoordinator = CategoiesCoordinator()
+	@discardableResult
+	private func runMainFlow() -> MainCoordinator {
+		let mainCoordinator = MainCoordinator()
+		mainCoordinator.onFinish = { [unowned self, unowned mainCoordinator] in
+			self.removeDependency(mainCoordinator)
+			self.start()
+		}
 
-		let tabBarController = TabBarController()
-
-		addDependency(categoryCoordinator!)
-		addDependency(settingsCoordinator!)
-
-		let categoryVC = categoryCoordinator!.router.rootViewController
-		let settingsVC = settingsCoordinator!.router.rootViewController
-
-		categoryVC.tabBarItem = tabBarController.items[.categories]
-		settingsVC.tabBarItem = tabBarController.items[.settings]
-
-		tabBarController.viewControllers = [categoryVC, settingsVC]
-		self.tabBarController = tabBarController
-
-		categoryCoordinator?.start()
-		settingsCoordinator?.start()
-
-		configureWindow(with: tabBarController)
+		addDependency(mainCoordinator)
+		mainCoordinator.start()
+		configureWindow(with: mainCoordinator.tabBarController)
+		return mainCoordinator
 	}
 
 	private func runAuthFlow() {
@@ -77,11 +69,6 @@ final class AppCoordinator: BaseCoordinator {
 }
 
 private extension AppCoordinator {
-	func showCategories() {
-		self.tabBarController?.selectTab(.categories)
-		categoryCoordinator?.handle(.createCategory)
-	}
-
 	func configureWindow(with rootViewController: UIViewController) {
 		window.rootViewController = rootViewController
 		window.makeKeyAndVisible()

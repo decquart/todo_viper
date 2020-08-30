@@ -75,6 +75,7 @@
 		2D507C27249B64C1005B0048 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C26249B64C1005B0048 /* RealmSwift */; };
 		2D507C29249B64C1005B0048 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 2D507C28249B64C1005B0048 /* Realm */; };
 		2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */; };
+		2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */; };
 		2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */; };
 		2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */; };
 		2D52190224F9BC54008B7E6F /* RegistrationPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */; };
@@ -241,6 +242,7 @@
 		2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Error.swift"; sourceTree = "<group>"; };
 		2D49B26A24F5DA7100D6AFC6 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2D51EBCC24FBC8DA00FA92A0 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
+		2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		2D5218FC24F9BBC9008B7E6F /* RegistrationModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModule.swift; sourceTree = "<group>"; };
 		2D5218FE24F9BC16008B7E6F /* RegistrationViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewProtocol.swift; sourceTree = "<group>"; };
 		2D52190124F9BC54008B7E6F /* RegistrationPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterProtocol.swift; sourceTree = "<group>"; };
@@ -817,6 +819,16 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		2D51EBD024FC564100FA92A0 /* MainFlow */ = {
+			isa = PBXGroup;
+			children = (
+				2D51EBCE24FBE1EE00FA92A0 /* MainCoordinator.swift */,
+				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
+				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
+			);
+			path = MainFlow;
+			sourceTree = "<group>";
+		};
 		2D5218FB24F9BB75008B7E6F /* RegistrationModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -886,8 +898,7 @@
 			isa = PBXGroup;
 			children = (
 				2DA5062A24EF1DDC003A4180 /* AuthFlow */,
-				2D39DC3D24D8304C00E27522 /* CategoriesFlow */,
-				2D39DC3C24D8294E00E27522 /* SettingsFlow */,
+				2D51EBD024FC564100FA92A0 /* MainFlow */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -1340,6 +1351,7 @@
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */,
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */,
+				2D51EBCF24FBE1EE00FA92A0 /* MainCoordinator.swift in Sources */,
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */,

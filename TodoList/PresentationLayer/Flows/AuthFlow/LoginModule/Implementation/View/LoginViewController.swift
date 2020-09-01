@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 	var presenter: LoginPresenterProtocol!
@@ -30,6 +31,13 @@ class LoginViewController: UIViewController {
 			skipButton.clipsToBounds = true
 			skipButton.layer.cornerRadius = skipButton.frame.height / 2
 			skipButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
+		}
+	}
+
+	@IBOutlet weak var signInButtonWithGoogle: GIDSignInButton! {
+		didSet {
+			signInButtonWithGoogle.style = .iconOnly
+			signInButtonWithGoogle.colorScheme = .light
 		}
 	}
 
@@ -72,6 +80,10 @@ class LoginViewController: UIViewController {
 
 	@IBAction func signUpButtonPressed(_ sender: Any) {
 		presenter.register()
+	}
+
+	@IBAction func signInWithGoogleButtonPressed(_ sender: Any) {
+		presenter.signInWithGoogle()
 	}
 
 	@objc func removePlaceholderMessage(_ textField: UITextField) {

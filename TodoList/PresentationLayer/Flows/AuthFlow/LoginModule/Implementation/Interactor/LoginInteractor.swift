@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import GoogleSignIn
 
 enum LoginError {
 	case emptyUserName
@@ -15,11 +16,12 @@ enum LoginError {
 	case invalidPassword
 }
 
-class LoginInteractor {
+final class LoginInteractor: NSObject {
 	private let repository: AnyRepository<User>
 	private let keychain: KeychainProtocol
 	weak var output: LoginInteractorOutput?
 	private let userSession: UserSessionProtocol
+	var googleSignInService: GoogleSignInServiceProtocol?
 
 	init(repository: AnyRepository<User>, keychain: KeychainProtocol, userSession: UserSessionProtocol) {
 		self.repository = repository
@@ -43,8 +45,11 @@ extension LoginInteractor: LoginInteractorInput {
 
 		validateCredentials(Credentials(name: userName, password: password))
 	}
-}
 
+	func signInWithGoogle() {
+		googleSignInService?.signIn()
+	}
+}
 
 private extension LoginInteractor {
 
@@ -69,6 +74,26 @@ private extension LoginInteractor {
 			}
 
 			self.output?.loginFailure(error: .invalidUserName)
+		}
+	}
+}
+
+//MARK: - GIDSignInDelegate
+extension LoginInteractor: GIDSignInDelegate {
+	func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+		if let error = error {
+			print("\(error.localizedDescription)")
+			return
+		}
+
+		//todo: Handle duplicates
+		repository.add(User(name: user.profile.name, email: user.profile.email)) { [weak self] success in
+			guard let self = self else { return }
+
+			if success {
+				self.userSession.logIn(user.profile.name)
+				self.output?.loginSuccess()
+			}
 		}
 	}
 }

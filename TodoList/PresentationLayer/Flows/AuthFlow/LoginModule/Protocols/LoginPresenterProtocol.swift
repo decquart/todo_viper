@@ -10,4 +10,5 @@ protocol LoginPresenterProtocol {
 	func login(with username: String?, and password: String?)
 	func skipLogin()
 	func register()
+	func signInWithGoogle()
 }

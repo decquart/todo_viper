@@ -34,6 +34,10 @@ extension LoginPresenter: LoginPresenterProtocol {
 	func register() {
 		onRegister?()
 	}
+
+	func signInWithGoogle() {
+		interactor.signInWithGoogle()
+	}
 }
 
 //MARK: - LoginInteractorOutput

@@ -15,11 +15,16 @@ class LoginModule {
 		let interactor = LoginInteractor(repository: repository,
 										 keychain: Keychain(),
 										 userSession: UserSession.default)
+
 		let presenter = LoginPresenter(view: view, interactor: interactor)
+		let googleSignInService = GoogleSignInService.shared
+		googleSignInService.configure(with: view, and: interactor)
+
 		view.presenter = presenter
 		presenter.onFinish = onFinish
 		presenter.onRegister = onRegister
 		interactor.output = presenter
+		interactor.googleSignInService = googleSignInService
 
 		return view
 	}

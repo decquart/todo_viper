@@ -8,6 +8,7 @@
 
 protocol LoginInteractorInput {
 	func login(with userName: String?, and password: String?)
+	func signInWithGoogle()
 }
 
 protocol LoginInteractorOutput: class {

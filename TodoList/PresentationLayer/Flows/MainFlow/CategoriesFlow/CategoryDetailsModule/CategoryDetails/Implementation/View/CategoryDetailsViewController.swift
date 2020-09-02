@@ -35,10 +35,10 @@ class CategoryDetailsViewController: UIViewController {
 	@IBOutlet weak private var categoryIconImageView: UIImageView!
 	@IBOutlet weak private var titleTextField: UITextField!
 	@IBOutlet weak private var colorsContainerView: UIView!
+	@IBOutlet weak var iconsContainerView: UIView!
 
 	var colorPickerView: UIView! {
 		didSet {
-			//todo
 			self.view.layoutIfNeeded()
 			colorsContainerView.add(colorPickerView, top: 0, left: 8, right: -8, bottom: 0)
 		}
@@ -46,20 +46,18 @@ class CategoryDetailsViewController: UIViewController {
 
 	var iconPickerView: UIView! {
 		didSet {
-			//todo
-			self.view.addSubview(iconPickerView)
-
-			iconPickerView.translatesAutoresizingMaskIntoConstraints = false
-			iconPickerView.topAnchor.constraint(equalTo: colorPickerView.bottomAnchor, constant: 20).isActive = true
-			iconPickerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24).isActive = true
-			iconPickerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24).isActive = true
-			iconPickerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
+			self.view.layoutIfNeeded()
+			iconsContainerView.add(iconPickerView, top: 0, left: 8, right: -8, bottom: 0)
 		}
 	}
 
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupGestureRecognizer()
+
+		let customView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
+		customView.backgroundColor = UIColor.red
+		titleTextField.inputAccessoryView = customView
     }
 
 	override func viewWillAppear(_ animated: Bool) {

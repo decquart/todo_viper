@@ -11,8 +11,11 @@ import UIKit
 class ThemesModule {
 	func build() -> UIViewController {
 		let view = ThemesViewController.instantiate(storyboard: .themes)
-		let viewModel = ThemesViewModel(themeService: SettingsService.shared)
-		view.viewModel = viewModel
+		let interactor = ThemesInteractor(themeService: SettingsService.shared)
+		let presenter = ThemesPresenter(view: view, interactor: interactor)
+
+		view.presenter = presenter
+		interactor.output = presenter
 		return view
 	}
 }

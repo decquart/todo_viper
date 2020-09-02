@@ -15,7 +15,9 @@ protocol AccountSettingsServiceProtocol {
 
 protocol ThemeSettingsServiceProtocol {
 	var userInterfaceStyle: UIUserInterfaceStyle? { get set }
+	var isDarkModeEnabled: Bool { get }
 	func refreshDarkMode()
+	func setDarkModeVisble(_ isVisible: Bool)
 }
 
 final class SettingsService {
@@ -49,5 +51,18 @@ extension SettingsService: ThemeSettingsServiceProtocol {
 		UIApplication.shared.windows.forEach {
 			$0.overrideUserInterfaceStyle = theme
 		}
+	}
+
+	func setDarkModeVisble(_ isVisible: Bool) {
+		userInterfaceStyle = isVisible ? .dark : .light
+		refreshDarkMode()
+	}
+
+	var isDarkModeEnabled: Bool {
+		guard let userInterfaceStyle = userInterfaceStyle else {
+			return false
+		}
+
+		return userInterfaceStyle == .dark
 	}
 }

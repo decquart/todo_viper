@@ -7,5 +7,7 @@
 //
 
 protocol ThemesViewProtocol {
-	var viewModel: ThemesViewModelProtocol! { get }
+	var presenter: ThemesPresenterProtocol! { get }
+
+	func updateDarkModeSwitch(_ isOn: Bool)
 }

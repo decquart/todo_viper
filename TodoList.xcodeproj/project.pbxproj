@@ -157,6 +157,10 @@
 		2DC445EC24FDC677009E5396 /* GoogleSignInDependencies.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC445E824FDC677009E5396 /* GoogleSignInDependencies.framework */; };
 		2DC445ED24FDC677009E5396 /* GoogleSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC445E924FDC677009E5396 /* GoogleSignIn.framework */; };
 		2DC445EE24FDC683009E5396 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
+		2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */; };
+		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
+		2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */; };
+		2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */; };
 		2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */; };
 		2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */; };
 		2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */; };
@@ -166,9 +170,7 @@
 		2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2DFD0CB424A538B300317BAD /* IconPickerView.xib */; };
 		2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */; };
 		2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD132E24C4F60B006D0EA6 /* Keychain.swift */; };
-		2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD133224C4FD79006D0EA6 /* ThemesViewModelProtocol.swift */; };
 		2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */; };
-		2DFD133924C4FE37006D0EA6 /* ThemesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFD133824C4FE37006D0EA6 /* ThemesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -333,6 +335,10 @@
 		2DC445E724FDC677009E5396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2DC445E824FDC677009E5396 /* GoogleSignInDependencies.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignInDependencies.framework; sourceTree = "<group>"; };
 		2DC445E924FDC677009E5396 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
+		2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenterProtocol.swift; sourceTree = "<group>"; };
+		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
+		2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesInteractor.swift; sourceTree = "<group>"; };
+		2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenter.swift; sourceTree = "<group>"; };
 		2DD037A124BED74600FC6102 /* ColorPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenter.swift; sourceTree = "<group>"; };
 		2DD037A324BED75E00FC6102 /* ColorPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerPresenterProtocol.swift; sourceTree = "<group>"; };
 		2DD037A524BED76E00FC6102 /* ColorPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewProtocol.swift; sourceTree = "<group>"; };
@@ -342,9 +348,7 @@
 		2DFD0CB424A538B300317BAD /* IconPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerView.xib; sourceTree = "<group>"; };
 		2DFD132C24C4ECD6006D0EA6 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		2DFD132E24C4F60B006D0EA6 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
-		2DFD133224C4FD79006D0EA6 /* ThemesViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModelProtocol.swift; sourceTree = "<group>"; };
 		2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewProtocol.swift; sourceTree = "<group>"; };
-		2DFD133824C4FE37006D0EA6 /* ThemesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1196,14 +1200,6 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
-		2DB74B0724C79F600076CE43 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2DFD133824C4FE37006D0EA6 /* ThemesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		2DC445D424FDA360009E5396 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1221,6 +1217,22 @@
 				2DC445E924FDC677009E5396 /* GoogleSignIn.framework */,
 			);
 			path = GoogleSigninSDK;
+			sourceTree = "<group>";
+		};
+		2DCA3C6F24FF875300D084F8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2DCA3C7024FF876400D084F8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				2DCA3C6D24FF7F0400D084F8 /* ThemesPresenter.swift */,
+			);
+			path = Presenter;
 			sourceTree = "<group>";
 		};
 		2DD037A724BED77300FC6102 /* Protocols */ = {
@@ -1252,8 +1264,9 @@
 		2DFD133424C4FD92006D0EA6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2DFD133224C4FD79006D0EA6 /* ThemesViewModelProtocol.swift */,
 				2DFD133524C4FDB7006D0EA6 /* ThemesViewProtocol.swift */,
+				2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */,
+				2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1262,7 +1275,8 @@
 			isa = PBXGroup;
 			children = (
 				2D01199824C0B3B60097E74D /* View */,
-				2DB74B0724C79F600076CE43 /* ViewModel */,
+				2DCA3C6F24FF875300D084F8 /* Interactor */,
+				2DCA3C7024FF876400D084F8 /* Presenter */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -1397,10 +1411,12 @@
 				2D01196924BF9C660097E74D /* SettingsVMProtocol.swift in Sources */,
 				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
+				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2D49B26724F5D5CB00D6AFC6 /* LoginUseCase.swift in Sources */,
 				2D82A0C924BD0BE300A04190 /* TaskListModule.swift in Sources */,
 				2DB0C8B824BBA242006C6C69 /* UIColor+Custom.swift in Sources */,
+				2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */,
 				2D82A0B224BCF5E900A04190 /* CoreDataStackHolder.swift in Sources */,
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
@@ -1436,6 +1452,7 @@
 				2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */,
 				2D39DC0624D2107E00E27522 /* Routable.swift in Sources */,
 				2D91D1CD24F3E74E00D6303A /* CategoryListUseCase.swift in Sources */,
+				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
 				2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */,
@@ -1473,7 +1490,6 @@
 				2D88E65A24F82C240093C9C6 /* User.swift in Sources */,
 				2D88E66F24F83C240093C9C6 /* UserMO+CoreDataClass.swift in Sources */,
 				2D51EBCD24FBC8DA00FA92A0 /* UserSession.swift in Sources */,
-				2DFD133324C4FD79006D0EA6 /* ThemesViewModelProtocol.swift in Sources */,
 				2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */,
 				2D39DC1924D36B4F00E27522 /* NSObject+ClassDefinition.swift in Sources */,
 				2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */,
@@ -1515,9 +1531,9 @@
 				2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */,
 				2D82A0CE24BD0F3200A04190 /* TaskDetailsModule.swift in Sources */,
 				2D49B26524F5CB7F00D6AFC6 /* UIView+Gradient.swift in Sources */,
-				2DFD133924C4FE37006D0EA6 /* ThemesViewModel.swift in Sources */,
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
+				2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */,
 				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,

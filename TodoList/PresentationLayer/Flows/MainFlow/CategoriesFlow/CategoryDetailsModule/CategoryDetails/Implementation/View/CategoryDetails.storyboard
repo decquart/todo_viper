@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -31,12 +31,23 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crm-PM-lRk">
-                                                <rect key="frame" x="24" y="180" width="366" height="80"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="vQf-M0-dYJ"/>
-                                                </constraints>
-                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="sbE-rW-4dA">
+                                                <rect key="frame" x="24" y="180" width="366" height="232"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="crm-PM-lRk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="366" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="80" id="CjY-3v-OwK"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hw0-Rb-Dbc">
+                                                        <rect key="frame" x="0.0" y="104" width="366" height="128"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="128" id="3YK-1l-r08"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Df-6G-Rro">
                                                 <rect key="frame" x="177" y="24" width="60" height="60"/>
                                                 <constraints>
@@ -46,13 +57,13 @@
                                             </imageView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="crm-PM-lRk" secondAttribute="trailing" constant="24" id="DfO-2E-LVp"/>
-                                            <constraint firstItem="crm-PM-lRk" firstAttribute="top" secondItem="rDd-Nr-HID" secondAttribute="bottom" constant="24" id="Pdg-Kp-gbR"/>
+                                            <constraint firstItem="sbE-rW-4dA" firstAttribute="top" secondItem="rDd-Nr-HID" secondAttribute="bottom" constant="24" id="VVy-2g-f2i"/>
+                                            <constraint firstItem="sbE-rW-4dA" firstAttribute="leading" secondItem="MMa-JK-ViG" secondAttribute="leading" constant="24" id="XW1-bp-YCd"/>
                                             <constraint firstItem="rDd-Nr-HID" firstAttribute="leading" secondItem="MMa-JK-ViG" secondAttribute="leading" constant="24" id="ZPd-w9-tLl"/>
                                             <constraint firstItem="5Df-6G-Rro" firstAttribute="centerX" secondItem="MMa-JK-ViG" secondAttribute="centerX" id="ffg-9g-b5a"/>
-                                            <constraint firstItem="crm-PM-lRk" firstAttribute="leading" secondItem="MMa-JK-ViG" secondAttribute="leading" constant="24" id="kKd-1U-Zxj"/>
                                             <constraint firstAttribute="trailing" secondItem="rDd-Nr-HID" secondAttribute="trailing" constant="24" id="npU-qe-TDd"/>
                                             <constraint firstItem="rDd-Nr-HID" firstAttribute="top" secondItem="5Df-6G-Rro" secondAttribute="bottom" constant="24" id="oSq-Cp-K99"/>
+                                            <constraint firstAttribute="trailing" secondItem="sbE-rW-4dA" secondAttribute="trailing" constant="24" id="rWP-Jp-0AP"/>
                                             <constraint firstItem="5Df-6G-Rro" firstAttribute="top" secondItem="MMa-JK-ViG" secondAttribute="top" constant="24" id="rq0-VA-Eca"/>
                                         </constraints>
                                     </view>
@@ -81,6 +92,7 @@
                     <connections>
                         <outlet property="categoryIconImageView" destination="5Df-6G-Rro" id="1Zg-Eh-DVq"/>
                         <outlet property="colorsContainerView" destination="crm-PM-lRk" id="rIM-ms-aTG"/>
+                        <outlet property="iconsContainerView" destination="hw0-Rb-Dbc" id="9C6-Pi-JBW"/>
                         <outlet property="titleTextField" destination="rDd-Nr-HID" id="Pxp-vN-T0w"/>
                     </connections>
                 </viewController>

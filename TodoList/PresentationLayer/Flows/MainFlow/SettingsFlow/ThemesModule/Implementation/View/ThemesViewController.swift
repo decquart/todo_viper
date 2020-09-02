@@ -8,27 +8,28 @@
 
 import UIKit
 
-class ThemesViewController: UIViewController, ThemesViewProtocol {
+class ThemesViewController: UIViewController {
 	@IBOutlet weak var darkModeSwitch: UISwitch!
 	@IBOutlet weak var darkModeStatusLabel: UILabel!
 
-	var viewModel: ThemesViewModelProtocol! {
-		didSet {
-			viewModel.isDarkMode.bind { [unowned self] in
-				self.darkModeSwitch?.setOn($0, animated: false)
-				self.darkModeStatusLabel?.text = $0 ? "Enabled" : "Disabled"
-			}
-		}
-	}
+	var presenter: ThemesPresenterProtocol!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		navigationItem.title = "Select Theme"
-		viewModel.didLoad()
+		presenter.didLoad()
     }
 
 	@IBAction func darkModeSwitchChanged(_ sender: UISwitch) {
-		viewModel.setDarkMode(sender.isOn)
+		presenter.setDarkMode(sender.isOn)
+	}
+}
+
+//MARK: - ThemesViewProtocol
+extension ThemesViewController: ThemesViewProtocol {
+	func updateDarkModeSwitch(_ isOn: Bool) {
+		self.darkModeSwitch?.setOn(isOn, animated: false)
+		self.darkModeStatusLabel?.text = isOn ? "Enabled" : "Disabled"
 	}
 }

@@ -11,8 +11,8 @@ import UIKit
 class AccountInfoModule {
 	func build() -> UIViewController {
 		let view = AccountInfoViewController.instantiate(storyboard: .accountInfo)
-		let viewModel = AccountInfoViewModel(keychain: Keychain(),
-											 settings: SettingsService.shared)
+		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		let viewModel = AccountInfoViewModel(repository: repository, currentUserName: UserSession.default.currentUser!)
 		view.viewModel = viewModel
 		return view
 	}

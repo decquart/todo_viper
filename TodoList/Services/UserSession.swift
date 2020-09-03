@@ -10,6 +10,7 @@ import Foundation
 
 protocol UserSessionProtocol {
 	var isAuthorized: Bool { get }
+	var currentUser: String? { get }
 	func logIn(_ userName: String)
 	func logOut()
 }

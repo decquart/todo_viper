@@ -86,13 +86,20 @@ extension LoginInteractor: GIDSignInDelegate {
 			return
 		}
 
-		//todo: Handle duplicates
-		repository.add(User(name: user.profile.name, email: user.profile.email)) { [weak self] success in
-			guard let self = self else { return }
+		let predicate = NSPredicate(format: "name = %@", user.profile.name)
 
-			if success {
-				self.userSession.logIn(user.profile.name)
-				self.output?.loginSuccess()
+		repository.fetch(where: predicate) { [weak self] result in
+			if case let .success(users) = result, users.first?.name == user.profile.name {
+				self?.userSession.logIn(user.profile.name)
+				self?.output?.loginSuccess()
+				return
+			}
+
+			self?.repository.add(user.profile.mapToModel) { [weak self] success in
+				if success {
+					self?.userSession.logIn(user.profile.name)
+					self?.output?.loginSuccess()
+				}
 			}
 		}
 	}

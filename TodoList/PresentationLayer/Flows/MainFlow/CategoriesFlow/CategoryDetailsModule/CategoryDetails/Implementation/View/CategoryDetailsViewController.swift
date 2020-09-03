@@ -54,10 +54,6 @@ class CategoryDetailsViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		setupGestureRecognizer()
-
-		let customView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 44))
-		customView.backgroundColor = UIColor.red
-		titleTextField.inputAccessoryView = customView
     }
 
 	override func viewWillAppear(_ animated: Bool) {

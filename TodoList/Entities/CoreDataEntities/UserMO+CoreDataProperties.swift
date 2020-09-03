@@ -19,17 +19,19 @@ extension UserMO {
 
     @NSManaged public var email: String
     @NSManaged public var name: String
+	@NSManaged public var image: Data?
 
 }
 
 // MARK: - Mappable
 extension UserMO: Mappable {
 	var mapToModel: User {
-		return User(name: name, email: email)
+		return User(name: name, email: email, image: image)
 	}
 
 	func map(_ entity: User) {
 		self.name = entity.name
 		self.email = entity.email
+		self.image = entity.image
 	}
 }

@@ -138,6 +138,7 @@
 		2D91D1CF24F3E76B00D6303A /* CategoryListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */; };
 		2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */; };
 		2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */; };
+		2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */; };
 		2DA5062924EF1DD6003A4180 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062824EF1DD6003A4180 /* LoginViewController.swift */; };
 		2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */; };
 		2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA5063024EF1EA9003A4180 /* Login.storyboard */; };
@@ -317,6 +318,7 @@
 		2D91D1CE24F3E76B00D6303A /* CategoryListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListInteractor.swift; sourceTree = "<group>"; };
 		2D91D1D124F4523400D6303A /* CategoryDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsUseCase.swift; sourceTree = "<group>"; };
 		2D91D1D324F4535400D6303A /* CategoryDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailsInteractor.swift; sourceTree = "<group>"; };
+		2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GIDProfileData+User.swift"; sourceTree = "<group>"; };
 		2DA5062824EF1DD6003A4180 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2DA5062D24EF1E66003A4180 /* LoginViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewProtocol.swift; sourceTree = "<group>"; };
 		2DA5063024EF1EA9003A4180 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
@@ -790,6 +792,7 @@
 				2D55BA2224D971DE0041637B /* UIView+Constraints.swift */,
 				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
 				2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */,
+				2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1534,6 +1537,7 @@
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
 				2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */,
+				2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */,
 				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,
 				2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */,
 				04BCAB842498136C00A38846 /* Category.swift in Sources */,

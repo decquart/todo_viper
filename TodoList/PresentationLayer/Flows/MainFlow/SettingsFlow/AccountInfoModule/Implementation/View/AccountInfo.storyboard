@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -22,44 +22,6 @@
                                     <constraint firstAttribute="height" constant="124" id="nLj-Gh-3kd"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Qx6-Vf-BtJ">
-                                <rect key="frame" x="24" y="290" width="296" height="34"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhY-4T-fIH">
-                                <rect key="frame" x="336" y="292" width="54" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="pcK-Y3-GDk"/>
-                                </constraints>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveNameButtonPressed:" destination="aC9-Ft-HSH" eventType="touchUpInside" id="pSu-k6-5XT"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="jwh-gF-jhL">
-                                <rect key="frame" x="24" y="356" width="296" height="34"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-vk-Chv">
-                                <rect key="frame" x="336" y="358" width="54" height="30"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="v2d-De-Jtc"/>
-                                </constraints>
-                                <state key="normal" title="Save">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveEmailButtonPressed:" destination="aC9-Ft-HSH" eventType="touchUpInside" id="v8x-IU-b30"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marko Polo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sk7-zK-gEA">
                                 <rect key="frame" x="164.5" y="208" width="85.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -81,36 +43,22 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="A3X-dV-Kri" firstAttribute="trailing" secondItem="RAG-vk-Chv" secondAttribute="trailing" constant="24" id="1Zy-RX-Pzg"/>
                             <constraint firstItem="zWt-YB-MnL" firstAttribute="bottom" secondItem="4mN-OC-2i4" secondAttribute="bottom" id="2jc-dC-Ve8"/>
-                            <constraint firstItem="jwh-gF-jhL" firstAttribute="leading" secondItem="Qx6-Vf-BtJ" secondAttribute="leading" id="6q4-Bg-oo0"/>
                             <constraint firstItem="sk7-zK-gEA" firstAttribute="top" secondItem="4mN-OC-2i4" secondAttribute="bottom" constant="8" id="B0Z-Xv-fc0"/>
                             <constraint firstItem="mhl-JC-eaf" firstAttribute="top" secondItem="sk7-zK-gEA" secondAttribute="bottom" constant="8" id="FxL-jE-M5l"/>
                             <constraint firstItem="mhl-JC-eaf" firstAttribute="centerX" secondItem="4mN-OC-2i4" secondAttribute="centerX" id="HTy-8b-xwQ"/>
-                            <constraint firstItem="EhY-4T-fIH" firstAttribute="centerY" secondItem="Qx6-Vf-BtJ" secondAttribute="centerY" id="KF0-LB-2CC"/>
                             <constraint firstItem="sk7-zK-gEA" firstAttribute="centerX" secondItem="4mN-OC-2i4" secondAttribute="centerX" id="LNv-yv-x7g"/>
                             <constraint firstItem="zWt-YB-MnL" firstAttribute="trailing" secondItem="4mN-OC-2i4" secondAttribute="trailing" id="U2E-TI-RL4"/>
-                            <constraint firstItem="jwh-gF-jhL" firstAttribute="top" secondItem="Qx6-Vf-BtJ" secondAttribute="bottom" constant="32" id="Wgw-cb-4Em"/>
                             <constraint firstItem="4mN-OC-2i4" firstAttribute="centerX" secondItem="eXS-hV-uWj" secondAttribute="centerX" id="Xxd-QP-E3l"/>
                             <constraint firstItem="4mN-OC-2i4" firstAttribute="top" secondItem="A3X-dV-Kri" secondAttribute="top" constant="32" id="YPt-al-01T"/>
-                            <constraint firstItem="RAG-vk-Chv" firstAttribute="leading" secondItem="jwh-gF-jhL" secondAttribute="trailing" constant="16" id="Yfd-c3-umz"/>
                             <constraint firstItem="zWt-YB-MnL" firstAttribute="top" secondItem="4mN-OC-2i4" secondAttribute="top" id="ZAC-Ry-WAz"/>
                             <constraint firstItem="zWt-YB-MnL" firstAttribute="leading" secondItem="4mN-OC-2i4" secondAttribute="leading" id="a7z-Tf-iL3"/>
-                            <constraint firstItem="A3X-dV-Kri" firstAttribute="trailing" secondItem="EhY-4T-fIH" secondAttribute="trailing" constant="24" id="aKu-BH-BBw"/>
-                            <constraint firstItem="RAG-vk-Chv" firstAttribute="centerY" secondItem="jwh-gF-jhL" secondAttribute="centerY" id="epm-oi-hbM"/>
-                            <constraint firstItem="Qx6-Vf-BtJ" firstAttribute="leading" secondItem="A3X-dV-Kri" secondAttribute="leading" constant="24" id="qw4-ME-OcI"/>
-                            <constraint firstItem="Qx6-Vf-BtJ" firstAttribute="top" secondItem="mhl-JC-eaf" secondAttribute="bottom" constant="32" id="tbA-Ky-kIr"/>
-                            <constraint firstItem="EhY-4T-fIH" firstAttribute="leading" secondItem="Qx6-Vf-BtJ" secondAttribute="trailing" constant="16" id="zFJ-4Y-EEA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="A3X-dV-Kri"/>
                     </view>
                     <connections>
                         <outlet property="emailLabel" destination="mhl-JC-eaf" id="aSd-q8-bD3"/>
-                        <outlet property="emailTextField" destination="jwh-gF-jhL" id="vHo-k6-bCo"/>
-                        <outlet property="nameTextField" destination="Qx6-Vf-BtJ" id="fJk-2n-D4G"/>
                         <outlet property="profileImageView" destination="4mN-OC-2i4" id="2c5-tI-R58"/>
-                        <outlet property="saveEmailButton" destination="RAG-vk-Chv" id="cPc-ls-6MZ"/>
-                        <outlet property="saveNameButton" destination="EhY-4T-fIH" id="D7C-4j-aBI"/>
                         <outlet property="usernameLabel" destination="sk7-zK-gEA" id="dcs-AD-jiJ"/>
                     </connections>
                 </viewController>

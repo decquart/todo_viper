@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-protocol AccountSettingsServiceProtocol {
-	var userImage: Data? { get set }
-}
-
 protocol ThemeSettingsServiceProtocol {
 	var userInterfaceStyle: UIUserInterfaceStyle? { get set }
 	var isDarkModeEnabled: Bool { get }
@@ -26,14 +22,6 @@ final class SettingsService {
 
 	var isFirstLaunch: Bool {
 		get { return UserDefaults.standard[#function] ?? true }
-		set { UserDefaults.standard[#function] = newValue }
-	}
-}
-
-// MARK: - AccountSettingsServiceProtocol
-extension SettingsService: AccountSettingsServiceProtocol {
-	var userImage: Data? {
-		get { return UserDefaults.standard[#function] }
 		set { UserDefaults.standard[#function] = newValue }
 	}
 }

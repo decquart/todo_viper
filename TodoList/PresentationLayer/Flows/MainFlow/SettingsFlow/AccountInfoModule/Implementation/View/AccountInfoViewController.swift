@@ -62,22 +62,6 @@ class AccountInfoViewController: UIViewController, AccountInfoViewProtocol {
 		viewModel.viewDidLoad()
     }
 
-	@IBAction func saveNameButtonPressed(_ sender: Any) {
-		guard let name = nameTextField.text else {
-			return
-		}
-
-		viewModel.saveName(name)
-	}
-
-	@IBAction func saveEmailButtonPressed(_ sender: Any) {
-		guard let email = emailTextField.text else {
-			return
-		}
-
-		viewModel.saveEmail(email)
-	}
-
 	@IBAction func selectImageButtonPressed() {
 
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {

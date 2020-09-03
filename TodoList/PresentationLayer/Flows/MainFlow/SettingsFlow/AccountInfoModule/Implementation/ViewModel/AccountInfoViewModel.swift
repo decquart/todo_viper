@@ -9,38 +9,50 @@
 import Foundation
 
 class AccountInfoViewModel: AccountInfoViewModelProtocol {
-	private(set) var keychain: KeychainProtocol
-	private(set) var settings: AccountSettingsServiceProtocol
+
+	let repository: AnyRepository<User>
+	let currentUserName: String
+
+	private var currentUser: User?
 
 	private(set) var username: Box<String> = Box("")
 	private(set) var email: Box<String> = Box("")
 	private(set) var userImage: Box<Data?> = Box(nil)
 
-	init(keychain: KeychainProtocol, settings: AccountSettingsServiceProtocol) {
-		self.keychain = keychain
-		self.settings = settings
+	init(repository: AnyRepository<User>, currentUserName: String) {
+		self.repository = repository
+		self.currentUserName = currentUserName
 	}
 
 	func viewDidLoad() {
-//		username.value = keychain.load(for: .username) ?? ""
-//		email.value = keychain.load(for: .email) ?? ""
-		userImage.value = settings.userImage
+		let predicate = NSPredicate(format: "name = %@", currentUserName)
+		repository.fetch(where: predicate) { [weak self] result in
+			switch result {
+			case .success(let users):
+				guard let self = self, let user = users.first else { return }
+
+				self.username.value = user.name
+				self.email.value = user.email
+				self.userImage.value = user.image
+				self.currentUser = user
+			case .failure(_):
+				break
+			}
+		}
 	}
 
-	func saveName(_ name: String) {
-//		if keychain.save(name, for: .username) {
-//			username.value = name
-//		}
-	}
 
-	func saveEmail(_ value: String) {
-//		if keychain.save(value, for: .email) {
-//			email.value = value
-//		}
-	}
 
 	func saveUserImage(_ imageData: Data?) {
-		settings.userImage = imageData
-		userImage.value = settings.userImage
+		guard var user = currentUser else {
+			return
+		}
+		user.image = imageData
+
+		repository.update(user) { [weak self] success in
+			if success {
+				self?.userImage.value = imageData
+			}
+		}
 	}
 }

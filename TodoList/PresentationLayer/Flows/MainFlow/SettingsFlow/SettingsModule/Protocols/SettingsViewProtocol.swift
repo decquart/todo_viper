@@ -9,5 +9,5 @@
 import UIKit
 
 protocol SettingsViewProtocol: class {
-	var viewModel: SettingsVMProtocol! { get }
+	var presenter: SettingsPresenterProtocol! { get }
 }

@@ -11,11 +11,12 @@ import UIKit
 class SettingsModule {
 	func build(onAccount: Completion?, onTheme: Completion?, onLogOut: Completion?) -> UIViewController {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
-		let viewModel = SettingsVM(session: UserSession.default)
-		viewModel.onAccount = onAccount
-		viewModel.onTheme = onTheme
-		viewModel.onLogOut = onLogOut
-		view.viewModel = viewModel
+		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
+		let presenter = SettingsPresenter(repository: repository, session: UserSession.default)
+		presenter.onAccount = onAccount
+		presenter.onTheme = onTheme
+		presenter.onLogOut = onLogOut
+		view.presenter = presenter
 		return view
 	}
 }

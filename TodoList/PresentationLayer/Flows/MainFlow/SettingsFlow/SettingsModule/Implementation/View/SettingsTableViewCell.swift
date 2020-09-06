@@ -13,8 +13,4 @@ class SettingsTableViewCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var icon: UIImageView!
 
-	func configure(with viewModel: SettingsCellViewModel) {
-		descriptionLabel.text = viewModel.title
-		icon.image = UIImage(systemName: viewModel.imageUrl)
-	}
 }

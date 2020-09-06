@@ -15,9 +15,6 @@ enum KeychainType: String {
 }
 
 protocol KeychainProtocol {
-//	func save(_ value: String, for key: KeychainType) -> Bool
-//	func load(for key: KeychainType) -> String?
-
 	func save(_ password: String, for username: String) -> Bool
 	func loadPassword(for username: String) -> String?
 	func deletePassword(for username: String) -> Bool

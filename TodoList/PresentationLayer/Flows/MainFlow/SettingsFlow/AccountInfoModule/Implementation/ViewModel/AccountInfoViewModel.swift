@@ -41,8 +41,6 @@ class AccountInfoViewModel: AccountInfoViewModelProtocol {
 		}
 	}
 
-
-
 	func saveUserImage(_ imageData: Data?) {
 		guard var user = currentUser else {
 			return

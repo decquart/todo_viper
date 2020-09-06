@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsViewController: UIViewController, SettingsViewProtocol {
-	var viewModel: SettingsVMProtocol!
+	var presenter: SettingsPresenterProtocol!
 
 	var onAccount: (() -> Void)?
 	var onTheme: (() -> Void)?
@@ -19,7 +19,14 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
 			tableView.delegate = self
 			tableView.dataSource = self
 			tableView.registerNib(cellType: SettingsTableViewCell.self)
+			tableView.registerNib(cellType: UserInfoTableViewCell.self)
+			tableView.registerNib(cellType: EmailTableViewCell.self)
 		}
+	}
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		presenter.viewDidLoad()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -31,18 +38,43 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		viewModel.numberOfRows
+		return presenter.numberOfRows(in: section)
+	}
+
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return presenter.numberOfSections
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
-		let vm = viewModel.viewModelCell(at: indexPath.row)
-		cell.configure(with: vm)
-		return cell
+		let section = presenter.sectionInfo(at: indexPath.section)
+
+		switch section.type {
+		case .userInfo:
+			let cell = tableView.dequeue(cellType: UserInfoTableViewCell.self, for: indexPath)
+			cell.configure(with: section, and: indexPath.row)
+			return cell
+		case .email:
+			let cell = tableView.dequeue(cellType: EmailTableViewCell.self, for: indexPath)
+			cell.configure(with: section, and: indexPath.row)
+			return cell
+		default:
+			return UITableViewCell()
+		}
+
+		return UITableViewCell()
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		viewModel?.didSelectTableViewCell(at: indexPath.row)
+		presenter.didSelectTableViewCell(at: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return presenter.titleForHeader(at: section)
+	}
+
+	func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+		let header = view as? UITableViewHeaderFooterView
+		header?.textLabel?.text = presenter.titleForHeader(at: section)
 	}
 }

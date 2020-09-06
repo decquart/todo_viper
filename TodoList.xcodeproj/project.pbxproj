@@ -70,6 +70,11 @@
 		2D48791725058FD200E5DFB0 /* UserInfoSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791625058FD200E5DFB0 /* UserInfoSettingsSection.swift */; };
 		2D48791925058FF800E5DFB0 /* EmailSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791825058FF800E5DFB0 /* EmailSettingsSection.swift */; };
 		2D48791B2505905200E5DFB0 /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791A2505905200E5DFB0 /* SettingsSection.swift */; };
+		2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791C2505914E00E5DFB0 /* SettingsUseCase.swift */; };
+		2D48791F2505919500E5DFB0 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791E2505919500E5DFB0 /* SettingsInteractor.swift */; };
+		2D4879222505922800E5DFB0 /* ThemeSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */; };
+		2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */; };
+		2D48792625059D2E00E5DFB0 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -129,8 +134,6 @@
 		2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DA24BD13F300A04190 /* SettingsModule.swift */; };
 		2D82A0DF24BD15A900A04190 /* IconPickerViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */; };
 		2D82A0E124BD15C200A04190 /* IconPickerPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */; };
-		2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */; };
-		2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */; };
 		2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */; };
 		2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */; };
 		2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */; };
@@ -261,6 +264,11 @@
 		2D48791625058FD200E5DFB0 /* UserInfoSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoSettingsSection.swift; sourceTree = "<group>"; };
 		2D48791825058FF800E5DFB0 /* EmailSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailSettingsSection.swift; sourceTree = "<group>"; };
 		2D48791A2505905200E5DFB0 /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
+		2D48791C2505914E00E5DFB0 /* SettingsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUseCase.swift; sourceTree = "<group>"; };
+		2D48791E2505919500E5DFB0 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
+		2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsSection.swift; sourceTree = "<group>"; };
+		2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -317,8 +325,6 @@
 		2D82A0DA24BD13F300A04190 /* SettingsModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModule.swift; sourceTree = "<group>"; };
 		2D82A0DE24BD15A900A04190 /* IconPickerViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerViewProtocol.swift; sourceTree = "<group>"; };
 		2D82A0E024BD15C200A04190 /* IconPickerPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenterProtocol.swift; sourceTree = "<group>"; };
-		2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
-		2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTableViewCell.swift; sourceTree = "<group>"; };
 		2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorTableViewCell.xib; sourceTree = "<group>"; };
 		2D82A0F424BE2B9600A04190 /* IconPickerModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerModule.swift; sourceTree = "<group>"; };
@@ -611,6 +617,7 @@
 			children = (
 				2D01195224BF811D0097E74D /* SettingsViewProtocol.swift */,
 				2D9B61752501BB0300CF0B40 /* SettingsPresenterProtocol.swift */,
+				2D48791C2505914E00E5DFB0 /* SettingsUseCase.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -620,6 +627,7 @@
 			children = (
 				2D01195824BF81C10097E74D /* View */,
 				2D01196C24BF9C8E0097E74D /* Presenter */,
+				2D4879202505919C00E5DFB0 /* Interactor */,
 			);
 			path = Implementation;
 			sourceTree = "<group>";
@@ -634,6 +642,7 @@
 				2D48791A2505905200E5DFB0 /* SettingsSection.swift */,
 				2D48791525058FB500E5DFB0 /* UserInfoCell */,
 				2D48791425058FA000E5DFB0 /* EmailCell */,
+				2D4879272505A33200E5DFB0 /* ThemeSection */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -848,6 +857,24 @@
 				2D48791625058FD200E5DFB0 /* UserInfoSettingsSection.swift */,
 			);
 			path = UserInfoCell;
+			sourceTree = "<group>";
+		};
+		2D4879202505919C00E5DFB0 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				2D48791E2505919500E5DFB0 /* SettingsInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		2D4879272505A33200E5DFB0 /* ThemeSection */ = {
+			isa = PBXGroup;
+			children = (
+				2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */,
+				2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */,
+				2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */,
+			);
+			path = ThemeSection;
 			sourceTree = "<group>";
 		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
@@ -1144,8 +1171,6 @@
 		2D82A0E624BD8AEA00A04190 /* UITableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				2D82A0E224BD895800A04190 /* SwitchTableViewCell.swift */,
-				2D82A0E324BD895800A04190 /* SwitchTableViewCell.xib */,
 				2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */,
 				2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */,
 			);
@@ -1419,11 +1444,11 @@
 				04BCAB752498134D00A38846 /* Assets.xcassets in Resources */,
 				2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */,
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
+				2D48792625059D2E00E5DFB0 /* SwitchTableViewCell.xib in Resources */,
 				2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */,
 				2D48790B2505538500E5DFB0 /* UserInfoTableViewCell.xib in Resources */,
 				2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */,
 				2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */,
-				2D82A0E524BD895800A04190 /* SwitchTableViewCell.xib in Resources */,
 				2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
@@ -1453,7 +1478,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
-				2D82A0E424BD895800A04190 /* SwitchTableViewCell.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
@@ -1475,6 +1499,7 @@
 				04EFFD1F24801F680048336E /* CategoryCollectionViewCell.swift in Sources */,
 				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
+				2D48791F2505919500E5DFB0 /* SettingsInteractor.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */,
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */,
@@ -1491,6 +1516,7 @@
 				2DA5063624EF2041003A4180 /* LoginPresenterProtocol.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
+				2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */,
 				2D88E65124F6E9E80093C9C6 /* LoginInteractor.swift in Sources */,
 				2D7C295B24B3BD68008EE2C1 /* CDCategoryRepository.swift in Sources */,
 				04B692DB248ECA7B00428ECC /* CategoryObject.swift in Sources */,
@@ -1544,6 +1570,7 @@
 				2D7C295D24B3BD9D008EE2C1 /* CDRepository.swift in Sources */,
 				2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */,
 				2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */,
+				2D4879222505922800E5DFB0 /* ThemeSettingsSection.swift in Sources */,
 				04EFFD2624805BC80048336E /* TaskListPresenter.swift in Sources */,
 				2D52191224FA77EB008B7E6F /* SignUpViewModel.swift in Sources */,
 				2D82A0C524BD0AB600A04190 /* TaskListViewProtocol.swift in Sources */,
@@ -1557,6 +1584,7 @@
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,
+				2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */,
 				2D56825C24DC1D5900F693EC /* DeepLink.swift in Sources */,
 				2D52190424F9BC65008B7E6F /* RegistrationUseCase.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,

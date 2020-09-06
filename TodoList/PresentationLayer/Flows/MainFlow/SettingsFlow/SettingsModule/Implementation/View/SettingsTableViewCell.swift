@@ -12,5 +12,4 @@ class SettingsTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var icon: UIImageView!
-
 }

@@ -10,6 +10,7 @@ enum SettingsSectionType {
 	case userInfo
 	case email
 	case theme
+	case logOut
 }
 
 protocol SettingsSection {

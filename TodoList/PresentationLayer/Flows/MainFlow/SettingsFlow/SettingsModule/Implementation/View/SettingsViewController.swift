@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController, SettingsViewProtocol {
+class SettingsViewController: UIViewController {
 	var presenter: SettingsPresenterProtocol!
 
 	var onAccount: (() -> Void)?
@@ -18,9 +18,10 @@ class SettingsViewController: UIViewController, SettingsViewProtocol {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
-			tableView.registerNib(cellType: SettingsTableViewCell.self)
 			tableView.registerNib(cellType: UserInfoTableViewCell.self)
 			tableView.registerNib(cellType: EmailTableViewCell.self)
+			tableView.registerNib(cellType: SwitchTableViewCell.self)
+			tableView.registerNib(cellType: SettingsTableViewCell.self)
 		}
 	}
 
@@ -57,6 +58,12 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeue(cellType: EmailTableViewCell.self, for: indexPath)
 			cell.configure(with: section, and: indexPath.row)
 			return cell
+		case .theme:
+			let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
+			cell.configure(with: section, and: indexPath.row)
+			return cell
+		case .logOut:
+			break
 		default:
 			return UITableViewCell()
 		}
@@ -72,9 +79,10 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return presenter.titleForHeader(at: section)
 	}
+}
 
-	func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-		let header = view as? UITableViewHeaderFooterView
-		header?.textLabel?.text = presenter.titleForHeader(at: section)
+extension SettingsViewController: SettingsViewProtocol {
+	func reloadData() {
+		self.tableView.reloadData()
 	}
 }

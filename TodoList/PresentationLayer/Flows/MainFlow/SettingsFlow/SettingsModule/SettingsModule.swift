@@ -12,11 +12,15 @@ class SettingsModule {
 	func build(onAccount: Completion?, onTheme: Completion?, onLogOut: Completion?) -> UIViewController {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
 		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-		let presenter = SettingsPresenter(repository: repository, session: UserSession.default)
+		let interactor = SettingsInteractor(session: UserSession.default,
+											themeService: SettingsService.shared,
+											repository: repository)
+		let presenter = SettingsPresenter(interactor: interactor, view: view)
 		presenter.onAccount = onAccount
 		presenter.onTheme = onTheme
 		presenter.onLogOut = onLogOut
 		view.presenter = presenter
+		interactor.output = presenter
 		return view
 	}
 }

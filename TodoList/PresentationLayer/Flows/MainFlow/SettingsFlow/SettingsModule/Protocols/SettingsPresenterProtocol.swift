@@ -7,6 +7,8 @@
 //
 
 protocol SettingsPresenterProtocol {
+
+	var interactor: SettingsInteractorInput! { get }
 	var numberOfSections: Int { get }
 
 	func viewDidLoad()

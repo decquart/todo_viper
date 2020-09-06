@@ -13,22 +13,17 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	var onTheme: (() -> Void)?
 	var onLogOut: (() -> Void)?
 
-	private let session: UserSessionProtocol
-	private let repository: AnyRepository<User>
+	let interactor: SettingsInteractorInput!
+	weak var view: SettingsViewProtocol!
 	private var user: User?
 
-	init(repository: AnyRepository<User>, session: UserSessionProtocol) {
-		self.session = session
-		self.repository = repository
+	init(interactor: SettingsInteractorInput, view: SettingsViewProtocol) {
+		self.interactor = interactor
+		self.view = view
 	}
 
 	func viewDidLoad() {
-		let predicate = NSPredicate(format: "name = %@", session.currentUser!)
-		repository.fetch(where: predicate) { [weak self] result in
-			if case let .success(users) = result, let fetchedUser = users.first {
-				self?.user = fetchedUser
-			}
-		}
+		interactor.fetchCurrentUser()
 	}
 
 	private var sections: [SettingsSection] {
@@ -36,8 +31,8 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 			UserInfoSettingsSection(items: [
 				UserInfoCellModel(name: user?.name ?? "", imageData: user?.image)
 			]),
-
-			EmailSettingsSection(email: user?.email)
+			EmailSettingsSection(email: user?.email),
+			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:))
 
 		]
 	}
@@ -59,19 +54,18 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	}
 
 	func didSelectTableViewCell(at index: Int) {
-		let type = sections[index].type
-
-		switch type {
-		//case .account:
-			//onAccount?()
-		case .theme:
-			onTheme?()
-//		case .logOut:
-//			session.logOut()
-//			onLogOut?()
-		default:
-			break
-		}
+		//todo
 	}
 	
+}
+
+extension SettingsPresenter: SettingsInteractorOutput {
+	func didDarkModeChange(_ isOn: Bool) {
+		
+	}
+
+	func didUserFetch(_ user: User) {
+		self.user = user
+		view.reloadData()
+	}
 }

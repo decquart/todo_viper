@@ -15,5 +15,5 @@ protocol SettingsPresenterProtocol {
 	func numberOfRows(in section: Int) -> Int
 	func sectionInfo(at index: Int) -> SettingsSection
 	func titleForHeader(at index: Int) -> String
-	func didSelectTableViewCell(at index: Int)
+	func didSelectTableViewCell(at section: Int, and row: Int)
 }

@@ -39,6 +39,7 @@
                     <constraint firstAttribute="bottom" secondItem="HOM-gP-nZL" secondAttribute="bottom" constant="8" id="kjn-ez-do5"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="userImageView" destination="HOM-gP-nZL" id="U1F-nd-OzS"/>

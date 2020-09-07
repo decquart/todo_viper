@@ -32,7 +32,10 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 				UserInfoCellModel(name: user?.name ?? "", imageData: user?.image)
 			]),
 			EmailSettingsSection(email: user?.email),
-			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:))
+			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)),
+			LogOutCellSection(models: [
+				SettingsCellModel(title: "Log Out", imageName: "lock")
+			])
 
 		]
 	}
@@ -53,19 +56,26 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 		return sections[index].sectionTitle
 	}
 
-	func didSelectTableViewCell(at index: Int) {
-		//todo
+	func didSelectTableViewCell(at section: Int, and row: Int) {
+		let section = sections[section]
+
+		switch section.type {
+		case .logOut:
+			interactor.logOut()
+		default:
+			break
+		}
 	}
-	
 }
 
+//MARK: - SettingsInteractorOutput
 extension SettingsPresenter: SettingsInteractorOutput {
-	func didDarkModeChange(_ isOn: Bool) {
-		
-	}
-
 	func didUserFetch(_ user: User) {
 		self.user = user
 		view.reloadData()
+	}
+
+	func didLogOut() {
+		onLogOut?()
 	}
 }

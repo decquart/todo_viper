@@ -29,7 +29,6 @@ extension SettingsInteractor: SettingsInteractorInput {
 
 	func setDarkMode(_ isOn: Bool) {
 		themeService.setDarkModeVisble(isOn)
-		output?.didDarkModeChange(isOn)
 	}
 
 	func fetchCurrentUser() {
@@ -40,5 +39,10 @@ extension SettingsInteractor: SettingsInteractorInput {
 				self?.output?.didUserFetch(fetchedUser)
 			}
 		}
+	}
+
+	func logOut() {
+		session.logOut()
+		output?.didLogOut()
 	}
 }

@@ -18,7 +18,7 @@ class SwitchTableViewCell: UITableViewCell {
 		onSwitch?(sender.isOn)
 	}
 
-	func configure(with sectionData: SettingsSection, and index: Int) {
+	func configure(with sectionData: SettingsSection) {
 		guard let themeSection = sectionData as? ThemeSettingsSection else {
 			return
 		}

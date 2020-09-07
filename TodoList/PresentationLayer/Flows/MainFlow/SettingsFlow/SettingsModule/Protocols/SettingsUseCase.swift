@@ -13,9 +13,10 @@ protocol SettingsInteractorInput: class {
 	func setDarkMode(_ isOn: Bool)
 
 	func fetchCurrentUser()
+	func logOut()
 }
 
 protocol SettingsInteractorOutput: class {
-	func didDarkModeChange(_ isOn: Bool)
 	func didUserFetch(_ user: User)
+	func didLogOut()
 }

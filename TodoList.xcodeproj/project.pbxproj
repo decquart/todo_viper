@@ -75,6 +75,8 @@
 		2D4879222505922800E5DFB0 /* ThemeSettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */; };
 		2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */; };
 		2D48792625059D2E00E5DFB0 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */; };
+		2D48792D2506C78500E5DFB0 /* LogOutCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792C2506C78500E5DFB0 /* LogOutCellSection.swift */; };
+		2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -269,6 +271,8 @@
 		2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSettingsSection.swift; sourceTree = "<group>"; };
 		2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		2D48792C2506C78500E5DFB0 /* LogOutCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCellSection.swift; sourceTree = "<group>"; };
+		2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellModel.swift; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -639,10 +643,11 @@
 				2DE5847824B843DD0051680C /* Settings.storyboard */,
 				2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */,
 				2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */,
-				2D48791A2505905200E5DFB0 /* SettingsSection.swift */,
+				2D4879302506DB2200E5DFB0 /* Sections */,
 				2D48791525058FB500E5DFB0 /* UserInfoCell */,
 				2D48791425058FA000E5DFB0 /* EmailCell */,
-				2D4879272505A33200E5DFB0 /* ThemeSection */,
+				2D4879272505A33200E5DFB0 /* ThemeCell */,
+				2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -843,7 +848,6 @@
 			children = (
 				2D48791025058B4800E5DFB0 /* EmailTableViewCell.swift */,
 				2D48791125058B4800E5DFB0 /* EmailTableViewCell.xib */,
-				2D48791825058FF800E5DFB0 /* EmailSettingsSection.swift */,
 			);
 			path = EmailCell;
 			sourceTree = "<group>";
@@ -854,7 +858,6 @@
 				2D48790E25057ECD00E5DFB0 /* UserInfoCellModel.swift */,
 				2D4879082505538500E5DFB0 /* UserInfoTableViewCell.swift */,
 				2D4879092505538500E5DFB0 /* UserInfoTableViewCell.xib */,
-				2D48791625058FD200E5DFB0 /* UserInfoSettingsSection.swift */,
 			);
 			path = UserInfoCell;
 			sourceTree = "<group>";
@@ -867,14 +870,25 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		2D4879272505A33200E5DFB0 /* ThemeSection */ = {
+		2D4879272505A33200E5DFB0 /* ThemeCell */ = {
 			isa = PBXGroup;
 			children = (
-				2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */,
 				2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */,
 				2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */,
 			);
-			path = ThemeSection;
+			path = ThemeCell;
+			sourceTree = "<group>";
+		};
+		2D4879302506DB2200E5DFB0 /* Sections */ = {
+			isa = PBXGroup;
+			children = (
+				2D48791A2505905200E5DFB0 /* SettingsSection.swift */,
+				2D48792C2506C78500E5DFB0 /* LogOutCellSection.swift */,
+				2D4879212505922800E5DFB0 /* ThemeSettingsSection.swift */,
+				2D48791825058FF800E5DFB0 /* EmailSettingsSection.swift */,
+				2D48791625058FD200E5DFB0 /* UserInfoSettingsSection.swift */,
+			);
+			path = Sections;
 			sourceTree = "<group>";
 		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
@@ -1579,6 +1593,7 @@
 				2D91D1D224F4523400D6303A /* CategoryDetailsUseCase.swift in Sources */,
 				04BCAB732498134D00A38846 /* AppDelegate.swift in Sources */,
 				2D7C295924B3B099008EE2C1 /* Repository.swift in Sources */,
+				2D48792D2506C78500E5DFB0 /* LogOutCellSection.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
 				2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
@@ -1589,6 +1604,7 @@
 				2D52190424F9BC65008B7E6F /* RegistrationUseCase.swift in Sources */,
 				2D777BE3249D652000720B5D /* CategoryViewModel.swift in Sources */,
 				2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */,
+				2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */,
 				2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */,
 				2D82A0B824BCFA3600A04190 /* CategoryDetailsViewProtocol.swift in Sources */,
 				04BCAB802498136C00A38846 /* Task+CoreDataClass.swift in Sources */,

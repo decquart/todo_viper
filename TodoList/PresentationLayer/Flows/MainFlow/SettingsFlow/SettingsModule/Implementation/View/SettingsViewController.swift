@@ -60,19 +60,17 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		case .theme:
 			let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
-			cell.configure(with: section, and: indexPath.row)
+			cell.configure(with: section)
 			return cell
 		case .logOut:
-			break
-		default:
-			return UITableViewCell()
+			let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
+			cell.configure(with: section, and: indexPath.row)
+			return cell
 		}
-
-		return UITableViewCell()
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		presenter.didSelectTableViewCell(at: indexPath.row)
+		presenter.didSelectTableViewCell(at: indexPath.section, and: indexPath.row)
 		tableView.deselectRow(at: indexPath, animated: true)
 	}
 

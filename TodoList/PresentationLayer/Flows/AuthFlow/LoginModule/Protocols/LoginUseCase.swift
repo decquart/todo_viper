@@ -9,6 +9,7 @@
 protocol LoginInteractorInput {
 	func login(with userName: String?, and password: String?)
 	func signInWithGoogle()
+	func skipLogin()
 }
 
 protocol LoginInteractorOutput: class {

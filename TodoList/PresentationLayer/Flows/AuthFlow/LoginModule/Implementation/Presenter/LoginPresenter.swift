@@ -28,7 +28,7 @@ extension LoginPresenter: LoginPresenterProtocol {
 	}
 
 	func skipLogin() {
-		onFinish?()
+		interactor.skipLogin()
 	}
 
 	func register() {

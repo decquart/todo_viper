@@ -49,6 +49,11 @@ extension LoginInteractor: LoginInteractorInput {
 	func signInWithGoogle() {
 		googleSignInService?.signIn()
 	}
+
+	func skipLogin() {
+		userSession.skipAuthorization()
+		output?.loginSuccess()
+	}
 }
 
 private extension LoginInteractor {

@@ -12,6 +12,10 @@ class LogOutCellSection: SettingsSection {
 	var type: SettingsSectionType = .logOut
 	var sectionTitle: String = ""
 
+	var rowCount: Int {
+		return models.count
+	}
+
 	let models: [SettingsCellModel]
 
 	init(models: [SettingsCellModel]) {

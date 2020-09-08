@@ -40,7 +40,6 @@
 		2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195F24BF825A0097E74D /* ColorPickerView.swift */; };
 		2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D01196024BF825A0097E74D /* ColorPickerView.xib */; };
 		2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */; };
-		2D01196624BF8FB40097E74D /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */; };
 		2D01197024BFAB860097E74D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196F24BFAB860097E74D /* Box.swift */; };
 		2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */; };
 		2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01197424BFB61B0097E74D /* AccountInfo.storyboard */; };
@@ -77,6 +76,8 @@
 		2D48792625059D2E00E5DFB0 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */; };
 		2D48792D2506C78500E5DFB0 /* LogOutCellSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792C2506C78500E5DFB0 /* LogOutCellSection.swift */; };
 		2D48792F2506D84E00E5DFB0 /* SettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */; };
+		2D48793325075D4B00E5DFB0 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48793125075D4B00E5DFB0 /* SettingsTableViewCell.swift */; };
+		2D48793425075D4B00E5DFB0 /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */; };
 		2D4928C924A555C8008AF740 /* IconPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */; };
 		2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */; };
 		2D4928CF24A5CADC008AF740 /* IconPickerPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */; };
@@ -164,7 +165,6 @@
 		2DB74B0924C855030076CE43 /* Categories.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DB74B0824C855030076CE43 /* Categories.json */; };
 		2DB74B0B24CA35190076CE43 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB74B0A24CA35190076CE43 /* Color.swift */; };
 		2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBC4C4224D00B0B00C38620 /* Scope.swift */; };
-		2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */; };
 		2DC445E224FDB115009E5396 /* GoogleSignInService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC445E124FDB115009E5396 /* GoogleSignInService.swift */; };
 		2DC445EA24FDC677009E5396 /* GoogleSignIn.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
 		2DC445EB24FDC677009E5396 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2DC445E724FDC677009E5396 /* README.md */; };
@@ -236,7 +236,6 @@
 		2D01195F24BF825A0097E74D /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		2D01196024BF825A0097E74D /* ColorPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
-		2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2D01196F24BFAB860097E74D /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
 		2D01197424BFB61B0097E74D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
@@ -273,6 +272,8 @@
 		2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
 		2D48792C2506C78500E5DFB0 /* LogOutCellSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutCellSection.swift; sourceTree = "<group>"; };
 		2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellModel.swift; sourceTree = "<group>"; };
+		2D48793125075D4B00E5DFB0 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		2D4928C724A555C8008AF740 /* IconPickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2D4928C824A555C8008AF740 /* IconPickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IconPickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		2D4928CE24A5CADC008AF740 /* IconPickerPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconPickerPresenter.swift; sourceTree = "<group>"; };
@@ -357,7 +358,6 @@
 		2DB74B0824C855030076CE43 /* Categories.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Categories.json; sourceTree = "<group>"; };
 		2DB74B0A24CA35190076CE43 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		2DBC4C4224D00B0B00C38620 /* Scope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scope.swift; sourceTree = "<group>"; };
-		2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		2DC445E124FDB115009E5396 /* GoogleSignInService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleSignInService.swift; sourceTree = "<group>"; };
 		2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GoogleSignIn.bundle; sourceTree = "<group>"; };
 		2DC445E724FDC677009E5396 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -641,13 +641,13 @@
 			children = (
 				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
 				2DE5847824B843DD0051680C /* Settings.storyboard */,
-				2DBFA25924B84AD600378917 /* SettingsTableViewCell.swift */,
-				2D01196524BF8FB40097E74D /* SettingsTableViewCell.xib */,
 				2D4879302506DB2200E5DFB0 /* Sections */,
 				2D48791525058FB500E5DFB0 /* UserInfoCell */,
 				2D48791425058FA000E5DFB0 /* EmailCell */,
 				2D4879272505A33200E5DFB0 /* ThemeCell */,
 				2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */,
+				2D48793125075D4B00E5DFB0 /* SettingsTableViewCell.swift */,
+				2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1451,7 +1451,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D01196624BF8FB40097E74D /* SettingsTableViewCell.xib in Resources */,
 				047C64FB24858B5C00BB6702 /* CategoryDetails.storyboard in Resources */,
 				2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */,
 				2DC445EB24FDC677009E5396 /* README.md in Resources */,
@@ -1465,6 +1464,7 @@
 				2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */,
 				2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */,
 				2DFD0CB524A538B300317BAD /* IconPickerView.xib in Resources */,
+				2D48793425075D4B00E5DFB0 /* SettingsTableViewCell.xib in Resources */,
 				2DE5847924B843DD0051680C /* Settings.storyboard in Resources */,
 				2D507C24249B62DA005B0048 /* LaunchScreen.storyboard in Resources */,
 				2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */,
@@ -1560,7 +1560,6 @@
 				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
-				2DBFA25A24B84AD600378917 /* SettingsTableViewCell.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
@@ -1596,6 +1595,7 @@
 				2D48792D2506C78500E5DFB0 /* LogOutCellSection.swift in Sources */,
 				04BCAB742498134D00A38846 /* SceneDelegate.swift in Sources */,
 				2DD037AD24BEDA3200FC6102 /* ColorPickerModule.swift in Sources */,
+				2D48793325075D4B00E5DFB0 /* SettingsTableViewCell.swift in Sources */,
 				2DFD0CB324A5389E00317BAD /* IconPickerView.swift in Sources */,
 				04BCAB812498136C00A38846 /* Task+CoreDataProperties.swift in Sources */,
 				2DFD133624C4FDB7006D0EA6 /* ThemesViewProtocol.swift in Sources */,

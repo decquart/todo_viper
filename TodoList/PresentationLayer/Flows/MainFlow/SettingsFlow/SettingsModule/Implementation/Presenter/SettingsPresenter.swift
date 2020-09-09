@@ -9,10 +9,26 @@
 import Foundation
 
 enum SettingsCellType {
-	case photo(UserInfoCellModel)
-	case regular(RegularSettingsCellModel)
-	case icon(SettingsCellModel)
-	case `switch`(SwitchCellModel)
+	case photo(UserInfoCellModel, type: PhotoCellType)
+	case regular(RegularSettingsCellModel, type: RegularCellType)
+	case icon(SettingsCellModel, type: IconCellType)
+	case `switch`(SwitchCellModel, type: SwitchCellType)
+
+	enum IconCellType {
+		case logOut
+	}
+
+	enum PhotoCellType {
+		case profile
+	}
+
+	enum RegularCellType {
+		case email
+	}
+
+	enum SwitchCellType {
+		case darkMode
+	}
 }
 
 final class SettingsPresenter: SettingsPresenterProtocol {
@@ -37,17 +53,17 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 
 	private var sectionsForAuthorizedUser: [[SettingsCellType]] {
 		return [
-			[.photo(UserInfoCellModel(name: user?.name ?? "", imageData: user?.image))],
-			[.regular(RegularSettingsCellModel(title: user?.email ?? ""))],
-			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)))],
-			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"))]
+			[.photo(UserInfoCellModel(name: user?.name ?? "", imageData: user?.image), type: .profile)],
+			[.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)],
+			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)],
+			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"), type: .logOut)]
 		]
 	}
 
 	private var sectionsForUnAuthorizedUser: [[SettingsCellType]] {
 		return [
-			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)))],
-			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"))]
+			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)],
+			[.icon(SettingsCellModel(title: "Log In", imageName: "person"), type: .logOut)]
 		]
 	}
 
@@ -71,11 +87,13 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	}
 
 	func didSelectTableViewCell(at section: Int, and row: Int) {
-		let section = sections[section]
+		let cellType = sections[section][row]
 
-		switch section.type {
-		case .logOut:
-			interactor.logOut()
+		switch cellType {
+		case .icon(_, let type):
+			if type == .logOut {
+				interactor.logOut()
+			}
 		default:
 			break
 		}

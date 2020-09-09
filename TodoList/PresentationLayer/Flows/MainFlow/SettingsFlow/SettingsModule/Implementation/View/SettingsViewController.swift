@@ -51,19 +51,19 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 
 
 		switch cellType {
-		case .photo(let model):
+		case .photo(let model, _):
 			let cell = tableView.dequeue(cellType: UserInfoTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
-		case .regular(let model):
+		case .regular(let model, _):
 			let cell = tableView.dequeue(cellType: EmailTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
-		case .switch(let model):
+		case .switch(let model, _):
 			let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
-		case .icon(let model):
+		case .icon(let model, _):
 			let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell

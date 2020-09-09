@@ -18,8 +18,8 @@ class SettingsViewController: UIViewController {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
-			tableView.registerNib(cellType: UserInfoTableViewCell.self)
-			tableView.registerNib(cellType: EmailTableViewCell.self)
+			tableView.registerNib(cellType: PhotoTableViewCell.self)
+			tableView.registerNib(cellType: RegularTableViewCell.self)
 			tableView.registerNib(cellType: SwitchTableViewCell.self)
 			tableView.registerNib(cellType: SettingsTableViewCell.self)
 		}
@@ -47,16 +47,15 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cellType = presenter.sections[indexPath.section][indexPath.row]
-
+		let cellType = presenter.cellModel(at: indexPath.section, and: indexPath.row)
 
 		switch cellType {
 		case .photo(let model, _):
-			let cell = tableView.dequeue(cellType: UserInfoTableViewCell.self, for: indexPath)
+			let cell = tableView.dequeue(cellType: PhotoTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
 		case .regular(let model, _):
-			let cell = tableView.dequeue(cellType: EmailTableViewCell.self, for: indexPath)
+			let cell = tableView.dequeue(cellType: RegularTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
 		case .switch(let model, _):

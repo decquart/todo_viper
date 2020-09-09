@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserInfoTableViewCell: UITableViewCell {
+class PhotoTableViewCell: UITableViewCell {
 	
 	@IBOutlet weak var userImageView: UIImageView! {
 		didSet {
@@ -18,7 +18,7 @@ class UserInfoTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var userNameLabel: UILabel!
 
-	func configure(with model: UserInfoCellModel) {
+	func configure(with model: PhotoCellModel) {
 		userImageView.image = UIImage(data: model.imageData ?? Data())
 		userNameLabel.text = model.name
 	}

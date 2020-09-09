@@ -1,5 +1,5 @@
 //
-//  EmailTableViewCell.swift
+//  RegularTableViewCell.swift
 //  TodoList
 //
 //  Created by Volodymyr Myhailyuk on 07.09.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EmailTableViewCell: UITableViewCell {
+class RegularTableViewCell: UITableViewCell {
 	@IBOutlet weak var emailLabel: UILabel!
 
 	func configure(with model: RegularSettingsCellModel) {

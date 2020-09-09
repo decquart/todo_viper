@@ -61,11 +61,11 @@
 		2D39DC1B24D375E800E27522 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */; };
 		2D39DC3624D71A8800E27522 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3524D71A8800E27522 /* AppCoordinator.swift */; };
 		2D39DC3A24D80DF800E27522 /* CategoiesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */; };
-		2D48790A2505538500E5DFB0 /* UserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879082505538500E5DFB0 /* UserInfoTableViewCell.swift */; };
-		2D48790B2505538500E5DFB0 /* UserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4879092505538500E5DFB0 /* UserInfoTableViewCell.xib */; };
-		2D48790F25057ECD00E5DFB0 /* UserInfoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48790E25057ECD00E5DFB0 /* UserInfoCellModel.swift */; };
-		2D48791225058B4800E5DFB0 /* EmailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791025058B4800E5DFB0 /* EmailTableViewCell.swift */; };
-		2D48791325058B4800E5DFB0 /* EmailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48791125058B4800E5DFB0 /* EmailTableViewCell.xib */; };
+		2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */; };
+		2D48790B2505538500E5DFB0 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */; };
+		2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */; };
+		2D48791225058B4800E5DFB0 /* RegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791025058B4800E5DFB0 /* RegularTableViewCell.swift */; };
+		2D48791325058B4800E5DFB0 /* RegularTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D48791125058B4800E5DFB0 /* RegularTableViewCell.xib */; };
 		2D48791D2505914E00E5DFB0 /* SettingsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791C2505914E00E5DFB0 /* SettingsUseCase.swift */; };
 		2D48791F2505919500E5DFB0 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48791E2505919500E5DFB0 /* SettingsInteractor.swift */; };
 		2D48792525059D2E00E5DFB0 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */; };
@@ -254,11 +254,11 @@
 		2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC3524D71A8800E27522 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2D39DC3924D80DF800E27522 /* CategoiesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoiesCoordinator.swift; sourceTree = "<group>"; };
-		2D4879082505538500E5DFB0 /* UserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoTableViewCell.swift; sourceTree = "<group>"; };
-		2D4879092505538500E5DFB0 /* UserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoTableViewCell.xib; sourceTree = "<group>"; };
-		2D48790E25057ECD00E5DFB0 /* UserInfoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCellModel.swift; sourceTree = "<group>"; };
-		2D48791025058B4800E5DFB0 /* EmailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailTableViewCell.swift; sourceTree = "<group>"; };
-		2D48791125058B4800E5DFB0 /* EmailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmailTableViewCell.xib; sourceTree = "<group>"; };
+		2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
+		2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCellModel.swift; sourceTree = "<group>"; };
+		2D48791025058B4800E5DFB0 /* RegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTableViewCell.swift; sourceTree = "<group>"; };
+		2D48791125058B4800E5DFB0 /* RegularTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegularTableViewCell.xib; sourceTree = "<group>"; };
 		2D48791C2505914E00E5DFB0 /* SettingsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsUseCase.swift; sourceTree = "<group>"; };
 		2D48791E2505919500E5DFB0 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -635,12 +635,10 @@
 			children = (
 				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
 				2DE5847824B843DD0051680C /* Settings.storyboard */,
-				2D48791525058FB500E5DFB0 /* UserInfoCell */,
-				2D48791425058FA000E5DFB0 /* EmailCell */,
-				2D4879272505A33200E5DFB0 /* ThemeCell */,
-				2D48793125075D4B00E5DFB0 /* SettingsTableViewCell.swift */,
-				2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */,
-				2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */,
+				2D48791525058FB500E5DFB0 /* PhotoCell */,
+				2D48791425058FA000E5DFB0 /* RegularCell */,
+				2D4879272505A33200E5DFB0 /* SwitchCell */,
+				2DC878FB2509982300B37CF5 /* SettingsCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -836,24 +834,24 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		2D48791425058FA000E5DFB0 /* EmailCell */ = {
+		2D48791425058FA000E5DFB0 /* RegularCell */ = {
 			isa = PBXGroup;
 			children = (
 				2DC878F7250984DF00B37CF5 /* RegularSettingsCellModel.swift */,
-				2D48791025058B4800E5DFB0 /* EmailTableViewCell.swift */,
-				2D48791125058B4800E5DFB0 /* EmailTableViewCell.xib */,
+				2D48791025058B4800E5DFB0 /* RegularTableViewCell.swift */,
+				2D48791125058B4800E5DFB0 /* RegularTableViewCell.xib */,
 			);
-			path = EmailCell;
+			path = RegularCell;
 			sourceTree = "<group>";
 		};
-		2D48791525058FB500E5DFB0 /* UserInfoCell */ = {
+		2D48791525058FB500E5DFB0 /* PhotoCell */ = {
 			isa = PBXGroup;
 			children = (
-				2D48790E25057ECD00E5DFB0 /* UserInfoCellModel.swift */,
-				2D4879082505538500E5DFB0 /* UserInfoTableViewCell.swift */,
-				2D4879092505538500E5DFB0 /* UserInfoTableViewCell.xib */,
+				2D48790E25057ECD00E5DFB0 /* PhotoCellModel.swift */,
+				2D4879082505538500E5DFB0 /* PhotoTableViewCell.swift */,
+				2D4879092505538500E5DFB0 /* PhotoTableViewCell.xib */,
 			);
-			path = UserInfoCell;
+			path = PhotoCell;
 			sourceTree = "<group>";
 		};
 		2D4879202505919C00E5DFB0 /* Interactor */ = {
@@ -864,14 +862,14 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		2D4879272505A33200E5DFB0 /* ThemeCell */ = {
+		2D4879272505A33200E5DFB0 /* SwitchCell */ = {
 			isa = PBXGroup;
 			children = (
 				2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */,
 				2D48792325059D2E00E5DFB0 /* SwitchTableViewCell.swift */,
 				2D48792425059D2E00E5DFB0 /* SwitchTableViewCell.xib */,
 			);
-			path = ThemeCell;
+			path = SwitchCell;
 			sourceTree = "<group>";
 		};
 		2D4928CB24A5C5B0008AF740 /* IconPicker */ = {
@@ -1284,6 +1282,16 @@
 			path = GoogleSigninSDK;
 			sourceTree = "<group>";
 		};
+		2DC878FB2509982300B37CF5 /* SettingsCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D48793125075D4B00E5DFB0 /* SettingsTableViewCell.swift */,
+				2D48793225075D4B00E5DFB0 /* SettingsTableViewCell.xib */,
+				2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */,
+			);
+			path = SettingsCell;
+			sourceTree = "<group>";
+		};
 		2DCA3C6F24FF875300D084F8 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -1442,7 +1450,7 @@
 				2D4928CA24A555C8008AF740 /* IconPickerCollectionViewCell.xib in Resources */,
 				2D48792625059D2E00E5DFB0 /* SwitchTableViewCell.xib in Resources */,
 				2DB0C8B424BB6429006C6C69 /* Task.storyboard in Resources */,
-				2D48790B2505538500E5DFB0 /* UserInfoTableViewCell.xib in Resources */,
+				2D48790B2505538500E5DFB0 /* PhotoTableViewCell.xib in Resources */,
 				2D82A0EA24BD921900A04190 /* ColorTableViewCell.xib in Resources */,
 				2DA5063124EF1EA9003A4180 /* Login.storyboard in Resources */,
 				2DB0C8B624BB9FA0006C6C69 /* Colors.xcassets in Resources */,
@@ -1453,7 +1461,7 @@
 				2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */,
 				2D01199524C07E400097E74D /* Themes.storyboard in Resources */,
 				2DC445EA24FDC677009E5396 /* GoogleSignIn.bundle in Resources */,
-				2D48791325058B4800E5DFB0 /* EmailTableViewCell.xib in Resources */,
+				2D48791325058B4800E5DFB0 /* RegularTableViewCell.xib in Resources */,
 				049FB52A2480157E000A7133 /* Main.storyboard in Resources */,
 				2D52190A24F9BD44008B7E6F /* Registration.storyboard in Resources */,
 				2DB74B0924C855030076CE43 /* Categories.json in Resources */,
@@ -1525,7 +1533,7 @@
 				2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */,
 				2D692EAA24AE82430005D4CB /* UITableView+Wrapper.swift in Sources */,
 				2D39DC1724D3665900E27522 /* Storyboarded.swift in Sources */,
-				2D48791225058B4800E5DFB0 /* EmailTableViewCell.swift in Sources */,
+				2D48791225058B4800E5DFB0 /* RegularTableViewCell.swift in Sources */,
 				2D51EBD424FC612E00FA92A0 /* TaskListInteractor.swift in Sources */,
 				2D777BEC24A12EAC00720B5D /* TaskViewModel.swift in Sources */,
 				2D7C296224B451CE008EE2C1 /* RealmRepository.swift in Sources */,
@@ -1594,7 +1602,7 @@
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
-				2D48790F25057ECD00E5DFB0 /* UserInfoCellModel.swift in Sources */,
+				2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */,
 				04EFFD1324801A5F0048336E /* CategoryListViewController.swift in Sources */,
@@ -1607,7 +1615,7 @@
 				2D9B61742501BAE700CF0B40 /* SettingsPresenter.swift in Sources */,
 				2D5F22A524BCEC5E00A46ED6 /* CategoryListModule.swift in Sources */,
 				2D82A0DB24BD13F300A04190 /* SettingsModule.swift in Sources */,
-				2D48790A2505538500E5DFB0 /* UserInfoTableViewCell.swift in Sources */,
+				2D48790A2505538500E5DFB0 /* PhotoTableViewCell.swift in Sources */,
 				2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */,
 				2D9B615025004DD400CF0B40 /* GIDProfileData+User.swift in Sources */,
 				2DD037A624BED76E00FC6102 /* ColorPickerViewProtocol.swift in Sources */,

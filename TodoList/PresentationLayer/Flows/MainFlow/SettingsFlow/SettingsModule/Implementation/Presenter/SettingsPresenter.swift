@@ -9,7 +9,7 @@
 import Foundation
 
 enum SettingsCellType {
-	case photo(UserInfoCellModel, type: PhotoCellType)
+	case photo(PhotoCellModel, type: PhotoCellType)
 	case regular(RegularSettingsCellModel, type: RegularCellType)
 	case icon(SettingsCellModel, type: IconCellType)
 	case `switch`(SwitchCellModel, type: SwitchCellType)
@@ -29,6 +29,11 @@ enum SettingsCellType {
 	enum SwitchCellType {
 		case darkMode
 	}
+}
+
+struct SettingsSection {
+	let title: String
+	let cells: [SettingsCellType]
 }
 
 final class SettingsPresenter: SettingsPresenterProtocol {
@@ -51,23 +56,23 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 		}
 	}
 
-	private var sectionsForAuthorizedUser: [[SettingsCellType]] {
+	private var sectionsForAuthorizedUser: [SettingsSection] {
 		return [
-			[.photo(UserInfoCellModel(name: user?.name ?? "", imageData: user?.image), type: .profile)],
-			[.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)],
-			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)],
-			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"), type: .logOut)]
+			SettingsSection(title: "User Info", cells: [.photo(PhotoCellModel(name: user?.name ?? "", imageData: user?.image), type: .profile)]),
+			SettingsSection(title: "Email", cells: [.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)]),
+			SettingsSection(title: "Theme", cells: [.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)]),
+			SettingsSection(title: "", cells: [.icon(SettingsCellModel(title: "Log Out", imageName: "lock"), type: .logOut)])
 		]
 	}
 
-	private var sectionsForUnAuthorizedUser: [[SettingsCellType]] {
+	private var sectionsForUnAuthorizedUser: [SettingsSection] {
 		return [
-			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)],
-			[.icon(SettingsCellModel(title: "Log In", imageName: "person"), type: .logOut)]
+			SettingsSection(title: "Theme", cells: [.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)]),
+			SettingsSection(title: "", cells: [.icon(SettingsCellModel(title: "Log In", imageName: "person"), type: .logOut)])
 		]
 	}
 
-	var sections: [[SettingsCellType]] {
+	var sections: [SettingsSection] {
 		return interactor.isCurrentUserExists
 			? sectionsForAuthorizedUser
 			: sectionsForUnAuthorizedUser
@@ -78,16 +83,19 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	}
 
 	func numberOfRows(in section: Int) -> Int {
-		return sections[section].count
+		return sections[section].cells.count
 	}
 
+	func cellModel(at section: Int, and row: Int) -> SettingsCellType {
+		return sections[section].cells[row]
+	}
 
 	func titleForHeader(at index: Int) -> String {
-		return ""//sections[index].sectionTitle
+		return sections[index].title
 	}
 
 	func didSelectTableViewCell(at section: Int, and row: Int) {
-		let cellType = sections[section][row]
+		let cellType = sections[section].cells[row]
 
 		switch cellType {
 		case .icon(_, let type):

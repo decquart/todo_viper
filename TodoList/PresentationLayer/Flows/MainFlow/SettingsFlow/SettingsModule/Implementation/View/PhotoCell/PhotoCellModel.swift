@@ -1,5 +1,5 @@
 //
-//  UserInfoCellModel.swift
+//  PhotoCellModel.swift
 //  TodoList
 //
 //  Created by Volodymyr Myhailyuk on 06.09.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserInfoCellModel {
+struct PhotoCellModel {
 	let name: String
 	let imageData: Data?
 }

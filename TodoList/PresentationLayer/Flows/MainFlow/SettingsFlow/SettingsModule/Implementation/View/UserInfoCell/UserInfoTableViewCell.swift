@@ -18,14 +18,8 @@ class UserInfoTableViewCell: UITableViewCell {
 
 	@IBOutlet weak var userNameLabel: UILabel!
 
-	func configure(with sectionData: SettingsSection, and index: Int) {
-		guard let userInfoSection = sectionData as? UserInfoSettingsSection else {
-			return
-		}
-
-		let cellModel = userInfoSection.items[index]
-
-		userImageView.image = UIImage(data: cellModel.imageData ?? Data())
-		userNameLabel.text = cellModel.name
+	func configure(with model: UserInfoCellModel) {
+		userImageView.image = UIImage(data: model.imageData ?? Data())
+		userNameLabel.text = model.name
 	}
 }

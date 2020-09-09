@@ -10,10 +10,10 @@ protocol SettingsPresenterProtocol {
 
 	var interactor: SettingsInteractorInput! { get }
 	var numberOfSections: Int { get }
+	var sections: [[SettingsCellType]] { get }
 
 	func viewDidLoad()
 	func numberOfRows(in section: Int) -> Int
-	func sectionInfo(at index: Int) -> SettingsSection
 	func titleForHeader(at index: Int) -> String
 	func didSelectTableViewCell(at section: Int, and row: Int)
 }

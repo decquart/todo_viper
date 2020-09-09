@@ -8,6 +8,13 @@
 
 import Foundation
 
+enum SettingsCellType {
+	case photo(UserInfoCellModel)
+	case regular(RegularSettingsCellModel)
+	case icon(SettingsCellModel)
+	case `switch`(SwitchCellModel)
+}
+
 final class SettingsPresenter: SettingsPresenterProtocol {
 	var onAccount: (() -> Void)?
 	var onTheme: (() -> Void)?
@@ -28,29 +35,23 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 		}
 	}
 
-	private var sectionsForAuthorizedUser: [SettingsSection] {
+	private var sectionsForAuthorizedUser: [[SettingsCellType]] {
 		return [
-			UserInfoSettingsSection(items: [
-				UserInfoCellModel(name: user?.name ?? "", imageData: user?.image)
-			]),
-			EmailSettingsSection(email: user?.email),
-			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)),
-			LogOutCellSection(models: [
-				SettingsCellModel(title: "Log Out", imageName: "lock")
-			])
+			[.photo(UserInfoCellModel(name: user?.name ?? "", imageData: user?.image))],
+			[.regular(RegularSettingsCellModel(title: user?.email ?? ""))],
+			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)))],
+			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"))]
 		]
 	}
 
-	private var sectionsForUnAuthorizedUser: [SettingsSection] {
+	private var sectionsForUnAuthorizedUser: [[SettingsCellType]] {
 		return [
-			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)),
-			LogOutCellSection(models: [
-				SettingsCellModel(title: "Log In", imageName: "person")
-			])
+			[.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)))],
+			[.icon(SettingsCellModel(title: "Log Out", imageName: "lock"))]
 		]
 	}
 
-	private var sections: [SettingsSection] {
+	var sections: [[SettingsCellType]] {
 		return interactor.isCurrentUserExists
 			? sectionsForAuthorizedUser
 			: sectionsForUnAuthorizedUser
@@ -61,15 +62,12 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	}
 
 	func numberOfRows(in section: Int) -> Int {
-		return sections[section].rowCount
+		return sections[section].count
 	}
 
-	func sectionInfo(at index: Int) -> SettingsSection {
-		return sections[index]
-	}
 
 	func titleForHeader(at index: Int) -> String {
-		return sections[index].sectionTitle
+		return ""//sections[index].sectionTitle
 	}
 
 	func didSelectTableViewCell(at section: Int, and row: Int) {

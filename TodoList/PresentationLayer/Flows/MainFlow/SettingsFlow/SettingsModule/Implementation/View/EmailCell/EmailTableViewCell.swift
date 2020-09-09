@@ -11,11 +11,7 @@ import UIKit
 class EmailTableViewCell: UITableViewCell {
 	@IBOutlet weak var emailLabel: UILabel!
 
-	func configure(with sectionData: SettingsSection, and index: Int) {
-		guard let emailSection = sectionData as? EmailSettingsSection else {
-			return
-		}
-
-		emailLabel.text = emailSection.email
+	func configure(with model: RegularSettingsCellModel) {
+		emailLabel.text = model.title
 	}
 }

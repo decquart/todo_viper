@@ -13,12 +13,8 @@ class SettingsTableViewCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var icon: UIImageView!
 
-	func configure(with sectionData: SettingsSection, and index: Int) {
-		guard let section = sectionData as? LogOutCellSection else {
-			return
-		}
-
-		self.descriptionLabel.text = section.models[index].title
-		self.icon.image = UIImage(systemName: section.models[index].imageName)
+	func configure(with model: SettingsCellModel) {
+		self.descriptionLabel.text = model.title
+		self.icon.image = UIImage(systemName: model.imageName)
 	}
 }

@@ -18,13 +18,9 @@ class SwitchTableViewCell: UITableViewCell {
 		onSwitch?(sender.isOn)
 	}
 
-	func configure(with sectionData: SettingsSection) {
-		guard let themeSection = sectionData as? ThemeSettingsSection else {
-			return
-		}
-
-		descriptionLabel.text = themeSection.cellDescription
-		cellSwitch.isOn = themeSection.isDarkModeEnabled
-		onSwitch = themeSection.onSwitch
+	func configure(with model: SwitchCellModel) {
+		descriptionLabel.text = model.title
+		cellSwitch.isOn = model.isOn
+		onSwitch = model.onSwitch
 	}
 }

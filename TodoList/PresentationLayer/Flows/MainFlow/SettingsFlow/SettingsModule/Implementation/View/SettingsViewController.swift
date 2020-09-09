@@ -47,26 +47,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let section = presenter.sectionInfo(at: indexPath.section)
+		let cellType = presenter.sections[indexPath.section][indexPath.row]
 
-		switch section.type {
-		case .userInfo:
+
+		switch cellType {
+		case .photo(let model):
 			let cell = tableView.dequeue(cellType: UserInfoTableViewCell.self, for: indexPath)
-			cell.configure(with: section, and: indexPath.row)
+			cell.configure(with: model)
 			return cell
-		case .email:
+		case .regular(let model):
 			let cell = tableView.dequeue(cellType: EmailTableViewCell.self, for: indexPath)
-			cell.configure(with: section, and: indexPath.row)
+			cell.configure(with: model)
 			return cell
-		case .theme:
+		case .switch(let model):
 			let cell = tableView.dequeue(cellType: SwitchTableViewCell.self, for: indexPath)
-			cell.configure(with: section)
+			cell.configure(with: model)
 			return cell
-		case .logOut:
+		case .icon(let model):
 			let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
-			cell.configure(with: section, and: indexPath.row)
+			cell.configure(with: model)
 			return cell
 		}
+
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

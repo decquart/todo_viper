@@ -23,6 +23,10 @@ final class SettingsInteractor {
 
 //MARK: - SettingsInteractorInput
 extension SettingsInteractor: SettingsInteractorInput {
+	var isCurrentUserExists: Bool {
+		return session.currentUser != nil
+	}
+
 	var isDarkModeEnabled: Bool {
 		return themeService.isDarkModeEnabled
 	}

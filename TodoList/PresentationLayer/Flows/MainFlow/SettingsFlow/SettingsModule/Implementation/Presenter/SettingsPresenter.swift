@@ -23,10 +23,12 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	}
 
 	func viewDidLoad() {
-		interactor.fetchCurrentUser()
+		if interactor.isCurrentUserExists {
+			interactor.fetchCurrentUser()
+		}
 	}
 
-	private var sections: [SettingsSection] {
+	private var sectionsForAuthorizedUser: [SettingsSection] {
 		return [
 			UserInfoSettingsSection(items: [
 				UserInfoCellModel(name: user?.name ?? "", imageData: user?.image)
@@ -36,8 +38,22 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 			LogOutCellSection(models: [
 				SettingsCellModel(title: "Log Out", imageName: "lock")
 			])
-
 		]
+	}
+
+	private var sectionsForUnAuthorizedUser: [SettingsSection] {
+		return [
+			ThemeSettingsSection(cellDescription: "Dark Mode", isDarkModeEnabled: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)),
+			LogOutCellSection(models: [
+				SettingsCellModel(title: "Log In", imageName: "person")
+			])
+		]
+	}
+
+	private var sections: [SettingsSection] {
+		return interactor.isCurrentUserExists
+			? sectionsForAuthorizedUser
+			: sectionsForUnAuthorizedUser
 	}
 
 	var numberOfSections: Int {

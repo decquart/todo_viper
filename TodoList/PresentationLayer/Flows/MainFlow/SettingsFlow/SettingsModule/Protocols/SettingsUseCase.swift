@@ -9,6 +9,7 @@
 protocol SettingsInteractorInput: class {
 	var output: SettingsInteractorOutput? { get }
 
+	var isCurrentUserExists: Bool { get }
 	var isDarkModeEnabled: Bool { get }
 	func setDarkMode(_ isOn: Bool)
 

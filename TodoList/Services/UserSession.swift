@@ -20,30 +20,33 @@ final class UserSession: UserSessionProtocol {
 	private init() {}
 	static let `default` = UserSession()
 
-	private enum SessionState {
+	private enum SessionState: String {
 		case notAuthorized
 		case loggedIn
 		case skipped
 	}
 
-	private var state: SessionState = .notAuthorized
-
 	var isAuthorized: Bool {
-		return state == .loggedIn || state == .skipped
+		return sessionState == .loggedIn || sessionState == .skipped
 	}
 
 	func logIn(_ userName: String) {
-		state = .loggedIn
+		sessionState = .loggedIn
 		currentUser = userName
 	}
 
 	func logOut() {
-		state = .notAuthorized
+		sessionState = .notAuthorized
 		currentUser = nil
 	}
 
 	func skipAuthorization() {
-		state = .skipped
+		sessionState = .skipped
+	}
+
+	private var sessionState: SessionState {
+		get { UserDefaults.standard[#function] ?? .notAuthorized }
+		set { UserDefaults.standard[#function] = newValue }
 	}
 
 	var currentUser: String? {

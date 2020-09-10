@@ -22,7 +22,6 @@ class LoginViewController: UIViewController {
 		didSet {
 			loginButton.clipsToBounds = true
 			loginButton.layer.cornerRadius = loginButton.frame.height / 2
-			loginButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
 		}
 	}
 
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController {
 		didSet {
 			skipButton.clipsToBounds = true
 			skipButton.layer.cornerRadius = skipButton.frame.height / 2
-			skipButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
 		}
 	}
 
@@ -69,6 +67,13 @@ class LoginViewController: UIViewController {
 
 		view.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.8, y: 0.8)))
     }
+
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+
+		loginButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
+		skipButton.applyGradient(for: .login(startPoint: .zero, endPoint: CGPoint(x: 0.6, y: 0.6)))
+	}
 
 	@IBAction func loginButtonPressed(_ sender: Any) {
 		presenter.login(with: usernameTextField.text, and: passwordTexrField.text)

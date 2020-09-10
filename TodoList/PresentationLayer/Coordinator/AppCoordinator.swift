@@ -70,7 +70,11 @@ final class AppCoordinator: BaseCoordinator {
 
 private extension AppCoordinator {
 	func configureWindow(with rootViewController: UIViewController) {
-		window.rootViewController = rootViewController
-		window.makeKeyAndVisible()
+
+		UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
+			self.window.rootViewController = rootViewController
+		}, completion: nil)
+
+		self.window.makeKeyAndVisible()
 	}
 }

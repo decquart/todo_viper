@@ -22,6 +22,7 @@ class SettingsViewController: UIViewController {
 			tableView.registerNib(cellType: RegularTableViewCell.self)
 			tableView.registerNib(cellType: SwitchTableViewCell.self)
 			tableView.registerNib(cellType: SettingsTableViewCell.self)
+			tableView.registerNib(cellType: ColorTableViewCell.self)
 		}
 	}
 
@@ -66,8 +67,11 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = tableView.dequeue(cellType: SettingsTableViewCell.self, for: indexPath)
 			cell.configure(with: model)
 			return cell
+		case .color(let model):
+			let cell = tableView.dequeue(cellType: ColorTableViewCell.self, for: indexPath)
+			cell.configure(with: model)
+			return cell
 		}
-
 	}
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -13,6 +13,7 @@ enum SettingsCellType {
 	case regular(RegularSettingsCellModel, type: RegularCellType)
 	case icon(SettingsCellModel, type: IconCellType)
 	case `switch`(SwitchCellModel, type: SwitchCellType)
+	case color(ColorCellModel)
 
 	enum IconCellType {
 		case logOut
@@ -60,7 +61,10 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 		return [
 			SettingsSection(title: "User Info", cells: [.photo(PhotoCellModel(name: user?.name ?? "", imageData: user?.image), type: .profile)]),
 			SettingsSection(title: "Email", cells: [.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)]),
-			SettingsSection(title: "Theme", cells: [.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)]),
+			SettingsSection(title: "Theme", cells: [
+				.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode),
+				.color(ColorCellModel(title: "Application color", color: .customGreen))
+			]),
 			SettingsSection(title: "", cells: [.icon(SettingsCellModel(title: "Log Out", imageName: "lock"), type: .logOut)])
 		]
 	}
@@ -102,6 +106,8 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 			if type == .logOut {
 				interactor.logOut()
 			}
+		case .color(_):
+			onTheme?()
 		default:
 			break
 		}

@@ -19,7 +19,13 @@ class PhotoTableViewCell: UITableViewCell {
 	@IBOutlet weak var userNameLabel: UILabel!
 
 	func configure(with model: PhotoCellModel) {
-		userImageView.image = UIImage(data: model.imageData ?? Data())
+
 		userNameLabel.text = model.name
+
+		if let imageData = model.imageData {
+			userImageView.image = UIImage(data: imageData)
+		} else {
+			userImageView.image = UIImage(named: "default_placeholder")
+		}
 	}
 }

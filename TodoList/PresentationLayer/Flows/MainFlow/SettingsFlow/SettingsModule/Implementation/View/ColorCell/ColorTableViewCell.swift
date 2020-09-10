@@ -19,4 +19,9 @@ class ColorTableViewCell: UITableViewCell {
 		colorLabel.layer.cornerRadius = colorLabel.frame.height / 2
 		colorLabel.layer.masksToBounds = true
 	}
+
+	func configure(with model: ColorCellModel) {
+		self.descriptionLabel.text = model.title
+		self.colorLabel.backgroundColor = model.color.uiColor
+	}
 }

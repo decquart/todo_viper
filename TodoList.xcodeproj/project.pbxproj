@@ -168,6 +168,7 @@
 		2DC445EE24FDC683009E5396 /* GoogleSignIn.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC445E624FDC677009E5396 /* GoogleSignIn.bundle */; };
 		2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F7250984DF00B37CF5 /* RegularSettingsCellModel.swift */; };
 		2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */; };
+		2DC87901250AD71E00B37CF5 /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */; };
 		2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */; };
 		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
 		2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */; };
@@ -357,6 +358,7 @@
 		2DC445E924FDC677009E5396 /* GoogleSignIn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleSignIn.framework; sourceTree = "<group>"; };
 		2DC878F7250984DF00B37CF5 /* RegularSettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSettingsCellModel.swift; sourceTree = "<group>"; };
 		2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellModel.swift; sourceTree = "<group>"; };
+		2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
 		2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenterProtocol.swift; sourceTree = "<group>"; };
 		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
 		2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesInteractor.swift; sourceTree = "<group>"; };
@@ -536,7 +538,6 @@
 			isa = PBXGroup;
 			children = (
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
-				2D82A0E624BD8AEA00A04190 /* UITableViewCell */,
 				2D56825F24DC63E700F693EC /* TabBarController.swift */,
 			);
 			path = Views;
@@ -635,6 +636,7 @@
 			children = (
 				2D6452C724B7C348009978EE /* SettingsViewController.swift */,
 				2DE5847824B843DD0051680C /* Settings.storyboard */,
+				2DC878FF250AD6E900B37CF5 /* ColorCell */,
 				2D48791525058FB500E5DFB0 /* PhotoCell */,
 				2D48791425058FA000E5DFB0 /* RegularCell */,
 				2D4879272505A33200E5DFB0 /* SwitchCell */,
@@ -1163,15 +1165,6 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		2D82A0E624BD8AEA00A04190 /* UITableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */,
-				2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */,
-			);
-			path = UITableViewCell;
-			sourceTree = "<group>";
-		};
 		2D82A0ED24BE28BB00A04190 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,6 +1283,16 @@
 				2D48792E2506D84E00E5DFB0 /* SettingsCellModel.swift */,
 			);
 			path = SettingsCell;
+			sourceTree = "<group>";
+		};
+		2DC878FF250AD6E900B37CF5 /* ColorCell */ = {
+			isa = PBXGroup;
+			children = (
+				2D82A0E724BD921900A04190 /* ColorTableViewCell.swift */,
+				2D82A0E824BD921900A04190 /* ColorTableViewCell.xib */,
+				2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */,
+			);
+			path = ColorCell;
 			sourceTree = "<group>";
 		};
 		2DCA3C6F24FF875300D084F8 /* Interactor */ = {
@@ -1505,6 +1508,7 @@
 				2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */,
 				04EFFD212480317B0048336E /* TaskListViewController.swift in Sources */,
 				2D48791F2505919500E5DFB0 /* SettingsInteractor.swift in Sources */,
+				2DC87901250AD71E00B37CF5 /* ColorCellModel.swift in Sources */,
 				04CF078C248F614400440A43 /* RealmTaskRepository.swift in Sources */,
 				2D88E66824F830760093C9C6 /* CDUserRepository.swift in Sources */,
 				2D49B26924F5D7BE00D6AFC6 /* UITextField+Error.swift in Sources */,

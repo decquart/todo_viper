@@ -31,15 +31,17 @@ final class CategoryDetailsPresenter: CategoryDetailsPresenterProtocol {
 	func updateIcon(_ imagePath: String) {
 		view.refreshIcon(imagePath)
 	}
-
-	func updateColor(_ color: Color) {
-		view.refreshColor(color)
-	}
 }
 
 //MARK: - CategoryDetailsInteractorOutput
 extension CategoryDetailsPresenter: CategoryDetailsInteractorOutput {
 	func didCategoryPersist() {
 		self.onDismiss?()
+	}
+}
+
+extension CategoryDetailsPresenter: ColorPickerPresenterOutput {
+	func updateColor(_ color: Color) {
+		view.refreshColor(color)
 	}
 }

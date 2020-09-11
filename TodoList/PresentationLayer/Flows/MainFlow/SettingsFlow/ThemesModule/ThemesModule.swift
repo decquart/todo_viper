@@ -9,11 +9,14 @@
 import UIKit
 
 class ThemesModule {
-	func build() -> UIViewController {
+	func build(onDismiss: Completion?) -> UIViewController {
 		let view = ThemesViewController.instantiate(storyboard: .themes)
 		let interactor = ThemesInteractor(themeService: SettingsService.shared)
 		let presenter = ThemesPresenter(view: view, interactor: interactor)
+		let colorPickerView = ColorPickerModule().build(presenter, selectedColor: nil)
 
+		presenter.onDismiss = onDismiss
+		view.colorPickerView = colorPickerView
 		view.presenter = presenter
 		interactor.output = presenter
 		return view

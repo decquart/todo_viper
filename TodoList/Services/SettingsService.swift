@@ -14,6 +14,7 @@ protocol ThemeSettingsServiceProtocol {
 	var isDarkModeEnabled: Bool { get }
 	func refreshDarkMode()
 	func setDarkModeVisble(_ isVisible: Bool)
+	var applicationColor: Color { get set }
 }
 
 final class SettingsService {
@@ -52,5 +53,10 @@ extension SettingsService: ThemeSettingsServiceProtocol {
 		}
 
 		return userInterfaceStyle == .dark
+	}
+
+	var applicationColor: Color {
+		get { return UserDefaults.standard[#function] ?? Color.customBlue }
+		set { UserDefaults.standard[#function] = newValue }
 	}
 }

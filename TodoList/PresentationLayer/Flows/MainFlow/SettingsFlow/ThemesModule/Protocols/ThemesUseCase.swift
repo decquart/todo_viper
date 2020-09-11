@@ -7,10 +7,11 @@
 //
 
 protocol ThemesInteractorInput: class {
-	var isDarkModeEnabled: Bool { get }
-	func setDarkMode(_ isOn: Bool)
+	func saveSelectedColor(color: Color)
+	func applySelectedColor()
 }
 
 protocol ThemesInteractorOutput: class {
-	func didDarkModeChange(_ isOn: Bool)
+	func didSaveColor()
+	func didApplyColor()
 }

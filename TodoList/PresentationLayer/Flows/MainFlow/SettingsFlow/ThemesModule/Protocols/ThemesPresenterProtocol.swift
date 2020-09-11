@@ -8,8 +8,7 @@
 
 protocol ThemesPresenterProtocol: class {
 	var interactor: ThemesInteractorInput! { get }
-	var view: ThemesViewProtocol { get }
+	var view: ThemesViewProtocol! { get }
 
-	func setDarkMode(_ isSwitchOn: Bool)
-	func didLoad()
+	func applyTheme()
 }

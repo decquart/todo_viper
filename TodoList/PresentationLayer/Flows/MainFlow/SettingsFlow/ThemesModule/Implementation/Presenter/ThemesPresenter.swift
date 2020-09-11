@@ -9,7 +9,8 @@
 final class ThemesPresenter {
 
 	let interactor: ThemesInteractorInput!
-	let view: ThemesViewProtocol
+	weak var view: ThemesViewProtocol!
+	var onDismiss: Completion?
 
 	init(view: ThemesViewProtocol, interactor: ThemesInteractorInput) {
 		self.view = view
@@ -19,19 +20,25 @@ final class ThemesPresenter {
 
 //MARK: - ThemesPresenterProtocol
 extension ThemesPresenter: ThemesPresenterProtocol {
-	func setDarkMode(_ isSwitchOn: Bool) {
-		interactor.setDarkMode(isSwitchOn)
-	}
-
-	func didLoad() {
-		let isDarkModeEnabled = interactor.isDarkModeEnabled
-		view.updateDarkModeSwitch(isDarkModeEnabled)
+	func applyTheme() {
+		interactor.applySelectedColor()
 	}
 }
 
 //MARK: - ThemesInteractorOutput
 extension ThemesPresenter: ThemesInteractorOutput {
-	func didDarkModeChange(_ isOn: Bool) {
-		view.updateDarkModeSwitch(isOn)
+	func didSaveColor() {
+		view.updateButtonState()
+	}
+
+	func didApplyColor() {
+		onDismiss?()
+	}
+}
+
+//MARK: - ColorPickerPresenterOutput
+extension ThemesPresenter: ColorPickerPresenterOutput {
+	func updateColor(_ color: Color) {
+		interactor.saveSelectedColor(color: color)
 	}
 }

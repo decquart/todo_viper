@@ -9,27 +9,33 @@
 import UIKit
 
 class ThemesViewController: UIViewController {
-	@IBOutlet weak var darkModeSwitch: UISwitch!
-	@IBOutlet weak var darkModeStatusLabel: UILabel!
-
 	var presenter: ThemesPresenterProtocol!
+	var colorPickerView: UIView!
+
+	@IBOutlet weak private var colorPickerContainerView: UIView!
+	lazy var applyButton = {
+		UIBarButtonItem(title: "Apply", style: .done, target: self, action: #selector(apply))
+	}()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
 		navigationItem.title = "Select Theme"
-		presenter.didLoad()
+		navigationItem.rightBarButtonItem = applyButton
+
+		if let colorView = colorPickerView {
+			colorPickerContainerView.add(colorView)
+		}
     }
 
-	@IBAction func darkModeSwitchChanged(_ sender: UISwitch) {
-		presenter.setDarkMode(sender.isOn)
+	@objc func apply() {
+		presenter.applyTheme()
 	}
 }
 
 //MARK: - ThemesViewProtocol
 extension ThemesViewController: ThemesViewProtocol {
-	func updateDarkModeSwitch(_ isOn: Bool) {
-		self.darkModeSwitch?.setOn(isOn, animated: false)
-		self.darkModeStatusLabel?.text = isOn ? "Enabled" : "Disabled"
+	func updateButtonState() {
+		//todo
 	}
 }

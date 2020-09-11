@@ -10,7 +10,8 @@ import UIKit
 
 final class ThemesInteractor {
 	weak var output: ThemesInteractorOutput?
-	let themeService: ThemeSettingsServiceProtocol
+	private var themeService: ThemeSettingsServiceProtocol
+	private var selectedColor: Color = .customBlue
 
 	init(themeService: ThemeSettingsServiceProtocol) {
 		self.themeService = themeService
@@ -19,13 +20,15 @@ final class ThemesInteractor {
 
 //MARK: - ThemesInteractorInput
 extension ThemesInteractor: ThemesInteractorInput {
-	var isDarkModeEnabled: Bool {
-		return themeService.isDarkModeEnabled
+	func saveSelectedColor(color: Color) {
+		selectedColor = color
 	}
 
-	func setDarkMode(_ isOn: Bool) {
-		themeService.setDarkModeVisble(isOn)
+	func applySelectedColor() {
+		UINavigationBar.appearance().tintColor = selectedColor.uiColor
+		UITabBar.appearance().tintColor = selectedColor.uiColor
+		themeService.applicationColor = selectedColor
 
-		output?.didDarkModeChange(isOn)
+		output?.didApplyColor()
 	}
 }

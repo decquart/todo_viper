@@ -11,5 +11,4 @@ protocol CategoryDetailsPresenterProtocol: class {
 
 	func saveButtonPressed(with viewModel: CategoryViewModel)
 	func updateIcon(_ imagePath: String)
-	func updateColor(_ color: Color)
 }

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,57 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yyc-7N-1LN">
-                                <rect key="frame" x="24" y="76" width="366" height="52"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfM-NV-3IS">
-                                        <rect key="frame" x="0.0" y="0.0" width="309" height="52"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dark Mode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFV-eb-B52">
-                                                <rect key="frame" x="0.0" y="4" width="309" height="22"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7T8-37-BeN">
-                                                <rect key="frame" x="0.0" y="30" width="309" height="18"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="52" id="5IA-kA-EYs"/>
-                                            <constraint firstItem="7T8-37-BeN" firstAttribute="top" secondItem="WFV-eb-B52" secondAttribute="bottom" constant="4" id="ARt-lS-cl6"/>
-                                            <constraint firstAttribute="trailing" secondItem="WFV-eb-B52" secondAttribute="trailing" id="Chd-9x-ZcM"/>
-                                            <constraint firstItem="WFV-eb-B52" firstAttribute="top" secondItem="kfM-NV-3IS" secondAttribute="top" constant="4" id="QwY-bn-D4r"/>
-                                            <constraint firstAttribute="trailing" secondItem="7T8-37-BeN" secondAttribute="trailing" id="XKy-Aq-yWb"/>
-                                            <constraint firstAttribute="bottom" secondItem="7T8-37-BeN" secondAttribute="bottom" constant="4" id="a7f-Xy-vFt"/>
-                                            <constraint firstItem="7T8-37-BeN" firstAttribute="leading" secondItem="kfM-NV-3IS" secondAttribute="leading" id="mwU-12-OcG"/>
-                                            <constraint firstItem="WFV-eb-B52" firstAttribute="leading" secondItem="kfM-NV-3IS" secondAttribute="leading" id="s62-FV-UHN"/>
-                                        </constraints>
-                                    </view>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EFI-pz-XSj">
-                                        <rect key="frame" x="317" y="10.5" width="51" height="31"/>
-                                        <connections>
-                                            <action selector="darkModeSwitchChanged:" destination="kwc-bl-Zkj" eventType="valueChanged" id="C6d-Uf-Uhc"/>
-                                        </connections>
-                                    </switch>
-                                </subviews>
-                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59M-HC-cFs">
+                                <rect key="frame" x="16" y="60" width="382" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Rcp-Hz-Anc"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="x6K-vc-XXj" firstAttribute="trailing" secondItem="yyc-7N-1LN" secondAttribute="trailing" constant="24" id="6QF-3h-zVd"/>
-                            <constraint firstItem="yyc-7N-1LN" firstAttribute="leading" secondItem="x6K-vc-XXj" secondAttribute="leading" constant="24" id="G4a-qs-7HJ"/>
-                            <constraint firstItem="yyc-7N-1LN" firstAttribute="top" secondItem="x6K-vc-XXj" secondAttribute="top" constant="32" id="yex-Yp-j6d"/>
+                            <constraint firstItem="59M-HC-cFs" firstAttribute="top" secondItem="x6K-vc-XXj" secondAttribute="top" constant="16" id="Jn9-m1-B6o"/>
+                            <constraint firstItem="59M-HC-cFs" firstAttribute="leading" secondItem="x6K-vc-XXj" secondAttribute="leading" constant="16" id="a1W-xE-0ik"/>
+                            <constraint firstItem="x6K-vc-XXj" firstAttribute="trailing" secondItem="59M-HC-cFs" secondAttribute="trailing" constant="16" id="ehJ-ej-CT1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x6K-vc-XXj"/>
                     </view>
                     <connections>
-                        <outlet property="darkModeStatusLabel" destination="7T8-37-BeN" id="ExU-FR-eB3"/>
-                        <outlet property="darkModeSwitch" destination="EFI-pz-XSj" id="Jr5-t6-xhs"/>
+                        <outlet property="colorPickerContainerView" destination="59M-HC-cFs" id="O0O-ak-AHi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zAA-vh-Jc1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

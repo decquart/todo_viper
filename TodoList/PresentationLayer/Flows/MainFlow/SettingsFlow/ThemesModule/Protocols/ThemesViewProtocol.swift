@@ -6,8 +6,8 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
-protocol ThemesViewProtocol {
+protocol ThemesViewProtocol: class {
 	var presenter: ThemesPresenterProtocol! { get }
 
-	func updateDarkModeSwitch(_ isOn: Bool)
+	func updateButtonState()
 }

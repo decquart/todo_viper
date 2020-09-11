@@ -8,7 +8,7 @@
 
 class ColorPickerPresenter: ColorPickerPresenterProtocol {
 
-	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
+	weak var colorPickerOutput: ColorPickerPresenterOutput?
 
 	var selectedColor: Color?
 
@@ -26,6 +26,6 @@ class ColorPickerPresenter: ColorPickerPresenterProtocol {
 
 	func didSelectColor(at index: Int) {
 		selectedColor = colors[index]
-		detailsPresenter?.updateColor(colors[index])
+		colorPickerOutput?.updateColor(colors[index])
 	}
 }

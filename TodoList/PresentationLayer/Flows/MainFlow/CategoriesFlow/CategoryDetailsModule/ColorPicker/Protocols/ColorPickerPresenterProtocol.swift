@@ -7,9 +7,13 @@
 //
 
 protocol ColorPickerPresenterProtocol: class {
-	var detailsPresenter: CategoryDetailsPresenterProtocol? { get }
+	var colorPickerOutput: ColorPickerPresenterOutput? { get }
 	var colors: [Color] { get }
 	var selectedColorIndex: Int { get }
 
 	func didSelectColor(at index: Int)
+}
+
+protocol ColorPickerPresenterOutput: class {
+	func updateColor(_ color: Color)
 }

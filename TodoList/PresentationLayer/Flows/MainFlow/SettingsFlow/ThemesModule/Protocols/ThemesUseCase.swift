@@ -7,11 +7,12 @@
 //
 
 protocol ThemesInteractorInput: class {
+	func setDefaultAppColor()
 	func saveSelectedColor(color: Color)
 	func applySelectedColor()
 }
 
 protocol ThemesInteractorOutput: class {
-	func didSaveColor()
+	func didSaveColor(_ color: Color)
 	func didApplyColor()
 }

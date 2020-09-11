@@ -13,7 +13,8 @@ class ThemesModule {
 		let view = ThemesViewController.instantiate(storyboard: .themes)
 		let interactor = ThemesInteractor(themeService: SettingsService.shared)
 		let presenter = ThemesPresenter(view: view, interactor: interactor)
-		let colorPickerView = ColorPickerModule().build(presenter, selectedColor: nil)
+		let selectedColor = SettingsService.shared.applicationColor
+		let colorPickerView = ColorPickerModule().build(presenter, selectedColor: selectedColor)
 
 		presenter.onDismiss = onDismiss
 		view.colorPickerView = colorPickerView

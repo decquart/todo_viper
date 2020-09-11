@@ -13,29 +13,33 @@ class ThemesViewController: UIViewController {
 	var colorPickerView: UIView!
 
 	@IBOutlet weak private var colorPickerContainerView: UIView!
-	lazy var applyButton = {
-		UIBarButtonItem(title: "Apply", style: .done, target: self, action: #selector(apply))
-	}()
+	@IBOutlet weak var closeButton: UIButton!
+	@IBOutlet weak var applyButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		navigationItem.title = "Select Theme"
-		navigationItem.rightBarButtonItem = applyButton
-
 		if let colorView = colorPickerView {
 			colorPickerContainerView.add(colorView)
 		}
+
+		presenter.viewDodLoad()
     }
 
-	@objc func apply() {
+	@IBAction func applyButtonPressed(_ sender: Any) {
 		presenter.applyTheme()
+	}
+
+	@IBAction func closeButtonPressed(_ sender: Any) {
+		presenter.close()
 	}
 }
 
 //MARK: - ThemesViewProtocol
 extension ThemesViewController: ThemesViewProtocol {
-	func updateButtonState() {
-		//todo
+
+	func updateButtonsColor(_ color: Color) {
+		closeButton.tintColor = color.uiColor
+		applyButton.tintColor = color.uiColor
 	}
 }

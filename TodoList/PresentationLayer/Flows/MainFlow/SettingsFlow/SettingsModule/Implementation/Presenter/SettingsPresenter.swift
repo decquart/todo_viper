@@ -63,7 +63,7 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 			SettingsSection(title: "Email", cells: [.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)]),
 			SettingsSection(title: "Theme", cells: [
 				.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode),
-				.color(ColorCellModel(title: "Application color", color: .customGreen))
+				.color(ColorCellModel(title: "Application color", color: interactor.applicationColor))
 			]),
 			SettingsSection(title: "", cells: [.icon(SettingsCellModel(title: "Log Out", imageName: "lock"), type: .logOut)])
 		]
@@ -71,7 +71,10 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 
 	private var sectionsForUnAuthorizedUser: [SettingsSection] {
 		return [
-			SettingsSection(title: "Theme", cells: [.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode)]),
+			SettingsSection(title: "Theme", cells: [
+				.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode),
+				.color(ColorCellModel(title: "Application color", color: interactor.applicationColor))
+			]),
 			SettingsSection(title: "", cells: [.icon(SettingsCellModel(title: "Log In", imageName: "person"), type: .logOut)])
 		]
 	}

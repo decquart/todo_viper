@@ -11,6 +11,7 @@ protocol SettingsInteractorInput: class {
 
 	var isCurrentUserExists: Bool { get }
 	var isDarkModeEnabled: Bool { get }
+	var applicationColor: Color { get }
 	func setDarkMode(_ isOn: Bool)
 
 	func fetchCurrentUser()

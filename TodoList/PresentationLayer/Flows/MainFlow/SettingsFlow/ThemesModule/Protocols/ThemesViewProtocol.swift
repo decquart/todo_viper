@@ -9,5 +9,5 @@
 protocol ThemesViewProtocol: class {
 	var presenter: ThemesPresenterProtocol! { get }
 
-	func updateButtonState()
+	func updateButtonsColor(_ color: Color)
 }

@@ -20,15 +20,23 @@ final class ThemesPresenter {
 
 //MARK: - ThemesPresenterProtocol
 extension ThemesPresenter: ThemesPresenterProtocol {
+	func viewDodLoad() {
+		interactor.setDefaultAppColor()
+	}
+
 	func applyTheme() {
 		interactor.applySelectedColor()
+	}
+
+	func close() {
+		onDismiss?()
 	}
 }
 
 //MARK: - ThemesInteractorOutput
 extension ThemesPresenter: ThemesInteractorOutput {
-	func didSaveColor() {
-		view.updateButtonState()
+	func didSaveColor(_ color: Color) {
+		view.updateButtonsColor(color)
 	}
 
 	func didApplyColor() {

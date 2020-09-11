@@ -32,7 +32,7 @@ private extension SettingsCoordinator {
 	}
 
 	func showThemeViewController() {
-		let vc = ThemesModule().build(onDismiss: router.pop)
-		router.push(vc, animated: true)
+		let vc = ThemesModule().build(onDismiss: router.dismiss)
+		router.presentHalfScreen(vc)
 	}
 }

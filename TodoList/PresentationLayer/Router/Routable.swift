@@ -30,6 +30,14 @@ extension Routable {
 		self.present(module, animated: animated, completion: nil)
 	}
 
+	func presentHalfScreen(_ module: UIViewController) {
+		let transitioningDelegate = rootViewController.topViewController as? UIViewControllerTransitioningDelegate
+		module.transitioningDelegate = transitioningDelegate
+		module.modalPresentationStyle = .custom
+
+		self.present(module)
+	}
+
 	func push(_ module: UIViewController) {
 		self.push(module, animated: true)
 	}

@@ -31,6 +31,10 @@ extension SettingsInteractor: SettingsInteractorInput {
 		return themeService.isDarkModeEnabled
 	}
 
+	var applicationColor: Color {
+		return themeService.applicationColor
+	}
+
 	func setDarkMode(_ isOn: Bool) {
 		themeService.setDarkModeVisble(isOn)
 	}

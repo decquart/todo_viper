@@ -10,5 +10,7 @@ protocol ThemesPresenterProtocol: class {
 	var interactor: ThemesInteractorInput! { get }
 	var view: ThemesViewProtocol! { get }
 
+	func viewDodLoad()
 	func applyTheme()
+	func close()
 }

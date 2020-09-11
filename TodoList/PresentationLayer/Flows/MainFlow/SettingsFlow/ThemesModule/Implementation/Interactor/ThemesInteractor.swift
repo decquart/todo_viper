@@ -20,13 +20,25 @@ final class ThemesInteractor {
 
 //MARK: - ThemesInteractorInput
 extension ThemesInteractor: ThemesInteractorInput {
+	func setDefaultAppColor() {
+		selectedColor = themeService.applicationColor
+
+		output?.didSaveColor(selectedColor)
+	}
+
 	func saveSelectedColor(color: Color) {
 		selectedColor = color
+
+		output?.didSaveColor(color)
 	}
 
 	func applySelectedColor() {
+
+		//todo: Fix bug
 		UINavigationBar.appearance().tintColor = selectedColor.uiColor
+		UINavigationBar.appearance()
 		UITabBar.appearance().tintColor = selectedColor.uiColor
+
 		themeService.applicationColor = selectedColor
 
 		output?.didApplyColor()

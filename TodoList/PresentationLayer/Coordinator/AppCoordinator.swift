@@ -51,7 +51,7 @@ final class AppCoordinator: BaseCoordinator {
 
 		addDependency(mainCoordinator)
 		mainCoordinator.start()
-		configureWindow(with: mainCoordinator.tabBarController)
+		configureWindow(with: mainCoordinator.tabBarController, animationOption: .flipFromRight)
 		return mainCoordinator
 	}
 
@@ -64,17 +64,29 @@ final class AppCoordinator: BaseCoordinator {
 
 		addDependency(authCoordinator)
 		authCoordinator.start()
-		configureWindow(with: authCoordinator.router.rootViewController)
+		configureWindow(with: authCoordinator.router.rootViewController, animationOption: .flipFromLeft)
 	}
 }
 
 private extension AppCoordinator {
-	func configureWindow(with rootViewController: UIViewController) {
 
-		UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: {
-			self.window.rootViewController = rootViewController
-		}, completion: nil)
+	enum WindowAnimation {
+		case none
+		case flipFromRight
+		case flipFromLeft
+	}
 
+	func configureWindow(with rootViewController: UIViewController, animationOption: WindowAnimation = .none) {
+		self.window.rootViewController = rootViewController
 		self.window.makeKeyAndVisible()
+
+		switch animationOption {
+		case .flipFromLeft:
+			UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromLeft, animations: nil, completion: nil)
+		case .flipFromRight:
+			UIView.transition(with: window, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
+		default:
+			break
+		}
 	}
 }

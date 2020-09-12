@@ -1,5 +1,5 @@
 //
-//  SettingsService.swift
+//  ThemeService.swift
 //  TodoList
 //
 //  Created by Volodymyr Myhailyuk on 20.07.2020.
@@ -9,32 +9,27 @@
 import Foundation
 import UIKit
 
-protocol ThemeSettingsServiceProtocol {
+protocol ThemeServiceProtocol {
 	var userInterfaceStyle: UIUserInterfaceStyle? { get set }
 	var isDarkModeEnabled: Bool { get }
-	func refreshDarkMode()
+	func updateDarkMode()
 	func setDarkModeVisble(_ isVisible: Bool)
 	var applicationColor: Color { get set }
 }
 
-final class SettingsService {
-	static let shared = SettingsService()
+final class ThemeService {
+	static let shared = ThemeService()
 	private init() {}
-
-	var isFirstLaunch: Bool {
-		get { return UserDefaults.standard[#function] ?? true }
-		set { UserDefaults.standard[#function] = newValue }
-	}
 }
 
-// MARK: - ThemeSettingsServiceProtocol
-extension SettingsService: ThemeSettingsServiceProtocol {
+// MARK: - ThemeServiceProtocol
+extension ThemeService: ThemeServiceProtocol {
 	var userInterfaceStyle: UIUserInterfaceStyle? {
 		get { return UserDefaults.standard[#function] }
 		set { UserDefaults.standard[#function] = newValue }
 	}
 
-	func refreshDarkMode() {
+	func updateDarkMode() {
 		let theme = userInterfaceStyle ?? .light
 
 		UIApplication.shared.windows.forEach {
@@ -42,9 +37,18 @@ extension SettingsService: ThemeSettingsServiceProtocol {
 		}
 	}
 
+	func updateAppColor() {
+		UIApplication.shared.windows.forEach {
+			$0.tintColor = applicationColor.uiColor
+			$0.tintAdjustmentMode = .normal
+		}
+
+		UISwitch.appearance().onTintColor = applicationColor.uiColor
+	}
+
 	func setDarkModeVisble(_ isVisible: Bool) {
 		userInterfaceStyle = isVisible ? .dark : .light
-		refreshDarkMode()
+		updateDarkMode()
 	}
 
 	var isDarkModeEnabled: Bool {
@@ -57,6 +61,9 @@ extension SettingsService: ThemeSettingsServiceProtocol {
 
 	var applicationColor: Color {
 		get { return UserDefaults.standard[#function] ?? Color.customBlue }
-		set { UserDefaults.standard[#function] = newValue }
+		set {
+			UserDefaults.standard[#function] = newValue
+			updateAppColor()
+		}
 	}
 }

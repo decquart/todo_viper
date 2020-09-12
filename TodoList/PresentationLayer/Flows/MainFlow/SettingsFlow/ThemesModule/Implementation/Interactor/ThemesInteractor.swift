@@ -10,10 +10,10 @@ import UIKit
 
 final class ThemesInteractor {
 	weak var output: ThemesInteractorOutput?
-	private var themeService: ThemeSettingsServiceProtocol
+	private var themeService: ThemeServiceProtocol
 	private var selectedColor: Color = .customBlue
 
-	init(themeService: ThemeSettingsServiceProtocol) {
+	init(themeService: ThemeServiceProtocol) {
 		self.themeService = themeService
 	}
 }
@@ -33,14 +33,7 @@ extension ThemesInteractor: ThemesInteractorInput {
 	}
 
 	func applySelectedColor() {
-
-		//todo: Fix bug
-		UINavigationBar.appearance().tintColor = selectedColor.uiColor
-		UINavigationBar.appearance()
-		UITabBar.appearance().tintColor = selectedColor.uiColor
-
 		themeService.applicationColor = selectedColor
-
 		output?.didApplyColor()
 	}
 }

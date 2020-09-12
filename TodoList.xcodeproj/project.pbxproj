@@ -170,6 +170,7 @@
 		2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */; };
 		2DC87901250AD71E00B37CF5 /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */; };
 		2DC87903250B5E9D00B37CF5 /* HalfScreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87902250B5E9D00B37CF5 /* HalfScreenPresentationController.swift */; };
+		2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */; };
 		2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */; };
 		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
 		2DCA3C6C24FF7EB500D084F8 /* ThemesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */; };
@@ -361,6 +362,7 @@
 		2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellModel.swift; sourceTree = "<group>"; };
 		2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
 		2DC87902250B5E9D00B37CF5 /* HalfScreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScreenPresentationController.swift; sourceTree = "<group>"; };
+		2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Launch.swift"; sourceTree = "<group>"; };
 		2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenterProtocol.swift; sourceTree = "<group>"; };
 		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
 		2DCA3C6B24FF7EB500D084F8 /* ThemesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesInteractor.swift; sourceTree = "<group>"; };
@@ -822,6 +824,7 @@
 				2D49B26424F5CB7F00D6AFC6 /* UIView+Gradient.swift */,
 				2D49B26824F5D7BE00D6AFC6 /* UITextField+Error.swift */,
 				2D9B614F25004DD400CF0B40 /* GIDProfileData+User.swift */,
+				2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1560,6 +1563,7 @@
 				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
+				2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
 				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,

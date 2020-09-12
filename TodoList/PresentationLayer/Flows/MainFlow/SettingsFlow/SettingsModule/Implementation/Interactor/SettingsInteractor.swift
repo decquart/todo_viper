@@ -11,10 +11,10 @@ import Foundation
 final class SettingsInteractor {
 	weak var output: SettingsInteractorOutput?
 	private let session: UserSessionProtocol
-	private let themeService: ThemeSettingsServiceProtocol
+	private let themeService: ThemeServiceProtocol
 	private let repository: AnyRepository<User>
 
-	init(session: UserSessionProtocol, themeService: ThemeSettingsServiceProtocol, repository: AnyRepository<User>) {
+	init(session: UserSessionProtocol, themeService: ThemeServiceProtocol, repository: AnyRepository<User>) {
 		self.session = session
 		self.themeService = themeService
 		self.repository = repository

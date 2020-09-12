@@ -41,5 +41,6 @@ extension ThemesViewController: ThemesViewProtocol {
 	func updateButtonsColor(_ color: Color) {
 		closeButton.tintColor = color.uiColor
 		applyButton.tintColor = color.uiColor
+		self.navigationController?.tabBarController?.tabBar.tintColor = color.uiColor
 	}
 }

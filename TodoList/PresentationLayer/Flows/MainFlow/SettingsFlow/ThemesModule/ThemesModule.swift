@@ -11,9 +11,9 @@ import UIKit
 class ThemesModule {
 	func build(onDismiss: Completion?) -> UIViewController {
 		let view = ThemesViewController.instantiate(storyboard: .themes)
-		let interactor = ThemesInteractor(themeService: SettingsService.shared)
+		let interactor = ThemesInteractor(themeService: ThemeService.shared)
 		let presenter = ThemesPresenter(view: view, interactor: interactor)
-		let selectedColor = SettingsService.shared.applicationColor
+		let selectedColor = ThemeService.shared.applicationColor
 		let colorPickerView = ColorPickerModule().build(presenter, selectedColor: selectedColor)
 
 		presenter.onDismiss = onDismiss

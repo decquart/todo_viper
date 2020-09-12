@@ -33,7 +33,8 @@ private extension SceneDelegate {
 
 		appCoordinator = AppCoordinator(window: window!)
 		appCoordinator?.start()
-		SettingsService.shared.refreshDarkMode()
+		ThemeService.shared.updateDarkMode()
+		ThemeService.shared.updateAppColor()
 	}
 
 	func handleDeepLink(with shortcutItem: UIApplicationShortcutItem?) {
@@ -47,10 +48,10 @@ private extension SceneDelegate {
 
 private extension SceneDelegate {
 	func seedInitialDataIfNeeded(completion: @escaping () -> Void) {
-		let setting = SettingsService.shared
+		let application = UIApplication.shared
 		let repo = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 
-		guard setting.isFirstLaunch else {
+		guard application.isFirstLaunch else {
 			completion()
 			return
 		}
@@ -64,7 +65,7 @@ private extension SceneDelegate {
 			let data = try Data(contentsOf: url)
 			let categories = try JSONDecoder().decode(Array<Category>.self, from: data)
 			repo.add(categories) { success in
-				if success { setting.isFirstLaunch = false }
+				if success { application.isFirstLaunch = false }
 				completion()
 			}
 		} catch {

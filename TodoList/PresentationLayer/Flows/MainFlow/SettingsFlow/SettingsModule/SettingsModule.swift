@@ -13,7 +13,7 @@ class SettingsModule {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
 		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let interactor = SettingsInteractor(session: UserSession.default,
-											themeService: SettingsService.shared,
+											themeService: ThemeService.shared,
 											repository: repository)
 		let presenter = SettingsPresenter(interactor: interactor, view: view)
 		presenter.onAccount = onAccount

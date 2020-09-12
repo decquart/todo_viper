@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -92,7 +92,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlp-SH-1bi" customClass="AddButton" customModule="TodoList" customModuleProvider="target">
-                                <rect key="frame" x="314" y="746" width="60" height="60"/>
+                                <rect key="frame" x="314" y="796" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="eRy-Wv-cat"/>
                                     <constraint firstAttribute="height" constant="60" id="qkW-re-rdO"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="jlp-SH-1bi" secondAttribute="trailing" constant="40" id="YHB-mz-Tb8"/>
                             <constraint firstItem="C92-wF-Xff" firstAttribute="top" secondItem="HmM-Uy-hBe" secondAttribute="top" id="eso-hs-pd6"/>
                             <constraint firstItem="HmM-Uy-hBe" firstAttribute="trailing" secondItem="C92-wF-Xff" secondAttribute="trailing" id="hgH-GC-mye"/>
-                            <constraint firstAttribute="bottom" secondItem="jlp-SH-1bi" secondAttribute="bottom" constant="90" id="klI-un-Rgq"/>
+                            <constraint firstAttribute="bottom" secondItem="jlp-SH-1bi" secondAttribute="bottom" constant="40" id="klI-un-Rgq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HmM-Uy-hBe"/>
                     </view>

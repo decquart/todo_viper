@@ -22,9 +22,13 @@ struct TaskViewModel {
 	}
 
 	var importantIcon: UIImage {
-		isImportant
+		return isImportant
 			? UIImage(systemName: "star.fill")!
 			: UIImage(systemName: "star")!
+	}
+
+	var importantIconColor: UIColor {
+		return ThemeService.shared.applicationColor.uiColor
 	}
 
 	var dateText: String {

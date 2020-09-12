@@ -21,7 +21,11 @@ final class TaskDetailsViewController: UIViewController {
 	}
 
 	@IBOutlet weak private var textField: UITextField!
-	@IBOutlet weak private var sendButton: UIButton!
+	@IBOutlet weak private var sendButton: UIButton! {
+		didSet {
+			sendButton.tintColor = ThemeService.shared.applicationColor.uiColor
+		}
+	}
 	@IBOutlet weak private var datePicker: UIDatePicker!
 
 	override func viewDidLoad() {

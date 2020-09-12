@@ -72,6 +72,7 @@ extension TaskListViewController: UITableViewDelegate, UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		presenter?.didSelect(at: indexPath)
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 

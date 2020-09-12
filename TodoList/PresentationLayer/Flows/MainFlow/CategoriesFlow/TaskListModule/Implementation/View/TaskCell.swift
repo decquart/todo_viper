@@ -30,5 +30,6 @@ class TaskCell: UITableViewCell {
 		self.checkButton.setImage(viewModel.checkmarkIcon, for: .normal)
 		self.dateLabel.text = viewModel.dateText
 		self.importantButton.setImage(viewModel.importantIcon, for: .normal)
+		self.importantButton.tintColor = viewModel.importantIconColor
 	}
 }

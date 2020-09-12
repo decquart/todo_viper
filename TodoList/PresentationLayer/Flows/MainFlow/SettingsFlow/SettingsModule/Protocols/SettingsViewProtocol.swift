@@ -12,4 +12,5 @@ protocol SettingsViewProtocol: class {
 	var presenter: SettingsPresenterProtocol! { get }
 
 	func reloadData()
+	func didSelectPhotoCell()
 }

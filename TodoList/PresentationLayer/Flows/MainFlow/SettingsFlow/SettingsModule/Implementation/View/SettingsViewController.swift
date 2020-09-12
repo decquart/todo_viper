@@ -14,6 +14,13 @@ class SettingsViewController: UIViewController {
 	var onAccount: (() -> Void)?
 	var onTheme: (() -> Void)?
 
+	lazy var imagePickerController: UIImagePickerController = {
+		let imagePicker = UIImagePickerController()
+		imagePicker.delegate = self
+		imagePicker.sourceType = .photoLibrary
+		return imagePicker
+	}()
+
 	@IBOutlet weak var tableView: UITableView! {
 		didSet {
 			tableView.delegate = self
@@ -88,5 +95,23 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
 extension SettingsViewController: SettingsViewProtocol {
 	func reloadData() {
 		self.tableView.reloadData()
+	}
+
+	func didSelectPhotoCell() {
+		if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum) {
+			present(imagePickerController, animated: true, completion: nil)
+		}
+	}
+}
+
+// MARK: - UINavigationControllerDelegate, UIImagePickerControllerDelegate
+extension SettingsViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+		if let image = info[.originalImage] as? UIImage {
+			presenter.didSelectPhoto(image.pngData())
+		}
+
+		self.dismiss(animated: true)
 	}
 }

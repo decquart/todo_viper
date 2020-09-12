@@ -44,7 +44,6 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 
 	let interactor: SettingsInteractorInput!
 	weak var view: SettingsViewProtocol!
-	private var user: User?
 
 	init(interactor: SettingsInteractorInput, view: SettingsViewProtocol) {
 		self.interactor = interactor
@@ -59,8 +58,8 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 
 	private var sectionsForAuthorizedUser: [SettingsSection] {
 		return [
-			SettingsSection(title: "User Info", cells: [.photo(PhotoCellModel(name: user?.name ?? "", imageData: user?.image), type: .profile)]),
-			SettingsSection(title: "Email", cells: [.regular(RegularSettingsCellModel(title: user?.email ?? ""), type: .email)]),
+			SettingsSection(title: "User Info", cells: [.photo(PhotoCellModel(name: interactor.user?.name ?? "", imageData: interactor.user?.image), type: .profile)]),
+			SettingsSection(title: "Email", cells: [.regular(RegularSettingsCellModel(title: interactor.user?.email ?? ""), type: .email)]),
 			SettingsSection(title: "Theme", cells: [
 				.switch(SwitchCellModel(title: "Dark Mode", isOn: interactor.isDarkModeEnabled, onSwitch: interactor.setDarkMode(_:)), type: .darkMode),
 				.color(ColorCellModel(title: "Application color", color: interactor.applicationColor))
@@ -111,20 +110,31 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 			}
 		case .color(_):
 			onTheme?()
+		case .photo(_, let type):
+			if type == .profile {
+				view.didSelectPhotoCell()
+			}
 		default:
 			break
 		}
+	}
+
+	func didSelectPhoto(_ photo: Data?) {
+		interactor.saveUserImage(photo)
 	}
 }
 
 //MARK: - SettingsInteractorOutput
 extension SettingsPresenter: SettingsInteractorOutput {
 	func didUserFetch(_ user: User) {
-		self.user = user
 		view.reloadData()
 	}
 
 	func didLogOut() {
 		onLogOut?()
+	}
+
+	func didUserImageSave() {
+		view.reloadData()
 	}
 }

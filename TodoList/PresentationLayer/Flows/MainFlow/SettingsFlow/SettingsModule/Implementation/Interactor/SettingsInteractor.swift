@@ -13,6 +13,7 @@ final class SettingsInteractor {
 	private let session: UserSessionProtocol
 	private let themeService: ThemeServiceProtocol
 	private let repository: AnyRepository<User>
+	private(set) var user: User?
 
 	init(session: UserSessionProtocol, themeService: ThemeServiceProtocol, repository: AnyRepository<User>) {
 		self.session = session
@@ -44,6 +45,7 @@ extension SettingsInteractor: SettingsInteractorInput {
 
 		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(users) = result, let fetchedUser = users.first {
+				self?.user = fetchedUser
 				self?.output?.didUserFetch(fetchedUser)
 			}
 		}
@@ -52,5 +54,19 @@ extension SettingsInteractor: SettingsInteractorInput {
 	func logOut() {
 		session.logOut()
 		output?.didLogOut()
+	}
+
+	func saveUserImage(_ imageData: Data?) {
+		guard var user = user else {
+			return
+		}
+		user.image = imageData
+
+		repository.update(user) { [weak self] success in
+			if success {
+				self?.user = user
+				self?.output?.didUserImageSave()
+			}
+		}
 	}
 }

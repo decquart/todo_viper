@@ -23,7 +23,13 @@ class PhotoTableViewCell: UITableViewCell {
 		userNameLabel.text = model.name
 
 		if let imageData = model.imageData {
-			userImageView.image = UIImage(data: imageData)
+			DispatchQueue.global().async {
+				let image = UIImage(data: imageData)
+
+				DispatchQueue.main.async {
+					self.userImageView.image = image
+				}
+			}
 		} else {
 			userImageView.image = UIImage(named: "default_placeholder")
 		}

@@ -6,6 +6,8 @@
 //  Copyright © 2020 Volodymyr Mykhailiuk. All rights reserved.
 //
 
+import Foundation
+
 protocol SettingsPresenterProtocol {
 
 	var interactor: SettingsInteractorInput! { get }
@@ -16,4 +18,5 @@ protocol SettingsPresenterProtocol {
 	func titleForHeader(at index: Int) -> String
 	func didSelectTableViewCell(at section: Int, and row: Int)
 	func cellModel(at section: Int, and row: Int) -> SettingsCellType
+	func didSelectPhoto(_ photo: Data?)
 }

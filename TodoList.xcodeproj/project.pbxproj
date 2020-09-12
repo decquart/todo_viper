@@ -40,13 +40,6 @@
 		2D01196224BF825A0097E74D /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01195F24BF825A0097E74D /* ColorPickerView.swift */; };
 		2D01196324BF825A0097E74D /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2D01196024BF825A0097E74D /* ColorPickerView.xib */; };
 		2D01196424BF825A0097E74D /* ColorPickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */; };
-		2D01197024BFAB860097E74D /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01196F24BFAB860097E74D /* Box.swift */; };
-		2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */; };
-		2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01197424BFB61B0097E74D /* AccountInfo.storyboard */; };
-		2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */; };
-		2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */; };
-		2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */; };
-		2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */; };
 		2D01199524C07E400097E74D /* Themes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D01199424C07E400097E74D /* Themes.storyboard */; };
 		2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01199B24C0B43F0097E74D /* ThemesViewController.swift */; };
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
@@ -236,13 +229,6 @@
 		2D01195F24BF825A0097E74D /* ColorPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
 		2D01196024BF825A0097E74D /* ColorPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		2D01196124BF825A0097E74D /* ColorPickerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerCollectionViewCell.swift; sourceTree = "<group>"; };
-		2D01196F24BFAB860097E74D /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
-		2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
-		2D01197424BFB61B0097E74D /* AccountInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfo.storyboard; sourceTree = "<group>"; };
-		2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewProtocol.swift; sourceTree = "<group>"; };
-		2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModelProtocol.swift; sourceTree = "<group>"; };
-		2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModule.swift; sourceTree = "<group>"; };
-		2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewModel.swift; sourceTree = "<group>"; };
 		2D01199424C07E400097E74D /* Themes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Themes.storyboard; sourceTree = "<group>"; };
 		2D01199B24C0B43F0097E74D /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
@@ -665,7 +651,6 @@
 			children = (
 				04BCAB6D2498134D00A38846 /* AppDelegate.swift */,
 				04BCAB6E2498134D00A38846 /* SceneDelegate.swift */,
-				2D01196F24BFAB860097E74D /* Box.swift */,
 				2DBC4C4224D00B0B00C38620 /* Scope.swift */,
 				2D56825B24DC1D5900F693EC /* DeepLink.swift */,
 			);
@@ -678,51 +663,6 @@
 				2D9B61732501BAE700CF0B40 /* SettingsPresenter.swift */,
 			);
 			path = Presenter;
-			sourceTree = "<group>";
-		};
-		2D01197124BFB5B80097E74D /* AccountInfoModule */ = {
-			isa = PBXGroup;
-			children = (
-				2D01198624BFBCFA0097E74D /* AccountInfoModule.swift */,
-				2D01197B24BFBC430097E74D /* Implementation */,
-				2D01198524BFBCCB0097E74D /* Protocols */,
-			);
-			path = AccountInfoModule;
-			sourceTree = "<group>";
-		};
-		2D01197B24BFBC430097E74D /* Implementation */ = {
-			isa = PBXGroup;
-			children = (
-				2D01197C24BFBC530097E74D /* View */,
-				2D01198A24BFBEFA0097E74D /* ViewModel */,
-			);
-			path = Implementation;
-			sourceTree = "<group>";
-		};
-		2D01197C24BFBC530097E74D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				2D01197224BFB5EE0097E74D /* AccountInfoViewController.swift */,
-				2D01197424BFB61B0097E74D /* AccountInfo.storyboard */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		2D01198524BFBCCB0097E74D /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				2D01197F24BFBC8C0097E74D /* AccountInfoViewProtocol.swift */,
-				2D01198124BFBCB40097E74D /* AccountInfoViewModelProtocol.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		2D01198A24BFBEFA0097E74D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				2D01198824BFBEEC0097E74D /* AccountInfoViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2D01199324C07E0B0097E74D /* ThemesModule */ = {
@@ -795,7 +735,6 @@
 			children = (
 				2D39DC1A24D375E800E27522 /* SettingsCoordinator.swift */,
 				2D6452C924B7C379009978EE /* SettingsModule */,
-				2D01197124BFB5B80097E74D /* AccountInfoModule */,
 				2D01199324C07E0B0097E74D /* ThemesModule */,
 			);
 			path = SettingsFlow;
@@ -1452,7 +1391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				047C64FB24858B5C00BB6702 /* CategoryDetails.storyboard in Resources */,
-				2D01197524BFB61B0097E74D /* AccountInfo.storyboard in Resources */,
 				2DC445EB24FDC677009E5396 /* README.md in Resources */,
 				04BCAB752498134D00A38846 /* Assets.xcassets in Resources */,
 				2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */,
@@ -1492,7 +1430,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
-				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
 				2D82A0B424BCF94600A04190 /* CategoryDetailsModule.swift in Sources */,
 				2D49B26724F5D5CB00D6AFC6 /* LoginUseCase.swift in Sources */,
@@ -1503,7 +1440,6 @@
 				2D82A0D024BD0FCB00A04190 /* TaskDetailsViewProtocol.swift in Sources */,
 				2D49B26B24F5DA7100D6AFC6 /* AuthCoordinator.swift in Sources */,
 				2D9B61762501BB0300CF0B40 /* SettingsPresenterProtocol.swift in Sources */,
-				2D01197024BFAB860097E74D /* Box.swift in Sources */,
 				2D91D1D424F4535400D6303A /* CategoryDetailsInteractor.swift in Sources */,
 				2D52190F24F9BDE3008B7E6F /* RegistrationInteractor.swift in Sources */,
 				2DD037A224BED74600FC6102 /* ColorPickerPresenter.swift in Sources */,
@@ -1522,13 +1458,11 @@
 				2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */,
 				2D692EAF24AE896D0005D4CB /* UICollectionView+Wrapper.swift in Sources */,
 				2D5218FF24F9BC16008B7E6F /* RegistrationViewProtocol.swift in Sources */,
-				2D01198924BFBEEC0097E74D /* AccountInfoViewModel.swift in Sources */,
 				2DFD132F24C4F60B006D0EA6 /* Keychain.swift in Sources */,
 				2D7C295724B3A93F008EE2C1 /* NSObject+UIColor.swift in Sources */,
 				2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */,
 				2DFD132D24C4ECD6006D0EA6 /* SettingsService.swift in Sources */,
 				2D6452C824B7C348009978EE /* SettingsViewController.swift in Sources */,
-				2D01197324BFB5EE0097E74D /* AccountInfoViewController.swift in Sources */,
 				2DA5063624EF2041003A4180 /* LoginPresenterProtocol.swift in Sources */,
 				2DD037A424BED75E00FC6102 /* ColorPickerPresenterProtocol.swift in Sources */,
 				04CF078A248F5FB400440A43 /* TaskObject.swift in Sources */,
@@ -1559,13 +1493,11 @@
 				2DA5062E24EF1E66003A4180 /* LoginViewProtocol.swift in Sources */,
 				2D5218FD24F9BBC9008B7E6F /* RegistrationModule.swift in Sources */,
 				2D82A0E924BD921900A04190 /* ColorTableViewCell.swift in Sources */,
-				2D01198224BFBCB40097E74D /* AccountInfoViewModelProtocol.swift in Sources */,
 				2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */,
 				2D82A0C324BD0A9E00A04190 /* TaskListPresenterProtocol.swift in Sources */,
 				2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */,
 				04BCAB832498136C00A38846 /* Task.swift in Sources */,
 				2D82A0F524BE2B9600A04190 /* IconPickerModule.swift in Sources */,
-				2D01198724BFBCFA0097E74D /* AccountInfoModule.swift in Sources */,
 				2D51EBD924FC6D4200FA92A0 /* TaskDetailsInteractor.swift in Sources */,
 				049FB52D2480157E000A7133 /* TodoList.xcdatamodeld in Sources */,
 				2D01199C24C0B43F0097E74D /* ThemesViewController.swift in Sources */,

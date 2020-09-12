@@ -31,8 +31,13 @@ extension Routable {
 	}
 
 	func presentHalfScreen(_ module: UIViewController) {
-		let transitioningDelegate = rootViewController.topViewController as? UIViewControllerTransitioningDelegate
-		module.transitioningDelegate = transitioningDelegate
+
+		guard let fromVC = rootViewController.topViewController else {
+			return
+		}
+
+		let interactiveTransitionDelegate = InteractiveTransitionDelegate(from: fromVC, to: module)
+		module.transitioningDelegate = interactiveTransitionDelegate
 		module.modalPresentationStyle = .custom
 
 		self.present(module)

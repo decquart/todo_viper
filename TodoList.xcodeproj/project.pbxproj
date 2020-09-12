@@ -52,6 +52,7 @@
 		2D0CBC7124A9565F00AC23F6 /* TaskDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */; };
 		2D0CBC7324A956A800AC23F6 /* TaskDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */; };
 		2D0CBC7624A957B600AC23F6 /* TaskDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */; };
+		2D2C737E250D18A60077E418 /* InteractivePresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */; };
 		2D39DC0624D2107E00E27522 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0524D2107E00E27522 /* Routable.swift */; };
 		2D39DC0B24D2168E00E27522 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0A24D2168E00E27522 /* MainRouter.swift */; };
 		2D39DC0D24D222BB00E27522 /* Coordinatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D39DC0C24D222BB00E27522 /* Coordinatable.swift */; };
@@ -169,7 +170,6 @@
 		2DC878F8250984DF00B37CF5 /* RegularSettingsCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F7250984DF00B37CF5 /* RegularSettingsCellModel.swift */; };
 		2DC878FA250985B100B37CF5 /* SwitchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */; };
 		2DC87901250AD71E00B37CF5 /* ColorCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */; };
-		2DC87903250B5E9D00B37CF5 /* HalfScreenPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87902250B5E9D00B37CF5 /* HalfScreenPresentationController.swift */; };
 		2DC87909250CC47B00B37CF5 /* UIApplication+Launch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */; };
 		2DCA3C6824FF7DFB00D084F8 /* ThemesPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */; };
 		2DCA3C6A24FF7E0700D084F8 /* ThemesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */; };
@@ -248,6 +248,7 @@
 		2D0CBC7024A9565F00AC23F6 /* TaskDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TaskDetails.storyboard; sourceTree = "<group>"; };
 		2D0CBC7224A956A800AC23F6 /* TaskDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsViewController.swift; sourceTree = "<group>"; };
 		2D0CBC7524A957B600AC23F6 /* TaskDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailsPresenter.swift; sourceTree = "<group>"; };
+		2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractivePresentationController.swift; sourceTree = "<group>"; };
 		2D39DC0524D2107E00E27522 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		2D39DC0A24D2168E00E27522 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		2D39DC0C24D222BB00E27522 /* Coordinatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinatable.swift; sourceTree = "<group>"; };
@@ -361,7 +362,6 @@
 		2DC878F7250984DF00B37CF5 /* RegularSettingsCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularSettingsCellModel.swift; sourceTree = "<group>"; };
 		2DC878F9250985B100B37CF5 /* SwitchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchCellModel.swift; sourceTree = "<group>"; };
 		2DC87900250AD71E00B37CF5 /* ColorCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellModel.swift; sourceTree = "<group>"; };
-		2DC87902250B5E9D00B37CF5 /* HalfScreenPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfScreenPresentationController.swift; sourceTree = "<group>"; };
 		2DC87908250CC47B00B37CF5 /* UIApplication+Launch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Launch.swift"; sourceTree = "<group>"; };
 		2DCA3C6724FF7DFB00D084F8 /* ThemesPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesPresenterProtocol.swift; sourceTree = "<group>"; };
 		2DCA3C6924FF7E0700D084F8 /* ThemesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesUseCase.swift; sourceTree = "<group>"; };
@@ -543,7 +543,7 @@
 			children = (
 				04C45B1B248E91B90073CA2B /* AddButton.swift */,
 				2D56825F24DC63E700F693EC /* TabBarController.swift */,
-				2DC87902250B5E9D00B37CF5 /* HalfScreenPresentationController.swift */,
+				2D2C737D250D18A60077E418 /* InteractivePresentationController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1491,7 +1491,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DC87903250B5E9D00B37CF5 /* HalfScreenPresentationController.swift in Sources */,
 				04EFFD1C24801B660048336E /* CategoryListPresenter.swift in Sources */,
 				2D01198024BFBC8C0097E74D /* AccountInfoViewProtocol.swift in Sources */,
 				2DCA3C6E24FF7F0400D084F8 /* ThemesPresenter.swift in Sources */,
@@ -1614,6 +1613,7 @@
 				2D39DC1124D2283700E27522 /* BaseCoordinator.swift in Sources */,
 				2D52190624F9BCE8008B7E6F /* RegistrationViewController.swift in Sources */,
 				049FF5A1248A969700BF0FDD /* CoreDataRepositoryType.swift in Sources */,
+				2D2C737E250D18A60077E418 /* InteractivePresentationController.swift in Sources */,
 				2D48790F25057ECD00E5DFB0 /* PhotoCellModel.swift in Sources */,
 				049FF59F248A960600BF0FDD /* CoreDataStack.swift in Sources */,
 				2DBC4C4324D00B0B00C38620 /* Scope.swift in Sources */,

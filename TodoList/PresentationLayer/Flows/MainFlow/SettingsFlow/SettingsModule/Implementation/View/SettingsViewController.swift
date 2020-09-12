@@ -90,10 +90,3 @@ extension SettingsViewController: SettingsViewProtocol {
 		self.tableView.reloadData()
 	}
 }
-
-//MARK: - UIViewControllerTransitioningDelegate
-extension SettingsViewController: UIViewControllerTransitioningDelegate {
-	func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-		return HalfScreenPresentationController(presentedViewController: presented, presenting: presenting)
-	}
-}

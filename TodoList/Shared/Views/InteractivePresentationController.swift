@@ -10,6 +10,10 @@ import UIKit
 
 final class InteractivePresentationController: UIPresentationController {
 
+	private let yOffset: CGFloat = 160
+	private var yStartPosition: CGFloat = 0
+	private let yDismissOffset: CGFloat = 100
+
 	private lazy var dimmingView: UIView = {
 		guard let containerView = containerView else { return UIView() }
 
@@ -27,7 +31,22 @@ final class InteractivePresentationController: UIPresentationController {
 	}
 
 	@objc func handlePan(_ gesture: UIPanGestureRecognizer) {
-		//todo
+		guard let view = gesture.view, let presented = presentedView, let container = containerView else { return }
+
+		let location = gesture.translation(in: view)
+
+		switch gesture.state {
+		case .began:
+			self.yStartPosition = presented.frame.origin.y
+		case .changed:
+			presented.frame.origin.y = max(yStartPosition + location.y, yOffset)
+		case .ended:
+			if presented.frame.origin.y >= (container.frame.height - yDismissOffset) {
+				presentedViewController.dismiss(animated: true, completion: nil)
+			}
+		default:
+			break
+		}
 	}
 
 	@objc func handleTap(_ gesture: UITapGestureRecognizer) {
@@ -37,7 +56,7 @@ final class InteractivePresentationController: UIPresentationController {
 	override var frameOfPresentedViewInContainerView: CGRect {
 		guard let containerView = containerView else { return .zero }
 
-		return CGRect(x: 0, y: containerView.bounds.height / 2, width: containerView.bounds.width, height: containerView.bounds.height / 2)
+		return CGRect(x: 0, y: containerView.bounds.height / 2, width: containerView.bounds.width, height: containerView.bounds.height - yOffset)
 	}
 
 	override func presentationTransitionWillBegin() {
@@ -61,7 +80,6 @@ final class InteractivePresentationController: UIPresentationController {
 		}
 	}
 }
-
 
 final class InteractiveTransitionDelegate: NSObject, UIViewControllerTransitioningDelegate {
 

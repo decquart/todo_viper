@@ -28,6 +28,7 @@ final class InteractivePresentationController: UIPresentationController {
 		super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
 
 		presentedViewController.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePan(_:))))
+		presentedViewController.view.layer.cornerRadius = presentedViewController.view.frame.width / 20
 	}
 
 	@objc func handlePan(_ gesture: UIPanGestureRecognizer) {

@@ -13,7 +13,8 @@ class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
 	private var subTask: Task?
 	private let interactor: TaskDetailsInteractorInput
 
-	var onDismiss: (() -> Void)?
+	var onDismiss: Completion?
+	var onAddTask: Completion?
 
 	init(view: TaskDetailsViewProtocol, interactor: TaskDetailsInteractorInput) {
 		self.view = view
@@ -30,10 +31,12 @@ class TaskDetailsPresenter: TaskDetailsPresenterProtocol {
 //MARK: - TaskDetailsInteractorOutput
 extension TaskDetailsPresenter: TaskDetailsInteractorOutput {
 	func didTaskCreate() {
+		self.onAddTask?()
 		self.view?.invalidateView()
 	}
 
 	func didTaskUpdate() {
+		self.onAddTask?()
 		self.onDismiss?()
 	}
 }

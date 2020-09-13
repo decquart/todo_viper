@@ -20,15 +20,13 @@ final class SettingsCoordinator: BaseCoordinator {
 // MARK: - Flows
 private extension SettingsCoordinator {
 	func showSettingsViewController() {
-		let module = SettingsModule().build(onLogOut: onLogOut) { [weak self] in
-			self?.showThemeViewController(onApplyColor: $0)
-		}
+		let module = SettingsModule().build(onLogOut: onLogOut, onTheme: showThemeViewController(onApplyColor:)) 
 
 		self.router.setRootModule(module, animated: true)
 	}
 
 	func showThemeViewController(onApplyColor: Completion?) {
 		let vc = ThemesModule().build(onDismiss: router.dismiss, onApplyColor: onApplyColor)
-		router.presentHalfScreen(vc)
+		router.presentInteractiveScreen(vc)
 	}
 }

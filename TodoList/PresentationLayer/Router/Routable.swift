@@ -30,7 +30,7 @@ extension Routable {
 		self.present(module, animated: animated, completion: nil)
 	}
 
-	func presentHalfScreen(_ module: UIViewController) {
+	func presentInteractiveScreen(_ module: UIViewController) {
 
 		guard let fromVC = rootViewController.topViewController else {
 			return

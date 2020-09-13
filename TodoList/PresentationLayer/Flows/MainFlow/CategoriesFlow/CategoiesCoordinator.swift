@@ -24,23 +24,32 @@ final class CategoiesCoordinator: BaseCoordinator {
 // MARK: - Flows
 private extension CategoiesCoordinator {
 	func showCategoryListModule() {
-		let module = CategoryListModule().build(onShowCategoryDetails: showCategoryDetails(scope:), onPresent: showTasks(category:))
+		let module = CategoryListModule().build(onShowCategoryDetails: showCategoryDetails(scope:),
+												onPresent: showTasks(category:))
+
 		router.setRootModule(module, animated: false)
 	}
 
 	func showCategoryDetails(scope: Scope<CategoryViewModel>) {
-		let module = CategoryDetailsModule().build(scope: scope, onDismiss: router.pop)
+		let module = CategoryDetailsModule().build(scope: scope,
+												   onDismiss: router.pop)
+
 		self.router.push(module)
 	}
 
 	func showTasks(category: Category) {
-		let module = TaskListModule().build(category: category, onPresent: showTaskDetails)
+		let module = TaskListModule().build(category: category,
+											onPresent: showTaskDetails)
+
 		self.router.push(module)
 	}
 
-	func showTaskDetails(category: Category, scope: Scope<TaskViewModel>) {
-		//todo: Refresh tasks after dismiss
-		let module = TaskDetailsModule().build(with: category, and: scope, onDismiss: router.dismiss)
-		self.router.present(module)
+	func showTaskDetails(category: Category, scope: Scope<TaskViewModel>, onAddTask: Completion?) {
+		let module = TaskDetailsModule().build(with: category,
+											   and: scope,
+											   onDismiss: router.dismiss,
+											   onAddTask: onAddTask)
+
+		self.router.presentInteractiveScreen(module)
 	}
 }

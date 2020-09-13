@@ -9,7 +9,7 @@
 import UIKit
 
 final class TaskDetailsModule {
-	func build(with category: Category, and scope: Scope<TaskViewModel>, onDismiss: (() -> Void)?) -> UIViewController {
+	func build(with category: Category, and scope: Scope<TaskViewModel>, onDismiss: Completion?, onAddTask: Completion?) -> UIViewController {
 		let view = TaskDetailsViewController.instantiate(storyboard: .taskDetails)
 		let repository = CDTaskRepository(categoryId: category.id, coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let interactor = TaskDetailsInteractor(repository: repository)
@@ -19,6 +19,7 @@ final class TaskDetailsModule {
 		view.scope = scope
 		interactor.output = presenter
 		presenter.onDismiss = onDismiss
+		presenter.onAddTask = onAddTask
 
 		return view
 	}

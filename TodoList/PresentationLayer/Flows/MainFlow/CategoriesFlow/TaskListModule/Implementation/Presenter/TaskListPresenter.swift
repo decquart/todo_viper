@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>) -> Void)
+typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>, Completion?) -> Void)
 
 final class TaskListPresenter: TaskListPresenterProtocol {
 	private(set) weak var view: TaskListViewProtocol?
@@ -55,11 +55,15 @@ final class TaskListPresenter: TaskListPresenterProtocol {
 
 	func didSelect(at indexPath: IndexPath) {
 		let vm = TaskViewModel(model: tasks[indexPath.row])
-		onPresentDetails?(category, .edit(model: vm))
+		onPresentDetails?(category, .edit(model: vm)) { [weak self] in
+			self?.loadTasks()
+		}
 	}
 
 	func addButtonPressed() {
-		onPresentDetails?(category, .create)
+		onPresentDetails?(category, .create) { [weak self] in
+			self?.loadTasks()
+		}
 	}
 }
 

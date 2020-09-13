@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsModule {
-	func build(onTheme: Completion?, onLogOut: Completion?) -> UIViewController {
+	func build(onLogOut: Completion?, onTheme: ((Completion?) -> Void)?) -> UIViewController {
 		let view = SettingsViewController.instantiate(storyboard: .settings)
 		let repository = CDUserRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
 		let interactor = SettingsInteractor(session: UserSession.default,

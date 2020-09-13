@@ -39,7 +39,7 @@ struct SettingsSection {
 
 final class SettingsPresenter: SettingsPresenterProtocol {
 	var onAccount: (() -> Void)?
-	var onTheme: (() -> Void)?
+	var onTheme: ((Completion?) -> Void)?
 	var onLogOut: (() -> Void)?
 
 	let interactor: SettingsInteractorInput!
@@ -109,7 +109,9 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 				interactor.logOut()
 			}
 		case .color(_):
-			onTheme?()
+			onTheme?{ [weak self] in
+				self?.view.reloadData()
+			}
 		case .photo(_, let type):
 			if type == .profile {
 				view.didSelectPhotoCell()

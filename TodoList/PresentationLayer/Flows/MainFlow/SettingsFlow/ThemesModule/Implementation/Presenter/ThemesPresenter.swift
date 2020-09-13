@@ -10,7 +10,9 @@ final class ThemesPresenter {
 
 	let interactor: ThemesInteractorInput!
 	weak var view: ThemesViewProtocol!
+
 	var onDismiss: Completion?
+	var onApplyColor: Completion?
 
 	init(view: ThemesViewProtocol, interactor: ThemesInteractorInput) {
 		self.view = view
@@ -40,6 +42,7 @@ extension ThemesPresenter: ThemesInteractorOutput {
 	}
 
 	func didApplyColor() {
+		onApplyColor?()
 		onDismiss?()
 	}
 }

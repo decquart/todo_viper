@@ -22,5 +22,6 @@ class SwitchTableViewCell: UITableViewCell {
 		descriptionLabel.text = model.title
 		cellSwitch.isOn = model.isOn
 		onSwitch = model.onSwitch
+		self.cellSwitch.onTintColor = ThemeService.shared.applicationColor.uiColor
 	}
 }

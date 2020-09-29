@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CategoryListPresenterProtocol: class {
-	var view: CategoryListViewProtocol? { get }
+	var view: CategoryListViewProtocol { get }
 
 	var categoriesCount: Int { get }
 

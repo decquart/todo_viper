@@ -15,8 +15,8 @@ final class MainCoordinator: BaseCoordinator {
 		TabBarController(delegate: self)
 	}()
 
-	private var settingsCoordinator: SettingsCoordinator?
-	private var categoryCoordinator: CategoiesCoordinator?
+	private var settingsCoordinator = SettingsCoordinator()
+	private var categoryCoordinator = CategoiesCoordinator()
 
 	var onFinish: (() -> Void)?
 
@@ -73,11 +73,8 @@ extension MainCoordinator: UITabBarControllerDelegate {
 
 private extension MainCoordinator {
 	func initialize() {
-		self.settingsCoordinator = SettingsCoordinator()
-		self.categoryCoordinator = CategoiesCoordinator()
-
-		let categoryVC = categoryCoordinator!.router.rootViewController
-		let settingsVC = settingsCoordinator!.router.rootViewController
+		let categoryVC = categoryCoordinator.router.rootViewController
+		let settingsVC = settingsCoordinator.router.rootViewController
 
 		categoryVC.tabBarItem = tabBarController.items[.categories]
 		settingsVC.tabBarItem = tabBarController.items[.settings]
@@ -86,6 +83,6 @@ private extension MainCoordinator {
 
 	func showCategories() {
 		tabBarController.selectTab(.categories)
-		categoryCoordinator?.handle(.createCategory)
+		categoryCoordinator.handle(.createCategory)
 	}
 }

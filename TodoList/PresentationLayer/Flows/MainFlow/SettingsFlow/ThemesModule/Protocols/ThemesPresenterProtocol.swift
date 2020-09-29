@@ -7,8 +7,8 @@
 //
 
 protocol ThemesPresenterProtocol: class {
-	var interactor: ThemesInteractorInput! { get }
-	var view: ThemesViewProtocol! { get }
+	var interactor: ThemesInteractorInput { get }
+	var view: ThemesViewProtocol { get }
 
 	func viewDodLoad()
 	func applyTheme()

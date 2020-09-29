@@ -41,7 +41,11 @@ extension SettingsInteractor: SettingsInteractorInput {
 	}
 
 	func fetchCurrentUser() {
-		let predicate = NSPredicate(format: "name = %@", session.currentUser!)
+		guard let userName = session.currentUser else {
+			return
+		}
+
+		let predicate = NSPredicate(format: "name = %@", userName)
 
 		repository.fetch(where: predicate) { [weak self] result in
 			if case let .success(users) = result, let fetchedUser = users.first {

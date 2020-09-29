@@ -10,7 +10,9 @@ import Foundation
 
 protocol SettingsPresenterProtocol {
 
-	var interactor: SettingsInteractorInput! { get }
+	var view: SettingsViewProtocol { get }
+	var interactor: SettingsInteractorInput { get }
+
 	var numberOfSections: Int { get }
 
 	func viewDidLoad()

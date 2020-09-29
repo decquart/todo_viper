@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TaskListPresenterProtocol: class {
-	var view: TaskListViewProtocol? { get }
+	var view: TaskListViewProtocol { get }
 
 	func loadTasks()
 	func numberOfRows() -> Int

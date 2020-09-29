@@ -7,12 +7,17 @@
 //
 
 class IconPickerPresenter: IconPickerPresenterProtocol {
-	weak var view: IconPickerViewProtocol!
-	weak var detailsPresenter: CategoryDetailsPresenterProtocol?
+	unowned var view: IconPickerViewProtocol
+	unowned var detailsPresenter: CategoryDetailsPresenterProtocol
 	
 	let imageNames = ["shopping", "todo", "work"]
 
+	init(view: IconPickerViewProtocol, detailsPresenter: CategoryDetailsPresenterProtocol) {
+		self.view = view
+		self.detailsPresenter = detailsPresenter
+	}
+
 	func updateIcon(at index: Int) {
-		detailsPresenter?.updateIcon(imageNames[index])
+		detailsPresenter.updateIcon(imageNames[index])
 	}
 }

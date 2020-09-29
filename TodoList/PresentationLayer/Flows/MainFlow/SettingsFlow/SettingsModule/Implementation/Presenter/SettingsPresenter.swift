@@ -42,8 +42,8 @@ final class SettingsPresenter: SettingsPresenterProtocol {
 	var onTheme: ((Completion?) -> Void)?
 	var onLogOut: (() -> Void)?
 
-	let interactor: SettingsInteractorInput!
-	weak var view: SettingsViewProtocol!
+	let interactor: SettingsInteractorInput
+	unowned let view: SettingsViewProtocol
 
 	init(interactor: SettingsInteractorInput, view: SettingsViewProtocol) {
 		self.interactor = interactor

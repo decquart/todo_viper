@@ -7,7 +7,7 @@
 //
 
 protocol IconPickerPresenterProtocol: class {
-	var view: IconPickerViewProtocol! { get }
+	var view: IconPickerViewProtocol { get }
 	var imageNames: [String] { get }
 	func updateIcon(at index: Int)
 }

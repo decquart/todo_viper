@@ -43,7 +43,17 @@ extension LoginInteractor: LoginInteractorInput {
 			return
 		}
 
-		validateCredentials(Credentials(name: userName, password: password))
+		guard let user = fetchUser(by: userName) else {
+			self.output?.loginFailure(error: .invalidUserName)
+			return
+		}
+
+		if isValid(password, for: user) {
+			self.userSession.logIn(user.name)
+			self.output?.loginSuccess()
+		} else {
+			self.output?.loginFailure(error: .invalidPassword)
+		}
 	}
 
 	func signInWithGoogle() {
@@ -56,29 +66,41 @@ extension LoginInteractor: LoginInteractorInput {
 	}
 }
 
+//MARK: - Helpers
 private extension LoginInteractor {
 
-	func validateCredentials(_ credentials: Credentials) {
-		let predicate = NSPredicate(format: "name = %@", credentials.name)
+	func isValid(_ password: String, for user: User) -> Bool {
+		guard let validPassword = self.keychain.loadPassword(for: user.name) else {
+			return false
+		}
 
-		repository.fetch(where: predicate) { [weak self] result in
-			guard let self = self else { return }
+		return password == validPassword
+	}
 
-			if case let .success(users) = result, let user = users.first, user.name == credentials.name {
-				let password = self.keychain.loadPassword(for: credentials.name)
-				let isValidPassword = password == credentials.password
+	func fetchUser(by name: String) -> User? {
+		var user: User?
 
-				if isValidPassword {
-					self.userSession.logIn(credentials.name)
-					self.output?.loginSuccess()
-				} else {
-					self.output?.loginFailure(error: .invalidPassword)
-				}
+		let predicate = NSPredicate(format: "name = %@", name)
+		let semaphore = DispatchSemaphore(value: 0)
 
-				return
+		repository.fetch(where: predicate) { result in
+			if case let .success(users) = result, let fetchedUser = users.first, fetchedUser.name == name {
+				user = fetchedUser
 			}
 
-			self.output?.loginFailure(error: .invalidUserName)
+			semaphore.signal()
+		}
+
+		_ = semaphore.wait(timeout: .distantFuture)
+		return user
+	}
+
+	func addNewUser(_ user: User) {
+		self.repository.add(user) { [weak self] success in
+			if success {
+				self?.userSession.logIn(user.name)
+				self?.output?.loginSuccess()
+			}
 		}
 	}
 }
@@ -91,21 +113,12 @@ extension LoginInteractor: GIDSignInDelegate {
 			return
 		}
 
-		let predicate = NSPredicate(format: "name = %@", user.profile.name)
-
-		repository.fetch(where: predicate) { [weak self] result in
-			if case let .success(users) = result, users.first?.name == user.profile.name {
-				self?.userSession.logIn(user.profile.name)
-				self?.output?.loginSuccess()
-				return
-			}
-
-			self?.repository.add(user.profile.mapToModel) { [weak self] success in
-				if success {
-					self?.userSession.logIn(user.profile.name)
-					self?.output?.loginSuccess()
-				}
-			}
+		guard let fetchedUser = fetchUser(by: user.profile.name) else {
+			addNewUser(user.profile.mapToModel)
+			return
 		}
+
+		self.userSession.logIn(fetchedUser.name)
+		self.output?.loginSuccess()
 	}
 }

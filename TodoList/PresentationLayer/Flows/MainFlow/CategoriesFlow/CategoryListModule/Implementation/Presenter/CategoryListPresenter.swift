@@ -13,7 +13,7 @@ typealias TaskHandler = (Category) -> Void
 
 final class CategoryListPresenter: CategoryListPresenterProtocol {
 
-	weak var view: CategoryListViewProtocol?
+	unowned var view: CategoryListViewProtocol
 	let interactor: CategoryListInteractorInput
 
 	var categoriesCount: Int {
@@ -64,6 +64,6 @@ final class CategoryListPresenter: CategoryListPresenterProtocol {
 
 extension CategoryListPresenter: CategoryListInteractorOutput {
 	func didUpdateCategories() {
-		view?.reload()
+		view.reload()
 	}
 }

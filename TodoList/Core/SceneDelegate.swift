@@ -15,7 +15,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
 
-		seedInitialDataIfNeeded {
+		guard let delegate = UIApplication.shared.delegate as? AppDelegate else {
+			self.configureMainView(with: windowScene)
+			self.handleDeepLink(with: connectionOptions.shortcutItem)
+			return
+		}
+
+		delegate.seedInitialDataIfNeeded {
 			self.configureMainView(with: windowScene)
 			self.handleDeepLink(with: connectionOptions.shortcutItem)
 		}
@@ -43,34 +49,5 @@ private extension SceneDelegate {
 		}
 
 		appCoordinator?.handle(deepLink)
-	}
-}
-
-private extension SceneDelegate {
-	func seedInitialDataIfNeeded(completion: @escaping () -> Void) {
-		let application = UIApplication.shared
-		let repo = CDCategoryRepository(coreDataStack: CoreDataStackHolder.shared.coreDataStack)
-
-		guard application.isFirstLaunch else {
-			completion()
-			return
-		}
-
-		guard let url = Bundle.main.url(forResource: "Categories", withExtension: "json") else {
-			completion()
-			return
-		}
-
-		do {
-			let data = try Data(contentsOf: url)
-			let categories = try JSONDecoder().decode(Array<Category>.self, from: data)
-			repo.add(categories) { success in
-				if success { application.isFirstLaunch = false }
-				completion()
-			}
-		} catch {
-			completion()
-			print("error in \(#function): \(error)")
-		}
 	}
 }

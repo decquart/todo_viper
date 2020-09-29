@@ -8,8 +8,8 @@
 
 final class ThemesPresenter {
 
-	let interactor: ThemesInteractorInput!
-	weak var view: ThemesViewProtocol!
+	let interactor: ThemesInteractorInput
+	unowned var view: ThemesViewProtocol
 
 	var onDismiss: Completion?
 	var onApplyColor: Completion?

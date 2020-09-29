@@ -11,13 +11,13 @@ import Foundation
 typealias TaskDetailsHandler = ((Category, Scope<TaskViewModel>, Completion?) -> Void)
 
 final class TaskListPresenter: TaskListPresenterProtocol {
-	private(set) weak var view: TaskListViewProtocol?
+	private(set) unowned var view: TaskListViewProtocol
 	private let interactor: TaskListInteractorInput
 
-	private var category: Category!
+	private let category: Category
 	private var tasks: [Task] = [] {
 		didSet {
-			view?.refreshTasks()
+			view.refreshTasks()
 		}
 	}
 

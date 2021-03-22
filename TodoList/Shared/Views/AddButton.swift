@@ -13,8 +13,8 @@ final class AddButton: UIButton {
 		super.layoutSubviews()
 
 		self.layer.cornerRadius = frame.height / 2
-		self.layer.backgroundColor = UIColor(red: 255/255, green: 152/255, blue: 0/255, alpha: 1).cgColor
-		self.tintColor = .white
+		self.layer.backgroundColor = ThemeService.shared.applicationColor.uiColor.cgColor
+		self.tintColor = .systemBackground
 		self.setImage(UIImage(systemName: "plus"), for: .normal)
 	}
 }
